@@ -1,0 +1,2 @@
+280520114654AM:Error From GetWalletAmount:Unable to connect to the remote server
+280520115242AM:Error From GetWalletAmount:Unable to connect to the remote server

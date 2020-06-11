@@ -1,0 +1,94 @@
+﻿
+<link href="assets/css/printcss.css" rel="stylesheet" />
+<style>
+    @media print {
+        .cust-page-header {
+            display: none;
+        }
+
+        .left-print-data li {
+            margin: 10px;
+            font-size: 10px;
+        }
+    }
+
+    .left-print-data {
+        margin-left: 0 !important;
+    }
+</style>
+<div id="printdiv">
+    <div class="container-fluid" style="margin-top: 10px !important; color:#000;">
+        <div class="row">
+            <div class="col-sm-3 mt-5 text-center">
+                <img src="assets/images/ap-logo.png" style="width: 33% !important; margin-top: 10px;" />
+            </div>
+            <div class="col-sm-6 text-center mt-5">
+                <h1 style="    font-size: 34px; font-family: Rubik-Medium; margin-bottom: 0px;">గ్రామ - వార్డు సచివాలయము</h1>
+                <h2>Government of Andhra Pradesh</h2>
+            </div>
+            <div class="col-sm-3 text-center mt-5">
+                <img src="assets/images/grama-ward-sachivalayam-logo-300px.png" style="    width: 33% !important;
+    margin-top: 10px;" />
+            </div>
+
+            <div class="col-sm-12 text-center">
+                <h2 style=" font-family: Rubik-Medium;font-size: 17px; margin-right: 56px;">
+                    <span style=" color: #3F51B5;">Y</span>our <span style=" color: #3F51B5;">S</span>ervice <span style=" color: #3F51B5;">R</span>equest No : GSWS-{{walletDetails.GSWSREFNO}}
+                </h2>
+            </div>
+        </div>
+        <div class="row print-option" ng-show="paymentFailed == '0'">
+            <div class="col-sm-12">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <ul class="left-print-data">
+                            <li>Service Name / సేవ పేరు<span>: &nbsp; {{orderDetails.URL_DESCRIPTION}} / Dkrishi Subsidy Seed ఆర్డర్ చెల్లింపు  </span> </li>
+                            <li> Payment Mode / చెల్లింపు మోడ్<span>: &nbsp; WALLET / వాలెట్ </span> </li>
+                            <li> Date Of Payment / చెల్లింపు తేదీ<span>: &nbsp; {{orderDetails.INSERTED_DATE}} </span> </li>
+                            <li> PS Application No / GSWS లావాదేవీ ఐడి<span>: &nbsp; GSWS-{{walletDetails.GSWSREFNO}} </span></li>
+                            <li> Citizen Name / రైతు పేరు<span>: &nbsp; {{seedDetails.farmerName}} </span></li>
+                            <li> District / జిల్లా పేరు<span>: &nbsp; {{DISTRICT_NAME}} </span> </li>
+                            <li> Grama/Ward Name<span>: &nbsp; {{SECRETARIAT_NAME}} </span> </li>
+                            <li> Delivered in <span>: &nbsp; {{orderDetails.SLA}} </span></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <ul class="left-print-data ml-0">
+                            <li>Date<span>: &nbsp; {{orderDetails.CUREENT_DATE}} </span> </li>
+                            <li>Amount Paid (Rs.) /  చెల్లించిన మొత్తం<span>: &nbsp; {{orderDetails.TOTAL_AMOUNT}} </span> </li>
+                            <li>Agent Name / డిజిటల్ అసిస్టెంట్ పేరు<span>: &nbsp; {{username}} </span> </li>
+                            <li>Seed Transaction ID / Seed ఆర్డర్ ఐడి<span>: &nbsp; {{walletDetails.APPLICATIONNO}} </span></li>
+                            <li>Mandal / మండల పేరు<span>: &nbsp; {{MANDAL_NAME}} </span> </li>
+                            <li> Secretariat Name / సచివాలయం పేరు<span>: &nbsp; {{SECRETARIAT_NAME}} </span></li>
+                            <li> SEED VERAITY<span>: &nbsp; {{seedDetails.seedVariety}} </span></li>
+                            <li> QUANTITY IN BAGS<span>: &nbsp; {{seedDetails.qtyInBags}} </span></li>
+                            <li> QUANTITY IN KGS.<span>: &nbsp; {{seedDetails.qtyInKgs}} </span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mb-3 mx-5">
+                    <div class="col-sm-8 text-center text-danger">
+                        <b> అవినీతి పై ఫిర్యాదు చేయుట కొరకు టోల్ ఫ్రీ నెంబర్ : 14400 ను సంప్రదించండి</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" ng-show="paymentFailed == '1'">
+            <div class="col-sm-12 " align="center">
+                <h2 class="text-center">Payment Failed</h2>
+            </div>
+            <div class="col-sm-12 " align="center">
+                <button type="button" class="btn btn-sm btn-primary" ng-click="login();">Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" ng-show="paymentFailed == '0'">
+    <div class="row">
+        <div class="col-sm-12">
+            <button class="btn btn-primary float-right btn-sm" ng-click="PrintReceipt();"><i class="icon-shredder mr-2"></i> Print</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+﻿<style type="text/css">
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #ffffffb8;
+    }
+</style>
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>Arogyasree Application Status</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-3 col-form-label text-right">Aadhaar Number : </label>
+                                    <div class="col-lg-3">
+                                        <input type="text" uid-input-model="ben_aadhaar" mask-length="8" autocomplete="off" placeholder="Enter Aadhaar" maxlength="12" class="form-control" />
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <button type="button" ng-click="GetStatus();" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mt-2 " ng-show="dttable">
+                        <table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+                            <thead>
+                                <tr class="bg-dark text-white text-center" style="white-space:nowrap;">
+                                    <th colspan="4" class="text-center">Application Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Benfificiary Name</b></td>
+                                    <td>{{name}}</td>
+                                    <td><b>RationCard No</b></td>
+                                    <td>{{RationCardNo}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gender</b></td>
+                                    <td>{{gender}}</td>
+                                    <td><b>Status</b></td>
+                                    <td>{{status}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Ineligible Reason</b></td>
+                                    <td colspan="3">{{IneligibleReason}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

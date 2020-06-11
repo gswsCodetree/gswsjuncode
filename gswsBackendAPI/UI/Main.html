@@ -1,0 +1,737 @@
+﻿
+
+<section class="profile-bg p-3 mb-5 ">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>Name : {{username}}</h4>
+                <h5>Designation :{{}}</h5>
+            </div>
+            <div class="col-sm-6 text-right">
+                <!--<a href="profile-page.html" class="btn btn-success mb-3">Back</a>-->
+                <button class="btn btn-danger mb-3" ng-click="GetLogout();">Logout</button>
+                <h5>Login Time: {{ldate}}</h5>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="container-fluid px-5 mb-5">
+
+    <div class="row">
+
+
+    </div>
+    <div class="row">
+        <div class="col-sm-4 offset-4">
+
+            <h5 class="mb-5 scheme-title  text-center">Department Services</h5>
+        </div>
+        <div class="col-sm-12">
+
+
+
+            <div class=" row scheme ">
+                <div class="col-sm-4">
+                    <h5 class="mb-3 "> Agriculture & Marketing </h5>
+                    <ul id="myUL">
+                        <li>
+                            <span class="caret">Agriculture</span>
+                            <ul class="nested">
+                                <li><a style="cursor:pointer;" ng-click="GetYSRVerification();">YSR RythuBharosa Verification </a></li>
+                                <li><a href="https://ysrrythubharosa.ap.gov.in/RBPSApp/Reports/PaymentStatus" target="_blank">YSR RythuBharosa Payment Status</a></li>
+                                <!--<li><a href="#">Submenu 3 </a></li>
+                                <li><a href="#">Submenu 4 </a></li>-->
+
+                            </ul>
+                        </li>
+                        <!--<li>
+                            <span class="caret">Horticulture</span>
+                            <ul class="nested">
+                                <li><a href="#">Submenu 1 </a></li>
+                                <li><a href="#">Submenu 2 </a></li>
+                                <li><a href="#">Submenu 3 </a></li>
+                                <li><a href="#">Submenu 4 </a></li>
+                            </ul>
+                        </li>-->
+
+                    </ul>
+
+                </div>
+                <div class="col-sm-4">
+                    <h5 class="mb-3 ">
+                        Endowments
+                    </h5>
+
+                    <ul id="myUL">
+                        <li>
+                            <span class="caret">Brahmin Welfare Corporation</span>
+                            <ul class="nested">
+                                <li><a href="http://push147.sps.ap.gov.in/abwc/gsws/gay_reggsws.aspx?Id=EAdB9iwBZqfx5RuLGL6gOjYNCbjRH6in5bhHGBrstubkws66i8265hotyy4gT/BKwKAL6fDpWWqw8Dz82h/d3lc5ANWMabbhzkRcsgIxJhC22pXYAHdMg502Y6NGeBXNbMCpncwGwBEBUfFdPf/EP5iUkbzyqFvHpMbMpRCvWVCeK0Se5JgXfLHv5ttZDhmB^aqK8HGiAiDmuq_cf" target="_blank">Gayatri</a></li>
+                                <li><a href="http://push147.sps.ap.gov.in/abwc/gsws/ved_reggsws.aspx?Id=EAdB9iwBZqfx5RuLGL6gOjYNCbjRH6in5bhHGBrstubkws66i8265hotyy4gT/BKwKAL6fDpWWqw8Dz82h/d3lc5ANWMabbhzkRcsgIxJhC22pXYAHdMg502Y6NGeBXNbMCpncwGwBEBUfFdPf/EP5iUkbzyqFvHpMbMpRCvWVCeK0Se5JgXfLHv5ttZDhmB^aqK8HGiAiDmuq_cf" target="_blank">VedaVyasa</a></li>
+                                <li><a href="http://push147.sps.ap.gov.in/abwc/gsws/bha_reggsws.aspx?Id=EAdB9iwBZqfx5RuLGL6gOjYNCbjRH6in5bhHGBrstubkws66i8265hotyy4gT/BKwKAL6fDpWWqw8Dz82h/d3lc5ANWMabbhzkRcsgIxJhC22pXYAHdMg502Y6NGeBXNbMCpncwGwBEBUfFdPf/EP5iUkbzyqFvHpMbMpRCvWVCeK0Se5JgXfLHv5ttZDhmB^aqK8HGiAiDmuq_cf" target="_blank">Bharathi</a></li>
+                                <li><a href="#!/ABWCStatus" target="_blank">Applicant Status</a></li>
+
+
+                            </ul>
+                        </li>
+                        <!--<li>
+                            <span class="caret">Fisheries</span>
+                            <ul class="nested">
+                                <li><a href="#">Submenu 1 </a></li>
+                                <li><a href="#">Submenu 2 </a></li>
+                                <li><a href="#">Submenu 3 </a></li>
+                                <li><a href="#">Submenu 4 </a></li>
+
+                            </ul>
+                        </li>-->
+                    </ul>
+
+
+                </div>
+
+
+                <div class="col-sm-4">
+                    <h5 class="mb-3 ">
+                        Energy Department
+                    </h5>
+
+                    <ul id="spdcl">
+                        <li>
+                            <span class="caret">AP SPDCL</span>
+                            <ul class="nested">
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 1 NEW CONNECTION DOMESTIC(WITH OUT ESTIMATE BELOW 10 KW)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 2 NEW CONNECTION COMMERCIAL(WITH OUT ESTIMATE BELOW 10 KW)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 4A NEW CONNECTION - STREET LIGHTS(WITH OUT ESTIMATE BELOW 10 KW)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 4D - NEW CONNECTION - GENERAL PURPOSE (WITH OUT ESTIMATE BELOW 10 KW)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 4E - RELIOGOUS PLACES(WITH OUT ESTIMATE BELOW  10 KW)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 1 NEW CONNECTION DOMESTIC -SPDCL(WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 2 NEW CONNECTION COMMERCIAL -SPDCL (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 3 - INDUSTRIAL (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 3D - COTTAGE/AGRO BASED INDUSTRIES AND DHOBIGHAT (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">"LT 4A - NEW CONNECTION - STREET LIGHTS - SPDCL (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 4B - NEW CONNECTION -  PUBLIC WATER WORKS - SPDCL (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 4C - NTR SUJALA PADHAKAM (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 4D - NEW CONNECTION - GENERAL PURPOSE - SPDCL (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 5A1 - CORPORATE FARMERS (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 5A2 -SALT FARMING/ RURAL HORTICULTURE NURSERIES UPTO 15HP (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 5B1- NON CORPORATE FARMERS(AGL) NORMAL (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 5B2 - LT SUGAR CRANE CRUSHING (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 5B3 - RURAL HORTICULUTRE NURSERIES  (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 5C - AQUA AND ANIMAL HUSBANDRY (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">LT 5D - POULTRY/AQUA HATCHERIES AND FEED MIXING PLANTS/ FLORICULTURE IN GREEN HOUSE (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">"LT 5E- AGRO BASED ACTIVITIES UPTO 10 HP (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/LT_NewConn_URL" target="_blank">"LT 5F- GOVT./PRIVATE LIFT IRRIGATION SCHEME (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">ADDRESS CORRECTION</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">CATEGORY CHANGE</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">LT - DISMANTLEMENT(WITH OUT ESTIMATE BELOW 10 KW)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">LT ADDITIONAL LOAD (WITH OUT ESTIMATE BELOW 10 KW)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">LT- LOAD DERATION(WITH OUT ESTIMATE BELOW 10 KW)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">LT- TEMPORARY SUPPLY BELOW 10 DAYS(WITH OUT ESTIMATE BELOW 10 KW)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">LT- TITLE TRANSFER</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">ELECTRIFICATION OF COLONY (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">ELECTRIFICATION OF LAYOUT (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">HT ADDITIONAL LOAD (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">HT TITLE TRANSFER</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">HT-LT CONVERSION</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">LINE SHIFTING/DTR SHIFTING</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">LT-HT CONVERSION</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">METER BURNT/GLASS BROKEN</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">METER TESTING</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">NAME CORRECTION</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">NET METERING (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">OTHER CAPITAL WORKS (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">PHASE CONVERSION</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">SHIFTING OF SERVICE</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">TEMPORARY CONNECTION (UP TO 10 DAYS)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">WRONG BILLING</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/ServiceReq_URL" target="_blank">RTA Main</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/HT_NewConn_URL" target="_blank">HT 1 - TOWNSHIPS AND COLONIES (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/HT_NewConn_URL" target="_blank">HT 2 - COMMERCIAL & OTHERS (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/HT_NewConn_URL" target="_blank">HT 2D - CAPTIVE/RENEWABLE ENERGY GENERATION PLANTS (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/HT_NewConn_URL" target="_blank">HT 3 - INDUSTRYGENERAL (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/HT_NewConn_URL" target="_blank">HT 4 - CPWS/PWS SCHEMES, RELIGEOUS PLACES, RAILWAY TRACTION (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/HT_NewConn_URL" target="_blank">HT 5 - AQUACULTURE AND ANIMAL HUSBANDRY (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/HT_NewConn_URL" target="_blank">HT 5D - POULTRYHATCHERIES AND POULTRY FEED MIXING PLANTS (WITH ESTIMATE)</a></li>
+                                <li><a href="http://122.252.251.175:8080/APSPDCL_SERVICES/servlet/HT_NewConn_URL" target="_blank">HT 5F - GOVT./PRIVATE LIFT IRRIGATION (WITH ESTIMATE)</a></li>
+
+
+
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul id="epdcl">
+                        <li>
+                            <span class="caret">AP EPDCL</span>
+                            <ul class="nested">
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Domestic</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Commercial </a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Commercial - Advertisement Hoardings</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Commercial - Function Halls/ Auditorums/ Startup Power</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Insitutional - General Purpose</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Insitutional - Religious Places</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Domestic(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Commercial(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Commercial - Advertisement Hoardings (With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Commercial - Function Halls/ Auditorums/ Startup Power (With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Insitutional - Street Lights - Panchayats(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Insitutional - Street Lights - Municipalities (With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Insitutional - Street Lights - Municipal Corporations(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Insitutional - PWS Schemes - Panchayats(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Insitutional - PWS Schemes - Municipalities(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Insitutional - PWS Schemes - Municipal Corporations(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Insitutional - General Purpose(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Insitutional - Religious Places(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Agriculture - Corporate Farmers(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Agriculture - Non Corporate Farmers(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Agriculture - Salt Farming Units upto 15HP(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Agriculture - Sugar Cane Crushing(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Agriculture - Rural Horticulture Nurseries(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Agriculture - Aqua culture(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Agriculture - Animal Husbandry(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Agriculture - Poultry Hatcheries and feed mixing plants(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Agriculture - Aqua Hatcheries and feed mixing plants(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Agriculture - Floriculture in Green House(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(1);">LT Agriculture - Agro based cottage industries upto 10HP(With Estimate)</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(2);">Additional Load without Estimate</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(2);">Additional Load with Estimate</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(2);">Deration of Load.</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(3);">Category Change</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(4);">Name Change </a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(5);">wrong data on bill </a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(5);">Wrong entry on bill  payments</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(5);">ACD/SC/BB/Arrears disputes</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(5);">Meter burnt</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(5);">Meter struck up</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(5);">Meter running slow/sluggish</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(5);">Meter damage</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(5);">No Seal/Seal Cut</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(5);">Meter seal cut</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(5);">Meter lost</a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(5);"></a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(5);"></a></li>
+                                <li><a style="cursor:pointer;" ng-click="apedcl_redirection(5);"></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+
+                </div>
+
+
+
+            </div>
+            <div class=" row scheme">
+                <div class="col-sm-4">
+                    <h5 class="mb-3 ">
+                        Municipal Administration & Urban Development
+                    </h5>
+                    <ul id="myUL">
+                        <li>
+                            <span class="caret">Ward Volunteer</span>
+                            <ul class="nested">
+                                <li><a href="http://gramavolunteer.ap.gov.in/GRAMAVAPP/YUWeb/VVARegistration" target="_blank">Ward Volunteer Registration </a></li>
+                                <li><a href="http://gramavolunteer.ap.gov.in/GRAMAVAPP/yuWeb/ApplicationStatus" target="_blank">Application Status </a></li>
+
+
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="caret">OBPS</span>
+                            <ul class="nested">
+                                <li><a href="#!/MAUDApplicationCheck" target="_blank">Building Permission Application Search</a></li>
+                                <li><a href="#!/MAUDApplicationCheck" target="_blank">Layout Permission Application Search</a></li>
+                                <li><a href="#!/MAUDApplicationCheck" target="_blank">Occupancy Certificate Application Search</a></li>
+                                <li><a href="http://www.apdpms.ap.gov.in:8082/BPAMSClient/default.aspx" target="_blank">Fee Payments</a></li>
+                            </ul>
+                        </li>
+                        <!--<li>
+                            <span class="caret">Horticulture</span>
+                            <ul class="nested">
+                                <li><a href="#">Submenu 1 </a></li>
+                                <li><a href="#">Submenu 2 </a></li>
+                                <li><a href="#">Submenu 3 </a></li>
+                                <li><a href="#">Submenu 4 </a></li>
+                            </ul>
+                        </li>-->
+
+                    </ul>
+
+                </div>
+                <div class="col-sm-4">
+                    <h5 class="mb-3 ">
+                        Panchayat Raj and Rural Development
+
+                    </h5>
+
+                    <ul id="myUL">
+                        <li>
+                            <span class="caret">Grama Volunteer</span>
+                            <ul class="nested">
+                                <li><a href="http://gramavolunteer.ap.gov.in/GRAMAVAPP/YUWeb/VVARegistration" target="_blank">Ward Volunteer Registration </a></li>
+                                <li><a href="http://gramavolunteer.ap.gov.in/GRAMAVAPP/yuWeb/ApplicationStatus" target="_blank">Application Status </a></li>
+
+
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="caret">SERP</span>
+                            <ul class="nested">
+                                <li><a href="http://sspensions.ap.gov.in/searchpensionStatus.do" target="_blank">Cobblers Pensions - Release</a></li>
+                                <li><a href="http://scsp.apcfss.in/DappuArtist.do" target="_blank">Cobblers Pensions - Application</a></li>
+                                <li><a href="http://sspensions.ap.gov.in/searchpensionStatus.do" target="_blank">Dappu Artists Pensions - Application Status</a></li>
+                                <li><a href="http://sspensions.ap.gov.in/searchpensionStatus.do" target="_blank">Dappu Artists Pensions - Status of sanction</a></li>
+                                <li><a href="#!/BLSVerification" target="_blank">Bank Linkage Status Verification </a></li>
+                                <li><a href="#!/YSRAsaraSVerification" target="_blank">YSR Asara Status Verification </a></li>
+                                <li><a href="#!/VLRSVerification" target="_blank">Vaddi Leni Runalu Status Verification </a></li>
+                                <li><a href="#!/SRSVerification" target="_blank">Streenidhi/Unnathi Loan Request </a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <span class="caret">BIMA</span>
+                            <ul class="nested">
+                                <li><a href="#!/SERPBIMA" target="_blank">Claim Search</a></li>
+                                <li><a href="#!/SERPBIMAREG" target="_blank">Claim Registration</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                </div>
+                <div class="col-sm-4">
+                    <h5 class="mb-3 ">
+                        Transport, R&B Department
+
+                    </h5>
+
+                    <ul id="myUL">
+                        <li>
+                            <span class="caret">Transport</span>
+                            <ul class="nested">
+
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/llrmodule" target="_blank">Learners License Fresh</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/llrmodule" target="_blank">Learners License Retest</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/llrcancel" target="_blank">Learner’s Licence Cancellation</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/llrmodule" target="_blank">Learner’s Licence Endorsement</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/llrcorrection" target="_blank">Learners License Correction</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/dlmodule" target="_blank">Driving License Fresh</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/dlmodule" target="_blank">Driving License Renewal</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/dlmodule" target="_blank">Driving License Duplicate</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/dlmodule" target="_blank">Driving License Retest</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/dlmodule" target="_blank">Driving License Foreign/Military/Other</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/dlmodule" target="_blank">Driving Licence Endorsement</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/dlmodule" target="_blank">Driving Licence International Driving Permit</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/dlmodule" target="_blank">Driving License Badge</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/dlmodule" target="_blank">Driving License Change of Address</a></li>
+
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/dlmodule" target="_blank">Driving Expired DL</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/dlmodule" target="_blank">DL Hazardous</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/availableslots" target="_blank">DL/LLR Slot Availability</a></li>
+
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/llrmodule" target="_blank">LLR Renewal</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/aadhaarseed" target="_blank">Licence Aadhhar Seeding</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/dlmerge" target="_blank">DL Merge</a></li>
+
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/fitnessmodule" target="_blank">Fitness New</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/fitnessmodule" target="_blank">Fitness Renewal</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/fitnessmodule" target="_blank">Fitness Other Station</a></li>
+
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/permits" target="_blank">Permit New</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/permits" target="_blank">Permit Renewal</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/permits" target="_blank">Permit Change of Address</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/permits" target="_blank">Permit Variation of Permit</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/permits" target="_blank">Permit Renewal Auth. Card</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/permits" target="_blank">Permit Replacement of Vehicle</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/permits" target="_blank">Permit Transfer of Permit</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/permits" target="_blank">Permit Surrender of Permit</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/permits" target="_blank">Permit – Extension of Validity</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/permits" target="_blank">Permit Data Entry</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/permits" target="_blank">Permit - Bilateral Tax</a></li>
+
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/taxation" target="_blank">Taxation - Tax</a></li>
+
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Registration – Hire Purchase Agreement</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Registration – Hire Purchase Termination</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Registration – Transfer of ownership</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Registration – Reservation of Registration Number/ebidding</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Duplicate Registration</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Renewal of Registration</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Registration – Change of Address</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Registration – Alteration of Vehicle</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Registration – Reassignment of Vehicles</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Registration – Issue of NOC</a></li>
+
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Registration – Theft Intimation</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Registration – Theft Revocation</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/regbodybuilder" target="_blank">Body Builder</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Registration-Cancellation of NOC</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Registration-Vehicle Stoppage Revocation</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Other State</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/registrationmodule" target="_blank">Vehicle Stoppage</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/regaadhaarseed" target="_blank">Registration Aadhaar Seeding</a></li>
+                                <li><a href="https://aprtacitizen.epragathi.org/#!/regavailableslots" target="_blank">Registration Vehicle Related Slot Booking</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="caret">R&B</span>
+                            <ul class="nested">
+                                <li><a href="https://tptuat.aponline.gov.in/APRDC/UI/OtherCompHndlngSys.aspx" target="_blank">Register Complaint</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="caret">APSRTC</span>
+                            <ul class="nested">
+                                <li><a href="https://test.apcfss.in/RTCBPSSERVICES/traceid.do" target="_blank">Bus Pass Details Check</a></li>
+                            </ul>
+                        </li>
+                        <!--li>
+                            <span class="caret">APEPDCL</span>
+                            <ul class="nested">
+                                <li><a href="#">Submenu 1 </a></li>
+                                <li><a href="#">Submenu 2 </a></li>
+                                <li><a href="#">Submenu 3 </a></li>
+                                <li><a href="#">Submenu 4 </a></li>
+
+                            </ul>
+                        </li>-->
+                    </ul>
+
+
+                </div>
+            </div>
+            <div class=" row scheme">
+                <div class="col-sm-4">
+                    <h5 class="mb-3 ">
+                        Education
+                    </h5>
+                    <ul id="myUL">
+                        <li>
+                            <span class="caret">Amma Vodi</span>
+                            <ul class="nested">
+
+                                <li><a href="#!/AmmavodiStatus" target="_blank">Application Status </a></li>
+
+
+                            </ul>
+                        </li>
+                        <!--<li>
+                            <span class="caret">Horticulture</span>
+                            <ul class="nested">
+                                <li><a href="#">Submenu 1 </a></li>
+                                <li><a href="#">Submenu 2 </a></li>
+                                <li><a href="#">Submenu 3 </a></li>
+                                <li><a href="#">Submenu 4 </a></li>
+                            </ul>
+                        </li>-->
+
+                    </ul>
+
+                </div>
+                <div class="col-sm-4">
+                    <h5 class="mb-3 ">
+                        health
+                    </h5>
+                    <ul id="myUL">
+                        <li>
+                            <span class="caret">Aarogya Raksa</span>
+                            <ul class="nested">
+
+                                <li><a href="http://pull71.sps.ap.gov.in/AarogyaSriEDSW/EDSW/Home_1.aspx" target="_blank">Aarogya Raksha Enroll </a></li>
+                                <li><a href="#!/ArogyarakshaStatus" target="_blank">Application Status </a></li>
+
+
+                            </ul>
+                        </li>
+                        <!--<li>
+                            <span class="caret">Horticulture</span>
+                            <ul class="nested">
+                                <li><a href="#">Submenu 1 </a></li>
+                                <li><a href="#">Submenu 2 </a></li>
+                                <li><a href="#">Submenu 3 </a></li>
+                                <li><a href="#">Submenu 4 </a></li>
+                            </ul>
+                        </li>-->
+
+                    </ul>
+
+                </div>
+                <div class="col-sm-4">
+                    <h5 class="mb-3 "> Services </h5>
+                    <ul id="myUL">
+                        <li>
+                            <span class="caret">Certificate</span>
+                            <ul class="nested">
+                                <li><a href="#!/CertificatesDownload" target="_blank">Integrated & Income Certificates Download </a></li>
+                                <li><a href="#!/NPCIAppStatus" target="_blank">NPCI Status </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class=" row scheme">
+                <div class="col-sm-4">
+                    <h5 class="mb-3 ">
+                        Backward Classes Welfare
+                    </h5>
+                    <ul id="myUL">
+                        <li>
+                            <span class="caret">Education</span>
+                            <ul class="nested">
+                                <li><a href="https://jnanabhumi.ap.gov.in/nivas/" target="_blank">Admission Status - Post metric Hostels</a></li>
+                                <li><a href="https://jnanabhumi.ap.gov.in/nivas/" target="_blank">Admission Status - Pre metric Hostels</a></li>
+                                <li><a href="https://jnanabhumi.ap.gov.in/CorporateApplicationForm.edu?actionParameter=KnowStatus" target="_blank">Corporate College Scheme - Status of Sanction</a></li>
+                                <li><a href="https://jnanabhumi.ap.gov.in/CorporateApplicationForm.edu" target="_blank">Corporate College Scheme - Admissions</a></li>
+                                <li><a href="https://epass.apcfss.in/OverseasReg.do" target="_blank">Overseas Education Scheme - Application</a></li>
+                                <li><a href="#!/Education_Overseas_Check?type=OVERSEAS" target="_blank">Overseas Education Scheme - Application Status</a></li>
+                                <li><a href="https://jnanabhumi.ap.gov.in/nivas/" target="_blank">Residential Schools- Admission Status</a></li>
+                                <li><a href="#!/Education_Overseas_Check?type=POSTMETRIC" target="_blank">Post Metric Scholorship - Status Check</a></li>
+                                <li><a href="#!/Education_Overseas_Check?type=PREMETRIC" target="_blank">Pre Metric Scholorship - Status Check</a></li>
+                                <li><a href="https://apobmms.cgg.gov.in/commonRegistrationForm.do" target="_blank">Economic Support Scheme (ESS) -OBMMS - APPLICATION</a></li>
+                                <li><a href="https://apobmms.cgg.gov.in/RationNumberWiseSearch.do" target="_blank">Economic Support Scheme (ESS) -OBMMS -  Beneficiary Search</a></li>
+                                <li><a href="https://apobmms.cgg.gov.in/benProceedingReport.do" target="_blank">Economic Support Scheme (ESS) -OBMMS - Beneficiary Proceedings</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="caret">YSR Pelli kaanuka</span>
+                            <ul class="nested">
+                                <li><a href="#!/PelliKaanukaStatusCheck" target="_blank">Applicant Status</a></li>
+                                <li><a href="#!/MrgCertDownload" target="_blank">Marriage Certificate Download</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-4">
+                    <h5 class="mb-3 ">
+                        Minorities Welfare
+                    </h5>
+                    <ul id="myUL">
+                        <li>
+                            <span class="caret">Education</span>
+                            <ul class="nested">
+                                <li><a href="https://jnanabhumi.ap.gov.in/nivas/" target="_blank">Admission Status - Post metric Hostels</a></li>
+                                <li><a href="https://jnanabhumi.ap.gov.in/nivas/" target="_blank">Admission Status - Pre metric Hostels</a></li>
+                                <li><a href="https://jnanabhumi.ap.gov.in/CorporateApplicationForm.edu?actionParameter=KnowStatus" target="_blank">Corporate College Scheme - Status of Sanction</a></li>
+                                <li><a href="https://jnanabhumi.ap.gov.in/CorporateApplicationForm.edu" target="_blank">Corporate College Scheme - Admissions</a></li>
+                                <li><a href="https://epass.apcfss.in/OverseasReg.do" target="_blank">Overseas Education Scheme - Application</a></li>
+                                <li><a href="#!/Education_Overseas_Check?type=OVERSEAS" target="_blank">Overseas Education Scheme - Application Status</a></li>
+                                <li><a href="#!/Education_Overseas_Check?type=POSTMETRIC" target="_blank">Post Metric Scholorship - Status Check</a></li>
+                                <li><a href="#!/Education_Overseas_Check?type=PREMETRIC" target="_blank">Pre Metric Scholorship - Status Check</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="caret">WAQF Board</span>
+                            <ul class="nested">
+                                <li><a href="#!/ImamAndMouzansDetails">Honorarium To Imam and Mouzans</a></li>
+                                <li><a href="#!/WomenDivorcedStatus">Assistance to Muslim Divorced Women</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="caret">DULHAN</span>
+                            <ul class="nested">
+                                <li><a href="#!/PelliKaanukaStatusCheck" target="_blank">Applicant Status</a></li>
+                                <li><a href="#!/MrgCertDownload" target="_blank">Marriage Certificate Download</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="col-sm-4">
+                    <h5 class="mb-3 ">
+                        Social Welfare
+                    </h5>
+                    <ul id="myUL">
+                        <li>
+                            <span class="caret">Differently abled Welfare</span>
+                            <ul class="nested">
+                                <li><a href="https://jnanabhumi.ap.gov.in/nivas/" target="_blank">Admission Status - Pre metric Hostels</a></li>
+                                <li><a href="https://jnanabhumi.ap.gov.in/CorporateApplicationForm.edu?actionParameter=KnowStatus" target="_blank">Corporate College Scheme - Status of Sanction</a></li>
+                                <li><a href="https://jnanabhumi.ap.gov.in/CorporateApplicationForm.edu" target="_blank">Corporate College Scheme - Admissions</a></li>
+                                <li><a href="#!/Education_Overseas_Check?type=POSTMETRIC" target="_blank">Post Metric Scholorship - Status Check</a></li>
+                                <li><a href="#!/Education_Overseas_Check?type=PREMETRIC" target="_blank">Pre Metric Scholorship - Status Check</a></li>
+                                <li><a href="#!/PelliKaanukaStatusCheck" target="_blank">YSR Pelli Kaanuka- Applicant Status</a></li>
+                                <li><a href="#!/MrgCertDownload" target="_blank">YSR Pelli Kaanuka- Marriage Certificate Download</a></li>
+                                <li><a href="https://apobmms.cgg.gov.in/commonRegistrationForm.do" target="_blank">Economic Support Scheme (ESS) -OBMMS - APPLICATION</a></li>
+                                <li><a href="https://apobmms.cgg.gov.in/RationNumberWiseSearch.do" target="_blank">Economic Support Scheme (ESS) -OBMMS -  Beneficiary Search</a></li>
+                                <li><a href="https://apobmms.cgg.gov.in/benProceedingReport.do" target="_blank">Economic Support Scheme (ESS) -OBMMS - Beneficiary Proceedings</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="caret">Social Welfare</span>
+                            <ul class="nested">
+                                <li><a href="https://jnanabhumi.ap.gov.in/nivas/" target="_blank">Admission Status - Post metric Hostels</a></li>
+                                <li><a href="https://jnanabhumi.ap.gov.in/nivas/" target="_blank">Admission Status - Pre metric Hostels</a></li>
+                                <li><a href="https://apgpcet.apcfss.in/BasForm2.aprjdc" target="_blank">Best Available Schools - Admission</a></li>
+                                <li><a href="#!/Education_Overseas_Check?type=BAS" target="_blank">Best Available Schools - Sanction Status</a></li>
+                                <li><a href="https://jnanabhumi.ap.gov.in/CorporateApplicationForm.edu?actionParameter=KnowStatus" target="_blank">Corporate College Scheme - Status of Sanction</a></li>
+                                <li><a href="https://jnanabhumi.ap.gov.in/CorporateApplicationForm.edu" target="_blank">Corporate College Scheme - Admissions</a></li>
+                                <li><a href="https://epass.apcfss.in/OverseasReg.do" target="_blank">Overseas Education Scheme - Application</a></li>
+                                <li><a href="#!/Education_Overseas_Check?type=OVERSEAS" target="_blank">Overseas Education Scheme - Application Status</a></li>
+                                <li><a href="https://jnanabhumi.ap.gov.in/nivas/" target="_blank">Residential Schools- Admission Status</a></li>
+                                <li><a href="#!/Education_Overseas_Check?type=POSTMETRIC" target="_blank">Post Metric Scholorship - Status Check</a></li>
+                                <li><a href="#!/Education_Overseas_Check?type=PREMETRIC" target="_blank">Pre Metric Scholorship - Status Check</a></li>
+                                <li><a href="#!/PelliKaanukaStatusCheck" target="_blank">YSR Pelli Kaanuka- Applicant Status</a></li>
+                                <li><a href="#!/MrgCertDownload" target="_blank">YSR Pelli Kaanuka- Marriage Certificate Download</a></li>
+                                <li><a href="https://apobmms.cgg.gov.in/commonRegistrationForm.do" target="_blank">Economic Support Scheme (ESS) -OBMMS - APPLICATION</a></li>
+                                <li><a href="https://apobmms.cgg.gov.in/RationNumberWiseSearch.do" target="_blank">Economic Support Scheme (ESS) -OBMMS -  Beneficiary Search</a></li>
+                                <li><a href="https://apobmms.cgg.gov.in/benProceedingReport.do" target="_blank">Economic Support Scheme (ESS) -OBMMS - Beneficiary Proceedings</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+
+                </div>
+            </div>
+			<div class=" row scheme">
+
+				<div class="col-sm-4">
+					<h5 class="mb-3 ">
+						REVENUE
+					</h5>
+					<ul id="myUL">
+						<li>
+							<span class="caret">CIVIL SUPPLIES</span>
+							<ul class="nested">
+								<li><a href="#!/RationRegistration" target="_blank">Apply Ration Card</a></li>
+								<li><a href="#!/RationStatus" target="_blank">Check Ration Card Status</a></li>
+
+							</ul>
+						</li>
+						<li>
+							<span class="caret">EXCISE</span>
+							<ul class="nested">
+								<li><a href="#!/ExciseComplaintsStatus" target="_blank">Complaint Status Check</a></li>
+
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-4">
+					<h5 class="mb-3 ">
+						TRIBAL
+					</h5>
+					<ul id="myUL">
+						<li>
+							<span class="caret">EDUCATION</span>
+							<ul class="nested">
+								<li><a href="https://jnanabhumi.ap.gov.in/nivas/" target="_blank">Admission Status - Post metric Hostels</a></li>
+								<li><a href="https://jnanabhumi.ap.gov.in/nivas/" target="_blank">Admission Status - Pre metric Hostels</a></li>
+								<li><a href="https://apgpcet.apcfss.in/BasForm2.aprjdc" target="_blank">Best Available Schools - Admission</a></li>
+								<li><a href="#!/Education_Overseas_Check?type=BAS" target="_blank">Best Available Schools - Sanction Status</a></li>
+								<li><a href="https://jnanabhumi.ap.gov.in/CorporateApplicationForm.edu?actionParameter=KnowStatus" target="_blank">Corporate College Scheme - Status of Sanction</a></li>
+								<li><a href="https://jnanabhumi.ap.gov.in/CorporateApplicationForm.edu" target="_blank">Corporate College Scheme - Admissions</a></li>
+								<li><a href="https://epass.apcfss.in/OverseasReg.do" target="_blank">Overseas Education Scheme - Application</a></li>
+								<li><a href="#!/Education_Overseas_Check?type=OVERSEAS" target="_blank">Overseas Education Scheme - Application Status</a></li>
+								<li><a href="https://jnanabhumi.ap.gov.in/nivas/" target="_blank">Residential Schools- Admission Status</a></li>
+								<li><a href="#!/Education_Overseas_Check?type=POSTMETRIC" target="_blank">Post Metric Scholorship - Status Check</a></li>
+								<li><a href="#!/Education_Overseas_Check?type=PREMETRIC" target="_blank">Pre Metric Scholorship - Status Check</a></li>
+								<li><a href="https://apobmms.cgg.gov.in/commonRegistrationForm.do" target="_blank">Economic Support Scheme (ESS) -OBMMS - APPLICATION</a></li>
+								<li><a href="https://apobmms.cgg.gov.in/RationNumberWiseSearch.do" target="_blank">Economic Support Scheme (ESS) -OBMMS -  Beneficiary Search</a></li>
+								<li><a href="https://apobmms.cgg.gov.in/benProceedingReport.do" target="_blank">Economic Support Scheme (ESS) -OBMMS - Beneficiary Proceedings</a></li>
+							</ul>
+						</li>
+						<li>
+							<span class="caret">YSR Pelli kaanuka</span>
+							<ul class="nested">
+								<li><a href="#!/PelliKaanukaStatusCheck" target="_blank">Applicant Status</a></li>
+								<li><a href="#!/MrgCertDownload" target="_blank">Marriage Certificate Download</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-4">
+					<h5 class="mb-3 ">
+						Women, Children, Disabled and Senior Citizens
+					</h5>
+					<ul id="myUL">
+						<li>
+							<span class="caret">APDASCAC</span>
+							<ul class="nested">
+								<li><a href="#!/APDASCAC_RegForm" target="_blank">Registration Form</a></li>
+							</ul>
+						</li>
+
+					</ul>
+				</div>
+
+				<div class="col-sm-4">
+					<h5 class="mb-3 "> Housing </h5>
+					<ul id="myUL">
+						<li>
+							<span class="caret">A.P. State Housing Corporation Limited</span>
+							<ul class="nested">
+								<li><a href="https://test.apcfss.in/aphomes/SanctionOfNewHouseRegistration.do?id=" target="_blank">Sanction Of New House Registration </a></li>
+								<li><a href="https://test.apcfss.in/aphomes/SanctionOfNewHouseRegistrationUrban.do" target="_blank">Sanction Of New House Registration Urban</a></li>
+								<li><a href="https://test.apcfss.in/aphomes/BeneficiarySanctionDetails.do" target="_blank">Beneficiary Sanction Details </a></li>
+								<li><a href="https://test.apcfss.in/aphomes/BeneficiaryPaymentDetails.do" target="_blank">Beneficiary Payment Details </a></li>
+								<li><a href="https://test.apcfss.in/aphomes/BeneficiaryStageDetails.do" target="_blank">Beneficiary Stage Details </a></li>
+								<!--<li><a href="https://test.apcfss.in/aphomes/SearchBeneficiaryNew.do" target="_blank">Beneficiary Search </a></li>-->
+							</ul>
+						</li>
+
+					</ul>
+
+				</div>
+
+				<div class="col-sm-4">
+					<h5 class="mb-3 "> Youth Advancement, Tourism and Culture </h5>
+					<ul id="myUL">
+						<li>
+							<span class="caret">Skill Development</span>
+							<ul class="nested">
+								<li><a href="#!/CandidateLogin" target="_blank">User Login </a></li>
+								<li><a href="#!/CandidateRegistration" target="_blank">User Registration</a></li>
+								<li><a href="#!/UpCommingAllJobs" target="_blank">Upcomming Jobs </a></li>
+								<li><a href="#!/UpCommingBatches" target="_blank">Upcomming Batches </a></li>
+								<li><a href="#!/SkillStatusCheck" target="_blank">Status Check </a></li>
+							</ul>
+						</li>
+
+					</ul>
+
+				</div>
+
+				<div class="col-sm-4">
+					<h5 class="mb-3 "> Home Department </h5>
+					<ul id="myUL">
+						<li>
+							<span class="caret">LHMS AP Police DashBoard</span>
+							<ul class="nested">
+								<li><a href="#!/HomeLhmsPage" target="_blank">LHMS AP Police DashBoard </a></li>
+								
+							</ul>
+						</li>
+
+					</ul>
+
+				</div>
+			</div>
+        </div>
+    </div>
+
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var toggler = document.getElementsByClassName("caret");
+        var i;
+
+        for (i = 0; i < toggler.length; i++) {
+            toggler[i].addEventListener("click", function () {
+                this.parentElement.querySelector(".nested").classList.toggle("active");
+                this.classList.toggle("caret-down");
+            });
+        }
+
+    </script>

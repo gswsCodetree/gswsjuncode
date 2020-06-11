@@ -1,0 +1,293 @@
+﻿<style>
+    body {
+        background: #fff;
+    }
+
+    .media-chat-inverse .media-chat-item:not([class*=bg-]) {
+        background-color: #114e9c;
+        border-color: #114e9c;
+    }
+
+    .error-message {
+        background: #EEEEEE;
+        color: #424242;
+        padding: 14px;
+        border-radius: 6px;
+    }
+
+        .error-message h2 {
+            font-size: 15px;
+        }
+
+    .media-chat .media a {
+        color: #757575;
+    }
+
+    .discuss-box .card-header {
+        vertical-align: middle;
+        background: #114e9c !important;
+        color: #ffffff;
+        padding: 4px 15px !important;
+    }
+
+        .discuss-box .card-header h5 {
+            font-size: 14px;
+            font-family: rubik-medium;
+        }
+
+        .discuss-box .card-header span {
+            font-size: 10px;
+        }
+
+    .discuss-box .card-body {
+        padding: 15px !important;
+        color: black;
+    }
+
+        .discuss-box .card-body h4 {
+            color: #424242;
+            font-size: 16px;
+            font-family: rubik-medium;
+        }
+
+        .discuss-box .card-body p {
+            color: #757575;
+        }
+
+
+    .discuss-box .card {
+        margin-bottom: 1.25rem;
+        box-shadow: 0 1px 5px #f0f2f4, 0 1px 2px #f0f2f4;
+        border: 5px solid #f0f2f4;
+    }
+    .chatImage {
+        height:100px;
+        width:200px;
+    }
+</style>
+
+
+<div class="container">
+
+    <div class="row mt-5 mb-4">
+        <div class="col-sm-8">
+
+        </div>
+        <div class="col-sm-4">
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="SD_NAME" placeholder="Search " aria-describedby="button-addon3">
+                <div class="input-group-prepend mr-0">
+                    <button class="btn bg-grey-300 legitRipple" type="button"><i class="icon-search4"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+
+        <div class="col-12 table-responsive">
+            <table class="table table-bordered">
+                <thead class="bg-primary">
+                    <tr class="text-center">
+                        <td>S.No</td>
+                        <td>Date</td>
+                        <td>District</td>
+                        <td>Mandal</td>
+                        <td>Secretariat</td>
+                        <td>URL</td>
+                        <td>Remarks</td>
+                        <td>Status</td>
+                        <td>--</td>
+                    </tr>
+                </thead>
+                <tbody ng-show="data != '' && preloader == false">
+                    <tr class="text-center" ng-repeat="obj in data | filter: SD_NAME">
+                        <td>{{$index + 1}}</td>
+                        <td>{{obj.INSERTED_DATE | date}}</td>
+                        <td>{{obj.DISTRICT_NAME}}</td>
+                        <td>{{obj.MANDAL_NAME}}</td>
+                        <td>{{obj.SECRETARIAT_NAME}}</td>
+                        <td>{{obj.URL_DESCRIPTION}}</td>
+                        <td>{{obj.REMARKS}}</td>
+                        <td>
+                            <span ng-if="obj.COMP_STATUS == 1" style="color:green">Active</span>
+                            <span ng-if="obj.COMP_STATUS == 0" style="color:red">Closed</span>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary" ng-click="showDetails(obj);">VIEW</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody ng-show="data == '' && preloader == false">
+                    <tr class="text-center">
+                        <td colspan="9">No Data Available</td>
+                    </tr>
+                </tbody>
+                <tbody ng-show="preloader">
+                    <tr class="text-center">
+                        <td colspan="9">
+                            <i class="icon-spinner spinner icon-3x "></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="CommentsModel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-dark py-2">
+                <h1 class="mb-0 text-center"> Complaint Title </h1>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row text-center mb-5">
+                            <div class="col-sm-12 ">
+                                <h3 class="form-control-label col-sm-12 text-left">
+                                    {{issue_data.DEPT_NAME}}(HOD: {{issue_data.HOD_NAME}})
+                                    <span class="float-right">19-12-2019</span>
+                                </h3>
+                                <div class="col-sm-12">
+
+                                    <div class="error-message mb-3 text-left">
+
+                                        <h2>REMARKS : {{issue_data.REMARKS}}</h2>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-4" ng-if="issue_data.IMAGE_1 != null">
+                                <img ng-src="{{issue_data.IMAGE_1}}" style="height:200px" class="img-fluid img-thumbnail" />
+                            </div>
+                            <div class="col-sm-4" ng-if="issue_data.IMAGE_2 != null">
+                                <img ng-src="{{issue_data.IMAGE_2}}" style="height: 200px" class="img-fluid img-thumbnail" />
+                            </div>
+                            <div class="col-sm-4" ng-if="issue_data.IMAGE_3 != null">
+                                <img ng-src="{{issue_data.IMAGE_3}}" style="height:200px" class="img-fluid img-thumbnail" />
+                            </div>
+
+                        </div>
+
+                        <hr>
+
+                        <div class="row" ng-show="commentPreloader == true">
+                            <div class="col-md-12" align="center">
+                                <i class="icon-spinner spinner icon-3x "></i>
+                            </div>
+                        </div>
+
+                        <ul class="media-list media-chat media-chat-inverse media-chat-scrollable mb-3" id="commentWindow" ng-show="commentPreloader == false">
+
+
+                         <div ng-repeat="obj in report_data" ng-if="callcenter == false" >
+
+
+                                <li class="media mt-2" ng-if="obj.MSG_FLAG == 0">
+                                    <div class="mr-3">
+                                        <a style="cursor:pointer"><i class="mi-account-circle mi-2x"></i></a>
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="media-chat-item">
+                                            <img ng-click="imageView(obj.IMAGE_PATH);" ng-if="obj.IMAGE_PATH != null" ng-src="{{obj.IMAGE_PATH}}" class="chatImage"  />
+                                            <p>{{obj.COMMENTS}}</p>
+                                        </div>
+                                        <div class="font-size-sm text-muted mt-1">{{obj.INSERTED_DATE | date}} <a style="cursor:pointer;"><i class="mi-schedule ml-1 text-muted"></i></a></div>
+                                    </div>
+                                </li>
+
+                                <li class="media media-chat-item-reverse mt-2" ng-if="obj.MSG_FLAG == 1">
+                                    <div class="media-body">
+                                        <div class="media-chat-item">
+                                            <img ng-click="imageView(obj.IMAGE_PATH);" ng-if="obj.IMAGE_PATH != null" ng-src="{{obj.IMAGE_PATH}}" class="chatImage" />
+                                            <p>{{obj.COMMENTS}}</p>
+                                        </div>
+
+                                        <div class="font-size-sm text-muted mt-2">{{obj.INSERTED_DATE | date}} <a style="cursor:pointer;"><i class="mi-schedule ml-1 text-muted"></i></a></div>
+                                    </div>
+
+                                    <div class="ml-3">
+                                        <a style="cursor:pointer"><i class="mi-account-circle mi-2x"></i></a>
+                                    </div>
+                                </li>
+
+                            </div>
+
+                            <div ng-repeat="obj in report_data" ng-if="callcenter == true">
+
+
+                                <li class="media mt-2" ng-if="obj.MSG_FLAG == 1">
+                                    <div class="mr-3">
+                                        <a style="cursor:pointer"><i class="mi-account-circle mi-2x"></i></a>
+                                    </div>
+
+                                    <div class="media-body">
+                                        <div class="media-chat-item">
+                                            <img ng-click="imageView(obj.IMAGE_PATH);" ng-if="obj.IMAGE_PATH != null" ng-src="{{obj.IMAGE_PATH}}" class="chatImage" class="chatImage" />
+                                            <p>{{obj.COMMENTS}}</p>
+                                        </div>
+                                        <div class="font-size-sm text-muted mt-1">{{obj.INSERTED_DATE | date}} <a style="cursor:pointer;"><i class="mi-schedule ml-1 text-muted"></i></a></div>
+                                    </div>
+                                </li>
+
+                                <li class="media media-chat-item-reverse mt-2" ng-if="obj.MSG_FLAG == 0">
+                                    <div class="media-body">
+                                        <div class="media-chat-item">
+                                            <img ng-click="imageView(obj.IMAGE_PATH);" ng-if="obj.IMAGE_PATH != null" ng-src="{{obj.IMAGE_PATH}}" class="chatImage" />
+                                            <p>{{obj.COMMENTS}}</p>
+                                        </div>
+
+                                        <div class="font-size-sm text-muted mt-2">{{obj.INSERTED_DATE | date}} <a style="cursor:pointer;"><i class="mi-schedule ml-1 text-muted"></i></a></div>
+                                    </div>
+
+                                    <div class="ml-3">
+                                        <a style="cursor:pointer"><i class="mi-account-circle mi-2x"></i></a>
+                                    </div>
+                                </li>
+
+                            </div>
+
+
+                        </ul>
+
+                        <textarea ng-model="issue_cmt" name="enter-message" class="form-control mb-3" rows="3" cols="1" placeholder="Enter your message..."></textarea>
+
+                        <div class="row">
+
+                            <div class="col-4">
+                                <label id="case_status" style="color:black">Case Status: </label>
+                                <select id="case_status" class="form-control" ng-model="issue_status">
+                                    <option value="">-- SELECT --</option>
+                                    <option value="1">OPEN</option>
+                                    <option value="0">CLOSE</option>
+                                </select>
+                            </div>
+                            <div class="col-6 form-group">
+
+                                <label id="img_path" style="color:black">Upload Image: <span style="color:red;">* File size must be less than 2 MB</span></label>
+                                <input type="file" class="form-control" id="img_path" ng-model="file" name="file" base-sixty-four-input required onload="onLoad_image" accept="image/*">
+
+                            </div>
+                            <div class="col-2" style="padding-top:28px;">
+                                <button type="button" class="btn bg-indigo-800" ng-click="addComment(REPORT_ID);"> Send</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,206 @@
+﻿<!-- Page header  -->
+
+<div class="page-header page-header-dark cust-page-header" style="background: linear-gradient(45deg, #0D47A1, #4CAF50);">
+
+	<div class="page-header-content header-elements-md-inline">
+		<div class="page-title py-1 d-flex">
+			<img src="assets/images/ap-logo.png" class="logo1" width="70px" height="70px" />
+			<h2>Grama-Ward Sachivalayam </h2>
+		</div>
+		<div class="header-elements d-md-block d-none">
+			<div class="profile-pic text-right">
+				<img src="assets/images/jagan-logo.png" class="w-75" />
+				<img src="assets/images/ap-logo.png" width="70px" />
+			</div>
+		</div>
+	</div>
+
+	<div class="navbar navbar-expand-md navbar-dark bg-navbar-dark-custom  border-0 shadow-0">
+
+		<div class="d-md-none w-100">
+			<button type="button" class="navbar-toggler d-flex align-items-center w-100 collapsed" data-toggle="collapse" data-target="#navbar-navigation" aria-expanded="false">
+				<i class="icon-menu7 mr-2"></i>
+				Menu
+			</button>
+
+		</div>
+
+
+		<div class="navbar-collapse collapse" id="navbar-navigation">
+			<ul class="navbar-nav navbar-nav-highlight">
+				<li class="nav-item dropdown">
+					<a style="cursor:pointer;" class="navbar-nav-link" data-toggle="dropdown">
+						<i class="mi-desktop-windows mr-1"></i> Report an Issue
+					</a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="#!/ReportIssue" target="_blank" class="dropdown-item">Software Issue</a>
+						<a href="#!/HardwareIssues" target="_blank" class="dropdown-item"> Hardware Issue</a>
+					</div>
+				</li>
+
+
+
+				<li class="nav-item">
+					<a href="#!/ApplicationStatus" class="navbar-nav-link" target="_blank">
+						<i class="mi-desktop-windows mr-1"></i>Check Application Status
+					</a>
+				</li>
+
+				<li class="nav-item">
+					<a href="#!/PensionVolunteerMapping" class="navbar-nav-link" target="_blank">
+						<i class="mi-desktop-windows mr-1"></i>Pension to Cluster Mapping
+					</a>
+				</li>
+				<li class="nav-item" ng-show="role=='1' || role=='102' || role=='209'">
+					<a href="#!/RationVolunteerMapping" class="navbar-nav-link" target="_blank">
+						<i class="mi-desktop-windows mr-1"></i>Ration to Volunteer Mapping
+					</a>
+				</li>
+
+				<li class="nav-item dropdown">
+					<a style="cursor:pointer;" class="navbar-nav-link" data-toggle="dropdown">
+						<i class="mi-desktop-windows mr-1"></i> Downloads
+					</a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="#!/PhysicalForms" target="_blank" class="dropdown-item">Physical Forms</a>
+
+						<a data-ng-show="loginrole == '101'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/PANCHAYAT SECRETARY English version.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '102'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/VILLAGE REVENUE OFFICER English Version.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '103'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/VILLAGE SURVEYOR English version.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '104'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/ANM english version.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '105'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/VILLAGE FISHERIES ASSISTANT English version.pdf" target="_blank" class="dropdown-item">Fisheries Activity Calendar</a>
+						<a data-ng-show="loginrole == '105'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/ANIMAL HUSBANDRY ASSISTANT English version.pdf" target="_blank" class="dropdown-item">Animal Husbandry Activity Calendar</a>
+						<a data-ng-show="loginrole == '106'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/GRAMA MAHILA SAMRAKSHANA KARYADARSHI English version.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '107'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/ENGINEERING ASSISTANT English version.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '108'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/ENERGY ASSISTANT English version.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '109'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/AGRICULTURE_HORTICULTURE_SERICULTURE ASSISTANT  ENGLISH Version.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '110'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/DIGITAL ASSISTANT English Version.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '111'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/WELFARE AND EDUCATION ASSISTANT English Version.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+
+						<a data-ng-show="loginrole == '201'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/WARD ADMINISTRATIVE SECRETARY English Version.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '202'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/WARD AMENITIES SECRETARY English Version.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '203'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/WARD SANITATION AND ENVIRONMENT SECRETARY ENGLISH VERSION.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '204'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/WARD EDUCATION AND DATA PROCESSING SECRETARY ENGLISH VERSION.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '205'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/WARD PLANNING AND REGULATION SECRETARY.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '206'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/WARD WELFARE AND DEVELOPMENT SECRETARY.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '207'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/WARD ENERGY SECRETARY English Version.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '208'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/WARD HEALTH SECRETARY English VERSION.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '209'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/WARD REVENUE SECRETARY.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+						<a data-ng-show="loginrole == '210'" href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/CALENDARS/WARD MAHILA SAMRAKSHANA KARYADARSHI ENGLISH VERSION.pdf" target="_blank" class="dropdown-item">Activity Calendar</a>
+
+					</div>
+
+				</li>
+
+			</ul>
+			<ul class="navbar-nav navbar-nav-highlight ml-md-auto">
+					<!--<li class="nav-item dropdown mr-3">
+						<a  class="navbar-nav-link dropdown-toggle caret-0 " data-toggle="dropdown" aria-expanded="false">
+							<i class="mi-notifications mi-1x mr-1" style="font-size: 20px;"></i>
+							<span class="badge bg-indigo-700">12</span>
+						</a>
+
+						<div class="dropdown-menu dropdown-menu-right dropdown-content wmin-md-350">
+
+
+							<div class="dropdown-content-body dropdown-scrollable">
+
+								<ul class="media-list">
+
+									<li class="media">
+
+										<div class="media-body">
+											<div class="media-title">
+												<a href="#">
+													<span class="font-weight-bold text-dark">22 December 2019</span>
+
+												</a>
+											</div>
+
+											<span class="text-muted">Hon’ble CM Sri YS Jagan Mohan Reddy Participated in Andhra University Alumni Conference program,along with Hon’ble Ministers and other Officials.</span>
+										</div>
+									</li>
+									<li class="media">
+										<div class="media-body">
+											<div class="media-title">
+												<a href="#">
+													<span class="font-weight-bold text-dark">22 December 2019</span>
+												</a>
+											</div>
+
+											<span class="text-muted">Hon’ble CM Sri YS Jagan Mohan Reddy launched YSR Law Nestham scheme, at Camp office Tadepalli.</span>
+										</div>
+									</li>
+									<li class="media">
+										<div class="media-body">
+											<div class="media-title">
+												<a href="#">
+													<span class="font-weight-bold text-dark">22 December 2019</span>
+												</a>
+											</div>
+
+											<span class="text-muted">Hon’ble CM Sri YS Jagan Mohan Reddy, held a review meeting with Higher Education Regulatory and Monitoring Commission, at Secretariat.</span>
+										</div>
+									</li>
+									<li class="media">
+										<div class="media-body">
+											<div class="media-title">
+												<a href="#">
+													<span class="font-weight-bold text-dark">22 December 2019</span>
+												</a>
+											</div>
+
+											<span class="text-muted">ఇకపై ప్రతి ఏటా జనవరిలో ఉద్యోగాల భర్తీకి నోటిఫికేషన్ జారీ చేస్తామన్నారు. రాబోయే రోజుల్లో వివిధ శాఖల్లో ఉన్న ప్రభుత్వ ఉద్యోగాల భర్తీ ప్రక్రియ చేపడతామని</span>
+										</div>
+									</li>
+
+								</ul>
+
+							</div>
+
+							<div class="dropdown-content-footer d-block text-center bg-info text-center">
+								<a  class="text-white " data-toggle="modal" data-target="#notification">
+									Show More
+								</a>
+
+							</div>
+						</div>
+					</li>-->
+
+				<li class="nav-item dropdown">
+					<a style="cursor:pointer;" class="navbar-nav-link  navbar-language  mb-sm-0 mb-1" data-toggle="dropdown">
+						<span>English</span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="#!/MainDashboard" class="dropdown-item">English</a>
+						<a href="#!/TMainDashboard" class="dropdown-item"> తెలుగు</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a style="cursor:pointer;" class="navbar-nav-link navbar-logout" ng-click="GetLogout();"><i class="mi-power-settings-new mr-1 "></i>Logout</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+
+<!-- /page header -->
+<div class="page-content pt-0">
+	<div class="content-wrapper">
+		<div class="content">
+			<ui-view></ui-view>
+
+		</div>
+	</div>
+</div>
+<!-- /page header content --><!-- Footer -->
+<div class="navbar navbar-expand-lg navbar-light">
+	<div class="text-center d-lg-none w-100">
+		<span class="navbar-text">
+			© Copyright Govt of AP. All Rights Reserved
+		</span>
+	</div>
+
+</div>

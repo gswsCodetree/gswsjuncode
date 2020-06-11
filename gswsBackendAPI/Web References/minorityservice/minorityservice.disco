@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://apwaqf.aponline.gov.in/minorityservice.asmx?wsdl" docRef="https://apwaqf.aponline.gov.in/minorityservice.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://apwaqf.aponline.gov.in/minorityservice.asmx" xmlns:q1="http://tempuri.org/" binding="q1:MinorityServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://apwaqf.aponline.gov.in/minorityservice.asmx" xmlns:q2="http://tempuri.org/" binding="q2:MinorityServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

@@ -1,0 +1,493 @@
+﻿
+<link href="assets/css/printcss.css" rel="stylesheet" />
+<style>
+    @media print {
+        .cust-page-header {
+            display: none;
+        }
+
+        .left-print-data li {
+            margin: 10px;
+            font-size: 10px !important;
+        }
+
+        .paymentFailed {
+            display: none;
+        }
+    }
+
+    .left-print-data {
+        margin-left: 0 !important;
+    }
+</style>
+
+<style>
+
+    body {
+        background: #fff !important;
+    }
+
+    .table thead th {
+        padding: 8px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .table tbody td {
+        padding: 5px;
+    }
+
+    .btn {
+        padding: 2px 8px;
+    }
+
+    .table tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .table tbody tr:nth-of-type(even) {
+        background-color: rgba(120, 120, 120, 0.12);
+    }
+
+    .table tr td p {
+        margin-bottom: 0;
+    }
+
+    .form-control {
+        height: 30px !important;
+        padding: 0;
+    }
+
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
+        display: none !important;
+    }
+</style>
+
+
+<div class="row " style="padding-top:20px;">
+    <div class="col-md-12">
+        <h3 class="text-center">PENSION NEW APPLICATION FORM</h3>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="uid">Aadhaar Number <span class="text-danger">*</span></label>
+                    <input id="uid" type="text" class="form-control" placeholder="Please Enter Aadhaar Number" uid-input-model="uid" autocomplete="off" maxlength="12" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="category">Category <span class="text-danger">*</span></label>
+                    <select id="category" class="form-control" ng-model="category">
+                        <option value=""> -- SELECT CATEGORY -- </option>
+                        <option value="1"> O.A.P </option>
+                        <option value="2"> Weavers </option>
+                        <option value="3"> Disabled </option>
+                        <option value="4"> Widow </option>
+                        <option value="5"> Toddy Tappers </option>
+                        <option value="9"> Transgender </option>
+                        <option value="10"> Fishermen </option>
+                        <option value="11"> 	Single Women </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3" ng-show="category == '3'">
+                <div class="form-group">
+                    <label for="saradem">SADAREM ID <span class="text-danger">*</span></label>
+                    <input id="saradem" type="text" class="form-control" placeholder="Please Enter SADAREM ID " numbers-only ng-model="saradem" autocomplete="off" />
+                </div>
+            </div>
+            <div class="col-md-3 pt-4" align="left">
+                <button type="button" class="btn btn-sm btn-primary" ng-click="btnValidatepersonDetails();">VALIDATE</button>
+            </div>
+        </div>
+
+        <div class="row" ng-show="!loader && personDetails != ''">
+            <div class="col-md-12">
+                <h3 class="text-center">Family Member Details</h3>
+            </div>
+
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="bg-primary text-white">
+                            <tr align="center">
+                                <th>S.No</th>
+                                <th>CITIZEN NAME</th>
+                                <th>CITIZEN AADHAAR</th>
+                                <th>DATE OF BIRTH</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="obj in personDetails.familyDetails" align="center">
+                                <td>{{$index + 1}}</td>
+                                <td>{{obj.CITIZEN_NAME}}</td>
+                                <td>{{obj.CITIZEN_AADHAAR}}</td>
+                                <td>{{obj.DOB_DT}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-12 pt-3">
+
+                <div class="row">
+                    <div class="card col-md-12">
+                        <div class="card-body">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h4>DISTRICT : <span class="text-success">{{personDetails.details.DISTRICT_NAME}}</span></h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>MANDAL : <span class="text-success">{{personDetails.details.MANDAL_NAME}}</span></h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>SECRETARIAT : <span class="text-success">{{personDetails.details.SACHIVALAYAM_NAME}}</span></h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>VOLUNTEER ID : <span class="text-success">{{personDetails.details.CFMS}}</span></h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>VOLUNTEER NAME : <span class="text-success">{{personDetails.details.VOLUNTEER_NAME}}</span></h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>VOLUNTEER MOBILE NUMBER : <span class="text-success">{{personDetails.details.VOLUNTEER_MOBILE}}</span></h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>CLUSTER ID : <span class="text-success">{{personDetails.details.CLUSTER_ID}}</span></h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>CLUSTER NAME : <span class="text-success">{{personDetails.details.CLUSTER_NAME}}</span></h4>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4 pt-2">
+                                    <div class="form-group">
+                                        <label for="Panchayat">Panchayat / MC <span class="text-danger">*</span></label>
+                                        <select id="Panchayat" class="form-control" ng-model="gpId" ng-change="gpChange();">
+                                            <option value=""> -- SELECT PANCHAYAT -- </option>
+                                            <option value="{{obj.PanchayatCode}}" ng-repeat="obj in PanchayatList"> {{ obj.PanchayatName }} </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 pt-2">
+                                    <div class="form-group">
+                                        <label for="Habitation">Habitation / Ward <span class="text-danger">*</span></label>
+                                        <select id="Habitation" class="form-control" ng-model="habitationId">
+                                            <option value=""> -- SELECT HABITATION -- </option>
+                                            <option value="{{obj.HabitationCode}}" ng-repeat="obj in HabitationList"> {{ obj.HabitationName }} </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="card col-md-12">
+                        <div class="card-body">
+
+                            <div class="row">
+
+                                <div class="col-md-3 pt-4">
+                                    <h4>NAME : <span class="text-success">{{personDetails.details.CITIZEN_NAME}}</span></h4>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="relationType">Relation Type<span class="text-danger">*</span></label>
+                                        <select id="relationType" class="form-control " ng-model="relationType">
+                                            <option value="">-- SELECT RELATION --</option>
+                                            <option value="S/O">S/O</option>
+                                            <option value="D/O">D/O</option>
+                                            <option value="W/O">W/O</option>
+                                            <option value="H/O">H/O</option>
+                                            <option value="M/O">M/O</option>
+                                            <option value="F/O">F/O</option>
+                                            <option value="C/O">C/O</option>
+                                            <option value="SELF">SELF</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="relationName">Relation Name <span class="text-danger">*</span></label>
+                                        <input id="relationName" type="text" class="form-control" placeholder="Please Enter Relation Name" ng-model="relationName" autocomplete="off" maxlength="30" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 pt-4">
+                                    <h4> AGE : <span class="text-success">{{age}} Years</span></h4>
+
+                                    <!--<div class="form-group">
+                                        <label for="age">AGE <span class="text-danger">*</span></label>
+                                        <input id="age" type="text" class="form-control" placeholder="Please Enter AGE " ng-model="age" numbers-only autocomplete="off" maxlength="30" />
+                                    </div>-->
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                    <h4> DATE OF BIRTH : <span class="text-success">{{dob | date}}</span></h4>
+                                        <!-- <label for="dob">DATE OF BIRTH <span class="text-danger">*</span></label> -->
+                                        <!-- <input id="dob" type="date" class="form-control" ng-change="dobChange();" placeholder="Please SELECT DATE OF BIRTH " ng-model="dob" autocomplete="off" /> -->
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="caste">Caste <span class="text-danger">*</span></label>
+                                        <select id="caste" class="form-control " ng-model="caste" ng-change="casteChange();">
+                                            <option value="">-- SELECT CASTE --</option>
+                                            <option value="{{obj.CASTE_CAT_ID}}" ng-repeat="obj in casteList">{{obj.CASTE_CATEGORY}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="subcaste">Sub Caste <span class="text-danger">*</span></label>
+                                        <select id="subcaste" class="form-control " ng-model="subcaste">
+                                            <option value="">-- SELECT SUB CASTE --</option>
+                                            <option value="{{obj.SUB_CASTE_NAME}}" ng-repeat="obj in subCasteList">{{obj.SUB_CASTE_NAME}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="relation">Gender <span class="text-danger">*</span></label>
+                                        <select id="relation" class="form-control" ng-model="gender">
+                                            <option value="">-- SELECT GENDER --</option>
+                                            <option value="MALE">MALE</option>
+                                            <option value="FEMALE">FEMALE</option>
+                                            <option value="TRANSGENDER">TRANSGENDER</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="maritalStatus">Marital Status <span class="text-danger">*</span></label>
+                                        <select id="maritalStatus" class="form-control" ng-model="maritalStatus">
+                                            <option value=""> -- SELECT MARITAL STATUS -- </option>
+                                            <option value="Married"> Married </option>
+                                            <option value="Widowed"> Widowed </option>
+                                            <option value="Sperated"> Sperated </option>
+                                            <option value="Divorced"> Divorced </option>
+                                            <option value="Single"> Single </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="address1">Address 1 <span class="text-danger">*</span></label>
+                                        <textarea id="address1" class="form-control" style="height:50px !important;" placeholder="Please Enter Address 1 " ng-model="address1" autocomplete="off" maxlength="150" rows="4"></textarea>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="address2">Address 2</label>
+                                        <textarea id="address2" class="form-control" style="height:50px !important;" placeholder="Please Enter Address 2 " ng-model="address2" autocomplete="off" maxlength="150" rows="4"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="mobileNumber">Contact Number <span class="text-danger">*</span></label>
+                                        <input id="mobileNumber" type="text" class="form-control" placeholder="Please Enter Contact Number" numbers-only ng-model="mobileNumber" autocomplete="off" maxlength="10" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="card col-md-12">
+                        <div class="card-body">
+
+                            <div class="row">
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="income">Family Income For Month <span class="text-danger">*</span></label>
+                                        <input id="income" type="text" class="form-control" placeholder="Please Enter Family Income" numbers-dot-only ng-model="income" autocomplete="off" maxlength="7" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="dryland">Dry Land holding of Family (In acers) <span class="text-danger">*</span></label>
+                                        <input id="dryland" type="text" class="form-control" placeholder="Please Enter Dry Land" numbers-dot-only ng-model="dryland" autocomplete="off" maxlength="7" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="wetland">Wet Land  holding of Family (In acers)<span class="text-danger">*</span></label>
+                                        <input id="wetland" type="text" class="form-control" placeholder="Please Enter Wet Land" numbers-dot-only ng-model="wetland" autocomplete="off" maxlength="7" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Four wheeler in Family<span class="text-danger">*</span></label>
+                                    <div class="form-group pt-1">
+                                        <input type="radio" style="margin-right:20px;" ng-model="fourWheeler" value="YES">YES
+                                        <input type="radio" style="margin-right:20px;margin-left:10px;" ng-model="fourWheeler" value="NO">NO
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3" ng-show="fourWheeler == 'YES'">
+                                    <div class="form-group">
+                                        <label for="fourWheelerDetails">Four Wheeler Details<span class="text-danger">*</span></label>
+                                        <input id="fourWheelerDetails" type="text" class="form-control" placeholder="Please Enter Four Wheeler Details" ng-model="fourWheelerDetails" autocomplete="off" maxlength="30" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Govt. Employee in Family<span class="text-danger">*</span></label>
+                                    <div class="form-group pt-1">
+                                        <input type="radio" style="margin-right:20px;" ng-model="govtEmployee" value="YES">YES
+                                        <input type="radio" style="margin-right:20px;margin-left:10px;" ng-model="govtEmployee" value="NO">NO
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3" ng-show="govtEmployee == 'YES'">
+                                    <div class="form-group">
+                                        <label for="govtEmployeeDetails">Govt. Employee Details<span class="text-danger">*</span></label>
+                                        <input id="govtEmployeeDetails" type="text" class="form-control" placeholder="Please Enter Govt. Employee Details" ng-model="govtEmployeeDetails" autocomplete="off" maxlength="30" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="electricityConsumption">Electricity consumption(In Units per month) <span class="text-danger">*</span></label>
+                                        <input id="electricityConsumption" type="text" class="form-control" placeholder="Please Enter electricity Consumption" numbers-only ng-model="electricityConsumption" autocomplete="off" maxlength="4" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="pilaniArea">Property in Municipal / Plinth area (In Sq Ft) <span class="text-danger">*</span></label>
+                                        <input id="pilaniArea" type="text" class="form-control" placeholder="Please Enter Municipality / Plinth area" numbers-dot-only ng-model="pilaniArea" autocomplete="off" maxlength="7" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Income Tax payee in family<span class="text-danger">*</span></label>
+                                    <div class="form-group pt-1">
+                                        <input type="radio" style="margin-right:20px;" ng-model="incomeTaxPayee" value="YES">YES
+                                        <input type="radio" style="margin-right:20px;margin-left:10px;" ng-model="incomeTaxPayee" value="NO">NO
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3" ng-show="incomeTaxPayee == 'YES'">
+                                    <div class="form-group">
+                                        <label for="incomeTaxPayeeDetails">Income Tax payee Details<span class="text-danger">*</span></label>
+                                        <input id="incomeTaxPayeeDetails" type="text" class="form-control" placeholder="Please Enter income TaxPayee Details" ng-model="incomeTaxPayeeDetails" autocomplete="off" maxlength="30" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Any Other Pension in family<span class="text-danger">*</span></label>
+                                    <div class="form-group pt-1">
+                                        <input type="radio" style="margin-right:20px;" ng-model="anyOtherPension" value="YES">YES
+                                        <input type="radio" style="margin-right:20px;margin-left:10px;" ng-model="anyOtherPension" value="NO">NO
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3" ng-show="anyOtherPension == 'YES'">
+                                    <div class="form-group">
+                                        <label for="anyOtherPension"> Any Other Pension Type  <span class="text-danger">*</span></label>
+                                        <select id="anyOtherPension" class="form-control" ng-model="anyOtherPensionType">
+                                            <option value="">-- SELECT PENSION TYPE --</option>
+                                            <option value="EPF">EPF</option>
+                                            <option value="Military">Military</option>
+                                            <option value="OTHERS">OTHERS</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3" ng-show="anyOtherPensionType == 'OTHERS'">
+                                    <div class="form-group">
+                                        <label for="anyOtherPensionDetails">Any Other Pension Details<span class="text-danger">*</span></label>
+                                        <input id="anyOtherPensionDetails" type="text" class="form-control" placeholder="Please Enter Any Other Pension Details" ng-model="anyOtherPensionDetails" autocomplete="off" maxlength="30" />
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="ageEntered">Age entered is as per  <span class="text-danger">*</span></label>
+                                        <select id="ageEntered" class="form-control" ng-model="ageEntered">
+                                            <option value="">-- SELECT CERTIFICATE --</option>
+                                            <option value="AADHAAR">AADHAAR</option>
+                                            <!-- <option value="Study/Personal certificates">Study/Personal certificates</option> -->
+                                            <!-- <option value="children certificates">children certificates</option> -->
+                                            <!-- <option value="Marriage certificates">Marriage certificates</option> -->
+                                            <!-- <option value="Marriage year">Marriage year</option> -->
+                                            <!-- <option value="Local enquiry">Local enquiry</option> -->
+                                            <!-- <option value="medical certifcate">medical certifcate</option> -->
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="ageCertificate">AGE Proof Certificate Upload <span class="text-danger">*</span></label>
+                                        <input id="ageCertificate" type="file" class="form-control" placeholder="Please Select Certitificate to Upload" ng-model="ageCertificate" autocomplete="off" name="ageCertificate" base-sixty-four-input onload="onLoad_ageCertificate" accept="image/x-png,image/jpeg" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3  pt-4" ng-show="category != '1' && category != '3'">
+                                    <h4> CERTIFICATE TYPE : <span class="text-success">{{certificateType}}</span></h4>
+                                </div>
+
+                                <div class="col-md-3" ng-show="category != '1' && category != '3'">
+                                    <div class="form-group">
+                                        <label for="ProofCertificate">Scheme Proof Certificate Upload <span class="text-danger">*</span></label>
+                                        <input id="ProofCertificate" type="file" class="form-control" placeholder="Please Select Certitificate to Upload" ng-model="ProofCertificate" autocomplete="off" name="ProofCertificate" base-sixty-four-input onload="onLoad_proofCertificate" accept="image/x-png,image/jpeg" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12" align="center">
+                                    <p class="text-danger text-center"><i><b>Note:- File Size Must be less than 150KB.</b></i></p>
+                                </div>
+                                <div class="col-md-12" align="center">
+                                    <button type="button" class="btn btn-sm btn-success" ng-click="btnSubmitDetails();">SUBMIT</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="row" align="center" ng-show="loader" style="padding:20px;">
+            <div class="col-md-12">
+                <h1>Loading...</h1>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

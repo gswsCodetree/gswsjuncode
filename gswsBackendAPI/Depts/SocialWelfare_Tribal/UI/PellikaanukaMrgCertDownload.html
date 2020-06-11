@@ -1,0 +1,35 @@
+﻿
+<div class="container">
+	<section class="scheme">
+		<div class="col-md-12" align="center">
+			<h3><b style="border-bottom:5px solid black">YSR PELLI KAANUKA MARRIAGE CERTIFICATE CHECK/DOWNLOAD</b></h3>
+		</div>
+		<div class="col-md-12" style="margin-top:50px">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-4">
+					<b>Enter Applicant Aadhaar Number</b>
+					<input type="text" maxlength="12" chars="0-9\\" ng-model="txtcertid" placeholder="Enter Applicant Aadhaar Number" class="form-control" />
+				</div>
+				<div class="col-md-3" style="margin-top:22px">
+					<button class="btn btn-primary" id="btnGetReport" ng-click="getdetails()">Get Details</button>
+					<button class="btn btn-danger" id="btnreset" ng-click="Refresh()">Reset</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12" style="margin-top:30px" ng-show="detailsshow">
+			<div class="row">
+				<div class="col-md-3">
+				</div>
+				<div class="col-md-6">
+					<b>Application Status::</b> {{Status}}
+					<div style="margin-top:10px">
+						<!--<a href="{{Attachment}}" download target="_blank">Download</a>-->
+						<object ng-attr-data="{{Attachment}}" width="500" height="600" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+

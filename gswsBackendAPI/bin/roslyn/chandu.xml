@@ -1,0 +1,233 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <Farmer>
+    <StateCode>28</StateCode>
+    <DistrictCode>510</DistrictCode>
+    <Sub_District_Code>5011</Sub_District_Code>
+    <BlockCode>5145</BlockCode>
+    <VillageCode>589212</VillageCode>
+    <Farmer_Name>Sakhamuri Vijayalakshmi</Farmer_Name>
+    <Gender>F</Gender>
+    <Farmer_Category>5</Farmer_Category>
+    <Identity_Proof_Type>1</Identity_Proof_Type>
+    <Identity_Proof_No>200004216151</Identity_Proof_No>
+    <IFSC_Code>NA</IFSC_Code>
+    <Bank_Account_Number>NA</Bank_Account_Number>
+    <MobileNo>9177071651</MobileNo>
+    <DOB>1947-01-01</DOB>
+    <Father_Mother_Husband_Name>NA</Father_Mother_Husband_Name>
+    <HomeAddress>1_70 , Panchayat office road </HomeAddress>
+    <Ownership_Single_Joint>S</Ownership_Single_Joint>
+    <Sr_No>1</Sr_No>
+    <Survey_khata_No>92</Survey_khata_No>
+    <Khasra_Drag_No>NA</Khasra_Drag_No>
+    <Area>0.62</Area>
+  </Farmer>
+  <Farmer>
+    <StateCode>28</StateCode>
+    <DistrictCode>510</DistrictCode>
+    <Sub_District_Code>5000</Sub_District_Code>
+    <BlockCode>5147</BlockCode>
+    <VillageCode>589007</VillageCode>
+    <Farmer_Name>Undrukunta Bhagyamma</Farmer_Name>
+    <Gender>F</Gender>
+    <Farmer_Category>3</Farmer_Category>
+    <Identity_Proof_Type>1</Identity_Proof_Type>
+    <Identity_Proof_No>200006828123</Identity_Proof_No>
+    <IFSC_Code>NA</IFSC_Code>
+    <Bank_Account_Number>NA</Bank_Account_Number>
+    <MobileNo>7093080232</MobileNo>
+    <DOB>1949-01-01</DOB>
+    <Father_Mother_Husband_Name>NA</Father_Mother_Husband_Name>
+    <HomeAddress>5_6 , b.c.kalne</HomeAddress>
+    <Ownership_Single_Joint>S</Ownership_Single_Joint>
+    <Sr_No>1</Sr_No>
+    <Survey_khata_No>1280</Survey_khata_No>
+    <Khasra_Drag_No>NA</Khasra_Drag_No>
+    <Area>0.24</Area>
+  </Farmer>
+  <Farmer>
+    <StateCode>28</StateCode>
+    <DistrictCode>510</DistrictCode>
+    <Sub_District_Code>5028</Sub_District_Code>
+    <BlockCode>5133</BlockCode>
+    <VillageCode>589578</VillageCode>
+    <Farmer_Name>Kodali Baburao</Farmer_Name>
+    <Gender>M</Gender>
+    <Farmer_Category>1</Farmer_Category>
+    <Identity_Proof_Type>1</Identity_Proof_Type>
+    <Identity_Proof_No>200008809702</Identity_Proof_No>
+    <IFSC_Code>NA</IFSC_Code>
+    <Bank_Account_Number>NA</Bank_Account_Number>
+    <MobileNo>0</MobileNo>
+    <DOB>1977-06-30</DOB>
+    <Father_Mother_Husband_Name>NA</Father_Mother_Husband_Name>
+    <HomeAddress>2-121 , jpgudem</HomeAddress>
+    <Ownership_Single_Joint>S</Ownership_Single_Joint>
+    <Sr_No>1</Sr_No>
+    <Survey_khata_No>648</Survey_khata_No>
+    <Khasra_Drag_No>NA</Khasra_Drag_No>
+    <Area>0.05</Area>
+  </Farmer>
+  <Farmer>
+    <StateCode>28</StateCode>
+    <DistrictCode>510</DistrictCode>
+    <Sub_District_Code>4991</Sub_District_Code>
+    <BlockCode>5115</BlockCode>
+    <VillageCode>588842</VillageCode>
+    <Farmer_Name>Lingam Chinnagangaraju</Farmer_Name>
+    <Gender>M</Gender>
+    <Farmer_Category>3</Farmer_Category>
+    <Identity_Proof_Type>1</Identity_Proof_Type>
+    <Identity_Proof_No>200011690400</Identity_Proof_No>
+    <IFSC_Code>NA</IFSC_Code>
+    <Bank_Account_Number>NA</Bank_Account_Number>
+    <MobileNo>9550109940</MobileNo>
+    <DOB>1956-01-01</DOB>
+    <Father_Mother_Husband_Name>NA</Father_Mother_Husband_Name>
+    <HomeAddress>2_127 , bcaraya</HomeAddress>
+    <Ownership_Single_Joint>S</Ownership_Single_Joint>
+    <Sr_No>1</Sr_No>
+    <Survey_khata_No>1194</Survey_khata_No>
+    <Khasra_Drag_No>NA</Khasra_Drag_No>
+    <Area>0.39</Area>
+  </Farmer>
+  <Farmer>
+    <StateCode>28</StateCode>
+    <DistrictCode>510</DistrictCode>
+    <Sub_District_Code>5017</Sub_District_Code>
+    <BlockCode>5117</BlockCode>
+    <VillageCode>589359</VillageCode>
+    <Farmer_Name>Bandila Ananda Rao</Farmer_Name>
+    <Gender>M</Gender>
+    <Farmer_Category>1</Farmer_Category>
+    <Identity_Proof_Type>1</Identity_Proof_Type>
+    <Identity_Proof_No>200025456836</Identity_Proof_No>
+    <IFSC_Code>NA</IFSC_Code>
+    <Bank_Account_Number>NA</Bank_Account_Number>
+    <MobileNo>0</MobileNo>
+    <DOB>1956-01-01</DOB>
+    <Father_Mother_Husband_Name>NA</Father_Mother_Husband_Name>
+    <HomeAddress>3-207 , dalitawada </HomeAddress>
+    <Ownership_Single_Joint>S</Ownership_Single_Joint>
+    <Sr_No>1</Sr_No>
+    <Survey_khata_No>1224</Survey_khata_No>
+    <Khasra_Drag_No>NA</Khasra_Drag_No>
+    <Area>0.40</Area>
+  </Farmer>
+  <Farmer>
+    <StateCode>28</StateCode>
+    <DistrictCode>510</DistrictCode>
+    <Sub_District_Code>5008</Sub_District_Code>
+    <BlockCode>5105</BlockCode>
+    <VillageCode>589178</VillageCode>
+    <Farmer_Name>Peramasani Srinivasarao</Farmer_Name>
+    <Gender>M</Gender>
+    <Farmer_Category>3</Farmer_Category>
+    <Identity_Proof_Type>1</Identity_Proof_Type>
+    <Identity_Proof_No>200027877711</Identity_Proof_No>
+    <IFSC_Code>NA</IFSC_Code>
+    <Bank_Account_Number>NA</Bank_Account_Number>
+    <MobileNo>0</MobileNo>
+    <DOB>1971-01-01</DOB>
+    <Father_Mother_Husband_Name>NA</Father_Mother_Husband_Name>
+    <HomeAddress>3-103 , near mpps</HomeAddress>
+    <Ownership_Single_Joint>S</Ownership_Single_Joint>
+    <Sr_No>1</Sr_No>
+    <Survey_khata_No>2223</Survey_khata_No>
+    <Khasra_Drag_No>NA</Khasra_Drag_No>
+    <Area>0.48</Area>
+  </Farmer>
+  <Farmer>
+    <StateCode>28</StateCode>
+    <DistrictCode>510</DistrictCode>
+    <Sub_District_Code>5005</Sub_District_Code>
+    <BlockCode>5100</BlockCode>
+    <VillageCode>589115</VillageCode>
+    <Farmer_Name>Yamarthi Rambabu</Farmer_Name>
+    <Gender>M</Gender>
+    <Farmer_Category>3</Farmer_Category>
+    <Identity_Proof_Type>1</Identity_Proof_Type>
+    <Identity_Proof_No>200028127644</Identity_Proof_No>
+    <IFSC_Code>NA</IFSC_Code>
+    <Bank_Account_Number>NA</Bank_Account_Number>
+    <MobileNo>9490354359</MobileNo>
+    <DOB>1983-01-01</DOB>
+    <Father_Mother_Husband_Name>NA</Father_Mother_Husband_Name>
+    <HomeAddress>2-84 , B C AREA</HomeAddress>
+    <Ownership_Single_Joint>S</Ownership_Single_Joint>
+    <Sr_No>1</Sr_No>
+    <Survey_khata_No>2548</Survey_khata_No>
+    <Khasra_Drag_No>NA</Khasra_Drag_No>
+    <Area>0.77</Area>
+  </Farmer>
+  <Farmer>
+    <StateCode>28</StateCode>
+    <DistrictCode>510</DistrictCode>
+    <Sub_District_Code>5005</Sub_District_Code>
+    <BlockCode>5100</BlockCode>
+    <VillageCode>589114</VillageCode>
+    <Farmer_Name>Yamarthi Rambabu</Farmer_Name>
+    <Gender>M</Gender>
+    <Farmer_Category>3</Farmer_Category>
+    <Identity_Proof_Type>1</Identity_Proof_Type>
+    <Identity_Proof_No>200028127644</Identity_Proof_No>
+    <IFSC_Code>NA</IFSC_Code>
+    <Bank_Account_Number>NA</Bank_Account_Number>
+    <MobileNo>9490354359</MobileNo>
+    <DOB>1983-01-01</DOB>
+    <Father_Mother_Husband_Name>NA</Father_Mother_Husband_Name>
+    <HomeAddress>2-84 , B C AREA</HomeAddress>
+    <Ownership_Single_Joint>S</Ownership_Single_Joint>
+    <Sr_No>2</Sr_No>
+    <Survey_khata_No>240</Survey_khata_No>
+    <Khasra_Drag_No>NA</Khasra_Drag_No>
+    <Area>0.17</Area>
+  </Farmer>
+  <Farmer>
+    <StateCode>28</StateCode>
+    <DistrictCode>510</DistrictCode>
+    <Sub_District_Code>4991</Sub_District_Code>
+    <BlockCode>5115</BlockCode>
+    <VillageCode>588842</VillageCode>
+    <Farmer_Name>Korrakuti Padmavathi</Farmer_Name>
+    <Gender>F</Gender>
+    <Farmer_Category>3</Farmer_Category>
+    <Identity_Proof_Type>1</Identity_Proof_Type>
+    <Identity_Proof_No>200030678948</Identity_Proof_No>
+    <IFSC_Code>NA</IFSC_Code>
+    <Bank_Account_Number>NA</Bank_Account_Number>
+    <MobileNo>8978928701</MobileNo>
+    <DOB>1971-01-01</DOB>
+    <Father_Mother_Husband_Name>NA</Father_Mother_Husband_Name>
+    <HomeAddress>6--207 , seethrampurm</HomeAddress>
+    <Ownership_Single_Joint>S</Ownership_Single_Joint>
+    <Sr_No>1</Sr_No>
+    <Survey_khata_No>326</Survey_khata_No>
+    <Khasra_Drag_No>NA</Khasra_Drag_No>
+    <Area>0.04</Area>
+  </Farmer>
+  <Farmer>
+    <StateCode>28</StateCode>
+    <DistrictCode>510</DistrictCode>
+    <Sub_District_Code>4991</Sub_District_Code>
+    <BlockCode>5115</BlockCode>
+    <VillageCode>588848</VillageCode>
+    <Farmer_Name>Korrakuti Padmavathi</Farmer_Name>
+    <Gender>F</Gender>
+    <Farmer_Category>3</Farmer_Category>
+    <Identity_Proof_Type>1</Identity_Proof_Type>
+    <Identity_Proof_No>200030678948</Identity_Proof_No>
+    <IFSC_Code>NA</IFSC_Code>
+    <Bank_Account_Number>NA</Bank_Account_Number>
+    <MobileNo>8978928701</MobileNo>
+    <DOB>1971-01-01</DOB>
+    <Father_Mother_Husband_Name>NA</Father_Mother_Husband_Name>
+    <HomeAddress>6--207 , seethrampurm</HomeAddress>
+    <Ownership_Single_Joint>S</Ownership_Single_Joint>
+    <Sr_No>2</Sr_No>
+    <Survey_khata_No>160</Survey_khata_No>
+    <Khasra_Drag_No>NA</Khasra_Drag_No>
+    <Area>0.81</Area>
+  </Farmer>
+</DocumentElement>

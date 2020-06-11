@@ -1,0 +1,487 @@
+﻿
+@{
+	ViewBag.Title = "IncomeCertificate";
+	Layout = "~/Views/Shared/_RevenueMasterLayout.cshtml";
+}
+
+<style>
+	.card {
+		box-shadow: 0 3px 15px 0 #E0E0E0;
+		border-radius: 11px;
+	}
+
+	.card-header .card-title {
+		font-weight: 800;
+		font-family: "Roboto";
+		font-size: 16px;
+	}
+
+	.card-body fieldset {
+	}
+
+	.card-body .bg-primary-800 {
+		background-color: #174d8b;
+	}
+
+	.card-body legend {
+		margin-bottom: 0.50rem;
+		font-family: "Roboto", Arial, sans-serif !important;
+		font-weight: 600;
+		font-size: 13px;
+		padding: 5px 10px !important;
+	}
+
+	.card-body .form-group {
+		margin: 0.5rem 0.5rem;
+	}
+
+		.card-body .form-group .required {
+			color: red;
+		}
+
+		.card-body .form-group .form-control, .card-body .form-group button {
+			padding: 0.2rem 1rem !important;
+			height: 28.4px;
+		}
+
+		.card-body .form-group select.form-control:not([size]):not([multiple]) {
+			height: 28.4px;
+		}
+
+		.card-body .form-group .btn-primary {
+			background-color: #174d8b;
+		}
+</style>
+@Html.AntiForgeryToken()
+
+<div class="page-content pt-0 background-container" ng-app="GSWS"  ng-controller="IncomeController">
+	<!-- Main content -->
+	<div class="content-wrapper">
+		<!-- Content area -->
+		<div class="content ">
+			<div class="container-fluid">
+
+				<div class="card mt-3">
+					<div class="card-header bg-indigo py-1">
+						<h5 class="card-title text-center text-uppercase">Income Certificate Request</h5>
+					</div>
+
+					<div class="card-body">
+						<div class="inner-form">
+							<fieldset class="mb-3">
+								<legend class="font-size-sm bg-primary-800 p-1">Applicant Details</legend>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Applying For <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+												   value="option1">
+											<label class="form-check-label" for="inlineRadio1" ng-model="TypeofBenficiery" value="1" >Applicant Income</label>
+										</div>
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+												   value="option2">
+											<label class="form-check-label" for="inlineRadio2" ng-model="TypeofBenficiery" value="2">Parent Income</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Application Number <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control" ng-model="ApplicantNumber" value="ICC0200106000001" readonly="readonly">
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Aadhar Card Number <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3 d-flex justify-content-between">
+										<input type="text" maxlength="12" class="form-control mr-2 w-75" >
+										<button class="btn btn-sm btn-primary" ng-click="GetDetails();" >Get</button>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Applicant Name <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control" ng-model="Applicantname" placeholder="Enter Name" >
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Relation <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<select ng-model="pre" class="form-control mr-2">
+											<option value="">Select</option>
+											<option value="S/O">S/O</option>
+											<option value="D/O">D/O</option>
+											<option value="W/O">W/O</option>
+											<option value="H/O">H/O</option>
+											<option value="M/O">M/O</option>
+											<option value="F/O">F/O</option>
+											<option value="H/O">H/O</option>
+											<option value="Self">Self</option>
+										</select>
+										<input class="form-control ml-2"  ng-model="RelationName" placeholder="Enter RelationShip Name">
+											
+										
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Gender <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<select class="form-control"ng-model="Gender" >
+											<option value="Male">Male</option>
+											<option value="Female">Female</option>
+											<option value="Transgender">Transgender</option>
+										</select>
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Date Of Birth <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<input type="date" class="form-control" ng-model="dob" >
+									</div>
+								</div>
+							</fieldset>
+
+							<fieldset class="mb-3">
+								<legend class="font-size-sm bg-primary-800 p-1">Perminant Address</legend>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Door No <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control" ng-model="Doorno">
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Locality/Land Mark <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<input type="text" class="form-control" ng-model="Landmark">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">District <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<select class="form-control" ng-model="Sdistcode" ng-change="GetMandal();">
+											<option value="">Select</option>
+											<option ng-repeat="dist in distlist" value="{{dist.LGD_DIST_CODE}}">{{dist.DISTRICT_NAME}}</option>
+										</select>
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Mandal <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<select class="form-control" ng-model="Smcode" ng-change="GetSecretariat();">
+											<option value="">Select</option>
+											<option ng-repeat="man in mandallist" value="{{man.LGD_MANDAL_CODE}}">{{man.MANDAL_NAME}}</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Village <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<select class="form-control" ng-model="SeccCode">
+											<option ng-repeat="secc in Secclist" value="{{secc.SECRETARIAT_CODE}}">{{secc.SECRETARIAT_NAME}}</option>
+										</select>
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Pin Code </label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<input type="text" class="form-control" maxlength="6" ng-model="pincode">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="1" ng-change="CheckedSameAddress();">
+											<label class="form-check-label" for="inlineCheckbox2">Postal Address is same as Perminant Address</label>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+
+							<fieldset class="mb-3">
+								<legend class="font-size-sm bg-primary-800 p-1">Postal Details</legend>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Door No <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Land Mark <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">State <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<select class="form-control">
+											<option>Andhra Pradesh</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">District <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Mandal <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<select class="form-control">
+											<option>Dharmavaram</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Village <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<select class="form-control">
+											<option>Regatipalli</option>
+										</select>
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Pin Code </label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Mobile <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Phone </label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Email <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Remarks </label>
+									</div>
+									<div class="col-md-3">
+										<textarea class="form-control" rows="1"></textarea>
+										<div class="form-control-plaintext text-danger">Characters Remining : 20</div>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Ration Card No <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Delivery Type <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<select class="form-control">
+											<option>Manual</option>
+										</select>
+									</div>
+								</div>
+							</fieldset>
+
+							<fieldset class="mb-3">
+								<legend class="font-size-sm bg-primary-800 p-1">Income Certificate Details</legend>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Income on Lands <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Income on Business <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Income on Buildings <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Income on Labour </label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Salary of both Wife and Husband(Employeed)<span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Income on Other Sources </label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Total Income<span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+							</fieldset>
+
+							<fieldset class="mb-3">
+								<legend class="font-size-sm bg-primary-800 p-1">Document List (NOTE:All Upload Documents are in PDF Format only)</legend>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+											<label class="form-check-label" for="inlineCheckbox1">Application Form <span class="required">*</span></label>
+										</div>
+									</div>
+									<div class="col-md-3">
+
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">File Browse <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<input type="file" class="form-control-file" id="exampleFormControlFile1">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+											<label class="form-check-label" for="inlineCheckbox1">Ration Card/EPIC Card/Aadhar Card <span class="required">*</span></label>
+										</div>
+									</div>
+									<div class="col-md-3">
+
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">File Browse <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<input type="file" class="form-control-file" id="exampleFormControlFile1">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-6">
+										<div class="form-check form-check-inline">
+											<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+											<label class="form-check-label" for="inlineCheckbox1">Copy of IT Return/Pay Slips (Any other documents) <span class="required">*</span></label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">File Browse <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<input type="file" class="form-control-file" id="exampleFormControlFile1">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-12 text-center">
+										<button class="btn btn-primary">Show Payment</button>
+									</div>
+								</div>
+							</fieldset>
+
+							<fieldset class="mb-3">
+								<legend class="font-size-sm bg-primary-800 p-1">Documents Attached</legend>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<a href="#!">Attachment-file.pdf</a>
+									</div>
+									<div class="col-md-3">
+
+									</div>
+								</div>
+							</fieldset>
+
+							<fieldset class="mb-3">
+								<legend class="font-size-sm bg-primary-800 p-1">Receive Payment </legend>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Challan Amount <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">User Charges <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="col-form-label">Courier Charges <span class="required">*</span></label>
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control">
+									</div>
+									<div class="col-md-3">
+										<label class="col-form-label">Total Amount </label>
+									</div>
+									<div class="col-md-3 d-flex">
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-12 text-center">
+										<button class="btn btn-primary">Confirm Payment</button>
+									</div>
+								</div>
+							</fieldset>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

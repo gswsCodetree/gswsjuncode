@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/vnd.microsoft.icon">
+    <title>Grama/Ward Sachivalayamu </title>
+    <!-- Global stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/icons/material/icons.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/bootstrap_limitless.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/layout.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+
+    <link href="assets/flaticon/flaticon.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/hover.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
+    <style>
+        body {
+            background: url(assets/images/climpek.png)repeat;
+
+        }
+
+        .cust-page-header {
+            background: #072251 url(../images/dark-circles.png)repeat;
+        }
+
+        .count-card-1 {
+            background: #FCE4EC;
+            color: #E91E63 !important;
+            border-radius: 11px;
+            border-bottom: 4px solid #E91E63;
+        }
+
+        .count-card-1:hover {
+            background: #E91E63;
+            color: white !important;
+        }
+
+        .count-card-2 {
+            background: #F3E5F5;
+            color: #9C27B0 !important;
+            border-radius: 11px;
+            border-bottom: 4px solid #9C27B0;
+        }
+
+        .count-card-2:hover {
+            background: #9C27B0;
+            color: white !important;
+
+        }
+
+        .count-card-3 {
+            background: #E0F7FA;
+            color: #00BCD4 !important;
+            border-radius: 11px;
+            border-bottom: 4px solid #00BCD4;
+        }
+
+        .count-card-3:hover {
+            background: #00BCD4;
+            color: white !important;
+        }
+
+        .count-card-4 {
+            background: #E0F2F1;
+            color: #009688 !important;
+            border-radius: 11px;
+            border-bottom: 4px solid #009688;
+        }
+
+        .count-card-4:hover {
+            background: #009688;
+            color: white !important;
+        }
+
+        .count-card-5 {
+            background: #E3F2FD;
+            color: #3F51B5 !important;
+            border-radius: 11px;
+            border-bottom: 4px solid #3F51B5;
+        }
+
+        .count-card-5:hover {
+            background: #3F51B5;
+            color: white !important;
+        }
+
+        .count-card-6 {
+            background: #ECEFF1;
+            color: #263238 !important;
+            border-radius: 11px;
+            border-bottom: 4px solid #263238;
+        }
+
+        .count-card-6:hover {
+            background: #263238;
+            color: white !important;
+        }
+
+        .perform-count {
+            text-align: center;
+        }
+
+        .perform-count i {
+            font-size: 36px;
+            margin-bottom: 10px;
+
+        }
+
+        .perform-count h3 {
+            font-size: 16px;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .perform-count h2 {
+            font-size: 26px;
+            line-height: 1;
+            margin-bottom: 0px;
+
+        }
+
+        h2.perform-title {
+            font-size: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #1b3283;
+        }
+
+        /*
+        h2.perform-title:after {
+            content: '';
+            height: 2px;
+            width: 16%;
+            background: #212121;
+            position: absolute;
+            top: 39px;
+            right: 20%;
+
+        }
+
+        h2.perform-title:before {
+            content: '';
+            height: 2px;
+            width: 16%;
+            background: #212121;
+            position: absolute;
+            top: 39px;
+            left: 20%;
+
+        }
+*/
+
+        .performance-dashboard .card {
+            border-radius: 10px;
+            box-shadow: 0px 0px 7px #D7CCC8;
+        }
+
+        .type-card .card.district-bx:nth-child(2) {
+            border-radius: 18px;
+            border: 6px solid #FAFAFA;
+            background: linear-gradient(3deg, #28235c, #909b81);
+            color: white;
+        }
+
+        .card.district-bx {
+            border-radius: 11px;
+            border: 5px solid #FAFAFA;
+
+            color: white;
+        }
+
+        .district-bx .card-body .type-title {
+            font-size: 26px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 49px;
+            text-align: center;
+        }
+
+        .type-counting {
+            position: relative;
+            text-align: center;
+            z-index: 99
+        }
+
+
+
+        .type-counting h3 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 0px;
+        }
+
+        .type-counting .type-counting-number {
+            font-size: 30px;
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 0px;
+        }
+
+        .type-counting .type-counting-title {}
+
+        .type-header img {
+            position: absolute;
+            left: 30%;
+            width: 50%;
+            top: 0px;
+            opacity: 0.15;
+            height: 180px
+        }
+
+        .district-color-1 {
+            background: linear-gradient(3deg, #29235c, #009688);
+        }
+
+        .district-color-2 {
+            background: linear-gradient(3deg, #29235c, #E91E63);
+        }
+
+        .district-color-3 {
+            background: linear-gradient(3deg, #29235c, #3f51b5);
+        }
+
+        .district-color-4 {
+            background: linear-gradient(3deg, #29235c, #8BC34A);
+        }
+
+        .district-color-5 {
+            background: linear-gradient(3deg, #29235c, #9c27b0);
+        }
+
+        .district-color-6 {
+            background: linear-gradient(3deg, #29235c, #ff5722);
+        }
+
+        .district-color-7 {
+            background: linear-gradient(3deg, #29235c, #673ab7);
+        }
+
+        .district-color-8 {
+            background: linear-gradient(3deg, #29235c, #00BCD4);
+        }
+
+        .district-color-9 {
+            background: linear-gradient(3deg, #29235c, #009688);
+        }
+
+        .district-color-10 {
+            background: linear-gradient(3deg, #29235c, #795548);
+        }
+
+        .district-color-11 {
+            background: linear-gradient(3deg, #29235c, #607d8b);
+        }
+
+        .district-color-12 {
+            background: linear-gradient(3deg, #29235c, #9e9e9e);
+        }
+
+        .district-color-13 {
+            background: linear-gradient(3deg, #29235c, #4caf50);
+        }
+
+
+
+
+
+
+        select.form-control:not([size]):not([multiple]) {
+            height: 2.37503rem;
+            font-size: 14px;
+
+            background: #FAFAFA;
+            border: 1px solid #9E9E9E;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="loader"></div>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="icon-arrow-up16"></i> </button>
+    <!-- Page header -->
+
+    <div class="page-header page-header-dark cust-page-header ng-scope" style="background: linear-gradient(45deg, #0D47A1, #4CAF50);">
+
+        <div class="page-header-content header-elements-md-inline py-2">
+            <div class="page-title py-1 d-flex">
+                <img src="assets/images/Grama%20-%20Ward%20Sachivalayam%20Logo.png" class="logo" width="70px" height="70px">
+                <h2>Grama-Ward Sachivalayam </h2>
+            </div>
+            <div class="header-elements d-md-block d-none">
+                <div class="profile-pic text-right">
+                    <img src="assets/images/jagan-logo.png" style="width: 65%">
+                    <img src="assets/images/ap-logo.png" width="70px">
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar navbar-expand-md navbar-dark  mb-0 bg-navbar-dark-custom  border-0 shadow-0">
+
+            <div class="d-md-none w-100">
+                <button type="button" class="navbar-toggler d-flex align-items-center w-100 collapsed" data-toggle="collapse" data-target="#navbar-navigation" aria-expanded="false">
+                    <i class="icon-menu7 mr-2"></i>
+                    Menu
+                </button>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar-navigation">
+                <ul class="navbar-nav navbar-nav-highlight">
+                    <li class="nav-item">
+                        <a href="#!/ReportIssue" target="_blank" class="navbar-nav-link">
+                            <i class="icon-file-text2 mr-1"></i> Report an Issue
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#!/ApplicationStatus" class="navbar-nav-link" target="_blank">
+                            <i class="mi-airplay mr-1"></i>Check Application Status
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a style="cursor:pointer;" class="navbar-nav-link" data-toggle="dropdown">
+                            <i class="icon-stack mr-1"></i> User Manuals <i class="mi-arrow-drop-down ml-1"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="Downloads/Grama-WardSachivalayamTraining.pptx" class="dropdown-item"><i class="icon-people mr-2"></i>GSWS Portal Training</a>
+                            <a href="Downloads/ACPL_FM220_RD_Document_ANDROID.pdf" target="_blank" class="dropdown-item"><i class="icon-android mr-2"></i> Startek Installation For Anroid Device </a>
+                            <a href="Downloads/WINDOWS_RD_SERVICE_INSTALLATION_GUIDE.pdf" target="_blank" class="dropdown-item"><i class="icon-windows8 mr-2"></i>Startek Installation For Windows </a>
+                            <a href="Downloads/M200maint.pdf" target="_blank" class="dropdown-item"><i class="icon-shredder mr-2"></i>Printer Maintaining Your Product and Software</a>
+                            <a href="Downloads/LMUsermanual.pdf" target="_blank" class="dropdown-item"><i class="icon-printer2 mr-2"></i>Multi-Function Laminator</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#!/ReportIssue" target="_blank" data-toggle="modal" data-target="#profile" class="navbar-nav-link">
+                            <i class="icon-vcard mr-1"></i> Profile </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-nav-highlight ml-md-auto">
+
+                    <li class="nav-item dropdown mr-3">
+                        <a href="#" class="navbar-nav-link dropdown-toggle caret-0 " data-toggle="dropdown" aria-expanded="false">
+                            <i class="mi-notifications mi-1x mr-1" style="font-size: 20px;"></i>
+                            <span class="badge bg-indigo-700">12</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-content wmin-md-350">
+                            <div class="dropdown-content-body dropdown-scrollable">
+                                <ul class="media-list">
+                                    <li class="media">
+                                        <div class="media-body">
+                                            <div class="media-title">
+                                                <a href="#">
+                                                    <span class="font-weight-bold text-dark">22 December 2019</span>
+
+                                                </a>
+                                            </div>
+
+                                            <span class="text-muted">Hon’ble CM Sri YS Jagan Mohan Reddy Participated in Andhra University Alumni Conference program,along with Hon’ble Ministers and other Officials.</span>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-body">
+                                            <div class="media-title">
+                                                <a href="#">
+                                                    <span class="font-weight-bold text-dark">22 December 2019</span>
+                                                </a>
+                                            </div>
+
+                                            <span class="text-muted">Hon’ble CM Sri YS Jagan Mohan Reddy launched YSR Law Nestham scheme, at Camp office Tadepalli.</span>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-body">
+                                            <div class="media-title">
+                                                <a href="#">
+                                                    <span class="font-weight-bold text-dark">22 December 2019</span>
+                                                </a>
+                                            </div>
+
+                                            <span class="text-muted">Hon’ble CM Sri YS Jagan Mohan Reddy, held a review meeting with Higher Education Regulatory and Monitoring Commission, at Secretariat.</span>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-body">
+                                            <div class="media-title">
+                                                <a href="#">
+                                                    <span class="font-weight-bold text-dark">22 December 2019</span>
+                                                </a>
+                                            </div>
+
+                                            <span class="text-muted">ఇకపై ప్రతి ఏటా జనవరిలో ఉద్యోగాల భర్తీకి నోటిఫికేషన్ జారీ చేస్తామన్నారు. రాబోయే రోజుల్లో వివిధ శాఖల్లో ఉన్న ప్రభుత్వ ఉద్యోగాల భర్తీ ప్రక్రియ చేపడతామని</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="dropdown-content-footer bg-info d-block text-center" data-toggle="modal" data-target="#notification">
+                                <a href="#" class="text-white ">
+                                    Show More </a>
+
+                            </div>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a style="cursor:pointer;" class="navbar-nav-link  navbar-language  mb-sm-0 mb-1" data-toggle="dropdown">
+                            <span>English</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="#!/MainDashboard" class="dropdown-item">English</a>
+                            <a href="#!/TMainDashboard" class="dropdown-item"> తెలుగు</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a style="cursor:pointer;" class="navbar-nav-link navbar-logout" ng-click="GetLogout();"><i class="mi-power-settings-new mr-1 "></i>Logout</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /page header -->
+    <!-- Page content -->
+    <div class="page-content pt-0 background-container ">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content ">
+                <div class="container-fluid">
+
+                    <div class="row type-card mt-5">
+                        <div class=" col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 district" id="ananthapur">
+                            <div class="card district-bx district-color-5" data-aos=" " data-aos-delay="100" data-aos-duration="2000">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-12  type-header">
+                                            <h2 class="type-title"> Transaction Initiated</h2>
+
+                                        </div>
+                                    </div>
+                                    <div class="row type-counting">
+                                        <div class="col-sm-6">
+                                            <h3 class="type-counting-title"> <i class="mi-person-add"></i> Total Registered</h3>
+                                            <h2 class="type-counting-number counting">15</h2>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h3><i class="mi-check-box"></i> Completed</h3>
+                                            <h2 class="type-counting-number counting">54</h2>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 district" id="chittoor">
+                            <div class="card district-bx district-color-2" data-aos=" " data-aos-delay="100" data-aos-duration="2000">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-12  type-header">
+                                            <h2 class="type-title"> Transaction Response</h2>
+
+                                        </div>
+                                    </div>
+                                    <div class="row type-counting">
+                                        <div class="col-sm-6">
+                                            <h3 class="type-counting-title"> <i class="mi-person-add"></i> Total Registered</h3>
+                                            <h2 class="type-counting-number">15</h2>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h3><i class="mi-check-box"></i> Completed</h3>
+                                            <h2 class="type-counting-number">54</h2>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 district" id="east-godavari">
+                            <div class="card district-bx district-color-3" data-aos=" " data-aos-delay="100" data-aos-duration="2000">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-12  type-header">
+                                            <h2 class="type-title"> Total Employees</h2>
+
+                                        </div>
+                                    </div>
+                                    <div class="row type-counting">
+                                        <div class="col-sm-6">
+                                            <h3 class="type-counting-title"> <i class="mi-person-add"></i> Total Registered</h3>
+                                            <h2 class="type-counting-number">15</h2>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h3><i class="mi-check-box"></i> Completed</h3>
+                                            <h2 class="type-counting-number">54</h2>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="navbar navbar-expand-lg navbar-light ">
+        <div class="text-center d-lg-none w-100 ">
+            <span class="navbar-text ">
+                © Copyright Govt of AP. All Rights Reserved
+            </span>
+        </div>
+
+    </div>
+    <!-- /footer -->
+    <!-- The Modal -->
+
+
+    <div class="modal fade " id="notification ">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content ">
+
+                <div class="modal-header bg-dark py-2 ">
+                    <h1 class="text-center mb-0 ">Notification </h1>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body ">
+
+                    <div class="row ">
+                        <div class="col-sm-12 notification-list ">
+
+                            <ul class="media-list ">
+
+                                <li class="media ">
+
+                                    <div class="media-body ">
+                                        <div class="media-title ">
+                                            <a href="# ">
+                                                <span class="font-weight-bold text-dark ">22 December 2019</span>
+
+                                            </a>
+                                        </div>
+
+                                        <span class="text-muted ">Hon’ble CM Sri YS Jagan Mohan Reddy Participated in Andhra University Alumni Conference program,along with Hon’ble Ministers and other Officials.</span>
+                                    </div>
+                                </li>
+                                <li class="media ">
+                                    <div class="media-body ">
+                                        <div class="media-title ">
+                                            <a href="# ">
+                                                <span class="font-weight-bold text-dark ">22 December 2019</span>
+                                            </a>
+                                        </div>
+
+                                        <span class="text-muted ">Hon’ble CM Sri YS Jagan Mohan Reddy launched YSR Law Nestham scheme, at Camp office Tadepalli.</span>
+                                    </div>
+                                </li>
+                                <li class="media ">
+                                    <div class="media-body ">
+                                        <div class="media-title ">
+                                            <a href="# ">
+                                                <span class="font-weight-bold text-dark ">22 December 2019</span>
+                                            </a>
+                                        </div>
+
+                                        <span class="text-muted ">Hon’ble CM Sri YS Jagan Mohan Reddy, held a review meeting with Higher Education Regulatory and Monitoring Commission, at Secretariat.</span>
+                                    </div>
+                                </li>
+                                <li class="media ">
+                                    <div class="media-body ">
+                                        <div class="media-title ">
+                                            <a href="# ">
+                                                <span class="font-weight-bold text-dark ">22 December 2019</span>
+                                            </a>
+                                        </div>
+
+                                        <span class="text-muted ">ఇకపై ప్రతి ఏటా జనవరిలో ఉద్యోగాల భర్తీకి నోటిఫికేషన్ జారీ చేస్తామన్నారు. రాబోయే రోజుల్లో వివిధ శాఖల్లో ఉన్న ప్రభుత్వ ఉద్యోగాల భర్తీ ప్రక్రియ చేపడతామని</span>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade " id="verification">
+        <div class="modal-dialog " style="top: 10%; ">
+            <div class="modal-content border-0 ">
+                <!-- Modal Header -->
+                <div class="modal-header bg-dark text py-2 ">
+                    <h2 class="mb-0 "> Update Profile</h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body ">
+                    <div class="row ">
+
+
+                        <div class="col-sm-12 ">
+                            <div class="form-group form-row ">
+                                <label class="col-form-label col-sm-4 text-right ">Enter Mobile Number : </label>
+                                <div class="col-sm-6 ">
+                                    <input type="text " class="form-control ">
+                                </div>
+                                <div class="col-sm-2 ">
+                                    <button class="btn btn-primary btn-block ">Get OTP</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 ">
+                            <div class="form-group form-row ">
+                                <label class="col-form-label col-sm-4 text-right ">Verify OTP : </label>
+                                <div class="col-sm-8 ">
+                                    <input type="text " class="form-control ">
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-4 offset-8 ">
+
+                            <button type="button" class="btn bg-dark btn-block ">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Core JS files -->
+    <script src="assets/js/jquery.min.js "></script>
+    <script src="assets/js/bootstrap.bundle.min.js "></script>
+    <script src="assets/js/ripple.min.js "></script>
+    <script src="assets/plugins/uniform.min.js "></script>
+    <script src="assets/plugins/switch.min.js "></script>
+
+
+
+
+    <script type="text/javascript " src="assets/js/function.js "></script>
+
+    <script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js "></script>
+    <script>
+        $(function() {
+
+            $('.showSingle').click(function() {
+                $('.targetDiv').hide();
+                $('#div' + $(this).attr('target')).show();
+            });
+        });
+
+        $('.count').each(function() {
+            $(this).prop('Counter', 0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 1000,
+                easing: 'swing',
+                step: function(now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            var interval = setInterval(function() {
+                var momentNow = moment();
+                $('#date-part').html(momentNow.format('DD MMMM YYYY') + ' ' +
+                    momentNow.format('dddd')
+                    .substring(0, 3).toUpperCase());
+                $('#time-part').html(momentNow.format('hh:mm:ss A'));
+            }, 100);
+
+        });
+
+    </script>
+</body>
+
+</html>

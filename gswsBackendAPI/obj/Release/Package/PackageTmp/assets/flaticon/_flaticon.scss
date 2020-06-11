@@ -1,0 +1,112 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 19/12/2019 13:52
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-agriculture:before { content: "\f100"; }
+.flaticon-harvest:before { content: "\f101"; }
+.flaticon-cow:before { content: "\f102"; }
+.flaticon-flash:before { content: "\f103"; }
+.flaticon-policeman:before { content: "\f104"; }
+.flaticon-idea:before { content: "\f105"; }
+.flaticon-africa:before { content: "\f106"; }
+.flaticon-car:before { content: "\f107"; }
+.flaticon-wheelchair:before { content: "\f108"; }
+.flaticon-block:before { content: "\f109"; }
+.flaticon-tree:before { content: "\f10a"; }
+.flaticon-student:before { content: "\f10b"; }
+.flaticon-house:before { content: "\f10c"; }
+.flaticon-ground:before { content: "\f10d"; }
+.flaticon-airplane-flight-in-circle-around-earth:before { content: "\f10e"; }
+.flaticon-tourism:before { content: "\f10f"; }
+.flaticon-capitol-building:before { content: "\f110"; }
+.flaticon-business-and-finance:before { content: "\f111"; }
+.flaticon-sketch:before { content: "\f112"; }
+.flaticon-man-with-an-idea:before { content: "\f113"; }
+.flaticon-graduating-woman:before { content: "\f114"; }
+.flaticon-arab-woman:before { content: "\f115"; }
+.flaticon-science-lecture:before { content: "\f116"; }
+.flaticon-teacher:before { content: "\f117"; }
+.flaticon-student-1:before { content: "\f118"; }
+.flaticon-landkeeper:before { content: "\f119"; }
+.flaticon-water:before { content: "\f11a"; }
+.flaticon-first-aid:before { content: "\f11b"; }
+.flaticon-green:before { content: "\f11c"; }
+.flaticon-rupee-indian:before { content: "\f11d"; }
+.flaticon-indian:before { content: "\f11e"; }
+.flaticon-contract-1:before { content: "\f11f"; }
+.flaticon-lock:before { content: "\f120"; }
+.flaticon-certificate:before { content: "\f121"; }
+.flaticon-contract:before { content: "\f122"; }
+.flaticon-scales-of-justice:before { content: "\f123"; }
+    
+    $font-Flaticon-agriculture: "\f100";
+    $font-Flaticon-harvest: "\f101";
+    $font-Flaticon-cow: "\f102";
+    $font-Flaticon-flash: "\f103";
+    $font-Flaticon-policeman: "\f104";
+    $font-Flaticon-idea: "\f105";
+    $font-Flaticon-africa: "\f106";
+    $font-Flaticon-car: "\f107";
+    $font-Flaticon-wheelchair: "\f108";
+    $font-Flaticon-block: "\f109";
+    $font-Flaticon-tree: "\f10a";
+    $font-Flaticon-student: "\f10b";
+    $font-Flaticon-house: "\f10c";
+    $font-Flaticon-ground: "\f10d";
+    $font-Flaticon-airplane-flight-in-circle-around-earth: "\f10e";
+    $font-Flaticon-tourism: "\f10f";
+    $font-Flaticon-capitol-building: "\f110";
+    $font-Flaticon-business-and-finance: "\f111";
+    $font-Flaticon-sketch: "\f112";
+    $font-Flaticon-man-with-an-idea: "\f113";
+    $font-Flaticon-graduating-woman: "\f114";
+    $font-Flaticon-arab-woman: "\f115";
+    $font-Flaticon-science-lecture: "\f116";
+    $font-Flaticon-teacher: "\f117";
+    $font-Flaticon-student-1: "\f118";
+    $font-Flaticon-landkeeper: "\f119";
+    $font-Flaticon-water: "\f11a";
+    $font-Flaticon-first-aid: "\f11b";
+    $font-Flaticon-green: "\f11c";
+    $font-Flaticon-rupee-indian: "\f11d";
+    $font-Flaticon-indian: "\f11e";
+    $font-Flaticon-contract-1: "\f11f";
+    $font-Flaticon-lock: "\f120";
+    $font-Flaticon-certificate: "\f121";
+    $font-Flaticon-contract: "\f122";
+    $font-Flaticon-scales-of-justice: "\f123";

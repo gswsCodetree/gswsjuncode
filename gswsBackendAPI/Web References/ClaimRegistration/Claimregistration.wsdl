@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://bima.ap.gov.in/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://bima.ap.gov.in/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://bima.ap.gov.in/">
+      <s:element name="Insertclaimdata">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Security" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Uid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Did" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Incident_Date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Incident_Time" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Accident_Date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Accident_Time" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Claimtype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cause" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CauseSubReason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nominee_Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nominee_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nom_Uid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Incident_Type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="incident_Place" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Accident_Place" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Informer_Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Informed_By" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reg_User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Door_Num" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ward" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Village_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Gram_Panchayat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mandal_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pol_Pincode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nom_EID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nom_Pincode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VV_Name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VV_Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VS_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VS_Location" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VS_Panchayat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EntryBy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GSWS_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertclaimdataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertclaimdataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistricts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDistrictsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDistrictsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMandals">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="did" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMandalsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMandalsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVillages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="did" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVillagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVillagesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClaimtype">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClaimtypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClaimtypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCause">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="claimtype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCauseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCauseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIncidentType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIncidentTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIncidentTypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPanchayats">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="did" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPanchayatsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPanchayatsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEntryBy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEntryByResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEntryByResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsertclaimdataSoapIn">
+    <wsdl:part name="parameters" element="tns:Insertclaimdata" />
+  </wsdl:message>
+  <wsdl:message name="InsertclaimdataSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertclaimdataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDistrictsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDistricts" />
+  </wsdl:message>
+  <wsdl:message name="GetDistrictsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDistrictsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMandalsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMandals" />
+  </wsdl:message>
+  <wsdl:message name="GetMandalsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMandalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVillagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVillages" />
+  </wsdl:message>
+  <wsdl:message name="GetVillagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVillagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClaimtypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClaimtype" />
+  </wsdl:message>
+  <wsdl:message name="GetClaimtypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClaimtypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCauseSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCause" />
+  </wsdl:message>
+  <wsdl:message name="GetCauseSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCauseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIncidentTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIncidentType" />
+  </wsdl:message>
+  <wsdl:message name="GetIncidentTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIncidentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPanchayatsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPanchayats" />
+  </wsdl:message>
+  <wsdl:message name="GetPanchayatsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPanchayatsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEntryBySoapIn">
+    <wsdl:part name="parameters" element="tns:GetEntryBy" />
+  </wsdl:message>
+  <wsdl:message name="GetEntryBySoapOut">
+    <wsdl:part name="parameters" element="tns:GetEntryByResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertclaimdataHttpGetIn">
+    <wsdl:part name="Security" type="s:string" />
+    <wsdl:part name="Uid" type="s:string" />
+    <wsdl:part name="Did" type="s:string" />
+    <wsdl:part name="Incident_Date" type="s:string" />
+    <wsdl:part name="Incident_Time" type="s:string" />
+    <wsdl:part name="Accident_Date" type="s:string" />
+    <wsdl:part name="Accident_Time" type="s:string" />
+    <wsdl:part name="Claimtype" type="s:string" />
+    <wsdl:part name="Cause" type="s:string" />
+    <wsdl:part name="CauseSubReason" type="s:string" />
+    <wsdl:part name="Nominee_Phone" type="s:string" />
+    <wsdl:part name="Nominee_Name" type="s:string" />
+    <wsdl:part name="Nom_Uid" type="s:string" />
+    <wsdl:part name="Incident_Type" type="s:string" />
+    <wsdl:part name="incident_Place" type="s:string" />
+    <wsdl:part name="Accident_Place" type="s:string" />
+    <wsdl:part name="Informer_Phone" type="s:string" />
+    <wsdl:part name="Informed_By" type="s:string" />
+    <wsdl:part name="Reg_User" type="s:string" />
+    <wsdl:part name="Remarks" type="s:string" />
+    <wsdl:part name="Street" type="s:string" />
+    <wsdl:part name="Door_Num" type="s:string" />
+    <wsdl:part name="Ward" type="s:string" />
+    <wsdl:part name="Village_Name" type="s:string" />
+    <wsdl:part name="Gram_Panchayat" type="s:string" />
+    <wsdl:part name="Mandal_Name" type="s:string" />
+    <wsdl:part name="EID" type="s:string" />
+    <wsdl:part name="Pol_Pincode" type="s:string" />
+    <wsdl:part name="Nom_EID" type="s:string" />
+    <wsdl:part name="Nom_Pincode" type="s:string" />
+    <wsdl:part name="VV_Name" type="s:string" />
+    <wsdl:part name="VV_Phone" type="s:string" />
+    <wsdl:part name="VS_id" type="s:string" />
+    <wsdl:part name="VS_Location" type="s:string" />
+    <wsdl:part name="VS_Panchayat" type="s:string" />
+    <wsdl:part name="EntryBy" type="s:string" />
+    <wsdl:part name="GSWS_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertclaimdataHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDistrictsHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDistrictsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMandalsHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+    <wsdl:part name="did" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMandalsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVillagesHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+    <wsdl:part name="did" type="s:string" />
+    <wsdl:part name="mid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVillagesHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetClaimtypeHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetClaimtypeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCauseHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+    <wsdl:part name="claimtype" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCauseHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetIncidentTypeHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetIncidentTypeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPanchayatsHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+    <wsdl:part name="did" type="s:string" />
+    <wsdl:part name="mid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPanchayatsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEntryByHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEntryByHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertclaimdataHttpPostIn">
+    <wsdl:part name="Security" type="s:string" />
+    <wsdl:part name="Uid" type="s:string" />
+    <wsdl:part name="Did" type="s:string" />
+    <wsdl:part name="Incident_Date" type="s:string" />
+    <wsdl:part name="Incident_Time" type="s:string" />
+    <wsdl:part name="Accident_Date" type="s:string" />
+    <wsdl:part name="Accident_Time" type="s:string" />
+    <wsdl:part name="Claimtype" type="s:string" />
+    <wsdl:part name="Cause" type="s:string" />
+    <wsdl:part name="CauseSubReason" type="s:string" />
+    <wsdl:part name="Nominee_Phone" type="s:string" />
+    <wsdl:part name="Nominee_Name" type="s:string" />
+    <wsdl:part name="Nom_Uid" type="s:string" />
+    <wsdl:part name="Incident_Type" type="s:string" />
+    <wsdl:part name="incident_Place" type="s:string" />
+    <wsdl:part name="Accident_Place" type="s:string" />
+    <wsdl:part name="Informer_Phone" type="s:string" />
+    <wsdl:part name="Informed_By" type="s:string" />
+    <wsdl:part name="Reg_User" type="s:string" />
+    <wsdl:part name="Remarks" type="s:string" />
+    <wsdl:part name="Street" type="s:string" />
+    <wsdl:part name="Door_Num" type="s:string" />
+    <wsdl:part name="Ward" type="s:string" />
+    <wsdl:part name="Village_Name" type="s:string" />
+    <wsdl:part name="Gram_Panchayat" type="s:string" />
+    <wsdl:part name="Mandal_Name" type="s:string" />
+    <wsdl:part name="EID" type="s:string" />
+    <wsdl:part name="Pol_Pincode" type="s:string" />
+    <wsdl:part name="Nom_EID" type="s:string" />
+    <wsdl:part name="Nom_Pincode" type="s:string" />
+    <wsdl:part name="VV_Name" type="s:string" />
+    <wsdl:part name="VV_Phone" type="s:string" />
+    <wsdl:part name="VS_id" type="s:string" />
+    <wsdl:part name="VS_Location" type="s:string" />
+    <wsdl:part name="VS_Panchayat" type="s:string" />
+    <wsdl:part name="EntryBy" type="s:string" />
+    <wsdl:part name="GSWS_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertclaimdataHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDistrictsHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDistrictsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMandalsHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+    <wsdl:part name="did" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMandalsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVillagesHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+    <wsdl:part name="did" type="s:string" />
+    <wsdl:part name="mid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVillagesHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetClaimtypeHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetClaimtypeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCauseHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+    <wsdl:part name="claimtype" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCauseHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetIncidentTypeHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetIncidentTypeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPanchayatsHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+    <wsdl:part name="did" type="s:string" />
+    <wsdl:part name="mid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPanchayatsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEntryByHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEntryByHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ClaimRegistrationSoap">
+    <wsdl:operation name="Insertclaimdata">
+      <wsdl:input message="tns:InsertclaimdataSoapIn" />
+      <wsdl:output message="tns:InsertclaimdataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistricts">
+      <wsdl:input message="tns:GetDistrictsSoapIn" />
+      <wsdl:output message="tns:GetDistrictsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMandals">
+      <wsdl:input message="tns:GetMandalsSoapIn" />
+      <wsdl:output message="tns:GetMandalsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVillages">
+      <wsdl:input message="tns:GetVillagesSoapIn" />
+      <wsdl:output message="tns:GetVillagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClaimtype">
+      <wsdl:input message="tns:GetClaimtypeSoapIn" />
+      <wsdl:output message="tns:GetClaimtypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCause">
+      <wsdl:input message="tns:GetCauseSoapIn" />
+      <wsdl:output message="tns:GetCauseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentType">
+      <wsdl:input message="tns:GetIncidentTypeSoapIn" />
+      <wsdl:output message="tns:GetIncidentTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPanchayats">
+      <wsdl:input message="tns:GetPanchayatsSoapIn" />
+      <wsdl:output message="tns:GetPanchayatsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntryBy">
+      <wsdl:input message="tns:GetEntryBySoapIn" />
+      <wsdl:output message="tns:GetEntryBySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ClaimRegistrationHttpGet">
+    <wsdl:operation name="Insertclaimdata">
+      <wsdl:input message="tns:InsertclaimdataHttpGetIn" />
+      <wsdl:output message="tns:InsertclaimdataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistricts">
+      <wsdl:input message="tns:GetDistrictsHttpGetIn" />
+      <wsdl:output message="tns:GetDistrictsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMandals">
+      <wsdl:input message="tns:GetMandalsHttpGetIn" />
+      <wsdl:output message="tns:GetMandalsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVillages">
+      <wsdl:input message="tns:GetVillagesHttpGetIn" />
+      <wsdl:output message="tns:GetVillagesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClaimtype">
+      <wsdl:input message="tns:GetClaimtypeHttpGetIn" />
+      <wsdl:output message="tns:GetClaimtypeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCause">
+      <wsdl:input message="tns:GetCauseHttpGetIn" />
+      <wsdl:output message="tns:GetCauseHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentType">
+      <wsdl:input message="tns:GetIncidentTypeHttpGetIn" />
+      <wsdl:output message="tns:GetIncidentTypeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPanchayats">
+      <wsdl:input message="tns:GetPanchayatsHttpGetIn" />
+      <wsdl:output message="tns:GetPanchayatsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntryBy">
+      <wsdl:input message="tns:GetEntryByHttpGetIn" />
+      <wsdl:output message="tns:GetEntryByHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ClaimRegistrationHttpPost">
+    <wsdl:operation name="Insertclaimdata">
+      <wsdl:input message="tns:InsertclaimdataHttpPostIn" />
+      <wsdl:output message="tns:InsertclaimdataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDistricts">
+      <wsdl:input message="tns:GetDistrictsHttpPostIn" />
+      <wsdl:output message="tns:GetDistrictsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMandals">
+      <wsdl:input message="tns:GetMandalsHttpPostIn" />
+      <wsdl:output message="tns:GetMandalsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVillages">
+      <wsdl:input message="tns:GetVillagesHttpPostIn" />
+      <wsdl:output message="tns:GetVillagesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClaimtype">
+      <wsdl:input message="tns:GetClaimtypeHttpPostIn" />
+      <wsdl:output message="tns:GetClaimtypeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCause">
+      <wsdl:input message="tns:GetCauseHttpPostIn" />
+      <wsdl:output message="tns:GetCauseHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentType">
+      <wsdl:input message="tns:GetIncidentTypeHttpPostIn" />
+      <wsdl:output message="tns:GetIncidentTypeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPanchayats">
+      <wsdl:input message="tns:GetPanchayatsHttpPostIn" />
+      <wsdl:output message="tns:GetPanchayatsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntryBy">
+      <wsdl:input message="tns:GetEntryByHttpPostIn" />
+      <wsdl:output message="tns:GetEntryByHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClaimRegistrationSoap" type="tns:ClaimRegistrationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Insertclaimdata">
+      <soap:operation soapAction="http://bima.ap.gov.in/Insertclaimdata" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistricts">
+      <soap:operation soapAction="http://bima.ap.gov.in/GetDistricts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandals">
+      <soap:operation soapAction="http://bima.ap.gov.in/GetMandals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVillages">
+      <soap:operation soapAction="http://bima.ap.gov.in/GetVillages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClaimtype">
+      <soap:operation soapAction="http://bima.ap.gov.in/GetClaimtype" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCause">
+      <soap:operation soapAction="http://bima.ap.gov.in/GetCause" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentType">
+      <soap:operation soapAction="http://bima.ap.gov.in/GetIncidentType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPanchayats">
+      <soap:operation soapAction="http://bima.ap.gov.in/GetPanchayats" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntryBy">
+      <soap:operation soapAction="http://bima.ap.gov.in/GetEntryBy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClaimRegistrationSoap12" type="tns:ClaimRegistrationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Insertclaimdata">
+      <soap12:operation soapAction="http://bima.ap.gov.in/Insertclaimdata" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistricts">
+      <soap12:operation soapAction="http://bima.ap.gov.in/GetDistricts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandals">
+      <soap12:operation soapAction="http://bima.ap.gov.in/GetMandals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVillages">
+      <soap12:operation soapAction="http://bima.ap.gov.in/GetVillages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClaimtype">
+      <soap12:operation soapAction="http://bima.ap.gov.in/GetClaimtype" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCause">
+      <soap12:operation soapAction="http://bima.ap.gov.in/GetCause" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentType">
+      <soap12:operation soapAction="http://bima.ap.gov.in/GetIncidentType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPanchayats">
+      <soap12:operation soapAction="http://bima.ap.gov.in/GetPanchayats" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntryBy">
+      <soap12:operation soapAction="http://bima.ap.gov.in/GetEntryBy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClaimRegistrationHttpGet" type="tns:ClaimRegistrationHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Insertclaimdata">
+      <http:operation location="/Insertclaimdata" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistricts">
+      <http:operation location="/GetDistricts" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandals">
+      <http:operation location="/GetMandals" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVillages">
+      <http:operation location="/GetVillages" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClaimtype">
+      <http:operation location="/GetClaimtype" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCause">
+      <http:operation location="/GetCause" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentType">
+      <http:operation location="/GetIncidentType" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPanchayats">
+      <http:operation location="/GetPanchayats" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntryBy">
+      <http:operation location="/GetEntryBy" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ClaimRegistrationHttpPost" type="tns:ClaimRegistrationHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Insertclaimdata">
+      <http:operation location="/Insertclaimdata" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDistricts">
+      <http:operation location="/GetDistricts" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandals">
+      <http:operation location="/GetMandals" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVillages">
+      <http:operation location="/GetVillages" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClaimtype">
+      <http:operation location="/GetClaimtype" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCause">
+      <http:operation location="/GetCause" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIncidentType">
+      <http:operation location="/GetIncidentType" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPanchayats">
+      <http:operation location="/GetPanchayats" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntryBy">
+      <http:operation location="/GetEntryBy" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClaimRegistration">
+    <wsdl:port name="ClaimRegistrationSoap" binding="tns:ClaimRegistrationSoap">
+      <soap:address location="http://bima.ap.gov.in/services/Claimregistration.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClaimRegistrationSoap12" binding="tns:ClaimRegistrationSoap12">
+      <soap12:address location="http://bima.ap.gov.in/services/Claimregistration.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClaimRegistrationHttpGet" binding="tns:ClaimRegistrationHttpGet">
+      <http:address location="http://bima.ap.gov.in/services/Claimregistration.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ClaimRegistrationHttpPost" binding="tns:ClaimRegistrationHttpPost">
+      <http:address location="http://bima.ap.gov.in/services/Claimregistration.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

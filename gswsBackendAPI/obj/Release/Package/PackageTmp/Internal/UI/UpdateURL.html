@@ -1,0 +1,111 @@
+﻿<style>
+
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('../images/loader.gif') 50% 50% no-repeat #fff;
+	}
+</style>
+<style>
+	.card {
+		box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+	}
+
+	.card-body {
+		padding: 1.25rem 1.25rem 0.25rem 1.25rem !important;
+	}
+</style>
+<div class="page-content">
+	<div data-ng-show="preloader" class="loader"></div>
+	<!-- Main content -->
+	<div class="content-wrapper">
+		<!-- Content area -->
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row mb-5">
+					<div class="col-sm-12 text-center mb-4">
+						<h1 style="text-align: center;">URL Update User Manual</h1>
+					</div>
+					<div class="col-sm-12">
+						<div class="card">
+							<div class="card-body">
+								<!--Row 1-->
+								<div class="form-group row mb-0">
+									<div class="col-md-4">
+										<label class="col-form-label"><b>Department :</b><span style="color:red"> *</span></label>
+										<div>
+											<select class="form-control" data-ng-model="selDept" data-ng-change="LoadHODs();">
+												<option selected="selected" value="">-Select-</option>
+												<option data-ng-repeat="dep in DepartmentDD" value="{{dep.PS_SD_CODE}}">{{dep.SD_NAME}}</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<label class="col-form-label"><b>HOD :</b><span style="color:red"> *</span></label>
+										<div>
+											<select class="form-control" data-ng-model="selHOD" data-ng-change="LoadServices();">
+												<option selected="selected" value="">-Select-</option>
+												<option data-ng-repeat="dep in HODDD" value="{{dep.PS_HOD_CODE}}">{{dep.HOD_NAME}}</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<label class="col-form-label"><b>Service :</b><span style="color:red"> *</span></label>
+										<div>
+											<select class="form-control" data-ng-model="selservice" data-ng-change="LoadServicesurls();">
+												<option selected="selected" value="">-Select-</option>
+												<option data-ng-repeat="dep in ServicesDD" value="{{dep.SCHEME_ID}}">{{dep.SCHEME}}</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-4" style="margin-top:20px;">
+										<label class="col-lg-6 col-form-label"><b>URL Name :</b><span style="color:red"> *</span></label>
+										<div>
+											<select class="form-control" data-ng-model="selurlid" ng-change="changeurlname();">
+												<option selected="selected" value="">-Select-</option>
+												<option data-ng-repeat="dis in URLLIST" value="{{dis.URL_ID}}">{{dis.URL_DESCRIPTION}}</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-4" style="margin-top:20px;">
+										<label classs="col-lg-6 col-form-label"><b>English Description</b></label>
+										<div class="form-group vv-inputwithicon">
+											<i class="fa fa-file-o"></i>
+											<input type="text" ng-model="englishdescription" class="form-control" />
+										</div>
+									</div>
+
+
+									<div class="col-md-4" style="margin-top:20px;">
+										<label classs="col-lg-6 col-form-label"><b>Telugu Description</b></label>
+										<div class="form-group vv-inputwithicon">
+											<i class="fa fa-file-o"></i>
+											<input type="text" ng-model="telugudescription" class="form-control" />
+										</div>
+									</div>
+									
+									<div class="col-md-4" style="margin-top:20px;">
+										<label classs="col-lg-6 col-form-label"><b>New URL</b></label>
+										<div class="form-group vv-inputwithicon">
+											<i class="fa fa-file-o"></i>
+											<input type="text" ng-model="updatedurl" class="form-control" />
+										</div>
+									</div>
+								</div>
+								<!--Row 2-->
+								<div style="margin-top:20px;text-align:center">
+									<button type="submit" data-ng-click="Savedata();" class="btn btn-primary">Save</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

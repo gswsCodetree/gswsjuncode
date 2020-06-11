@@ -1,0 +1,552 @@
+﻿<style>
+    .wds-main {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .wds-main-tilte {
+        text-align: center;
+        border: 1px solid #000;
+        font-weight: bold;
+    }
+
+    .wds-sub-title {
+        font-weight: bold;
+    }
+
+    .wds-main .form-control {
+        height: 30px !important;
+        border: 1px solid #000;
+        font-weight: bold;
+    }
+
+    .wds-main .form-row {
+        align-items: center !important;
+    }
+
+        .wds-main .form-row label {
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+    .wds-main .table tr th, .wds-main .table tr td {
+        border: 1px solid #000 !important;
+        padding: 4px;
+        font-weight: bold;
+    }
+
+    .wds-main fieldset {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .wds-main legend {
+        margin: 0;
+        /* border: 1px solid #000; */
+        width: auto;
+        padding: 5px 10px !important;
+        background: #078bdf;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 5px;
+    }
+
+    .wds-main .vdtl-table tr td {
+        padding: 2px 4px;
+    }
+
+    .wds-main .form-row.form-group h6 {
+        margin-bottom: 0;
+        border: 1px solid #000;
+        width: 62%;
+        padding: 2px 8px;
+        border-radius: 5px;
+    }
+
+    .wds-main .vdtl-table tr td label {
+        font-weight: bold;
+        font-size: 14px;
+        border-bottom: 2px dashed #000;
+    }
+
+
+    @media print {
+        body {
+            background-color: #fff;
+        }
+
+        .navbar {
+            display: none;
+        }
+
+        .wds-main {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+            .wds-main legend {
+                padding: 3px 10px !important;
+                background-color: #000 !important;
+            }
+
+            .wds-main .form-row label {
+                margin-bottom: 0;
+                font-weight: 600;
+                font-size: 12px;
+            }
+
+            .wds-main .form-control {
+                font-size: 12px;
+                height: 25px !important;
+            }
+
+            .wds-main .form-row.form-group {
+                margin-bottom: 10px;
+            }
+
+            .wds-main .vdtl-table tr th, .wds-main .vdtl-table tr td {
+                font-size: 11px;
+            }
+
+            .wds-main .table tr th, .wds-main .table tr td {
+                padding: 2px;
+            }
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-md-12 py-5" ng-show="loader">
+        <h1 class="text-center">Loading...</h1>
+    </div>
+    <div class="wds-main card p-2" ng-show="!loader">
+        <h5 class="wds-main-tilte bg-primary">New Application verification screen - WEA/WDS login</h5>
+        <div class="row px-2">
+            <div class="col-md-4">
+                <div class="form-row form-group">
+                    <label class="col-md-4">AADHAAR</label>
+                    <h6 class="text-success"><b>XXXX-XXXX-{{personDetails.details.aadhar | limitTo: -4 }}</b></h6>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-row form-group">
+                    <label class="col-md-4">CATEGORY</label>
+                    <h6 class="text-success"><b>{{personDetails.details.category}}</b></h6>
+                </div>
+            </div>
+            <div class="col-md-4" ng-show="personDetails.details.category == 'Disabled'">
+                <div class="form-row form-group">
+                    <label class="col-md-4">SADAREM ID</label>
+                    <h6 class="text-success"><b>{{personDetails.details.sadaremcode}}</b></h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="row px-2">
+            <div class="col-md-12">
+                <fieldset>
+                    <legend>Family Members Details</legend>
+                    <div class="col-md-10 mx-auto">
+                        <table class="table table-bordered text-center">
+                            <thead class="bg-primary text-white">
+                                <tr>
+                                    <th>Member Name</th>
+                                    <th>DOB</th>
+                                    <th>Aadhaar Number</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="obj in personDetails.familyDetails">
+                                    <td>{{obj.name}}</td>
+                                    <td>{{obj.dateOfBirth}}</td>
+                                    <td>{{obj.UID_NO}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+        <div class="row px-2">
+            <div class="col-md-12">
+                <fieldset>
+                    <legend>Beneficiary Basic Details</legend>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">District</label>
+                                <h6 class="text-success"><b>{{personDetails.details.District}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Mandal</label>
+                                <h6 class="text-success"><b>{{personDetails.details.Mandal}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Secretariat Code</label>
+                                <h6 class="text-success"><b>{{personDetails.details.SECRETERIAT_CODE}}</b></h6>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Secretariat Name</label>
+                                <h6 class="text-success"><b>{{personDetails.details.SECRETARIAT_NAME}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Panchayat/MC</label>
+                                <h6 class="text-success"><b>{{personDetails.details.Panchayat}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Habitation/Ward</label>
+                                <h6 class="text-success"><b>{{personDetails.details.Habitation}}</b></h6>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Name</label>
+                                <h6 class="text-success"><b>{{personDetails.details.Pensioner_name}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Relation Name</label>
+                                <h6 class="text-success"><b>{{personDetails.details.Relation_name}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Age</label>
+                                <h6 class="text-success"><b>{{personDetails.details.age}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Date Of Birth</label>
+                                <h6 class="text-success"><b>{{personDetails.details.Data_of_birth}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Caste</label>
+                                <h6 class="text-success"><b>{{personDetails.details.CASTE}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Sub Caste</label>
+                                <h6 class="text-success"><b>{{personDetails.details.SUB_CASTE}}</b></h6>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Gender</label>
+                                <h6 class="text-success"><b>{{personDetails.details.GENDER}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group" style="align-items: start !important;">
+                                <label class="col-md-4 mt-1">Address 1</label>
+                                <h6 class="text-success"><b>{{personDetails.details.ADDRESS1}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Address 2</label>
+                                <h6 class="text-success"><b>{{personDetails.details.ADDRESS2}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Contact No</label>
+                                <h6 class="text-success"><b>{{personDetails.details.MOBILE_NO}}</b></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Volunteer ID</label>
+                                <h6 class="text-success"><b>{{personDetails.details.VOLUNTEER_ID}}</b></h6>
+                            </div>
+                        </div><div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Volunteer Name</label>
+                                <h6 class="text-success"><b>{{personDetails.details.VOLUNTEER_NAME}}</b></h6>
+                            </div>
+                        </div><div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Volunteer Contact No</label>
+                                <h6 class="text-success"><b>{{personDetails.details.VOLUNTEER_MOBILE}}</b></h6>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Cluster ID</label>
+                                <h6 class="text-success"><b>{{personDetails.details.CLUSTER_ID}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Cluster Name</label>
+                                <h6 class="text-success"><b>{{personDetails.details.CLUSTER_NAME}}</b></h6>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+
+        <div class="row px-2">
+            <div class="col-md-12">
+                <fieldset>
+                    <legend>Verification Details</legend>
+                    <table class="table table-bordered text-center  vdtl-table">
+                        <tr>
+                            <th style="border: none !important;"></th>
+                            <th>As per the Data Entered</th>
+                            <th>As per System Validation</th>
+                            <th colspan="4"><i>Remarks observed during verification needs to be added</i></th>
+                        </tr>
+                        <tr>
+                            <td>Family Income (In Rs. Per Month)</td>
+                            <td>Rs. <label class="text-success">{{personDetails.details.FAMILYINCOMEPERMONTH}}</label> per Month</td>
+                            <td>Rs. <label class="text-success">{{personDetails.details.RTGS_INCOME}}</label> per Month</td>
+                            <td colspan="4"><input type="text" class="form-control" placeholder="Please Enter Family Income Per Month" autocomplete="off" maxlength="5" numbers-dot-only ng-model="familyIncomeforMonth" /></td>
+                        </tr>
+                        <tr>
+                            <td>Land holding of Family (In acers)</td>
+                            <td>Dry <label class="text-success">{{personDetails.details.FAMILYDRYLAND}}</label> Acers, Wet <label class="text-success"> {{personDetails.details.FAMILYWETLAND}}</label> Acers</td>
+                            <td>Dry <label class="text-success">{{personDetails.details.RTGS_DRY_LAND}}</label> Acers, Wet <label class="text-success">{{personDetails.details.RTGS_WET_LAND}}</label> Acers</td>
+                            <td>Dry</td>
+                            <td><input type="text" class="form-control" placeholder="Please Enter Family Dry Land " autocomplete="off" maxlength="5" numbers-dot-only ng-model="familyDryLand"></td>
+                            <td>Wet</td>
+                            <td><input type="text" class="form-control" placeholder="Please Enter Family Wet Land" autocomplete="off" maxlength="5" numbers-dot-only ng-model="familyWetLand"></td>
+                        </tr>
+                        <tr>
+                            <td>Four wheeler in Family</td>
+                            <td>
+                                <h6 class="text-center text-success" ng-if="personDetails.details.fourWhelleryesorno == 'NO'">{{personDetails.details.fourWhelleryesorno}}</h6>
+                                <h6 class="text-center text-danger" ng-if="personDetails.details.fourWhelleryesorno != 'NO'">{{personDetails.details.fourWhelleryesorno}}</h6>
+                            </td>
+                            <td>
+                                <h6 class="text-center text-success">{{personDetails.details.RTGS_FOUR_WHEELER}}</h6>
+                            </td>
+                            <td>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input m-0" name="fourWheelerFamilyYesOrNo" type="radio" value="YES" ng-model="fourWheelerFamilyYesOrNo">
+                                    <span class="form-check-label ml-1" for="inlineRadio1">YES</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input m-0" name="fourWheelerFamilyYesOrNo" type="radio" value="NO" ng-model="fourWheelerFamilyYesOrNo">
+                                    <span class="form-check-label ml-1">No</span>
+                                </div>
+                            </td>
+                            <td colspan="2"><input ng-show="fourWheelerFamilyYesOrNo == 'YES'" ng-model="fourWheelerFamilyDEtails" type="text" class="form-control" placeholder="Please Enter Four Wheeler Details"></td>
+                        </tr>
+                        <tr>
+                            <td>Govt. Employee in Family</td>
+                            <td>
+                                <h6 class="text-center text-success" ng-if="personDetails.details.govtyesorno == 'NO'">{{personDetails.details.govtyesorno}}</h6>
+                                <h6 class="text-center text-danger" ng-if="personDetails.details.govtyesorno != 'NO'">{{personDetails.details.govtyesorno}}</h6>
+                            </td>
+                            <td>
+                                <h6 class="text-center text-success">{{personDetails.details.RTGS_GOV_EMP_STATUS}}</h6>
+                            </td>
+                            <td>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input m-0" name="govtEmployeeYesOrNo" type="radio" value="YES" ng-model="govtEmployeeYesOrNo">
+                                    <span class="form-check-label ml-1" for="inlineRadio1">YES</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input m-0" name="govtEmployeeYesOrNo" type="radio" value="NO" ng-model="govtEmployeeYesOrNo">
+                                    <span class="form-check-label ml-1">No</span>
+                                </div>
+                            </td>
+                            <td colspan="2"><input ng-show="govtEmployeeYesOrNo == 'YES'" ng-model="govtEmployeeDetails" type="text" class="form-control" placeholder="Please Enter Govt.Employee Details"></td>
+                        </tr>
+                        <tr>
+                            <td>Electricity consumption(In Units)</td>
+                            <td> <label class="text-success">{{personDetails.details.ELECTRICCONSUMPINUNITS}}</label> Units</td>
+                            <td> <label class="text-success">{{personDetails.details.RTGS_LAST6MONTHS_ELECTRICITY}}</label> Units</td>
+                            <td>avg Units per 6 Months</td>
+                            <td colspan="3"><input type="text" class="form-control" autocomplete="off" placeholder="Please Enter Electricity Consumption in Units per Month " ng-model="electricConsumptionUnits" numbers-only></td>
+                        </tr>
+                        <tr>
+                            <td>Property in Municipal area (In S Ft)</td>
+                            <td> {{personDetails.details.PROPERTY_TAX}} Sq Ft</td>
+                            <td> {{personDetails.details.RTGS_PROPERTY_TAX}} Sq Ft</td>
+                            <td>Plinth Area</td>
+                            <td colspan="3"><input type="text" class="form-control" autocomplete="off" placeholder="Please Enter Property Area in Square Foot " ng-model="residentPropMuniInSqFt" numbers-dot-only></td>
+                        </tr>
+                        <tr>
+                            <td>Income Tax payee in family</td>
+                            <td>
+                                <h6 class="text-center text-success" ng-if="personDetails.details.INCOMETAXPAYEEYESORNO == 'NO'">{{personDetails.details.INCOMETAXPAYEEYESORNO}}</h6>
+                                <h6 class="text-center text-danger" ng-if="personDetails.details.INCOMETAXPAYEEYESORNO != 'NO'">{{personDetails.details.INCOMETAXPAYEEYESORNO}}</h6>
+                            </td>
+                            <td>
+                                <h6 class="text-center text-success">{{personDetails.details.RTGS_INCOMETAX_YESORNO}}</h6>
+                            </td>
+                            <td>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input m-0" name="incomeTaxPayeeYesOrNo" type="radio" value="YES" ng-model="incomeTaxPayeeYesOrNo">
+                                    <span class="form-check-label ml-1" for="inlineRadio1">YES</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input m-0" name="incomeTaxPayeeYesOrNo" type="radio" value="NO" ng-model="incomeTaxPayeeYesOrNo">
+                                    <span class="form-check-label ml-1">No</span>
+                                </div>
+                            </td>
+                            <td colspan="2"><input ng-show="incomeTaxPayeeYesOrNo == 'YES'" ng-model="incomeTaxDetails" type="text" class="form-control" placeholder="Please Enter Income Tax Payee Details"></td>
+                        </tr>
+                        <tr>
+                            <td>Any Other Pension in family</td>
+                            <td>
+                                <h6 class="text-center text-success" ng-if="personDetails.details.otherpensionsyesorno == 'NO'">{{personDetails.details.otherpensionsyesorno}}</h6>
+                                <h6 class="text-center text-danger" ng-if="personDetails.details.otherpensionsyesorno != 'NO'">{{personDetails.details.otherpensionsyesorno}}</h6>
+                            </td>
+                            <td>
+                                <h6 class="text-center text-success"></h6>
+                            </td>
+                            <td>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input m-0" name="otherPensionInFamilyYesOrNo" type="radio" value="YES" ng-model="otherPensionInFamilyYesOrNo">
+                                    <span class="form-check-label ml-1" for="inlineRadio1">YES</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input m-0" name="otherPensionInFamilyYesOrNo" type="radio" value="NO" ng-model="otherPensionInFamilyYesOrNo">
+                                    <span class="form-check-label ml-1">No</span>
+                                </div>
+                            </td>
+                            <td>
+                                <select id="anyOtherPension" class="form-control" ng-show="otherPensionInFamilyYesOrNo == 'YES'" ng-model="anyOtherPensionType">
+                                    <option value="">-- SELECT PENSION TYPE --</option>
+                                    <option value="EPF">EPF</option>
+                                    <option value="Military">Military</option>
+                                    <option value="OTHERS">OTHERS</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input ng-show="anyOtherPensionType == 'OTHERS'" ng-model="otherPensionFamilyDetails" type="text" class="form-control" placeholder="Please Enter Other Pensioner Details">
+                            </td>
+
+                        </tr>
+                    </table>
+                </fieldset>
+            </div>
+        </div>
+
+                                
+        <div class="row px-2 my-2">
+            <div class="col-md-12">
+                <div class="form-row form-group">
+                    <label class="col-md-4">MPDO Remarks</label>
+                    <h6 class="text-success"><b>{{personDetails.details.mpdoremarks}}</b></h6>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-row form-group">
+                    <label class="col-md-4">Field observation remarks</label>
+                    <textarea rows="2" style="height: 60px !important;" class="form-control col-md-8" placeholder="Please Enter Filed Observation Remarks " ng-model="remarks" maxlength="200"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row px-2">
+            <div class="col-md-12">
+                <fieldset>
+                    <legend>Documents View</legend>
+                    <div class="col-md-8 mx-auto">
+                        <table class="table " align="center">
+                            <tr>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-primary" ng-click="btnView(personDetails.details.AADHARPROOF,'Age Proof Certificate');">VIEW DA UPLOADED AGE PROOF CERTIFICATE</button>
+                                </td>
+                                <td>
+                                    <select id="ageEntered" class="form-control" ng-model="aadharFile">
+                                        <option value="">-- SELECT CERTIFICATE --</option>
+                                        <option value="AADHAAR">AADHAAR</option>
+                                        <!-- <option value="Study/Personal certificates">Study/Personal certificates</option> -->
+                                        <!-- <option value="children certificates">children certificates</option> -->
+                                        <!-- <option value="Marriage certificates">Marriage certificates</option> -->
+                                        <!-- <option value="Marriage year">Marriage year</option> -->
+                                        <!-- <option value="Local enquiry">Local enquiry</option> -->
+                                        <!-- <option value="medical certificate">medical certificate</option> -->
+                                    </select>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <label for="AgeProofCertificate">Age Proof Certificate Upload</label>
+                                        <input id="AgeProofCertificate" type="file" class="form-control" placeholder="Please Select Certitificate to Upload" ng-model="AgeProofCertificate" autocomplete="off" name="AgeProofCertificate" base-sixty-four-input onload="onLoad_ageCertificate" accept="image/x-png,image/jpeg" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td colspan="2" align="center">
+                                    <button type="button" class="btn btn-sm btn-primary" ng-click="btnView(personDetails.details.SCHEMEPROOF,'Scheme Proof Certificate');">VIEW DA UPLOADED SCHEME PROOF CERTIFICATE</button>
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <label for="ProofCertificate">Scheme Proof Certificate Upload </label>
+                                        <input id="ProofCertificate" type="file" class="form-control" placeholder="Please Select Certitificate to Upload" ng-model="ProofCertificate" autocomplete="off" name="ProofCertificate" base-sixty-four-input onload="onLoad_proofCertificate" accept="image/x-png,image/jpeg" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <p class="text-danger text-center"><i><b>Note:- If uploaded in this login, previously uploaded file will be replaced with new one.File Size Must be less than 150KB.</b></i></p>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button class="btn btn-success font-weight-bold" ng-click="btnSubmit();">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="certificateModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{certificateType}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12" align="center">
+                        <img data-ng-src="data:image/png;base64,{{certificateString}}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

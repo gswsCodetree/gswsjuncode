@@ -1,0 +1,1 @@
+110620175736PM:{"response":{"seedVariety":"Sunhemp-Local(10Kg)","farmerName":"గోగుల కోటి రెడ్డి","status":"2","qtyInBags":"2","otpid":"7552850","cropName":"SUNNHEMP","amountTobePaid":"720","vscode":"10790361","qtyInKgs":"20.0","msg":"Payment Already Done"}}

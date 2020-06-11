@@ -1,0 +1,597 @@
+﻿<link href="https://fonts.googleapis.com/css?family=Mandali&display=swap" rel="stylesheet">
+
+<style type="text/css">
+    .col-form-label {
+        font-weight: 600 !important;
+        font-family: 'Mandali', sans-serif !important;
+        font-size: 16px;
+    }
+
+        .col-form-label:after {
+            content: ':';
+        }
+
+    .api-page-title, legend {
+        font-family: 'Mandali', sans-serif !important;
+    }
+
+    .custom-control-label {
+        font-family: 'Mandali', sans-serif !important;
+        font-size: 16px;
+    }
+
+    .subtitle {
+        font-family: 'Mandali', sans-serif !important;
+        font-weight: 600;
+        text-decoration: underline;
+        color: #00BCD4;
+    }
+
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+
+    legend {
+        background: #004085;
+        padding: 4px 22px;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+    }
+
+    fieldset {
+        border: 2px solid gray !important;
+        border-radius: 3px;
+        padding: 30px !important;
+        margin-top: 5px;
+    }
+
+    .w-72 {
+        width: 72% !important;
+    }
+
+    .card {
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    }
+
+    .custom-radio .custom-control-label::before {
+        border: 1px solid #004085;
+        border-radius: 50%;
+    }
+
+    .custom-control-new::after {
+        border: 1px solid #004085;
+    }
+
+    .top-navigation .btn-rounded {
+        display: block;
+        clear: both;
+        margin: 0 auto;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        color: #fff !important;
+        font-weight: bold;
+        font-size: 16px;
+        text-align: center;
+        padding: 8px 5px;
+        background: #0d47a1;
+    }
+
+    .top-navigation .col-md-2 {
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif !important;
+    }
+
+        .top-navigation .col-md-2 span {
+            font-family: 'Mandali', sans-serif !important;
+        }
+
+        .top-navigation .col-md-2.right-tube::after {
+            content: '';
+            right: -100px;
+            position: absolute;
+            border-bottom: 5px solid grey;
+            width: 200px;
+            top: 17px;
+            border-radius: 5px;
+        }
+
+        .top-navigation .col-md-2.right-tube.active::after {
+            background: #004085;
+        }
+</style>
+<style type="text/css">
+    .progress-bar {
+        width: 100%;
+        overflow: visible;
+        white-space: nowrap;
+        background-color: transparent;
+    }
+
+    .progress-bar-container {
+        margin: 0 auto;
+        padding-top: 100px;
+        width: 80%;
+    }
+
+        .progress-bar-container .progress-bar {
+            position: relative;
+        }
+
+        .progress-bar-container .progress-bar__bar {
+            align-self: center;
+            background: #dfdfdf;
+            flex-grow: 1;
+            height: 5px;
+        }
+
+        .progress-bar-container .progress-bar__bar--completed {
+            background: #190a70;
+            background-color: #190a70;
+        }
+
+        .progress-bar-container .progress-bar__circles {
+            display: flex;
+        }
+
+        .progress-bar-container .progress-bar__circle {
+            background: grey;
+            border-radius: 50%;
+            border: 3px solid #dfdfdf;
+            color: black;
+            cursor: pointer;
+            height: 50px;
+            line-height: 48px;
+            position: relative;
+            text-align: center;
+            width: 50px;
+        }
+
+        .progress-bar-container .progress-bar__circle--completed {
+            background: #190a70;
+            border-color: #27bb95;
+            color: #ffffff;
+        }
+
+            .progress-bar-container .progress-bar__circle--completed .number {
+                color: #fff;
+                font-size: 1.8em;
+            }
+
+        .progress-bar-container .progress-bar__circle--selected {
+            border-color: #190a70;
+            color: #d84315;
+            background: #190a70;
+        }
+
+        .progress-bar-container .progress-bar__circle .number {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .progress-bar-container .progress-bar__circle__label {
+            top: 100%;
+            color: #b2b5ba;
+            font-weight: 600;
+            left: 50%;
+            margin-bottom: 4px;
+            margin-left: -50px;
+            position: absolute;
+            text-align: center;
+            width: 100px;
+        }
+
+    .vv-themenavtabs {
+        width: 100%;
+        float: left;
+        display: block;
+        list-style: none;
+        line-height: 14px
+    }
+
+        .vv-themenavtabs li {
+            float: left;
+            width: auto;
+            line-height: inherit;
+            list-style-type: none
+        }
+
+            .vv-themenavtabs li a {
+                padding: 20px;
+                color: #767676;
+                display: block;
+                font-size: 14px;
+                position: relative;
+                line-height: inherit
+            }
+
+            .vv-themenavtabs li:hover a {
+                color: #324b6e
+            }
+
+    .btn-blue {
+        color: white;
+        background-color: #094a82;
+        border-color: #094a82;
+    }
+
+    .vv-themenavtabs li a:after {
+        width: 0;
+        left: 0;
+        bottom: -1px;
+        content: '';
+        height: 2px;
+        position: absolute
+    }
+
+    .vv-themenavtabs li a.active:after, .vv-themenavtabs li:hover a:after {
+        width: 100%;
+        height: 3px;
+    }
+
+    .vv-themenavtabs li a.active {
+        /*color:#55acee;*/
+        color: #bd0b0b;
+        font-weight: bold
+    }
+
+    .vv-abouttab .vv-jobdetaildescription {
+        padding: 20px
+    }
+
+    .vv-tabcontent .vv-jobdetails .vv-jobdescription {
+        margin: 6px 0 22px
+    }
+
+    .vv-abouttab.vv-jobdetails .vv-title h2 {
+        margin: 0 0 9px
+    }
+
+    .vv-tabcontent .vv-jobdetails .vv-description p {
+        font-size: 14px;
+        margin: 0 0 27px;
+        line-height: 24px
+    }
+
+        .vv-tabcontent .vv-jobdetails .vv-description p:last-child {
+            margin: 0
+        }
+</style>
+<section>
+    <div class="container-fluid">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h2 class="api-page-title text-center">డాక్టర్ వై. ఎస్. ఆర్ నేతన్న నేస్తం పధకములో అర్హత కొరకై దరఖాస్తు</h2>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar">
+                                    <div class="vv-themenavtabs progress-bar__circles">
+
+                                        <a class="active" data-toggle="tab" data-ng-click="btn_get_tab(1);" data-ng-class="step_position == 1 ? 'active progress-bar__circle progress-bar__circle--selected' : 'progress-bar__circle progress-bar__circle'">
+                                            I
+                                        </a>
+
+                                        <div data-ng-class="step_position == 1 ?'progress-bar__bar progress-bar__bar':'progress-bar__bar progress-bar__bar--completed'"></div>
+
+                                        <a data-toggle="tab" data-ng-click="btn_get_tab(2);" data-ng-class="step_position == 2 ? 'active progress-bar__circle progress-bar__circle--selected' : 'progress-bar__circle progress-bar__circle'">II</a>
+                                        <div data-ng-class="(step_position == 2)||(step_position == 1) ?'progress-bar__bar progress-bar__bar':'progress-bar__bar progress-bar__bar--completed'"></div>
+
+
+
+                                        <a data-toggle="tab" data-ng-click="btn_get_tab(3);" data-ng-class="step_position == 3 ? 'active progress-bar__circle progress-bar__circle--selected' : 'progress-bar__circle progress-bar__circle'">III</a>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="vv-tabcontent tab-content">
+                            <div data-ng-show="step_position == 1" data-ng-class="step_position == 1 ? 'active show' : ''">
+                                <fieldset>
+                                    <legend class="w-auto">
+                                        చేనేత కార్మికుని వివరములు
+                                    </legend>
+
+                                    <div class="form-group row justify-content-center mb-3">
+
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">ఆధార్ నెం.<span style="color:red"> *</span></label>
+                                            <input class="form-control" autocomplete="off" ng-model="uid" mask-length="8" maxlength="12" ng-change="getdata();" placeholder="Enter Aadhaar Number" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">చేనేత కార్మికుని పేరు<span style="color:red"> *</span></label>
+                                            <input class="form-control" placeholder="" disabled="disabled" alpha-only ng-model="appname" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">తండ్రి/భర్త పేరు<span style="color:red"> *</span></label>
+                                            <input class="form-control" placeholder="" alpha-only ng-model="appfatname" />
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">మొబైల్ నెం.<span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" numbers-only placeholder="" maxlength="10" ng-model="appmobile" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">
+                                                చేనేత గుర్తింపు కార్డ్ నెం <span style="font-size:9px;">(రాష్ట్ర ప్రభుత్వం / కేంద్ర ప్రభుత్వం ద్వారా జారీ చేయబడినది.)<span style="color:red"> *</span></span>
+                                            </label>
+                                            <input class="form-control" placeholder="" numbers-only maxlength="16" ng-model="appidno" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">వయస్సు<span style="color:red"> *</span></label>
+                                            <input class="form-control" numbers-only placeholder="" maxlength="3" ng-model="appage" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">తెల్ల రేషన్ కార్డు నెం.<span style="color:red"> *</span></label>
+                                            <input class="form-control" placeholder="" ng-model="appration" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> సంవత్సర ఆదాయము (రూ.)<span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" numbers-only placeholder="" ng-model="appincome" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">సామాజిక స్థితి (OC/SC/ST/BC)<span style="color:red"> *</span></label><br />
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" ng-model="appcaste" id="9" value="9" class="custom-control-input">
+                                                <label class="custom-control-label" for="9">OC</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" ng-model="appcaste" id="11" value="11" class="custom-control-input">
+                                                <label class="custom-control-label" for="11">SC</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" ng-model="appcaste" id="12" value="12" class="custom-control-input">
+                                                <label class="custom-control-label" for="12">ST</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" ng-model="appcaste" id="10" value="10" class="custom-control-input">
+                                                <label class="custom-control-label" for="10">BC</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">ఉప కులము<span style="color:red"> *</span></label>
+                                            <input class="form-control" placeholder="" alpha-only ng-model="appsubcaste" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">కుటుంబ సభ్యుల సంఖ్య<span style="color:red"> *</span></label>
+                                            <input class="form-control" numbers-only placeholder="" maxlength="2" ng-model="appfamilycount" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> ఇంటి లో ఉన్న మగ్గముల సంఖ్య<span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" maxlength="3" numbers-only placeholder="" ng-model="loomcount" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> మగ్గం రకం(loom type)</label><span style="color:red"> *</span><br />
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" ng-model="loomtype" value="0" id="loomtype1" class="custom-control-input">
+                                                <label class="custom-control-label" for="loomtype1">గుంత మగ్గం </label>
+                                            </div>
+
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" ng-model="loomtype" value="1" id="loomtype2" class="custom-control-input">
+                                                <label class="custom-control-label" for="loomtype2">స్టాండ్ మగ్గం </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> మగ్గం<span style="color:red"> *</span></label><br />
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" ng-model="loom" value="0" id="loom1" class="custom-control-input">
+                                                <label class="custom-control-label" for="loom1">సొంత మగ్గం</label>
+                                            </div>
+
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" ng-model="loom" value="1" id="loom2" class="custom-control-input">
+                                                <label class="custom-control-label" for="loom2">షెడ్ మగ్గం</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">చేనేత మగ్గం నేయుచున్నారా / లేదా ?<span style="color:red"> *</span></label><br />
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" ng-model="doingloom" value="0" id="doingloom1" class="custom-control-input">
+                                                <label class="custom-control-label" for="doingloom1">అవును</label>
+                                            </div>
+
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" ng-model="doingloom" value="1" id="doingloom2" class="custom-control-input">
+                                                <label class="custom-control-label" for="doingloom2">కాదు</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-8">
+                                            <label class="col-form-label"> ఇంటి వివరములు<span style="color:red"> *</span></label><br />
+                                            <div class="custom-control custom-radio custom-control-inline mb-2">
+                                                <input type="radio" ng-model="housetype" id="housetype1" value="0" class="custom-control-input">
+                                                <label class="custom-control-label" for="housetype1">అద్దె</label>
+                                            </div>
+
+                                            <div class="custom-control custom-radio custom-control-inline mb-2">
+                                                <input type="radio" ng-model="housetype" id="housetype2" value="1" class="custom-control-input">
+                                                <label class="custom-control-label" for="housetype2">స్వంతము</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline mb-2">
+                                                <input type="radio" ng-model="housetype" id="housetype3" value="2" class="custom-control-input">
+                                                <label class="custom-control-label" for="housetype3">పూరిల్లు</label>
+                                            </div>
+
+                                            <div class="custom-control custom-radio custom-control-inline mb-2">
+                                                <input type="radio" ng-model="housetype" id="housetype4" value="3" class="custom-control-input">
+                                                <label class="custom-control-label" for="housetype4">పక్కా ఇల్లు</label>
+                                            </div>
+
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" ng-model="housetype" id="housetype5" value="4" class="custom-control-input">
+                                                <label class="custom-control-label" for="housetype5">ప్రభుత్వ సహాయముతో పొందిన ఇల్లు</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">
+                                                ప్రజా సాధికార సర్వే నందు నమోదై ఉన్నారా / లేదా ?<span style="color:red"> *</span>
+                                            </label><br />
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" ng-model="reginpss" id="reginpss0" value="0" class="custom-control-input">
+                                                <label class="custom-control-label" for="reginpss0">అవును</label>
+                                            </div>
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                <input type="radio" ng-model="reginpss" id="reginpss1" value="1" class="custom-control-input">
+                                                <label class="custom-control-label" for="reginpss1">కాదు</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 text-right">
+                                        <a class="btn btn-success btn-lg" ng-click="btn_get_tab(2);">Next<i class="fa fa-arrow-right"></i></a>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div data-ng-show="step_position == 2" data-ng-class="step_position == 2 ? 'active show' : ''">
+                                <fieldset>
+                                    <legend class="w-auto">
+                                        బ్యాంకు వివరములు
+                                    </legend>
+
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-6">
+                                            <label class="col-form-label"> బ్యాంకు పేరు<span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" placeholder="" alpha-only ng-model="bankname" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="col-form-label"> బ్యాంకు బ్రాంచ్<span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" placeholder="" alpha-only ng-model="branchname" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-6">
+                                            <label class="col-form-label"> ఎకౌంటు నెం<span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" numbers-only placeholder="" ng-model="accntnum" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="col-form-label"> IFSC<span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" placeholder="" alpha-numbers maxlength="11" ng-model="IFSC" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-end">
+                                        <div class="col-md-5 text-right">
+                                            <a class="btn btn-info btn-lg" ng-click="btn_get_tab(1);">Previous<i class="fa fa-arrow-right"></i></a>
+                                            <a class="btn btn-success btn-lg" ng-click="btn_get_tab(3);">Next<i class="fa fa-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div data-ng-show="step_position == 3" data-ng-class="step_position == 3 ? 'active show' : ''">
+                                <fieldset>
+                                    <legend class="w-auto">
+                                        పూర్తి చిరునామా
+                                    </legend>
+
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-6">
+                                            <label class="col-form-label">డోర్ నెం<span style="color:red"> *</span></label>
+                                            <input class="form-control" only-digits placeholder="" ng-model="doorno" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="col-form-label">జిల్లా<span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="seldistrict">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in DistricsDD" value="{{dis.LGD_DISTRICT_CODE}}">{{dis.LGD_DISTRICT_NAME}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-6">
+                                            <label class="col-form-label">R/U<span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="selruflag" data-ng-change="LoadMadals();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option value="R">Rural</option>
+                                                <option value="U">Urban</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="col-form-label">మండలము<span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="selmandal" data-ng-change="LoadPachayats();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="man in MandalsDD" value="{{man.LGD_MANDAL_CODE}}">{{man.LGD_MANDAL_NAME}}</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-6">
+                                            <label class="col-form-label">గ్రామం/ మునిసిపాలిటి/ వార్డు నెం.<span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="selpanchayath" data-ng-change="">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="pan in PanchayatDD" value="{{pan.LGD_GP_CODE}}">{{pan.LGD_PANCHAYAT_NAME}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="col-form-label">పిన్<span style="color:red"> *</span></label>
+                                            <input class="form-control" numbers-only placeholder="" maxlength="6" ng-model="pincode" />
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                    </div>
+
+                                    <div class="row justify-content-end">
+                                        <div class="col-md-5 text-right">
+                                            <a class="btn btn-info btn-lg" ng-click="btn_get_tab(2);">Previous<i class="fa fa-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center mb-3 mt-3" ng-show="finalsave">
+                            <div class="col-md-12 text-center">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" ng-model="chkconsent" class="custom-control-input" id="customCheckDisabled1">
+                                    <label class="custom-control-label custom-control-new" for="customCheckDisabled1">పైన తెలిపిన వివరాలు సరైనవని ద్రువీకరించడమైనది.<span style="color:red"> *</span></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center mb-3" ng-show="finalsave">
+                            <div class="col-md-8 text-center">
+                                <button type="submit" ng-click="save();" class="btn btn-info">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,110 @@
+﻿<style type="text/css">
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('../images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center ">
+                        <h3 class="api-page-title">BIMA CLAIM SEARCH</h3>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-3 offset-sm-1 col-form-label text-right">Enter Aadhaar</label>
+                                    <div class="col-lg-3">
+                                        <!--<input type="text" ng-model="Bimaclaim_aadhaar" ng-change="validateaadhaar();" class="form-control">-->
+                                        <input type="text" autocomplete="off" uid-input-model="Bimaclaim_aadhaar" mask-length="8" class="form-control" maxlength="12" placeholder="Enter Aadhaar Number">
+                                    </div>
+                                    <!--<div class="col-lg-3 row">
+                                        <img src="images/captcha.gif" class="w-50" />
+                                        <input type="text" class="form-control w-50" placeholder="Enter Captcha">
+                                    </div>-->
+                                    <div class="col-lg-3">
+                                        <button type="button" ng-click="GetStatus();" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mt-2 ">
+                        <div class="col-md-3" data-ng-hide="true">
+                            <input type="search" class="form-control form-control-sm" placeholder="Search.." data-ng-model="SearchText" aria-controls="">
+                        </div>
+                        <div data-ng-show="divdetails">
+                            <div>
+                                <h2>Claim Details :</h2>
+                            </div>
+                            <table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+                                <thead>
+                                    <tr class="bg-dark" style="color:white">
+                                        <th>S.No</th>
+                                        <th>Citizen Name</th>
+                                        <th>Father/Husband Name</th>
+                                        <th>Mobile Number</th>
+                                        <th>Nominee Name</th>
+                                        <th>Death Date</th>
+                                        <th>Death Type</th>
+                                        <th>Message</th>
+                                        <th>Registration Date</th>
+                                        <th>Status Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr dt-rows ng-repeat="claim in CliamDetails">
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{claim.Citizen_Name}}</td>
+                                        <td>{{claim.Father_Hus_Name}}</td>
+                                        <td>{{claim.Mobile_Number}}</td>
+                                        <td>{{claim.Nominee_Name}}</td>
+                                        <td>{{claim.Death_Date}}</td>
+                                        <td>{{claim.Death_Type}}</td>
+                                        <td>{{claim.Msg}}</td>
+                                        <td>{{claim.Reg_Date}}</td>
+                                        <td>{{claim.StatusName}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div data-ng-show="divtrack" style="margin:auto">
+                            <div>
+                                <h2>Tracking History :</h2>
+                            </div>
+                            <table class="table bg-white table-bordered table-striped table-hover datatable-show-all mb-5">
+                                <thead>
+                                    <tr class="bg-dark" style="color:white">
+                                        <th>S.No</th>
+                                        <th>Entry Date</th>
+                                        <th>Stage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr dt-rows ng-repeat="Track in TrackDetails">
+                                        <td>{{$index + 1}}</td>
+                                        <td>{{Track.Entry_Date}}</td>
+                                        <td>{{Track.Stage}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

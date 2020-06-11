@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="GSWS">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="assets/images/favicon.png" type="image/vnd.microsoft.icon">
+	<title>Village/Ward Secretariat</title>
+	<!-- Global stylesheets -->
+	
+	<link href="https://fonts.googleapis.com/css?family=Staatliches|Rubik:400,500,700,900|Antic|Gurajada|Maven+Pro|Palanquin|Questrial|Quicksand|Ramabhadra|Timmana&display=swap" rel="stylesheet">
+	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bootstrap_limitless.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/layout.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/components.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css" />
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+	<!-- Core JS files -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+	<script src="assets/js/ripple.min.js"></script>
+	<!-- /core JS files -->
+	<!-- Theme JS files -->
+	<script src="assets/plugins/uniform.min.js"></script>
+
+	<script src="assets/plugins/switch.min.js"></script>
+	<!--    <script src="assets/js/app.js"></script>-->
+	<script src="assets/js/form_checkboxes_radios.js"></script>
+	<!-- /theme JS files -->
+	<style>
+	</style>
+</head>
+<body>
+	<div class="loader"></div>
+	<!-- Page header -->
+	<div class="page-header page-header-dark" style="background: linear-gradient(45deg, #0D47A1, #4CAF50);">
+		<!-- Page header content -->
+		<div class="page-header-content header-elements-md-inline">
+			<div class="page-title py-3 d-flex">
+				<img src="assets/images/gv-logo.png" class="rounded-circle mr-2" style="width: 30px; height: 30px;" alt="">
+				<h2>Praja Sachivalayam </h2>
+				<a href="#" class="header-elements-toggle text-white d-md-none"><i class="icon-more"></i></a>
+			</div>
+			<div class="header-elements d-none bg-transparent py-0 border-0 mb-3 mb-md-0">
+				<!--
+				  <label class='toggle-label'>
+					  <input type='checkbox' id='switch_id' />
+					  <span class='back'>
+						  <span class='toggle'></span>
+						  <span class='label on'>English</span>
+						  <span class='label off'>Telugu</span>
+					  </span>
+				  </label>
+				  -->
+				<div class="profile-pic text-right">
+					<img src="assets/images/jagan-logo.png" class="w-75" />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- /page header content --><!-- Footer -->
+	<div class="navbar navbar-expand-lg navbar-light">
+		<div class="text-center d-lg-none w-100">
+			<button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
+				<i class="icon-unfold mr-2"></i>
+				Footer
+			</button>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-footer">
+			<span class="navbar-text">
+				© Copyright Govt of AP. All Rights Reserved
+			</span>
+			<ul class="navbar-nav ml-lg-auto">
+				<li class="nav-item">
+					<a href="#" class="navbar-nav-link"></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /footer -->
+	<!--Angular Core Modules-->
+	<script src="~/JS_Modules/Libraries/angular.min.js"></script>
+
+	<script src="~/JS_Modules/config.js"></script>
+
+	<!--Aadhaar Verhoeff-->
+	<script src="~/Depts/SocialWelfare_Tribal/UI/config/Common_Validations.js"></script>
+	<script src="~/js/JS_Aadhar_Verifivation.js"></script>
+
+	<link href="~/JS_Modules/Libraries/sweet-alert.css" rel="stylesheet" />
+	<script src="~/JS_Modules/Libraries/SweetAlert2.js"></script>
+
+
+	<!--Libraries-->
+	<script src="~/JS_Modules/Libraries/angular.ui.route.min.js"></script>
+	<script src="~/JS_Modules/Libraries/angular.filter.min.js"></script>
+	<script src="~/JS_Modules/Libraries/angular.upload.js"></script>
+	<script src="~/JS_Modules/Libraries/network.js"></script>
+	<script src="~/JS_Modules/Libraries/InputMasking.js"></script>
+	<link href="~/JS_Modules/Libraries/sweet-alert.css" rel="stylesheet" />
+	<script src="~/JS_Modules/Libraries/SweetAlert2.js"></script>
+
+	<!--Others-->
+	<script src="~/UI/loginController.js"></script>
+	<script src="~/UI/LoginService.js"></script>
+	<script src="~/UI/MainController.js"></script>
+	<script src="~/UI/temp.js"></script>
+	<script src="~/UI/TestMainController.js"></script>
+	<script src="~/UI/DashboardController.js"></script>
+
+	<!-- Social Welfare and Tribal Dept -->
+	<script src="~/Depts/SocialWelfare_Tribal/UI/config/Cert_Down_Route.js"></script>
+	<script src="~/Depts/SocialWelfare_Tribal/UI/config/SocialWelfareServices.js"></script>
+	<script src="~/Depts/SocialWelfare_Tribal/UI/Controllers/YPK_Mrg_Cert_Download.js"></script>
+	<script src="~/Depts/SocialWelfare_Tribal/UI/Controllers/Status_Check.js"></script>
+	<script src="~/Depts/SocialWelfare_Tribal/UI/Controllers/Education_Scholarships_check.js"></script>
+
+
+
+	<!--Endowments Dept-->
+	<script src="Depts/Endowments/UI/Config/EndowmentsServices.js"></script>
+	<script src="Depts/Endowments/UI/config/EndowmentsRoutes.js"></script>
+	<script src="Depts/Endowments/UI/Controllers/HomeController.js"></script>
+	<script src="Depts/Endowments/UI/Controllers/ABWCStatusController.js"></script>
+
+	<!--RTGS Dept-->
+	<script src="Depts/RTGS/UI/Config/RTGSServices.js"></script>
+	<script src="Depts/RTGS/UI/config/RTGSRoutes.js"></script>
+	<script src="Depts/RTGS/UI/Controllers/HomeController.js"></script>
+	<script src="Depts/RTGS/UI/Controllers/PSSStatusCotroller.js"></script>
+
+	<!--Education Dept-->
+	<script src="Depts/Education/UI/config/EducationServices.js"></script>
+	<script src="Depts/Education/UI/config/EducationRoutes.js"></script>
+	<script src="Depts/Education/UI/Controllers/AmmavodiContoller.js"></script>
+	<script src="Depts/Education/UI/Controllers/EducationController.js"></script>
+
+	<!--SERP Dept-->
+	<script src="Depts/SERP/UI/Config/SERPServices.js"></script>
+	<script src="Depts/SERP/UI/config/SERPRoutes.js"></script>
+	<script src="Depts/SERP/UI/Controllers/HomeController.js"></script>
+	<script src="Depts/SERP/UI/Controllers/PensionStatusController.js"></script>
+	<script src="~/Depts/SERP/UI/Controllers/SerpBimaController.js"></script>
+	<script src="~/Depts/SERP/UI/Controllers/SerpBimaRegsitrationController.js"></script>
+	<script src="Depts/SERP/UI/Controllers/BLSVerificationController.js"></script>
+	<script src="Depts/SERP/UI/Controllers/SRSVerificationController.js"></script>
+
+
+	<!--Health Dept-->
+	<script src="Depts/Health/UI/config/HealthServices.js"></script>
+	<script src="Depts/Health/UI/config/HealthRoutes.js"></script>
+	<script src="Depts/Health/UI/Controllers/ArogyaRakshaController.js"></script>
+
+	<!--Services Dept-->
+	<script src="Depts/Services/UI/config/SevicesServices.js"></script>
+	<script src="Depts/Services/UI/config/ServicesRoutes.js"></script>
+	<script src="Depts/Services/UI/Controllers/NPCIController.js"></script>
+	<script src="~/Depts/Services/UI/Controllers/Certificate_Controller.js"></script>
+
+
+	<!--REVENUE Dept-->
+	<script src="Depts/REVENUE/UI/Config/REVENUEServices.js"></script>
+	<script src="Depts/REVENUE/UI/config/REVENUERoutes.js"></script>
+	<script src="Depts/REVENUE/UI/Controllers/RationStatusController.js"></script>
+	<script src="~/Depts/REVENUE/UI/Controllers/RationReg.js"></script>
+	<script src="~/Depts/REVENUE/UI/Controllers/Revenue_ExciseComplaints.js"></script>
+	<script src="~/Depts/REVENUE/UI/Controllers/Excise_ComplaintStatuscheck.js"></script>
+
+	<!-- iNTERNAL  -->
+	<script src="~/Internal/UI/Config/InternalRoutes.js"></script>
+
+	<script src="~/Internal/UI/Config/InternalServices.js"></script>
+	<script src="~/Internal/UI/Controllers/InternalController.js"></script>
+
+	<!--MAUD Dept-->
+	<script src="~/Depts/MAUD/UI/config/Maud_Route.js"></script>
+	<script src="~/Depts/MAUD/UI/config/MAUD_Services.js"></script>
+	<script src="~/Depts/MAUD/UI/Controllers/MAUD_App_Check.js"></script>
+
+	<!--Minority Dept-->
+	<script src="~/Depts/Minority/UI/config/MinorityRoutes.js"></script>
+	<script src="~/Depts/Minority/UI/config/MinorityServices.js"></script>
+	<script src="~/Depts/Minority/UI/Controllers/WomenDivorcedStatus.js"></script>
+	<script src="~/Depts/Minority/UI/Controllers/ImamAndMouzansDetails.js"></script>
+
+	<!--meeseva Service-->
+	<script src="~/MeesevaService/UI/config/Meesevaroute.js"></script>
+	<script src="~/MeesevaService/UI/config/meesevaservice.js"></script>
+	<script src="~/MeesevaService/UI/controller/MeesevaController.js"></script>
+
+	<!--Transport and R&B Dept-->
+	<script src="~/Depts/Transport_RandB/UI/Config/TransportRoutes.js"></script>
+	<script src="~/Depts/Transport_RandB/UI/Config/TransportServices.js"></script>
+	<script src="~/Depts/Transport_RandB/UI/Controllers/RandB_ComplaintappSearch.js"></script>
+
+	<!--Womens Dept-->
+	<script src="~/Depts/Women_Children_Disabled_and_SeniorCitizen/UI/Config/Women_Route.js"></script>
+	<script src="~/Depts/Women_Children_Disabled_and_SeniorCitizen/UI/Config/Women_services.js"></script>
+	<script src="~/Depts/Women_Children_Disabled_and_SeniorCitizen/UI/Controllers/APDASCAC_Regform.js"></script>
+
+	<!--Home Department-->
+	<script src="~/Depts/Home/UI/config/homeRoutes.js"></script>
+	<script src="~/Depts/Home/UI/config/HomeServices.js"></script>
+	<script src="~/Depts/Home/UI/Controllers/homeController.js"></script>
+
+
+	<!--PRRD Dept-->
+	<script src="~/Depts/PRRD/UI/config/PRRDRoutes.js"></script>
+	<script src="~/Depts/PRRD/UI/config/PRRDServices.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/TaxSearch.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/JobCardPayment.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/FarmerData.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/DemandCapture.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/ConfirmDemand.js"></script>
+
+	<!--YATC Dept-->
+	<script src="~/Depts/YATC/UI/config/YATCRoutes.js"></script>
+	<script src="~/Depts/YATC/UI/config/YATCServices.js"></script>
+	<script src="~/Depts/YATC/UI/Controllers/CandidateRegController.js"></script>
+	<script src="~/Depts/YATC/UI/Controllers/CanLoginController.js"></script>
+	<script src="~/Depts/YATC/UI/Controllers/ShowAllJobsController.js"></script>
+	<script src="~/Depts/YATC/UI/Controllers/UpCommingBatchesController.js"></script>
+	<script src="~/Depts/YATC/UI/Controllers/StatusCheckController.js"></script>
+	<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+	<script type="text/javascript">
+		$('.responsive').slick({
+			dots: false,
+			infinite: false,
+			speed: 300,
+			slidesToShow: 4,
+			slidesToScroll: 4,
+			autoplay: false,
+			responsive: [{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1,
+					infinite: false,
+
+
+				}
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+			}
+				// You can unslick at a given breakpoint now by adding:
+				// settings: "unslick"
+				// instead of a settings object
+			]
+		});
+
+
+		$(document).ready(function () {
+			$('#sidebarCollapse').on('click', function () {
+				$('#sidebar').toggleClass('active');
+				$('#content').toggleClass('testing');
+			});
+		});
+		$(document).ready(function () {
+			$('#sidebarClose').on('click', function () {
+				$('#sidebar').toggleClass('active');
+				$('#content').toggleClass('testing');
+			});
+		});
+
+	</script>
+	<script type="text/javascript">
+		var toggler = document.getElementsByClassName("caret");
+		var i;
+
+		for (i = 0; i < toggler.length; i++) {
+			toggler[i].addEventListener("click", function () {
+				this.parentElement.querySelector(".nested").classList.toggle("active");
+				this.classList.toggle("caret-down");
+			});
+		};
+
+	</script>
+	<script>
+		//        document.getElementById('switch_id').addEventListener("change", function() {
+		//            if (this.checked) window.location.href = 'http://localhost/RTGS/Gramvolunteer-design3/index-te.html';
+		//        });
+
+
+		/* Block current page on button click */
+		$(window).on("load", function () {
+			$(".loader").fadeOut("3000");
+		});
+
+	</script>
+
+</body>
+</html>

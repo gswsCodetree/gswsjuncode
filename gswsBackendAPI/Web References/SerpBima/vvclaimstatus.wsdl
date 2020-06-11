@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ChandrannaBima/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ChandrannaBima/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ChandrannaBima/">
+      <s:element name="checkcbclaim">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checkcbclaimResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="checkcbclaimResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="checkcbclaimSoapIn">
+    <wsdl:part name="parameters" element="tns:checkcbclaim" />
+  </wsdl:message>
+  <wsdl:message name="checkcbclaimSoapOut">
+    <wsdl:part name="parameters" element="tns:checkcbclaimResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkcbclaimHttpGetIn">
+    <wsdl:part name="Key" type="s:string" />
+    <wsdl:part name="UID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="checkcbclaimHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="checkcbclaimHttpPostIn">
+    <wsdl:part name="Key" type="s:string" />
+    <wsdl:part name="UID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="checkcbclaimHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="vvclaimstatusSoap">
+    <wsdl:operation name="checkcbclaim">
+      <wsdl:input message="tns:checkcbclaimSoapIn" />
+      <wsdl:output message="tns:checkcbclaimSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="vvclaimstatusHttpGet">
+    <wsdl:operation name="checkcbclaim">
+      <wsdl:input message="tns:checkcbclaimHttpGetIn" />
+      <wsdl:output message="tns:checkcbclaimHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="vvclaimstatusHttpPost">
+    <wsdl:operation name="checkcbclaim">
+      <wsdl:input message="tns:checkcbclaimHttpPostIn" />
+      <wsdl:output message="tns:checkcbclaimHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="vvclaimstatusSoap" type="tns:vvclaimstatusSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="checkcbclaim">
+      <soap:operation soapAction="http://ChandrannaBima/checkcbclaim" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="vvclaimstatusSoap12" type="tns:vvclaimstatusSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="checkcbclaim">
+      <soap12:operation soapAction="http://ChandrannaBima/checkcbclaim" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="vvclaimstatusHttpGet" type="tns:vvclaimstatusHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="checkcbclaim">
+      <http:operation location="/checkcbclaim" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="vvclaimstatusHttpPost" type="tns:vvclaimstatusHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="checkcbclaim">
+      <http:operation location="/checkcbclaim" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="vvclaimstatus">
+    <wsdl:port name="vvclaimstatusSoap" binding="tns:vvclaimstatusSoap">
+      <soap:address location="http://www.bima.ap.gov.in/services/vvclaimstatus.asmx" />
+    </wsdl:port>
+    <wsdl:port name="vvclaimstatusSoap12" binding="tns:vvclaimstatusSoap12">
+      <soap12:address location="http://www.bima.ap.gov.in/services/vvclaimstatus.asmx" />
+    </wsdl:port>
+    <wsdl:port name="vvclaimstatusHttpGet" binding="tns:vvclaimstatusHttpGet">
+      <http:address location="http://www.bima.ap.gov.in/services/vvclaimstatus.asmx" />
+    </wsdl:port>
+    <wsdl:port name="vvclaimstatusHttpPost" binding="tns:vvclaimstatusHttpPost">
+      <http:address location="http://www.bima.ap.gov.in/services/vvclaimstatus.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,2 @@
+070620194359PM:Error From GetWalletAmount:Unable to connect to the remote server
+070620195226PM:Error From GetWalletAmount:Unable to connect to the remote server

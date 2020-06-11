@@ -1,0 +1,68 @@
+﻿<style>
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('assets/images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+
+<div class="container">
+    <div class="loader" ng-show="Preloader"></div>
+    <div class="col-md-12" align="center" style="margin-top:20px">
+        <h3><b style="border-bottom:5px solid black">Incharge Change</b></h3>
+    </div>
+    <div>
+
+        <div class="col-md-12" style="margin-top:50px">
+            <div class="row">
+                <div class="col-md-8" align="center">
+                    <table class="table table-bordered">
+
+                        <tr>
+                            <td>User ID <span style="color:red">*</span></td>
+                            <td><input type="text" ng-model="DisplayUserID" readonly="readonly" class="form-control" placeholder="" /></td>
+                        </tr>
+                        <tr>
+                            <td>Role <span style="color:red">*</span></td>
+                            <td>
+                                <select class="form-control" ng-model="SelRole" ng-change="SendPassword();">
+                                    <option value="">Select Role</option>
+                                    <option ng-repeat="obj in RolesDD" value="{{obj.DESIG_ID}}">{{obj.DESIGNATION}}</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr ng-show="isRole">
+                            <td>Mobile No  <span style="color:red">*</span></td>
+                            <td>
+                                <input type="text" readonly="readonly" numbers-only maxlength="10" class="form-control" ng-model="DisplayMobileNumber" placeholder="Enter Mobile Number" />
+                            </td>
+                        </tr>
+                        <tr ng-show="isRole">
+                            <td>From Date <span style="color:red">*</span></td>
+                            <td>
+                                <input type="date" ng-model="FromDate" class="form-control" />
+                            </td>
+                        </tr>
+                        <tr ng-show="isRole">
+                            <td>To Date <span style="color:red">*</span></td>
+                            <td>
+                                <input type="date" ng-model="ToDate" class="form-control" />
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="col-md-12" align="center" ng-show="isRole">
+                        <div style="margin-top:22px">
+                            <button class="btn btn-primary" ng-click="SaveDetails()">Save</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getVillageDataRequest">
+    <wsdl:part name="UserName" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="District" type="xsd:string" />
+    <wsdl:part name="Mandal" type="xsd:string" />
+    <wsdl:part name="Village" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVillageDataResponse">
+    <wsdl:part name="c" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVillageSurveyNoDataRequest">
+    <wsdl:part name="UserName" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="District" type="xsd:string" />
+    <wsdl:part name="Mandal" type="xsd:string" />
+    <wsdl:part name="Village" type="xsd:string" />
+    <wsdl:part name="SurveyNo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVillageSurveyNoDataResponse">
+    <wsdl:part name="c" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVillageAadharDataRequest">
+    <wsdl:part name="UserName" type="xsd:string" />
+    <wsdl:part name="Password" type="xsd:string" />
+    <wsdl:part name="District" type="xsd:string" />
+    <wsdl:part name="Mandal" type="xsd:string" />
+    <wsdl:part name="Village" type="xsd:string" />
+    <wsdl:part name="Aadhar" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getVillageAadharDataResponse">
+    <wsdl:part name="c" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="getVillageDataPortType">
+    <wsdl:operation name="getVillageData">
+      <wsdl:input message="tns:getVillageDataRequest" />
+      <wsdl:output message="tns:getVillageDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getVillageSurveyNoData">
+      <wsdl:input message="tns:getVillageSurveyNoDataRequest" />
+      <wsdl:output message="tns:getVillageSurveyNoDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getVillageAadharData">
+      <wsdl:input message="tns:getVillageAadharDataRequest" />
+      <wsdl:output message="tns:getVillageAadharDataResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="getVillageDataBinding" type="tns:getVillageDataPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getVillageData">
+      <soap:operation soapAction="http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php/getVillageData" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVillageSurveyNoData">
+      <soap:operation soapAction="http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php/getVillageSurveyNoData" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVillageAadharData">
+      <soap:operation soapAction="http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php/getVillageAadharData" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="getVillageData">
+    <wsdl:port name="getVillageDataPort" binding="tns:getVillageDataBinding">
+      <soap:address location="http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

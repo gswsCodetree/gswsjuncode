@@ -1,0 +1,88 @@
+﻿
+<div class="container" style="margin-top:10px">
+    <div class="col-md-12" align="center">
+        <h3><b style="border-bottom:5px solid black">TAX APPLICATION STATUS</b></h3>
+    </div>
+
+    <div class="col-md-12" style="margin-top:50px">
+        <div class="row">
+            <div class="col-md-3">
+                <b>Panchayat</b>
+                <select ng-model="ddlPanchayat" class="form-control">
+                    <option value="">Select</option>
+                    <option ng-repeat="obj in PanchayatList" value="{{obj.lgd_code}}">{{obj.panchayat}}</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <b>Application Type</b>
+                <select ng-model="ddlAppType" class="form-control">
+                    <option value="">Select</option>
+                    <option value="1">Mutation </option>
+                    <option value="2">Private Tap  </option>
+                    <option value="3">Trade Licence </option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <b>Application Number</b>
+                <input type="text" ng-model="AppNO" placeholder="Enter Application Number" class="form-control" />
+            </div>
+
+            <div class="col-md-2" style="margin-top:22px">
+                <button class="btn btn-primary" id="btnGetReport" ng-click="getdetails()">Get Details</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12" style="margin-top:30px" ng-show="detailsshow">
+        <h3 align="center"></h3>
+        <div class="card mb-2">
+            <div class="card-body">
+                <div class="col-md-12" >
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <tr style="background-color: #2886cd; color: white">
+                                        <th style="text-align:center !important;" colspan="4">APPLICATION DETAILES</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Application ID</td>
+                                        <td>{{dept_application_id}}</td>
+                                        <td>Service Name</td>
+                                        <td>{{service_name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Application Status</td>
+                                        <td>{{message}}</td>
+                                        <td>Closing Date</td>
+                                        <td>{{closing_date}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Citizen Name</td>
+                                        <td>{{citizen_name}}</td>
+                                        <td>Gender</td>
+                                        <td>{{gender}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>District</td>
+                                        <td>{{district}}</td>
+                                        <td>Mandal</td>
+                                        <td>{{mandal}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Panchayat</td>
+                                        <td colspan="3">{{panchayat}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+

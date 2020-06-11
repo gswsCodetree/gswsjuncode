@@ -1,0 +1,85 @@
+﻿<style type="text/css">
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+        <!-- Content area -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>Amma vodi Application Status</h1>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="card">
+
+                            <div class="card-body">
+
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-3 col-form-label text-right">Student Aadhaar</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" uid-input-model="student_aadhaar" mask-length="8" autocomplete="off" placeholder="Enter Student Aadhaar" maxlength="12"  class="form-control" />
+                                    </div>
+                                    <!--<div class="col-lg-3 row">
+                                        <img src="images/captcha.gif" class="w-50" />
+                                        <input type="text" class="form-control w-50" placeholder="Enter Captcha">
+                                    </div>-->
+                                    <div class="col-lg-3">
+                                        <button type="button" ng-click="GetStatus();" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 mt-2 " ng-show="dttable">
+                        <table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+                            <thead>
+                                <tr class="bg-dark" style="color:white !important;">
+                                    <th>S.No</th>
+                                    <th>Student Name</th>
+									<th>Mother/Guardian Name</th>
+                                    <th>Student Class</th>
+                                    <th>Ration Id</th>
+                                    <th>Bank Ifsc Code</th>
+                                    <th>Bank Account Number</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dt-rows ng-repeat="stu in StudentDetails">
+                                    <td>{{$index + 1}}</td>
+									<td>{{stu.benfificiaryName}}</td>
+									<td>{{stu.mother_guardian}}</td>
+									<td>{{stu.studying_class}}</td>
+                                    <!--<td>{{stu.DOB_DT_GIVEN.replace("T00:00:00","")}}</td>-->
+									<td>{{stu.ration_card_no}}</td>
+									<td>{{stu.ifsc_code}}</td>
+									<td>{{stu.ac_no}}</td>
+									<td>{{stu.Status}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

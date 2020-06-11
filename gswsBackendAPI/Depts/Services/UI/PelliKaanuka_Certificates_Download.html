@@ -1,0 +1,51 @@
+﻿
+
+			<div class="container">
+
+				<div class="col-md-12" align="center">
+					<h3><b style="border-bottom:5px solid black">MEESEVA CERTIFICATES CHECK/DOWNLOAD</b></h3>
+				</div>
+				<div class="col-md-12" style="margin-top:50px">
+					<div class="row">
+						<div class="col-md-2"></div>
+						<div class="col-md-3">
+							<b>Select Application Type</b>
+							<select class="form-control" ng-model="ddltype">
+								<option value="">Select</option>
+								<option value="INTEGRATED">INTEGRATED</option>
+								<option value="INCOME">INCOME</option>
+							</select>
+						</div>
+
+						<div class="col-md-3">
+							<b>Enter Certificate ID</b>
+							<input type="text" ng-model="txtcertid" placeholder="Enter Certificate ID" class="form-control" />
+						</div>
+						<div class="col-md-3" style="margin-top:22px">
+							<button class="btn btn-primary" id="btnGetReport" ng-click="getdetails()">Get Details</button>
+							<button class="btn btn-danger" id="btnreset" ng-click="Refresh()">Reset</button>
+
+						</div>
+					</div>
+
+				</div>
+				<div class="col-md-12" style="margin-top:30px" ng-show="detailsshow">
+					<div class="row">
+						<div class="col-md-3">
+
+						</div>
+						<div class="col-md-6">
+							<b>Application Status::</b> {{Status}}
+							<div style="margin-top:10px">
+								<!--<a href="{{Attachment}}" download target="_blank">Download</a>-->
+								
+								<object ng-attr-data="{{Attachment}}" width="500" height="600" />
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			
+		

@@ -1,0 +1,150 @@
+﻿
+<div class="container">
+	<div class="col-md-12">
+		<h1 class="page-title text-center"> Closing Hardware Issues </h1>
+	</div>
+
+	<br />
+	<div class="row">
+		<div class="table table-responsive table-bordered">
+			<table class="table table-bordered bg-white">
+				<thead class="bg-dark">
+					<tr class="text-center">
+						<td>S.No</td>
+						<td>District</td>
+						<td>Mandal</td>
+						<td>Secretariat</td>
+						<td>Token ID</td>
+						<td>Asset</td>
+						<td>Remarks</td>
+						<td>Status</td>
+						<!--<td>Image Uploaded</td>-->
+						<td></td>
+					</tr>
+				</thead>
+				<tbody ng-show="data != '' && preloader == false">
+					<tr class="text-center " ng-repeat="obj in ActiveIssuesData | filter: DISTRICT_NAME">
+						<td>{{$index + 1}}</td>
+						<td>{{obj.DISTRICT_NAME}}</td>
+						<td>{{obj.MANDAL_NAME}}</td>
+						<td>{{obj.SECRETARIAT_NAME}}</td>
+						<!--<td>{{obj.REPORT_ID}}</td>-->
+						<td><a href="" ng-click="ClickReportID(obj);">{{obj.REPORT_ID}}</a></td>
+						<td>{{obj.ASSETS}}</td>
+						<td>{{obj.REMARKS}}</td>
+						<td>{{obj.STATUS_DATA}}</td>
+						<!--<td ng-if="obj.IMAGE_URL!='NA'"><img style="height: 60px;" src="{{obj.IMAGE_URL}}" /></td>
+						<td ng-if="obj.IMAGE_URL=='NA'">{{obj.IMAGE_URL}}</td>-->
+						<td>
+							<button type="button" class="btn btn-primary" ng-click="CaptureReasonClick(obj);">Close</button>
+						</td>
+					</tr>
+				</tbody>
+				<tbody ng-show="data == '' && preloader == false">
+					<tr class="text-center">
+						<td colspan="9">No Data Available</td>
+					</tr>
+				</tbody>
+				<tbody ng-show="preloader">
+					<tr class="text-center">
+						<td colspan="9">
+							<i class="icon-spinner spinner icon-3x "></i>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="ReasonCaptureModel">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header bg-dark py-2">
+				<h1 class="mb-0 text-center"> Reason Capture </h1>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<!-- Modal body -->
+			<div class="modal-body">
+				<div class="col-sm-12">
+					<div class="row">
+						Track ID: {{TrackID}}
+					</div>
+					<div class="row">
+						<textarea ng-model="txtReason" name="enter-message" class="form-control mb-3" rows="3" cols="1" placeholder="Enter your message..."></textarea>
+					</div>
+					<div class="row" align="center">
+						<button type="button" class="btn btn-primary" ng-click="ReasonSaveClick(TrackID,txtReason);">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="ReportIDModal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header bg-dark py-2">
+				<h1 class="mb-0 text-center"> Track ID :{{TrackID}} </h1>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<!-- Modal body -->
+			<div class="modal-body">
+				<div class="col-sm-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">Remarks Entered</label>
+								<div class="col-sm-10">
+									<input type="text" readonly class="form-control-plaintext" ng-model="ModelRemarks" value="Remarks Entered">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">Image Uploaded</label>
+								<div class="col-sm-10">
+									<img src="{{ModelImage}}" class="img-fluid" />
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!--<hr />
+					<div class="row">
+						<h3>Title</h3>
+						<div class="col-md-12">
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">Remarks</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control-plaintext" value="">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">Upload Image</label>
+								<div class="col-sm-10">
+									<div class="input-group">
+										<div class="custom-file">
+											<input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+											<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+										</div>
+										<div class="input-group-append">
+											<button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Upload</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<div class="col-sm-12">
+									<button class="btn btn-success">Submit</button>
+								</div>
+							</div>
+						</div>
+					</div>-->
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

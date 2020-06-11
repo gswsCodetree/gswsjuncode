@@ -1,0 +1,1275 @@
+﻿<style>
+	.highlighted {
+		background: yellow
+	}
+
+	.sub-service {
+		font-size: 13px !important;
+		color: blue !important;
+	}
+
+	.description {
+		display: none;
+		position: absolute;
+		border: 1px solid #000;
+		width: 400px;
+		height: 400px;
+	}
+</style>
+
+
+<div class="row">
+	<div class="col-xl-3 col-lg-3 col-md-4  col-sm-3" style="background: #f5f5f5; position: relative;z-index: 99">
+		
+<div class="card  mb-2">
+	<div class="card-header header-elements-inline p-0 mb-3">
+				<button type="button" id="sidebarCollapse" class="btn bg-info btn-block"> స్పందన</button>
+			</div>
+			<div class="card-body pb-1">
+				<div class="row">
+					<div class="col-sm-6 p-0">
+						<div class="greviences">
+							<i class="icon-profile icon-2x"></i>
+							<h3>నమోదిత ఫిర్యాదులు</h3>
+							<h2 class="mb-0"><a style="cursor:pointer;" ng-click="GetSpandanaDashboard(1);">{{SpandanaRegcount}}</a></h2>
+						</div>
+					</div>
+					<div class="col-sm-3 p-0">
+						<div class="inprocess">
+							<i class="icon-shield-check icon-2x"></i>
+							<h3> సరిచేసినవి </h3>
+							<h2 class="mb-0"><a style="cursor:pointer;" ng-click="GetSpandanaDashboard(2);" >{{SpandanaResolvedcount}} </a></h2>
+						</div>
+					</div>
+					<div class="col-sm-3 p-0">
+						<div class="approved">
+							<i class="icon-history icon-2x"></i>
+							<h3>పెండింగ్</h3>
+							<h2 class="mb-0"> <a style="cursor:pointer;" ng-click="GetSpandanaDashboard(3);"> {{SpandanaPendingcount}} </a></h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col ">
+				<div class="card custom-card">
+				
+					<div class="card-body">
+
+						<div class="row">
+
+
+							<div class="col-6 col-sm-6 col-md-12 col-lg-6 col-xl-6 count-sachivalayam " style="    border-right: 1px solid #EEEEEE;">
+								<div class="count-fromsch pb-0" style="color:#9C27B0" ng-click="TransReps();">
+									<h5 class="mb-0">సేవా అభ్యర్థనలు నమోదు చేయబడినవి</h5>
+									<h2 class="mb-0"> <i class="icon-primitive-square icon-2x"></i> {{servicereq}}</h2>
+								</div>
+
+							</div>
+							<div class=" col-6 col-sm-6 col-md-12 col-lg-6 col-xl-6  count-sachivalayam  ">
+								<div class="count-fromschother  pb-0"  style="color:#009688">
+									<h5 class="mb-0">సేవ పంపిణీ చేయబడినవి</h5>
+									<h2 class="mb-0 mt-3"> <i class="icon-primitive-square icon-2x"></i> {{servicedelivert}} <span style="font-size: 13px; margin-top: 8px;float: right;"></span></h2>
+								</div>
+							</div>
+
+							<div class="col-12 col-sm-12 col-md-12">
+								<hr>
+							</div>
+
+						
+
+							<div class="col-6 col-sm-6 col-md-12 col-lg-6 col-xl-6 count-sachivalayam " style="    border-right: 1px solid #EEEEEE;">
+								<div class="count-fromsch"  ng-click="RecievedResp();">
+									<h5 class="mb-0">ఆమోదం కోసం పంపబడినవి</h5>
+									<h2 class="mb-0"> <i class="icon-primitive-square icon-2x"></i>{{pendingforapproval}}</h2>
+								</div>
+
+							</div>
+							<div class=" col-6 col-sm-6 col-md-12 col-lg-6 col-xl-6  count-sachivalayam  ">
+								<div class="count-fromschother">
+
+
+									<h5 class="mb-0">రెస్పాన్స్ వచ్చినవి</h5>
+
+									<h2 class="mb-0 mt-3"><i class="icon-primitive-square icon-2x"></i> {{responserecieved}} <span style="font-size: 13px; margin-top: 8px;float: right;">(80%)</span></h2>
+
+								</div>
+								<!--                                                <h6 class="mb-0">From Others to Sachivalayam</h6>-->
+							</div>
+
+						</div>
+
+					
+						<div class="col-12 col-sm-12 col-md-12">
+							<hr>
+						</div>
+
+						<div class="row">
+
+
+							<div class="col-6 col-sm-6 col-md-12 col-lg-6 col-xl-6 mb-2 count-sachivalayam " style="    border-right: 1px solid #EEEEEE;">
+
+
+								<div class="count-fromothers2"  ng-click="GetUpward();">
+									<h5 class="mb-0">సూచనలు/ ఆదేశాలు</h5>
+									<h2 class="mb-0"> <i class="icon-primitive-square icon-2x"></i> {{RecievedInstr}} </h2>
+								</div>
+							
+							</div>
+
+							<div class=" col-6 col-sm-6 col-md-12 col-lg-6 col-xl-6 mb-2  count-sachivalayam  ">
+								<div class="count-fromothers"  ng-click="GetDownWard();">
+									<h5 class="mb-0">రెస్పాన్స్</h5>
+									<h2 class="mb-0"><i class="icon-primitive-square icon-2x"></i> {{ResponseSent}} <span style="font-size: 13px; margin-top: 8px;float: right;"></span></h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				
+				</div>
+
+
+
+
+
+
+			</div>
+
+
+
+
+		</div>
+
+			
+		
+	</div>
+	<div class="col-xl-9 col-lg-9 col-md-8 col-sm-9">
+		<div class="wrapper">
+			<!-- Sidebar  -->
+
+			<div id="sidebar" class="active">
+				<div class="sidebar-header">
+					<img src="assets/images/spandana_logo.png" style="width:17%" />
+					
+					<div id="sidebarClose" class=" btn"><i class="icon-cross2"></i></div>
+				</div>
+				<div class="sidebar-body">
+					<div class="row">
+							<div class="col-sm-12 mb-3">
+								<ul class="nav nav-pills nav-pills-bordered nav-pills-toolbar mb-0 justify-content-center">
+									
+									<li class="nav-item"><a style="cursor:pointer;" class="nav-link  " data-toggle="tab" ng-click="getSpandanaGrievance(2);">సమస్యను నమోదు చెయ్యండి</a></li>
+									<li class="nav-item"><a style="cursor:pointer;" class="nav-link rounded-right-round" data-toggle="tab" ng-click="GetGrievanceStatus();">అప్లికేషన్ స్థితి తనిఖీ</a></li>
+								</ul>
+
+							</div>
+								
+
+								<div class="tab-content col-sm-12">
+
+										<div class="tab-pane fade active show" id="service-request" ng-show="divservice">
+
+										<div class="card shadow-0">
+											<div class="card-body">
+												<div class="col-sm-12">
+
+													<div class="row">
+														<div class="col-sm-4">
+															<label>Enter Aadhaar Number</label>
+															<input type="text" numbers-only class="form-control" ng-model="spandanauid" maxlength="12" placeholder="Enter Aadhar No" />
+														</div>
+														<div class="col-sm-4">
+															<label>Select Ditrict</label><span style="color:red;">*</span>
+															<select class="form-control" ng-model="distcode">
+																<option value="">Select District</option>
+																<option ng-repeat="obj in distlist" value="{{obj.LGD_DISTRICT_CODE}}">{{obj.LGD_DISTRICT_NAME}}</option>
+															</select>
+														</div>
+														<div class="col-sm-4">
+															<label>Select Rural/Urban</label><span style="color:red;">*</span>
+															<select class="form-control" ng-model="ruflag" ng-change="GetMandalload();">
+																<option value="">Select Rural/Urban</option>
+																<option value="R">Rural</option>
+																<option value="U">Urban</option>
+															</select>
+														</div>
+
+														<div class="col-sm-4">
+															<label>Select Mandal</label><span style="color:red;">*</span>
+															<select class="form-control" ng-model="mcode" ng-change="GPLoad();">
+																<option value="">Select Mandal</option>
+																<option ng-repeat="obj in mandallist" value="{{obj.LGD_MANDAL_CODE}}">{{obj.LGD_MANDAL_NAME}}</option>
+															</select>
+														</div>
+														<div class="col-sm-4">
+															<label>Select Village</label><span style="color:red;">*</span>
+															<select class="form-control" ng-model="gpcode">
+																<option value="">Select Village</option>
+																<option ng-repeat="obj in gplist" value="{{obj.LGD_GP_CODE}}">{{obj.LGD_PANCHAYAT_NAME}}</option>
+															</select>
+														</div>
+														<div class="col-sm-4 mt-3">
+															<label><br /> <br /></label>
+															<input type="button" ng-click="ServiceRequest()" value="ServiceReuest" class="btn btn-success" />
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+									<div class="" ng-show="divspandareg">
+										<div class="row">
+											<div class="col-sm-12">
+												<div class="row">
+													<div class="col-sm-4">
+														<label>Enter Aadhaar Number</label>
+														<input type="text" numbers-only class="form-control" ng-model="spandanauid" maxlength="12" placeholder="Enter Aadhar No" />
+													</div>
+													<div class="col-sm-4">
+														<label>Select Ditrict</label><span style="color:red;">*</span>
+														<select class="form-control" ng-model="distcode">
+															<option value="">Select District</option>
+															<option ng-repeat="obj in distlist" value="{{obj.LGD_DISTRICT_CODE}}">{{obj.LGD_DISTRICT_NAME}}</option>
+														</select>
+													</div>
+													<div class="col-sm-4">
+														<label>Select Rural/Urban</label><span style="color:red;">*</span>
+														<select class="form-control" ng-model="ruflag" ng-change="GetMandalload();">
+															<option value="">Select Rural/Urban</option>
+															<option value="R">Rural</option>
+															<option value="U">Urban</option>
+														</select>
+													</div>
+
+													<div class="col-sm-4">
+														<label>Select Mandal</label><span style="color:red;">*</span>
+														<select class="form-control" ng-model="mcode" ng-change="GPLoad();">
+															<option value="">Select Mandal</option>
+															<option ng-repeat="obj in mandallist" value="{{obj.LGD_MANDAL_CODE}}">{{obj.LGD_MANDAL_NAME}}</option>
+														</select>
+													</div>
+													<div class="col-sm-4">
+														<label>Select Village</label><span style="color:red;">*</span>
+														<select class="form-control" ng-model="gpcode">
+															<option value="">Select Village</option>
+															<option ng-repeat="obj in gplist" value="{{obj.LGD_GP_CODE}}">{{obj.LGD_PANCHAYAT_NAME}}</option>
+														</select>
+													</div>
+													<div class="col-sm-4 mt-3">
+														<label><br /> <br /></label>
+														<input type="button" ng-click="GrievanceRequest()" value="RegisterGrievance" class="btn btn-success" />
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+
+										<div class="card" ng-show="divmain">
+
+
+											<div class="card-body">
+												<div class="row">
+													<div class="col-sm-12 spandan-ttl">
+														<h1>వ్యక్తిగత వివరములు</h1>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label"> పేరు</label>
+															<input type="text" class="form-control" placeholder="Enter Name" ng-model="Sname" />
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">C/O  పేరు</label>
+															<input type="text" class="form-control" placeholder="Enter Father Name" ng-model="Sfathername" />
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">వయసు</label>
+															<input type="text" class="form-control" placeholder="Enter Age" ng-model="Sage" />
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">ఇంటి నంబర్</label>
+															<input type="text" class="form-control" placeholder="Enter Door Number" ng-model="Sdoorno" />
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">నివాస స్థలం</label>
+															<input type="text" class="form-control" placeholder="Enter Habitation" ng-model="Shabitation" />
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">జిల్లా</label>
+															<select class="form-control" ng-model="sdist">
+																<option value="">select District</option>
+																<option ng-repeat="obj in SdistList" value="{{obj.LGD_DISTRICT_CODE}}">{{obj.DISTRICT}}</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">గ్రామం /పట్టణం</label>
+															<select class="form-control" ng-model="Sruflag">
+																<option value="">select Rural/urban</option>
+																<option value="R">Rural</option>
+																<option value="U">Uraban</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">మండలం</label>
+															<select class="form-control" ng-model="SMandal">
+																<option value="">select Mandal</option>
+																<option ng-repeat="obj in SmandalList" value="{{obj.LGD_MANDAL_CODE}}">{{obj.MANDAL_NAME}}</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">గ్రామం</label>
+															<select class="form-control" ng-model="Svillage">
+																<option value="">select Village</option>
+																<option ng-repeat="obj in SvillageList" value="{{obj.LGD_VILLAGE_CODE}}">{{obj.VILLAGE}}</option>
+															</select>
+														</div>
+													</div>
+
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">లింగం</label>
+															<input type="text" class="form-control" placeholder="Enter Gender" ng-model="Sgender" />
+														</div>
+													</div>
+
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">మొబైల్ నంబర్</label>
+															<input type="text" class="form-control" placeholder="Enter Mobile Number" ng-model="Smob" maxlength="10" />
+														</div>
+													</div>
+
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">వృత్తి</label>
+															<input type="text" class="form-control" placeholder="Enter Mobile number" ng-model="Soccuption" />
+														</div>
+													</div>
+												</div>
+
+												<div class="row mt-4" ng-show="divtable">
+													<div class="col-sm-12 spandan-ttl">
+														<h1> Family Grievance Information</h1>
+													</div>
+
+													<div class="col-sm-12">
+														<table class="table table-bordered">
+															<thead>
+
+
+																<tr class="alpha-blue">
+																	<th>Doc No</th>
+																	<th> Name/Mobile No</th>
+																	<th>Date Of Registration </th>
+																	<th>Department </th>
+																	<th> Subject </th>
+																	<th>Sub Subject </th>
+																	<th> Status</th>
+																	<th>ML Status </th>
+
+																</tr>
+															</thead>
+
+															<tbody>
+
+
+																<tr>
+																	<td>12334 </td>
+																	<td>Laxshman </td>
+																	<td>20/05/2019 </td>
+																	<td>Revenue </td>
+																	<td>Some Text </td>
+																	<td> Some Sub Text</td>
+																	<td> Active </td>
+																	<td> In Process </td>
+
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+
+												<div class="row mt-4" ng-show="divgrievance">
+													<div class="col-sm-12 spandan-ttl">
+														<h1>ఫిర్యాదుల చిరునామాను అందించండి</h1>
+													</div>
+
+
+													<!--<div class="col-sm-3">
+									<div class="custom-control custom-checkbox mt-4">
+										<input type="checkbox" class="custom-control-input" ng-click="GetSameMaster();" value="1" ng-model="chckedsame" id="customCheck" name="example1">
+										<label class="custom-control-label" for="customCheck">If Same Address click here</label>
+									</div>
+								</div>-->
+
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">జిల్లా</label>
+															<select class="form-control" ng-model="mdist" ng-show="!chckedsame">
+																<option value="">select District</option>
+																<option ng-repeat="obj in seccdistlist" value="{{obj.M_DID}}">{{obj.MKM_DISTNAME}}</option>
+															</select>
+															<select class="form-control" ng-model="mdist" ng-show="chckedsame">
+																<option value="">select District</option>
+																<option ng-repeat="obj in Samedistlist" value="{{obj.M_DID}}">{{obj.MKM_DISTNAME}}</option>
+															</select>
+														</div>
+													</div>
+
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">గ్రామం /పట్టణం</label>
+															<select class="form-control" ng-model="mruflag" ng-change="GetSeccMandal();">
+																<option value="">select Rural/Urban</option>
+																<option value="R">Rural</option>
+																<option value="U">Urban</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">మండలం</label>
+															<select class="form-control" ng-model="mmandal" ng-change="GetSeccVillage();" ng-show="!chckedsame">
+																<option value="">select Mandal</option>
+																<option ng-repeat="obj in seccmandallist" value="{{obj.M_MID}}">{{obj.MKM_MNAME}}</option>
+															</select>
+															<select class="form-control" ng-model="mmandal" ng-change="GetSeccVillage();" ng-show="chckedsame">
+																<option value="">select Mandal</option>
+																<option ng-repeat="obj in SameMandallist" value="{{obj.M_MID}}">{{obj.MKM_MNAME}}</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">గ్రామం</label>
+															<select class="form-control" ng-model="mvill" ng-show="!chckedsame">
+																<option value="">select Village</option>
+																<option ng-repeat="obj in seccvillagelist" value="{{obj.M_VID}}">{{obj.MKM_VNAME}}</option>
+															</select>
+
+															<select class="form-control" ng-model="mvill" ng-show="chckedsame">
+																<option value="">select Village</option>
+																<option ng-repeat="obj in Samevilllist" value="{{obj.M_VID}}">{{obj.MKM_VNAME}}</option>
+															</select>
+														</div>
+													</div>
+												</div>
+
+												<div class="row mt-4" ng-show="divgrievance">
+													<div class="col-sm-12 spandan-ttl">
+														<h1>సమస్య సమాచారం</h1>
+													</div>
+
+													<div class="col-sm-12">
+														<div class="custom-control custom-radio custom-control-inline">
+															<input type="radio" class="custom-control-input" id="customRadio" name="example" value="1" ng-model="rdn1" ng-click="getgrievancetype(1)">
+															<label class="custom-control-label" for="customRadio">సబ్జెక్టు ద్వారా ఫిర్యాదు</label>
+														</div>
+														<div class="custom-control custom-radio custom-control-inline">
+															<input type="radio" class="custom-control-input" id="customRadio2" ng-click="getgrievancetype(2)" ng-model="rdn2" name="example" value="2">
+															<label class="custom-control-label" for="customRadio2">
+																కీవర్డ్ ద్వారా ఫిర్యాదు
+															</label>
+														</div>
+														<div class="custom-control custom-radio custom-control-inline">
+															<input type="radio" class="custom-control-input" id="customRadio3" ng-click="getgrievancetype(3)" ng-model="rdn3" name="example" value="3">
+															<label class="custom-control-label" for="customRadio3">
+																డిపార్ట్మెంట్ ద్వారా ఫిర్యాదు
+															</label>
+														</div>
+													</div>
+												</div>
+												<div class="row" ng-show="gsubject">
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label class="col-form-label">సబ్జెక్టు</label>
+															<select class="form-control" ng-model="subjectcode" ng-change="GetSubSubject();">
+																<option value="">select Subject</option>
+																<option ng-repeat="obj in subjectlist" value="{{obj.SubjectId}}">{{obj.Subject}}</option>
+
+															</select>
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label class="col-form-label">సబ్ సబ్జెక్టు</label>
+															<select class="form-control" ng-model="subsubjectcode">
+																<option value="">Sub Subject</option>
+																<option ng-repeat="obj in subsubjectlist" value="{{obj.SubSubjectId}}">{{obj.SubSubject}}</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">Source Type</label>
+															<select class="form-control">
+																<option value="100500">GSWS</option>
+															</select>
+														</div>
+													</div>
+													<!--<div class="col-sm-3">
+									<div class="form-group">
+										<label class="col-form-label">Last Mail Functionality(LMF)</label>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="custom-control custom-checkbox mt-4">
+										<input type="checkbox" class="custom-control-input" id="customCheck11" name="example5">
+										<label class="custom-control-label" for="customCheck11">If Same Address click here</label>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="form-group">
+										<label class="col-form-label">Select Officer</label>
+										<select class="form-control">
+											<option value="opt1">select Officer</option>
+
+										</select>
+									</div>
+								</div>-->
+												</div>
+												<div class="row" ng-show="gkeyword">
+													<div class="col-sm-12">
+														<div class="form-group">
+															<label class="col-form-label">కీవర్డ్ ద్వారా ఫిర్యాదు</label>
+															<input type="text" class="form-control" placeholder="Enter Grievance Name" />
+														</div>
+													</div>
+													<!-- Search by Subject-->
+													<div class="col-sm-6">
+														<div class="form-group">
+															<label class="col-form-label">Sub-Subject</label>
+															<select class="form-control" ng-model="subjectcode">
+																<option value="">Sub Subject</option>
+																<option ng-repeat="obj in Searchkeywordlist" value="{{obj.SubSubjectId}}">{{obj.SubSubject}}</option>
+
+															</select>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<label class="col-form-label">Source Type</label>
+															<select class="form-control">
+																<option value="113">GSWS</option>
+															</select>
+														</div>
+													</div>
+													<!--<div class="col-sm-3">
+									<div class="form-group">
+										<label class="col-form-label">Last Mail Functionality(LMF)</label>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="custom-control custom-checkbox mt-4">
+										<input type="checkbox" class="custom-control-input" id="customCheck11" name="example5">
+										<label class="custom-control-label" for="customCheck11">If Same Address click here</label>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="form-group">
+										<label class="col-form-label">Select Officer</label>
+										<select class="form-control">
+											<option value="opt1">select Officer</option>
+
+										</select>
+									</div>
+								</div>-->
+												</div>
+												<!-- Search by Department-->
+												<div class="row" ng-show="gdept">
+													<div class="col-sm-4">
+														<div class="form-group">
+															<label class="col-form-label">డిపార్ట్మెంట్</label>
+															<select class="form-control" ng-model="hodid" ng-change="GetSubject();">
+																<option value="">డిపార్ట్మెంట్ సెలెక్ట్ చేసుకోండి</option>
+																<option ng-repeat="obj in departmentlist" value="{{obj.HodId}}">{{obj.HodName}}</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<label class="col-form-label">సబ్జెక్టు</label>
+															<select class="form-control" ng-model="subjectcode" ng-change="GetSubSubject();">
+																<option value="">సబ్జెక్టు సెలెక్ట్ చేసుకోండి </option>
+																<option ng-repeat="obj in subjectlist" value="{{obj.SubjectId}}">{{obj.Subject}}</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-sm-4">
+														<div class="form-group">
+															<label class="col-form-label">సబ్ సబ్జెక్టు</label>
+															<select class="form-control" ng-model="subsubjectcode">
+																<option value="">సబ్ సబ్జెక్టు సెలెక్ట్ చేసుకోండి</option>
+																<option ng-repeat="obj in subsubjectlist" value="{{obj.SubSubjectId}}">{{obj.SubSubject}}</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-sm-3">
+														<div class="form-group">
+															<label class="col-form-label">Source Type</label>
+															<select class="form-control" ng-model="apptype">
+																<option value="113">GSWS</option>
+															</select>
+														</div>
+													</div>
+
+												</div>
+												<div class="row mt-4" ng-show="divgrievance">
+													<div class="col-sm-12 spandan-ttl">
+														<h1> వ్యాఖ్యలు/ఇతర వివరములు </h1>
+													</div>
+													<div class="col-sm-12">
+														<div class="form-group">
+															<label class="col-form-label">దయచేసి వ్యాఖ్యలను నమోదు చేయండి</label>
+															<textarea class="form-control" ng-model="SRemarks" placeholder="దయచేసి వ్యాఖ్యలను నమోదు చేయండి">
+                                                      </textarea>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-sm-12" ng-show="divgrievance">
+													<label></label>
+													<input type="button" class="btn btn-success" value="సబ్మిట్" ng-click="SpandanaSubmit();" />
+												</div>
+
+
+											</div>
+										</div>
+									</div>
+									<div class="" ng-show="divspanstatus">
+										<div class="row">
+											<div class="form-group col-sm-4 offset-sm-4">
+												<div class="row">
+													<div class="col-sm-8">
+														<input type="text" ng-model="sdocnum" class="form-control" placeholder="డాక్యుమెంట్ నంబర్ ను నమోదు చెయ్యండి" maxlength="20" />
+													</div>
+													<div class="col-sm-4">
+														<button type="submit" ng-click="GetSpandanaStatus();" class="btn alpha-blue text-blue-800 border-blue-600">వివరములు పొందండి</button>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="row mt-4" ng-show="divstatus">
+											<div class="col-sm-12 spandan-ttl">
+												<h1> Family Grievance Information</h1>
+											</div>
+
+											<div class="col-sm-12">
+												<div class="table-responsive">
+
+													<table class="table table-bordered">
+														<thead>
+															<tr ng-repeat="obj in SStatusList">
+																<th class="alpha-blue">Doc No</th>
+																<td>{{obj.DOC_NO}}</td>
+
+																<th class="alpha-blue">Name</th>
+																<td>{{obj.Applicatent_Name}}</td>
+															</tr>
+															<tr ng-repeat="obj in SStatusList">
+																<th class="alpha-blue">C/O Name</th>
+																<td> {{obj.C_O}}</td>
+
+																<th class="alpha-blue">Date Of Registration</th>
+																<td>{{obj.Date_Of_Apply}} </td>
+															</tr>
+															<tr ng-repeat="obj in SStatusList">
+																<th class="alpha-blue">Department</th>
+																<td>{{obj.PETTYP}} </td>
+
+																<th class="alpha-blue">Subject</th>
+																<td>{{obj.subject}} </td>
+															</tr>
+															<tr ng-repeat="obj in SStatusList">
+																<th class="alpha-blue">Sub Subject</th>
+																<td>{{obj.subsubject}} </td>
+
+																<th class="alpha-blue">Status</th>
+																<td> {{obj.App_Status}}</td>
+															</tr>
+															<tr ng-repeat="obj in SStatusList">
+																<th class="alpha-blue">Remarks</th>
+																<td>{{obj.OTHER_DETAILS}} </td>
+
+																<th class="alpha-blue">Last Updated Date</th>
+																<td> {{obj.Last_UpdatedDate}}</td>
+															</tr>
+														</thead>
+													</table>
+												</div>
+
+
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+			<!-- End Sidebar  -->
+			<!-- Page Content  -->
+			<div id="content">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+						<div class="slider  navarathnalu">
+
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx1 text-center  hvr-hang" ng-click="GetNavaRatnalu('వై ఎస్ ఆర్ రైతు భరోసా','1')" data-toggle="modal" data-target="#myModal1">
+									<img src="assets/images/icn/ysr_rythubharosa_64.png" class="img-fluid" />
+									<h4> వై ఎస్ ఆర్ రైతు భరోసా</h4>
+								</div>
+							</div>
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx2 text-center" data-toggle="modal" ng-click="GetNavaRatnalu('ఫీజు రీయింబర్స్‌మెంట్','2')" data-target="#myModal1">
+									<img src="assets/images/icn/fee_reimbursement_64.png" class="img-fluid" />
+									<h4> ఫీజు రీయింబర్స్‌మెంట్</h4>
+								</div>
+							</div>
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx5 text-center" data-toggle="modal" ng-click="GetNavaRatnalu('ఫీజుమద్యంపై నిషేధం','3')" data-target="#myModal1">
+									<img src="assets/images/icn/alcohol_ban_64.png" class="img-fluid" />
+									<h4>
+										మద్యంపై నిషేధం
+									</h4>
+								</div>
+							</div>
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx6 text-center" data-toggle="modal" ng-click="GetNavaRatnalu('అమ్మ వోడి','4')" data-target="#myModal1">
+									<img src="assets/images/icn/ammavodi_64.png" />
+									<h4>
+										అమ్మ వోడి
+									</h4>
+								</div>
+							</div>
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx7 text-center" data-toggle="modal" data-target="#myModal17">
+									<img src="assets/images/icn/ysr_asara_64.png" class="img-fluid" />
+									<h4>
+										వై ఎస్ ఆర్ చెయుత
+									</h4>
+								</div>
+							</div>
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx8 text-center" data-toggle="modal" ng-click="GetNavaRatnalu('పెన్షన్ లా పెంపు','6')" data-target="#myModal1">
+									<img src="assets/images/icn/pension_64.png" class="img-fluid" />
+									<h4>
+										పెన్షన్ లా పెంపు
+									</h4>
+								</div>
+							</div>
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx9 text-center" data-toggle="modal" ng-click="GetNavaRatnalu('పేదలందరికీ ఇళ్ళు','7')"  data-target="#myModal1">
+									<img src="assets/images/icn/paydalandariki_illu_64.png" class="img-fluid" />
+									<h4>
+										పేదలందరికీ ఇళ్ళు
+									</h4>
+								</div>
+							</div>
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx3 text-center" data-toggle="modal" data-target="#myModal3">
+									<img src="assets/images/icn/arogyasri_64.png" class="img-fluid" />
+									<h4>ఆరోగ్యశ్రీ</h4>
+								</div>
+							</div>
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx4 text-center" data-toggle="modal" data-target="#myModal4">
+									<img src="assets/images/icn/jalayagnam_64.png" class="img-fluid" />
+									<h4> జలయజ్ఞం</h4>
+								</div>
+							</div>
+
+
+
+
+							<!--	<div class="item">
+		<div class="navarathnalu-bx navarathnalu-bx1 text-center" data-toggle="modal" data-target="#myModal1">
+			<img src="assets/images/icn/ysr_rythubharosa_64.png" class="img-fluid" />
+			<h4> వై ఎస్ ఆర్ రైతు భరోసా</h4>
+		</div>
+	</div>
+	<div class="item">
+		<div class="navarathnalu-bx navarathnalu-bx2 text-center" data-toggle="modal" data-target="#myModal2">
+			<img src="assets/images/icn/fee_reimbursement_64.png" class="img-fluid" />
+			<h4> ఫీజు రీయింబర్స్‌మెంట్</h4>
+		</div>
+	</div>
+	<div class="item">
+		<div class="navarathnalu-bx navarathnalu-bx3 text-center" data-toggle="modal" data-target="#myModal3">
+			<img src="assets/images/icn/arogyasri_64.png" class="img-fluid" />
+			<h4>ఆరోగ్యశ్రీ</h4>
+		</div>
+	</div>-->
+						</div>
+					</div>
+				</div>
+				<section class="scheme">
+					<div class="row">
+						<div class="col-sm-6 col-md-4 col-lg-4 col-xl-7 custom-col ">
+							<!--<button class="btn bg-primary-800" data-toggle="collapse" data-target="#demo"><i class="icon-filter4 mr-1 "></i> Filter</button>-->
+						</div>
+						<div class="col-sm-6 col-md-4 col-lg-4 col-xl-5 custom-col ">
+							<fieldset>
+								<div class="header-elements">
+									<div class="input-group">
+										<input type="text" ng-model="search.URL_DESCRIPTION" class="form-control" placeholder="సర్వీస్ పేరు ను ఎంటర్ చెయ్యండి" ng-change="get_Telugudata()" aria-describedby="button-addon3">
+										<div class="input-group-prepend mr-0">
+											<button class="btn bg-primary-800" ng-ciick="get_Telugudata()" type="button"><i class="icon-search4"></i></button>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col-sm-12">
+							<div id="demo" class="filter collapse">
+								<div class="form-group mb-3 mb-md-2">
+									<div class="form-check form-check-inline">
+										<label class="form-check-label">
+											<input type="checkbox" class="form-check-input-styled" data-fouc>
+											Frequently View
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class="row services">
+						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6  custom-col" ng-repeat="obj in final_data"  ng-show="role!='207'">
+							<div class="card " ng-show="role!='108'">
+								<div class="card-header header-elements-inline card-dept-header{{obj.DEPT_ID}}">
+									<h6 class="card-title">{{obj.DEPT_NAME_TEL}}</h6>
+
+								</div>
+
+
+
+								<div class="card-body pb-0">
+									<ul id="myUL {{obj.DEPT_ID}}" class="services-list">
+										<li ng-repeat="inner_obj in obj.HOD_LIST">
+											<span class="caret" ng-class="viewDropdown? 'caret caret-down' : 'caret'" ng-click="viewDropdown= !viewDropdown">{{inner_obj.HOD_NAME_TEL}} ({{inner_obj.URL_LIST.length}})</span>
+											<ul class="nested" ng-class="viewDropdown? 'nested active' : 'nested'">
+												<li ng-show="url_obj.ACTIVE_STATUS==1 && url_obj.TYPE_OF_SERVICE!=3" ng-mousedown="onMouseHold(event, url_obj);" ng-mouseup="onMouseRelease();" ng-click="process_url(url_obj);" ng-repeat="url_obj in inner_obj.URL_LIST" compile="details" ng-bind-html="url_obj.URL_TEL_DESCRIPTION | highlight:search.URL_TEL_DESCRIPTION">
+													<a class="sub-service" style="cursor:pointer">{{url_obj.URL_TEL_DESCRIPTION}}</a>
+												</li>
+												<li class="sub-inactive" ng-show="url_obj.ACTIVE_STATUS==0" ng-mousedown="onMouseHold(event, url_obj);" ng-mouseup="onMouseRelease();" ng-click="process_url(url_obj);" ng-repeat="url_obj in inner_obj.URL_LIST" compile="details" ng-bind-html="url_obj.URL_TEL_DESCRIPTION | highlight:search.URL_DESCRIPTION">
+													<a class="sub-service" style="cursor:pointer">{{url_obj.URL_TEL_DESCRIPTION}}</a>
+												</li>
+												<li ng-show="url_obj.TYPE_OF_SERVICE==3" ng-click="GetMeesevaData(url_obj.STATUS,url_obj.URL_DESCRIPTION);" ng-repeat="url_obj in inner_obj.URL_LIST" compile="details">
+													<a class="sub-service tesitngsed1" style="cursor:pointer" data-popup="tooltip" data-placement="top"><img src="images/meeseva.png" width="18px" height="18px" /> <span ng-bind-html="url_obj.URL_TEL_DESCRIPTION | highlight:search.URL_DESCRIPTION">{{url_obj.URL_TEL_DESCRIPTION}}</span> </a>
+												</li>
+												<li ng-show="url_obj.TYPE_OF_SERVICE==4" ng-click="GetSpandanaUrl(url_obj);" ng-repeat="url_obj in inner_obj.URL_LIST" compile="details">
+													<a class="sub-service tesitngsed1" style="cursor:pointer" data-popup="tooltip" data-placement="top"><img src="images/spandana.png" width="18px" height="18px" /> <span ng-bind-html="url_obj.URL_TEL_DESCRIPTION | highlight:search.URL_DESCRIPTION">{{url_obj.URL_TEL_DESCRIPTION}}</span> </a>
+												</li>
+											</ul>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+
+
+						</div>
+							<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 custom-col" ng-show="role=='101'|| role=='110' || role=='1' || role=='201' ||  role=='207' || role=='204' || role=='108'">
+							<div class="card ">
+								<div class="card-header header-elements-inline">
+									<h6 class="card-title">విద్యుత్ శాఖ</h6>
+								</div>
+								<div class="card-body pb-0">
+									<div class="row">
+										<div class="col-sm-8 mb-3">
+
+											<select class="form-control" data-ng-model="seldistrict" ng-change="LoadEnergy();">
+												<option selected="selected" value="">జిల్లాను సెలెక్ట్ చేసుకోండి</option>
+												<option data-ng-repeat="dis in DISTRICTNAME" value="{{dis.DISTRICTID}}">{{dis.DISTRICTNAME_TELUGU}}</option>
+											</select>
+										</div>
+
+									</div>
+									<ul>
+										<li ng-repeat="obj in mainEnergydata | unique:'HOD_ID'">
+											<span class="caret" ng-class="viewDropdown? 'caret caret-down' : 'caret'" ng-click="viewDropdown= !viewDropdown">{{obj.HOD_NAME_TEL}} ({{mainEnergydata.length}})</span>
+											<ul class="nested" ng-class="viewDropdown? 'nested active' : 'nested'">
+												<li ng-mousedown="onMouseHold(event, url_obj);" ng-mouseup="onMouseRelease();" ng-click="process_url(url_obj);" ng-repeat="url_obj in mainEnergydata" ng-if="url_obj.HOD_ID==obj.HOD_ID" compile="details" ng-bind-html="url_obj.URL_DESC_TEL | highlight:search.URL_DESCRIPTION">
+													<a class="sub-service" style="cursor:pointer">{{url_obj.URL_DESC_TEL}}</a>
+												</li>
+
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 custom-col" ng-show="role=='201' || role=='204' || role=='1'">
+							<div class="card ">
+								<div class="card-header header-elements-inline">
+									<h6 class="card-title"> మునిసిపల్ అడ్మినిస్ట్రేషన్ మరియు పట్టణాభివృద్ధి శాఖ</h6>
+								</div>
+								<div class="card-body pb-0">
+									<div class="row">
+										<div class="col-sm-8 mb-3">
+
+											<select class="form-control" data-ng-model="selmandal" ng-change="GetSubmit();">
+												<option selected="selected" value="">మునిసిపాలిటీ ను సెలెక్ట్ చేసుకోండి </option>
+												<option data-ng-repeat="man in ULBNAMES" value="{{man.DISTRICTID}}_{{man.ULBID}}">{{man.ULBNAMETELUGU}}</option>
+											</select>
+										</div>
+
+									</div>
+									<ul>
+										<li ng-repeat="obj in maindata | unique:'HOD_ID'">
+											<span class="caret" ng-class="viewDropdown? 'caret caret-down' : 'caret'" ng-click="viewDropdown= !viewDropdown">{{obj.HOD_NAME_TEL}}  (<b ng-show="obj.HOD_ID=='2701'">{{muncount}}</b> <b ng-if="obj.HOD_ID=='2702'">{{towncount}}</b> <b ng-if="obj.HOD_ID=='2703'">{{phealthcount}}</b>)</span>
+											<ul class="nested" ng-class="viewDropdown? 'nested active' : 'nested'">
+												<li ng-mousedown="onMouseHold(event, url_obj);" ng-mouseup="onMouseRelease();" ng-click="process_url(url_obj);" ng-repeat="url_obj in maindata" ng-if="url_obj.HOD_ID==obj.HOD_ID" compile="details" ng-bind-html="url_obj.URL_DESC_TEL | highlight:search.URL_DESCRIPTION">
+													<a class="sub-service" style="cursor:pointer">{{url_obj.URL_DESC_TEL}}</a>
+												</li>
+
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 custom-col" ng-show="final_data.length>0">
+							<div class="card " ng-show="role=='110' || role=='207' || role=='204'">
+								<div class="card-header header-elements-inline card-dept-header29">
+									<h6 class="card-title">మీసేవ సేవలు </h6>
+								</div>
+								<div class="card-body pb-0">
+
+									<div class="col-md-12" id="DYNAMICDATA">
+
+									</div>
+									<ul id="myUL" class="services-list">
+										<li>
+											<a ng-click="GetMeesevaData();" class="btn btn-success">మీసేవ సర్వీస్ లింక్స్ </a>
+										</li>
+										
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-12" style="padding-top:20px;" align="center">
+							<img src="assets/images/psloader.gif" ng-show="ploader" />
+							<h2 ng-show="!final_data.length">No Data Available</h2>
+						</div>
+
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<!-- /footer -->
+	<!-- The Modal -->
+	<div class="modal fade " id="myModal1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content" style="border: 5px solid white;">
+				<!-- Modal Header -->
+				<div class="modal-header bg-dark py-2">
+					<h1 class="text-center mb-0">{{Ntitle}}</h1>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- Modal body -->
+				<div class="modal-body">
+					<!--                    <img src="assets/images/navarathnalu.jpg" class="navr-modal-img" />-->
+					<div class="row">
+						<div class="col-sm-12 target-div">
+							<div id="div1" class="targetDiv">
+
+								<div class="service-nv-list">
+									<div class="row">
+										<div class="col-sm-5">
+											<div class="row">
+
+												<div class="col-sm-12" ng-repeat="obj in navalist | unique:'HOD_ID'">
+													<div class="modal-service">
+														<h2> {{obj.HOD_NAME_TEL}}</h2>
+
+														<ul>
+															<li ng-repeat="obj1 in  navalist" ng-if="obj1.HOD_ID==obj.HOD_ID" ng-mousedown="onMouseHold(event, url_obj);" ng-mouseup="onMouseRelease();" ng-click="process_url(obj1);">
+																<a class="sub-service" style="cursor:pointer">{{obj1.URL_DESC_TEL}}</a>
+															</li>
+
+														</ul>
+													</div>
+												</div>
+
+											</div>
+
+
+										</div>
+										<div class="col-sm-7">
+
+											<img src="assets/images/navarathnalu/bg-{{ID}}.png" class="w-75" />
+
+
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/slick.min.js"></script>
+	<script>
+		/* slider */
+
+		$('.responsive').slick({
+			dots: false,
+			infinite: false,
+			arrow: false,
+			speed: 500,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: false,
+			responsive: [
+				{
+					breakpoint: 1366,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1,
+					}
+				},
+				{
+					breakpoint: 1280,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1,
+					}
+				}, {
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: 6,
+						slidesToScroll: 1,
+						infinite: false,
+					}
+				}, {
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2
+					}
+				}, {
+					breakpoint: 480,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1
+					}
+				}
+			]
+		});
+
+		$('.navarathnalu').slick({
+			dots: false,
+			infinite: true,
+			speed: 300,
+			prevArrow: "<button type='button' class='slick-prev'><i class='icon icon-circle-left2' aria-hidden='true'></i></button>",
+			nextArrow: "<button type='button' class='slick-next'><i class='icon icon-circle-right2' aria-hidden='true'></i></button>",
+			arrows: false,
+			slidesToShow: 9,
+			slidesToScroll: 1,
+			autoplay: false,
+
+			responsive: [
+				{
+					breakpoint: 1366,
+					settings: {
+						slidesToShow: 6,
+						slidesToScroll: 1,
+					}
+				},
+				{
+					breakpoint: 1280,
+					settings: {
+						slidesToShow: 5,
+						slidesToScroll: 1,
+					}
+				}, {
+					breakpoint: 1024,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 1,
+						infinite: false,
+					}
+				}, {
+					breakpoint: 600,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2
+					}
+				}, {
+					breakpoint: 480,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1
+					}
+				}
+			]
+		});
+
+
+
+
+		$(document).ready(function () {
+			$('#sidebarCollapse').on('click', function () {
+				$('#sidebar').toggleClass('active');
+				$('#content').toggleClass('testing');
+			});
+		});
+		$(document).ready(function () {
+			$('#sidebarClose').on('click', function () {
+				$('#sidebar').toggleClass('active');
+				$('#content').toggleClass('testing');
+			});
+		});
+
+
+		var toggler = document.getElementsByClassName("caret");
+		var i;
+
+		for (i = 0; i < toggler.length; i++) {
+			toggler[i].addEventListener("click", function () {
+				this.parentElement.querySelector(".nested").classList.toggle("active");
+				this.classList.toggle("caret-down");
+			});
+		};
+
+
+
+
+		$(function () {
+
+			$('.showSingle').click(function () {
+				$('.targetDiv').hide();
+				$('#div' + $(this).attr('target')).show();
+			});
+		});
+
+	</script>
+</div>
+<div class="modal fade " id="mobile-modal" data-backdrop="static">
+	<div class="modal-dialog" style="top: 29%;">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header bg-dark">
+				Mobile verification ({{popurlname}})
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<!-- Modal body -->
+			<div class="modal-body">
+				<!--                    <img src="assets/images/navarathnalu.jpg" class="navr-modal-img" />-->
+				<div class="row">
+					<div class="col-sm-12 target-div">
+
+
+
+						<div class="row">
+
+							<div class="col-sm-12">
+								<div class="form-group row">
+
+									<div class=" col-sm-6 offset-sm-2">
+										<label class="col-form-label">లబ్ధిదారుని పేరు ను నమోదు చెయ్యండి </label>
+										<input type="text" ng-model="Citizenname" class="form-control" placeholder="Enter Beneficiary Name">
+									</div>
+									<div class=" col-sm-6 offset-sm-2">
+										<label class="col-form-label">లబ్దిదారుని  మొబైల్  నంబర్  ను నమోదు చెయ్యండి </label>
+										<input type="text" numbers-only ng-model="pmobile" maxlength="10" class="form-control" placeholder="Enter Mobile Number">
+									</div>
+									<div class=" col-sm-2">
+										<button type="button" class="btn btn-outline-primary btn-sm mt-4" ng-click="GetInitiate();">Submit</button>
+									</div>
+								</div>
+							</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade " id="spandana-modal" data-backdrop="static">
+	<div class="modal-dialog" style="top: 29%;">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header bg-dark">
+				Mobile verification ({{popurlname}})
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<!-- Modal body -->
+			<div class="modal-body">
+				<!--                    <img src="assets/images/navarathnalu.jpg" class="navr-modal-img" />-->
+				<div class="row">
+					<div class="col-sm-12 target-div">
+
+
+
+						<div class="row">
+
+							<div class="col-sm-12">
+								<div class="form-group row">
+
+									<div class=" col-sm-6 offset-sm-2">
+										<label class="col-form-label">Enter Beneficiary Name </label>
+										<input type="text" ng-model="SCitizenname" maxlength="35" alpha-bets class="form-control" placeholder="Enter Beneficiary Name">
+									</div>
+									<div class=" col-sm-6 offset-sm-2">
+										<label class="col-form-label">Enter Beneficiary Aadhaar Number </label>
+										<input type="text" ng-model="Suid" numbers-only maxlength="12" class="form-control" placeholder="Enter Beneficiary Name">
+									</div>
+									<div class=" col-sm-6 offset-sm-2">
+										<label class="col-form-label">Enter Beneficiary Mobile Number</label>
+										<input type="text" numbers-only ng-model="Smobile" maxlength="10" class="form-control" placeholder="Enter Mobile Number">
+									</div>
+									<div class=" col-sm-2">
+										<button type="button" class="btn btn-outline-primary btn-sm mt-4" ng-click="GetSpandanaRequest();">Submit</button>
+									</div>
+								</div>
+							</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

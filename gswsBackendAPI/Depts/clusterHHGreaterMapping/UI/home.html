@@ -1,0 +1,188 @@
+﻿<style>
+    .modal-xl {
+        max-width: 1000px !important;
+    }
+</style>
+
+<div class="row" style="padding:50px;">
+    <div class="col-md-12" align="center">
+        <h2>Cluster To Household Mapping </h2>
+
+
+        <div class="row">
+
+
+            <div class="offset-4 col-md-3" align="left">
+                <label for="volunteer">Search By Aadhaar<span style="color:red">*</span></label>
+                <input type="text" class="form-control" numbers-only placeholder="Please Enter Aadhaar Number" ng-model="uidNum" maxlength="12" />
+            </div>
+            <div class="col-md-3" align="left" style="padding-top:28px;">
+                <button type="button" class="btn btn-success" ng-click="btnSearchAadhaar();">SEARCH</button>
+            </div>
+        </div>
+
+        <div class="row" ng-show="Loader" style="padding-top:30px;">
+            <div class="col-md-12" align="center">
+                <h4>Loading...</h4>
+            </div>
+        </div>
+        <div class="row" ng-show="!Loader && citizenDetails != ''" style="padding-top:30px;">
+            <div class="col-md-12" align="right">
+                <button type="button" class="btn btn-primary" ng-click="btnAddMemberModal();">
+                    Add Member
+                </button>
+            </div>
+            <div class="col-md-12 table-responsive" align="center">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr align="center" class="bg-success text-white">
+                            <th>S.No</th>
+                            <th>Citizen Name</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>DOB</th>
+                            <th>Mobile Number</th>
+                            <th>Family Status</th>
+                            <th>Father Aadhaar</th>
+                            <th>Mother Aadhaar</th>
+                            <th>Martial Status</th>
+                            <th>Spouse Aadhaar</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="obj in citizenDetails" align="center">
+                            <td>{{$index + 1}}</td>
+                            <td>{{obj.CITIZEN_NAME != null ? obj.CITIZEN_NAME : 'NA'}}</td>
+                            <td>{{obj.GENDER != null ? obj.GENDER : 'NA'}}</td>
+                            <td>{{obj.AGE}}</td>
+                            <td>{{obj.DOB_DT != null ? obj.DOB_DT : 'NA'}}</td>
+                            <td>{{obj.MOBILE_NUMBER != null ? obj.MOBILE_NUMBER : 'NA'}}</td>
+                            <td>
+                                <select class="form-control" ng-model="obj.IS_LIVING_WITHFAMILY">
+                                    <option value="">-- SELECT STATUS --</option>
+                                    <option value="1">Living with Family</option>
+                                    <option value="2">Temporarily living apart (Example : Employing or studying somewhere else)</option>
+                                    <option value="3">Died</option>
+                                    <option value="4">Permanently living apart (Example : Married or left the family)</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" numbers-only class="form-control" placeholder="Please Enter Father aadhaar" ng-model="obj.FATHER_AADHAAR" maxlength="12" />
+                            </td>
+                            <td>
+                                <input type="text" numbers-only class="form-control" placeholder="Please Enter Mother aadhaar" ng-model="obj.MOTHER_AADHAAR" maxlength="12" />
+                            </td>
+                            <td>
+                                <select class="form-control" ng-model="obj.IS_MARRIED">
+                                    <option value="0">NOT MARRIED</option>
+                                    <option value="1">MARRIED</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" numbers-only class="form-control" placeholder="Please Enter Spouse Aadhaar" ng-model="obj.SPOUSE_AADHAAR" ng-disabled="obj.IS_MARRIED != '1'" maxlength="12" />
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger" ng-click="btnRemovePerson(obj.UID_NUM);">Remove</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-12" ng-show="!Loader && citizenDetails != ''" style="padding-top:30px;" align="center">
+                <button type="button" class="btn btn-success" ng-click="btnValidateFamily();">SUBMIT </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="addMemberModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Member to family</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-9 col-9">
+                        <input type="text" numbers-only maxlength="12" id="addMember" ng-model="addMemberUid" class="form-control" placeholder="Please Enter aadhaar number " />
+                    </div>
+                    <div class="col-md-3 col-3">
+                        <button type="button" id="btnAddMember" class="btn btn-primary" ng-click="btnAddMember();" >ADD MEMBER</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="modal fade" id="householdMappingModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Household Mapping</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <div class="offset-3 col-md-6">
+                            <label for="cluster">Clusters<span style="color:red">*</span></label>
+                            <select id="cluster" class="form-control" ng-model="cluster_id">
+                                <option value="">-- SELECT CLUSTER --</option>
+                                <option ng-repeat="obj in clusters" value="{{obj}}">{{obj.CLUSTE}} </option>
+                            </select>
+                        </div>
+                        <div class="offset-3 col-md-6">
+                            <label for="doorNo">Door No<span style="color:red">*</span></label>
+                            <input id="doorNo" type="text" maxlength="12" class="form-control" placeholder="Please Enter Door No" ng-model="DOOR_NO" />
+                        </div>
+
+                        <div class="offset-3 col-md-6">
+                            <label for="cluster">Head Of Household<span style="color:red">*</span></label>
+                            <select id="cluster" class="form-control" ng-model="hof">
+                                <option value="">-- SELECT HEAD OF HOUSEHOLD --</option>
+                                <option ng-repeat="obj in hofList" value="{{obj.UID_NUM}}">{{obj.NAME == null ? 'NA' : obj.NAME }} </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="padding:15px;">
+                    <div class="offset-3 col-md-6" align="center">
+                        <input id="otp" type="text" maxlength="10" numbers-only class="form-control" placeholder="Please Enter Mobile Number" ng-model="mobileNum" />
+                    </div>
+                    <div class="col-md-12" aliggn="left">
+                        <input type="checkbox" ng-model="checked" />
+                        <p style="color:red;">* నమోదు చేయుచున్న కుటుంబం నా యొక్క సమ్మతి తో జరుగుతున్నది. దీనికి నేను పూర్తి బాధ్యత వహించగలను.</p>
+                    </div>
+                    <div class="col-md-12" style="padding-top:10px;" ng-show="checked" align="center">
+                        <button type="button" class="btn btn-success" ng-click="btnOTPSend();">SEND OTP</button>
+                    </div>
+                </div>
+                <div class="row" style="padding:15px;" align="center" ng-show="otpFlag">
+                    <div class="offset-3 col-md-6">
+                        <input id="otp" type="text" maxlength="6" numbers-only class="form-control" placeholder="Please Enter OTP" ng-model="otp" />
+                    </div>
+                    <div class="col-md-12" style="padding:15px;">
+                        <button type="button" class="btn btn-success" ng-click="btnAddHosuehold();">ADD HOUSEHOLD</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

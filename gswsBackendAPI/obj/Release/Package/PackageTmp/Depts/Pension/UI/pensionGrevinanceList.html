@@ -1,0 +1,97 @@
+﻿
+<style>
+
+    body {
+        background: #fff !important;
+    }
+
+    .table thead th {
+        padding: 8px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .table tbody td {
+        padding: 5px;
+    }
+
+    .btn {
+        padding: 2px 8px;
+    }
+
+    .table tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .table tbody tr:nth-of-type(even) {
+        background-color: rgba(120, 120, 120, 0.12);
+    }
+
+    .table tr td p {
+        margin-bottom: 0;
+    }
+
+    .form-control {
+        height: 30px !important;
+        padding: 0;
+    }
+
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
+        display: none !important;
+    }
+</style>
+
+
+<div class="row " style="padding-top:20px;">
+    <div class="col-md-12">
+        <h3 class="text-center">Pension New Application Grievence Details</h3>
+
+        <div class="row" align="center" style="padding:20px;" ng-show="!loader">
+            <div class="col-md-12 table-responsive">
+                <table class="table table-bordered">
+                    <thead class="bg-primary">
+                        <tr align="center">
+                            <th>S.No.</th>
+                            <th>GRIEVANCE ID</th>
+                            <th>NAME</th>
+                            <th>AGE</th>
+                            <th>SCHEME</th>
+                            <th>APPLICATION RAISED DATE</th>
+                            <th>VERIFICATION TYPE</th>
+                        </tr>
+                    </thead>
+                    <tbody align="center" ng-show="!loader && greList != ''">
+                        <tr align="center" ng-repeat="obj in greList">
+                            <td>{{$index + 1}}</td>
+                            <td>
+                                <a class=" text-primary" style="cursor:pointer;" ng-click="btnViewGrevinance(obj.Transactionid,obj.grievance_id);">{{obj.grievance_id}}</a>
+                            </td>
+                            <td>{{obj.citizen_name}}</td>
+                            <td>{{obj.age}}</td>
+                            <td>{{obj.scheme}}</td>
+                            <td>{{obj.entered_date | date}}</td>
+                            <td>{{obj.verification_type}}</td>
+                        </tr>
+                    </tbody>
+                    <tbody align="center" ng-show="!loader && greList == ''">
+                        <tr>
+                            <td colspan="7">
+                                <h5 class="text-center">No Data Available</h5>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="row" align="center" ng-show="loader" style="padding:20px;">
+            <div class="col-md-12">
+                <h1>Loading...</h1>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

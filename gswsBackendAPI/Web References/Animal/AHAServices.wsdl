@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetLLCSApplicationDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UniqueNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLLCSApplicationDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLLCSApplicationDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRIDSApplicationDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UniqueNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRIDSApplicationDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRIDSApplicationDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLLCSApplicationDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLLCSApplicationDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetLLCSApplicationDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLLCSApplicationDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRIDSApplicationDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRIDSApplicationDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetRIDSApplicationDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRIDSApplicationDetailsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AHAServicesSoap">
+    <wsdl:operation name="GetLLCSApplicationDetails">
+      <wsdl:input message="tns:GetLLCSApplicationDetailsSoapIn" />
+      <wsdl:output message="tns:GetLLCSApplicationDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRIDSApplicationDetails">
+      <wsdl:input message="tns:GetRIDSApplicationDetailsSoapIn" />
+      <wsdl:output message="tns:GetRIDSApplicationDetailsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AHAServicesSoap" type="tns:AHAServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLLCSApplicationDetails">
+      <soap:operation soapAction="http://tempuri.org/GetLLCSApplicationDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRIDSApplicationDetails">
+      <soap:operation soapAction="http://tempuri.org/GetRIDSApplicationDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AHAServicesSoap12" type="tns:AHAServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLLCSApplicationDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetLLCSApplicationDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRIDSApplicationDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetRIDSApplicationDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AHAServices">
+    <wsdl:port name="AHAServicesSoap" binding="tns:AHAServicesSoap">
+      <soap:address location="https://tptuat.aponline.gov.in/AHAService/AHAServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AHAServicesSoap12" binding="tns:AHAServicesSoap12">
+      <soap12:address location="https://tptuat.aponline.gov.in/AHAService/AHAServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

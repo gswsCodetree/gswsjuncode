@@ -1,0 +1,398 @@
+﻿
+<style>
+
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('images/loader.gif') 50% 50% no-repeat #fff;
+	}
+
+	.maditoty {
+		color: red;
+	}
+
+	legend {
+		background: #004085;
+		padding: 4px 22px;
+		border-radius: 3px;
+		color: white;
+		font-size: 16px;
+	}
+
+	fieldset {
+		border: 2px solid gray !important;
+		border-radius: 3px;
+		padding: 30px !important;
+	}
+
+	.w-72 {
+		width: 72% !important;
+	}
+
+	.card {
+		box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+	}
+</style>
+
+<div data-ng-show="preloader" class="loader"></div>
+<div class="container-fluid mt-4">
+	<div class="row">
+		<div class="col-sm-12 text-center">
+			<h1 class="api-page-title">YSR PENSION KAANUKA - NEW GRIEVANCE </h1>
+		</div>
+		<div class="col-sm-12 ">
+			<div class="card custom-design">
+				<div class="card-body">
+					<div class="col-sm-12" ng-show="aadharvalidation">
+						<div class="card-body">
+							<div>
+								<fieldset>
+									<legend class="w-auto">
+										Aadhar Validation
+									</legend>
+									<div class="form-group row justify-content-center">
+										<div class="col-md-3">
+											<b>AadhaarCard No <span class="maditoty">*</span></b>
+											<input type="text" ng-model="txtValidateUID" numbers-only maxlength="12" placeholder="Enter Aaadar" class="form-control" />
+										</div>
+										<div class="col-md-2" style="margin-top:22px">
+											<button class="btn btn-primary" id="btnGetReport" ng-click="ValidateUID()">Validate</button>
+										</div>
+									</div>
+								</fieldset>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 mt-3" ng-show="detailsuidshow">
+						<div class="card-body pb-5">
+							<div>
+								<fieldset ng-disabled="pensiondesable">
+									<legend>
+										Ration Data
+									</legend>
+									<div class="form-group row mb-3 justify-content-center">
+										<div class="col-md-3">
+											<b>Aadhar Number</b>
+											<input type="text" numbers-only ng-model="txtUID" maxlength="12" ng-disabled="true" placeholder="Enter Aaadar" class="form-control" />
+										</div>
+										<div class="col-md-3">
+											<b>Pension Type <span class="maditoty">*</span></b>
+											<select ng-disabled="pensiondesable" ng-model="ddlType" class="form-control">
+												<option value="">Select</option>
+												<option ng-repeat="x in pensionTypeList" value="{{x.typeId}}">{{x.typeName}}</option>
+											</select>
+										</div>
+										<div class="col-md-3">
+											<b>RationCard No <span class="maditoty">*</span></b>
+											<input type="text" ng-model="txtNumber" placeholder="Enter Ration Number" class="form-control" />
+										</div>
+										<div class="col-md-2" style="margin-top:22px">
+											<button class="btn btn-primary" id="btnGetReport" ng-click="ValidatePensionType()">Validate</button>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 mt-3" data-ng-show="uiddatashow">
+						<div class="card-body pb-5">
+							<div>
+								<fieldset>
+									<legend>
+										AADHAAR Card Details
+									</legend>
+									<div class="form-group  row mb-3">
+										<div class="table-responsive col-md-8">
+											<table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+												<thead>
+													<tr class="bg-dark text-white text-center" style="white-space:nowrap;">
+														<th>SNO</th>
+														<th>NAME</th>
+														<th>Relation Name</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr class="text-center">
+														<td>1</td>
+														<td>{{uidname}}</td>
+														<td>{{relationName}}</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="col-md-4">
+											<img ng-src="{{photo}}" />
+										</div>
+									</div>
+									<div class="form-group  row mb-3">
+										<div class="table-responsive col-md-12">
+											6 Steps Validations Status : <b style="color:blue;"></b> {{aadharValidationsStatus}}
+											<table class="table bg-white table-bordered table-striped table-hover datatable-show-all mt-3">
+												<thead>
+													<tr class="bg-dark text-white text-center" style="white-space:nowrap;">
+														<th>SNO</th>
+														<th>Category</th>
+														<th>Eligibility</th>
+														<th>Given Value</th>
+														<th>Status</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr data-ng-repeat="val in FiveStepDD">
+														<td> {{$index + 1}} </td>
+														<td> {{val.category}} </td>
+														<td>{{val.eligibility}} </td>
+														<td>{{val.givenValue}} </td>
+														<td>{{val.status}} </td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<div class="card-body pb-5">
+							<div>
+								<fieldset>
+									<legend>
+										Ration Card Details
+									</legend>
+									<div class="table-responsive">
+										<table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+											<thead>
+												<tr class="bg-dark text-white text-center" style="white-space:nowrap;">
+													<th>SNO</th>
+													<th>Member Name</th>
+													<th>Age</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr class="text-center" ng-repeat="rationresponse in responsedata">
+													<td>{{rationresponse.slNo}}</td>
+													<td>{{rationresponse.memberName}}</td>
+													<td>{{rationresponse.age}}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<div class="col-md-12">
+							Is the Aadhhar Card No holder exist in Ration card member
+							list
+							<label>
+								<input type="radio" ng-model="IsAadharRation" ng-change="IsAadharexists('Yes')" value="Yes">
+								Yes
+							</label>
+							<label>
+								<input type="radio" ng-model="IsAadharRation" ng-change="IsAadharexists('No')" value="No">
+								No
+							</label>
+						</div>
+
+					</div>
+					<div class="col-sm-12 mt-3" ng-show="sadaramentry">
+						<div class="card-body pb-5">
+							<div>
+								<fieldset ng-disabled="sadaramentrydisabled">
+									<legend class="w-auto">
+										SADAREM ENTRY
+									</legend>
+									<div class="form-group row mb-3 justify-content-center">
+										<div class="col-md-3">
+											<b>SADAREM ID <span class="maditoty">*</span></b>
+											<input type="text" ng-model="txtSadaram" placeholder="Enter Sadarem Id" class="form-control" />
+										</div>
+										<div class="col-md-2" style="margin-top:22px">
+											<button class="btn btn-primary" ng-click="ValidateSadaram()">Validate</button>
+										</div>
+									</div>
+								</fieldset>
+
+							</div>
+						</div>
+					</div>
+					<div class="card-body pb-5 mt-3" ng-show="sadaramdetails">
+						<div>
+							<fieldset>
+								<legend>
+									SADAREM CARD DETAILS
+								</legend>
+								<div class="form-group row mb-3">
+									<div class="table-responsive">
+										<table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+											<thead>
+												<tr class="bg-dark text-white text-center" style="white-space:nowrap;">
+													<th>SNO</th>
+													<th>NAME</th>
+													<th>Disabled (%)</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr class="text-center">
+													<td>1</td>
+													<td>{{sadaremName}}</td>
+													<td>{{percentage}}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+					<div class="col-md-12 mt-3" ng-show="sadaramaadharentry">
+						Is the SADAREM ID details belongs to the AADHAAR Card No?
+						list
+						<label>
+							<input type="radio" ng-model="IsSadaremAadhar" ng-change="IsSaderemAadharexists('Yes')" value="Yes">
+							Yes
+						</label>
+						<label>
+							<input type="radio" ng-model="IsSadaremAadhar" ng-change="IsSaderemAadharexists('No')" value="No">
+							No
+						</label>
+					</div>
+					<div class="col-md-12 mt-3" data-ng-show="aadharentry">
+						<div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>FirstNamer <span class="maditoty">*</span></b>
+									<input type="text" ng-model="txtFName" ng-disabled="true" placeholder="Enter First Name" class="form-control" />
+								</div>
+								<div class="col-md-3">
+									<b>Middel name <span class="maditoty">*</span></b>
+									<input type="text" ng-model="txtMName" ng-disabled="true" placeholder="Enter Middle Name" class="form-control" />
+								</div>
+								<div class="col-md-3">
+									<b>Father /  husband <span class="maditoty">*</span></b>
+									<input type="text" ng-model="txtFHName" ng-disabled="true" placeholder="Enter Father /  husband" class="form-control" />
+								</div>
+								<div class="col-md-3">
+									<b>Gender <span class="maditoty">*</span></b>
+									<input type="text" ng-model="txtGender" ng-disabled="true" placeholder="Enter Gender" class="form-control" />
+								</div>
+
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Date of birth <span class="maditoty">*</span></b>
+									<input type="text" ng-disabled="true" ng-model="txtDOB" class="form-control" />
+								</div>
+								<div class="col-md-3">
+									<b>Age <span class="maditoty">*</span></b>
+									<input type="text" ng-disabled="true" ng-model="txtAge" class="form-control" />
+								</div>
+								<div class="col-md-3">
+									<b>Caste <span class="maditoty">*</span></b>
+									<select ng-model="ddlCaste" class="form-control">
+										<option value="">Select</option>
+										<option value="3">BC</option>
+										<option value="5">Minority</option>
+										<option value="4">OC</option>
+										<option value="2">SC</option>
+										<option value="1">ST</option>
+									</select>
+								</div>
+								<div class="col-md-3">
+									<b>Mandal <span class="maditoty">*</span></b>
+									<input type="text" ng-model="txtMandal" class="form-control" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Panchayath <span class="maditoty">*</span></b>
+									<select class="form-control" ng-options="dis as dis.panname for dis in panchayatList| unique:'panname'" data-ng-model="SelPanchayat" data-ng-change="">
+										<option selected="selected" value="">-Select-</option>
+										<!--<option data-ng-repeat="dis in panchayatList" value="{{dis.pancode}}">{{dis.panname}}</option>-->
+									</select>
+									<!--<input type="text" ng-model="txtward" class="form-control" />-->
+								</div>
+								<div class="col-md-3">
+									<b>Habitation <span class="maditoty">*</span></b>
+									<select class="form-control" ng-options="dis as dis.habname for dis in panchayatList | filter:{pancode:SelPanchayat.pancode}" data-ng-model="SelHabitation" data-ng-change="">
+										<option selected="selected" value="">-Select-</option>
+										<!--<option data-ng-repeat="dis in panchayatList" ng-show="dis.pancode == txtward" value="{{dis.habcode}}">{{dis.habname}}</option>-->
+									</select>
+									<!--<input type="text" ng-model="txtHabitation" class="form-control" />-->
+								</div>
+								<div class="col-md-3">
+									<b>Street <span class="maditoty">*</span></b>
+									<input type="text" ng-model="txtStreet" class="form-control" />
+								</div>
+								<div class="col-md-3">
+									<b>H No <span class="maditoty">*</span></b>
+									<input type="text" ng-model="txtHouseNo" class="form-control" />
+
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>PH No <span class="maditoty">*</span></b>
+									<input type="text" numbers-only ng-model="txtPHNo" maxlength="10" class="form-control" />
+								</div>
+								<div class="col-md-3">
+									<b>Applied Month <span class="maditoty">*</span></b>
+									<input type="date" ng-model="txtAppMonth" class="form-control" />
+								</div>
+								<div class="col-md-6">
+									<b>Issued Certificate (.jpg,.png,.pdf) <span class="maditoty">*</span></b>
+									<input type="file" id="txtUploadCert" ng-model="txtcert" class="form-control" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Family Income <span class="maditoty">*</span></b>
+									<input type="text" numbers-only ng-model="txtIncome" class="form-control" />
+								</div>
+								<div class="col-md-9">
+									<b>Remarks <span class="maditoty">*</span></b>
+									<input type="text" ng-model="txtRemarks" class="form-control" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<b>Do you Have Other Pension ?<span class="maditoty">*</span></b>
+									<input type="radio" ng-model="IsOtherPension" value="yes" />Yes
+									<input type="radio" ng-model="IsOtherPension" value="no" />No
+								</div>
+								<div class="col-md-3" ng-show="IsOtherPension == 'yes'">
+									<b>Other Pension Name <span class="maditoty">*</span></b>
+									<input type="text" ng-model="txtOherPName" class="form-control" />
+								</div>
+								<div class="col-md-3">
+									<b>Volunteer ID <span class="maditoty">*</span></b>
+									<input type="text" ng-model="txtVolID" class="form-control" />
+								</div>
+								<div class="col-md-3">
+									<b>Volunteer Name <span class="maditoty">*</span></b>
+									<input type="text" ng-model="txtVolName" class="form-control" />
+								</div>
+								<div class="col-md-3">
+									<b>Volunteer Mobile Number <span class="maditoty">*</span></b>
+									<input type="text" numbers-only maxlength="10" ng-model="txtVolMobile" class="form-control" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12" style="margin-top:22px;float:right">
+									<button class="btn btn-primary" id="btnSubmit" style="float:right" ng-click="savedata()">Submit</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-12"> <div class="row">&nbsp;</div></div>
+<div class="col-md-12"> <div class="row">&nbsp;</div></div>

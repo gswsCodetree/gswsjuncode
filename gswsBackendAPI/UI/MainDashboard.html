@@ -1,0 +1,1576 @@
+﻿<style>
+	.highlighted {
+		background: yellow
+	}
+
+	/*.sub-service {
+		font-size: 12px !important;
+		text-decoration: underline !important;
+		color: #3f51b5 !important;
+	}*/
+
+	.description {
+		display: none;
+		position: absolute;
+		border: 1px solid #000;
+		width: 400px;
+		height: 400px;
+	}
+</style>
+
+<section class="welcome-text">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-6 col-lg-6 col-md-6  col-sm-4">
+				<h1 class="welcome mt-3"> Welcome: {{username}} ( {{Desigationaname}} )</h1>
+			</div>
+			<div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 text-center pt-2" ng-show="role=='102' || role=='209'">
+				<a class="btn btn-info text-white" ng-click="MeesevaVRO();" style="cursor:pointer;">VRO Meeseva Approval</a>
+			</div>
+			<div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 text-center pt-2" ng-show="role=='102' || role=='209'" >
+				<a class="btn btn-info text-white" ng-click="HousesitesVro();" style="cursor:pointer;">VRO  Approval</a>
+			</div>
+			<div class="col-xl-3 col-lg-3 col-md-3  col-sm-4">
+				<div class='time-frame'>
+					<div id='date-part'></div>
+					<div id='time-part'></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<div class="row">
+
+	<div class="col-xl-3 col-lg-4 col-md-3  col-sm-3" style="background: #f5f5f5; position: relative;z-index: 99">
+		
+			<div class="card  mb-2">
+<div class="card-header header-elements-inline p-0 mb-3">
+				<button type="button" id="sidebarCollapse" class="btn bg-info btn-block"> SPANDANA</button>
+			</div>
+			<div class="card-body pb-1">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-4  p-0">
+						<div class="greviences">
+							<i class="icon-profile icon-2x"></i>
+							<h3> Registered</h3>
+							<h2 class="mb-0"><a style="cursor:pointer;" ng-click="GetSpandanaDashboard(1);" >{{SpandanaRegcount}}</a></h2>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 col-4 p-0">
+						<div class="inprocess">
+							<i class="icon-shield-check icon-2x"></i>
+							<h3> Redressed </h3>
+							<h2 class="mb-0"><a style="cursor:pointer;" ng-click="GetSpandanaDashboard(2);">{{SpandanaResolvedcount}}</a></h2>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-6 col-lg-4 col-xl-4 col-4 p-0">
+						<div class="approved">
+							<i class="icon-history icon-2x"></i>
+							<h3>Pending</h3>
+							<h2 class="mb-0"><a style="cursor:pointer;" ng-click="GetSpandanaDashboard(3);">{{SpandanaPendingcount}}</a></h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+
+		<div class="row">
+			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 custom-col ">
+				<div class="card custom-card">		
+					<div class="card-body">
+						<div class="row">
+							<div class="col-6 col-sm-6 col-md-12 col-lg-6 col-xl-6 count-sachivalayam " style="    border-right: 1px solid #EEEEEE;">
+								<div class="count-fromsch pb-0" style="color:#9C27B0" ng-click="TransReps();">
+									<h5 class="mb-0">Service Requests Registered</h5>
+									<h2 class="mb-0"><i class="icon-primitive-square icon-2x"></i>{{servicereq}}</h2>
+								</div>
+							</div>
+							<div class=" col-6 col-sm-6 col-md-12 col-lg-6 col-xl-6  count-sachivalayam  ">
+								<div class="count-fromschother  pb-0" style="color:#009688"  ng-click="RecievedResp(2);">
+									<h5 class="mb-0">Services Delivered</h5>
+									<h2 class="mb-0 mt-3"> <i class="icon-primitive-square icon-2x"></i> {{servicedelivert}}<span style="font-size: 13px; margin-top: 8px;float: right;">(0%)</span> </h2>
+								</div>
+							</div>
+							<div class="col-12 col-sm-12 col-md-12">
+								<hr>
+							</div>
+							<div class="col-6 col-sm-6 col-md-12 col-lg-6 col-xl-6 count-sachivalayam " style="    border-right: 1px solid #EEEEEE;">
+								<div class="count-fromsch">
+									<h5 class="mb-0">Pending for Approval</h5>
+									<h2 class="mb-0"> <i class="icon-primitive-square icon-2x"></i>{{pendingforapproval}}</h2>
+								</div>
+							</div>
+							<div class=" col-6 col-sm-6 col-md-12 col-lg-6 col-xl-6  count-sachivalayam  ">
+								<div class="count-fromschother"  ng-click="RecievedResp(1);">
+									<h5 class="mb-0">Response Received</h5>
+									<h2 class="mb-0"><i class="icon-primitive-square icon-2x"></i>{{responserecieved}}<span style="font-size: 13px; margin-top: 8px;float: right;">(0%)</span></h2>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 col-sm-12 col-md-12">
+							<hr>
+						</div>
+
+						<div class="row">													
+							<div class="col-6 col-sm-6 col-md-12 col-lg-6 col-xl-6 mb-2 count-sachivalayam " style="    border-right: 1px solid #EEEEEE;">
+								<div class="count-fromothers2"  ng-click="GetUpward();">
+									<h5 class="mb-0">Received Instructions/Order</h5>
+									<h2 class="mb-0"> <i class="icon-primitive-square icon-2x"></i>{{RecievedInstr}} </h2>
+								</div>						
+							</div>
+							<div class=" col-6 col-sm-6 col-md-12 col-lg-6 col-xl-6 mb-2  count-sachivalayam  ">
+								<div class="count-fromothers" ng-click="GetDownward();">
+									<h5 class="mb-0">Response Sent</h5>
+									<h2 class="mb-0 mt-3"><i class="icon-primitive-square icon-2x"></i>{{ResponseSent}}<span style="font-size: 13px; margin-top: 8px;float: right;">(0%)</span></h2>
+								</div>							
+							</div>
+						</div>
+					</div>				
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<div class="col-xl-9 col-lg-8 col-md-9 col-sm-9">
+		<div class="wrapper">
+			<!-- Sidebar  -->
+			<div id="sidebar" class="active">
+				<div class="sidebar-header">
+					<img src="assets/images/spandana_logo.png" style="width:17%" />
+					
+					<div id="sidebarClose" class=" btn"><i class="icon-cross2"></i></div>
+				</div>
+				<div class="sidebar-body">
+					<div class="row">
+
+						<div class="col-sm-12 justify-content-center mb-3">
+							<ul class="nav nav-pills nav-pills-bordered nav-pills-toolbar mb-0">
+								
+								<li class="nav-item"><a style="cursor:pointer;" class="nav-link" data-toggle="tab" ng-click="getSpandanaGrievance(2);">Registered grievance</a></li>
+								<li class="nav-item"><a style="cursor:pointer;" class="nav-link" data-toggle="tab" ng-click="GetGrievanceStatus();">Status Check</a></li>
+							</ul>
+						</div>
+
+
+
+						<div class="tab-content col-sm-12">
+							<div class="tab-pane fade active show" id="service-request" ng-show="divservice">
+
+								<div class="card shadow-0">
+									<div class="card-body">
+										<div class="col-sm-12">
+
+											<div class="row">
+												<div class="col-sm-4">
+													<label>Enter Aadhaar Number</label>
+													<input type="text" numbers-only class="form-control" ng-model="spandanauid" maxlength="12" placeholder="Enter Aadhar No" />
+												</div>
+												<div class="col-sm-4">
+													<label>Select Ditrict</label><span style="color:red;">*</span>
+													<select class="form-control" ng-model="distcode">
+														<option value="">Select District</option>
+														<option ng-repeat="obj in distlist" value="{{obj.LGD_DISTRICT_CODE}}">{{obj.LGD_DISTRICT_NAME}}</option>
+													</select>
+												</div>
+												<div class="col-sm-4">
+													<label>Select Rural/Urban</label><span style="color:red;">*</span>
+													<select class="form-control" ng-model="ruflag" ng-change="GetMandalload();">
+														<option value="">Select Rural/Urban</option>
+														<option value="R">Rural</option>
+														<option value="U">Urban</option>
+													</select>
+												</div>
+
+												<div class="col-sm-4">
+													<label>Select Mandal</label><span style="color:red;">*</span>
+													<select class="form-control" ng-model="mcode" ng-change="GPLoad();">
+														<option value="">Select Mandal</option>
+														<option ng-repeat="obj in mandallist" value="{{obj.LGD_MANDAL_CODE}}">{{obj.LGD_MANDAL_NAME}}</option>
+													</select>
+												</div>
+												<div class="col-sm-4">
+													<label>Select Village</label><span style="color:red;">*</span>
+													<select class="form-control" ng-model="gpcode">
+														<option value="">Select Village</option>
+														<option ng-repeat="obj in gplist" value="{{obj.LGD_GP_CODE}}">{{obj.LGD_PANCHAYAT_NAME}}</option>
+													</select>
+												</div>
+												<div class="col-sm-4">
+													<label><br /> <br /></label>
+													<input type="button" ng-click="ServiceRequest()" value="ServiceReuest" class="btn btn-success" />
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="" ng-show="divspandareg">
+								<div class="row">
+									<div class="Col-sm-12">
+
+										<div class="row">
+											<div class="col-sm-4">
+												<label>Enter Aadhaar Number</label>
+												<input type="text" numbers-only class="form-control" ng-model="spandanauid1" maxlength="12" autocomplete="off" placeholder="Enter Aadhar No" />
+											</div>
+											<div class="col-sm-4">
+												<label>Select Ditrict</label><span style="color:red;">*</span>
+												<select class="form-control" ng-model="distcode">
+													<option value="">Select District</option>
+													<option ng-repeat="obj in distlist" value="{{obj.LGD_DISTRICT_CODE}}">{{obj.LGD_DISTRICT_NAME}}</option>
+												</select>
+											</div>
+											<div class="col-sm-4">
+												<label>Select Rural/Urban</label><span style="color:red;">*</span>
+												<select class="form-control" ng-model="ruflag" ng-change="GetMandalload();">
+													<option value="">Select Rural/Urban</option>
+													<option value="R">Rural</option>
+													<option value="U">Urban</option>
+												</select>
+											</div>
+
+											<div class="col-sm-4">
+												<label>Select Mandal</label><span style="color:red;">*</span>
+												<select class="form-control" ng-model="mcode" ng-change="GPLoad();">
+													<option value="">Select Mandal</option>
+													<option ng-repeat="obj in mandallist" value="{{obj.LGD_MANDAL_CODE}}">{{obj.LGD_MANDAL_NAME}}</option>
+												</select>
+											</div>
+											<div class="col-sm-4">
+												<label>Select Village</label><span style="color:red;">*</span>
+												<select class="form-control" ng-model="gpcode">
+													<option value="">Select Village</option>
+													<option ng-repeat="obj in gplist" value="{{obj.LGD_GP_CODE}}">{{obj.LGD_PANCHAYAT_NAME}}</option>
+												</select>
+											</div>
+											<div class="col-sm-4">
+												<label><br /> <br /></label>
+												<input type="button" ng-click="GrievanceRequest()" value="RegisterGrievance" class="btn btn-success" />
+											</div>
+										</div>
+										<!--<div class="row">
+						<div class="col-sm-8">
+							<input type="password" class="form-control" ng-model="spandanauid" maxlength="12" placeholder="Enter Aadhar No" />
+						</div>
+						<div class="col-sm-4">
+							<button type="submit" class="btn alpha-blue text-blue-800 border-blue-600" ng-click="GetSPandanaDetails();">Get Details</button>
+						</div>
+					</div>-->
+									</div>
+								</div>
+								<div class="card shadow-0" ng-show="divmain">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-sm-12">
+												<div class="row">
+													<div class="col-sm-8">
+														<input type="password" class="form-control" ng-model="spandanauid" maxlength="12" placeholder="Enter Aadhar No" />
+													</div>
+													<div class="col-sm-4">
+														<button type="submit" class="btn alpha-blue text-blue-800 border-blue-600" ng-click="GetSPandanaDetails();">Get Details</button>
+													</div>
+												</div>
+											</div>
+
+											<div class="col-sm-12 spandan-ttl">
+												<h1>Personal Information</h1>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label"> Name</label>
+													<input type="text" class="form-control" placeholder="Enter Name" ng-model="Sname" />
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">C/O Name</label>
+													<input type="text" class="form-control" placeholder="Enter Father Name" ng-model="Sfathername" />
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label"> DOB / Age</label>
+													<input type="text" class="form-control" placeholder="Enter Age" ng-model="Sage" />
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">House No</label>
+													<input type="text" class="form-control" placeholder="Enter Door Number" ng-model="Sdoorno" />
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">Habitation</label>
+													<input type="text" class="form-control" placeholder="Enter Habitation" ng-model="Shabitation" />
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">District</label>
+													<select class="form-control" ng-model="sdist">
+														<option value="">select District</option>
+														<option ng-repeat="obj in SdistList" value="{{obj.LGD_DISTRICT_CODE}}">{{obj.DISTRICT}}</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">Rural/urban</label>
+													<select class="form-control" ng-model="Sruflag">
+														<option value="">select Rural/urban</option>
+														<option value="R">Rural</option>
+														<option value="U">Uraban</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">Mandal</label>
+													<select class="form-control" ng-model="SMandal">
+														<option value="">select Mandal</option>
+														<option ng-repeat="obj in SmandalList" value="{{obj.LGD_MANDAL_CODE}}">{{obj.MANDAL_NAME}}</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">Village</label>
+													<select class="form-control" ng-model="Svillage">
+														<option value="">select Village</option>
+														<option ng-repeat="obj in SvillageList" value="{{obj.LGD_VILLAGE_CODE}}">{{obj.VILLAGE}}</option>
+													</select>
+												</div>
+											</div>
+
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">Gender</label>
+													<input type="text" class="form-control" placeholder="Enter Gender" ng-model="Sgender" />
+												</div>
+											</div>
+
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">Mobile Number</label>
+													<input type="text" class="form-control" placeholder="Enter Mobile Number" ng-model="Smob" maxlength="10" />
+												</div>
+											</div>
+
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">Occuption</label>
+													<input type="text" class="form-control" placeholder="Enter Mobile number" ng-model="Soccuption" />
+												</div>
+											</div>
+										</div>
+										<div class="row mt-4" ng-show="divtable">
+											<div class="col-sm-12 spandan-ttl">
+												<h1> Family Grievance Information</h1>
+											</div>
+											<div class="col-sm-12">
+												<table class="table table-bordered">
+													<thead>
+														<tr class="alpha-blue">
+															<th>Doc No</th>
+															<th> Name/Mobile No</th>
+															<th>Date Of Registration </th>
+															<th>Department </th>
+															<th> Subject </th>
+															<th>Sub Subject </th>
+															<th> Status</th>
+															<th>ML Status </th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>12334 </td>
+															<td>Laxshman </td>
+															<td>20/05/2019 </td>
+															<td>Revenue </td>
+															<td>Some Text </td>
+															<td> Some Sub Text</td>
+															<td> Active </td>
+															<td> In Process </td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+
+										<div class="row mt-4" ng-show="divgrievance">
+											<div class="col-sm-12 spandan-ttl">
+												<h1>Provide Grievance Address</h1>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">District</label>
+													<select class="form-control" ng-model="mdist" ng-show="!chckedsame">
+														<option value="">select District</option>
+														<option ng-repeat="obj in seccdistlist" value="{{obj.M_DID}}">{{obj.MKM_DISTNAME}}</option>
+													</select>
+													<select class="form-control" ng-model="mdist" ng-show="chckedsame">
+														<option value="">select District</option>
+														<option ng-repeat="obj in Samedistlist" value="{{obj.M_DID}}">{{obj.MKM_DISTNAME}}</option>
+													</select>
+												</div>
+											</div>
+
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">Rural/Urban</label>
+													<select class="form-control" ng-model="mruflag" ng-change="GetSeccMandal();">
+														<option value="">select Rural/Urban</option>
+														<option value="R">Rural</option>
+														<option value="U">Urban</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">Mandal</label>
+													<select class="form-control" ng-model="mmandal" ng-change="GetSeccVillage();" ng-show="!chckedsame">
+														<option value="">select Mandal</option>
+														<option ng-repeat="obj in seccmandallist" value="{{obj.M_MID}}">{{obj.MKM_MNAME}}</option>
+													</select>
+													<select class="form-control" ng-model="mmandal" ng-change="GetSeccVillage();" ng-show="chckedsame">
+														<option value="">select Mandal</option>
+														<option ng-repeat="obj in SameMandallist" value="{{obj.M_MID}}">{{obj.MKM_MNAME}}</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">Village</label>
+													<select class="form-control" ng-model="mvill" ng-show="!chckedsame">
+														<option value="">select Village</option>
+														<option ng-repeat="obj in seccvillagelist" value="{{obj.M_VID}}">{{obj.MKM_VNAME}}</option>
+													</select>
+
+													<select class="form-control" ng-model="mvill" ng-show="chckedsame">
+														<option value="">select Village</option>
+														<option ng-repeat="obj in Samevilllist" value="{{obj.M_VID}}">{{obj.MKM_VNAME}}</option>
+													</select>
+												</div>
+											</div>
+										</div>
+
+										<div class="row mt-4" ng-show="divgrievance">
+											<div class="col-sm-12 spandan-ttl">
+												<h1>Grievance Information</h1>
+											</div>
+
+											<div class="col-sm-12">
+												<div class="custom-control custom-radio custom-control-inline">
+													<input type="radio" class="custom-control-input" id="customRadio" name="example" value="1" ng-model="rdn1" ng-click="getgrievancetype(1)">
+													<label class="custom-control-label" for="customRadio">Grievance by Subject</label>
+												</div>
+												<div class="custom-control custom-radio custom-control-inline">
+													<input type="radio" class="custom-control-input" id="customRadio2" ng-click="getgrievancetype(2)" ng-model="rdn2" name="example" value="2">
+													<label class="custom-control-label" for="customRadio2">
+														Grievance by Key Word
+													</label>
+												</div>
+												<div class="custom-control custom-radio custom-control-inline">
+													<input type="radio" class="custom-control-input" id="customRadio3" ng-click="getgrievancetype(3)" ng-model="rdn3" name="example" value="3">
+													<label class="custom-control-label" for="customRadio3">
+														Grievance by Department
+													</label>
+												</div>
+											</div>
+										</div>
+										<div class="row" ng-show="gsubject">
+											<div class="col-sm-6">
+												<div class="form-group">
+													<label class="col-form-label">Subject</label>
+													<select class="form-control" ng-model="subjectcode" ng-change="GetSubSubject();">
+														<option value="">select Subject</option>
+														<option ng-repeat="obj in subjectlist" value="{{obj.SubjectId}}">{{obj.Subject}}</option>
+
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="form-group">
+													<label class="col-form-label">Sub-Subject</label>
+													<select class="form-control" ng-model="subsubjectcode">
+														<option value="">Sub Subject</option>
+														<option ng-repeat="obj in subsubjectlist" value="{{obj.SubSubjectId}}">{{obj.SubSubject}}</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">Source Type</label>
+													<select class="form-control">
+														<option value="100500">GSWS</option>
+													</select>
+												</div>
+											</div>
+											<!--<div class="col-sm-3">
+							<div class="form-group">
+								<label class="col-form-label">Last Mail Functionality(LMF)</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="custom-control custom-checkbox mt-4">
+								<input type="checkbox" class="custom-control-input" id="customCheck11" name="example5">
+								<label class="custom-control-label" for="customCheck11">If Same Address click here</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label class="col-form-label">Select Officer</label>
+								<select class="form-control">
+									<option value="opt1">select Officer</option>
+
+								</select>
+							</div>
+						</div>-->
+										</div>
+										<div class="row" ng-show="gkeyword">
+											<div class="col-sm-12">
+												<div class="form-group">
+													<label class="col-form-label">Grievance By Keywords</label>
+													<input type="text" class="form-control" placeholder="Enter Grievance Name" />
+												</div>
+											</div>
+											<!-- Search by Subject-->
+											<div class="col-sm-6">
+												<div class="form-group">
+													<label class="col-form-label">Sub-Subject</label>
+													<select class="form-control" ng-model="subjectcode">
+														<option value="">Sub Subject</option>
+														<option ng-repeat="obj in Searchkeywordlist" value="{{obj.SubSubjectId}}">{{obj.SubSubject}}</option>
+
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<label class="col-form-label">Source Type</label>
+													<select class="form-control">
+														<option value="113">GSWS</option>
+													</select>
+												</div>
+											</div>
+											<!--<div class="col-sm-3">
+							<div class="form-group">
+								<label class="col-form-label">Last Mail Functionality(LMF)</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="custom-control custom-checkbox mt-4">
+								<input type="checkbox" class="custom-control-input" id="customCheck11" name="example5">
+								<label class="custom-control-label" for="customCheck11">If Same Address click here</label>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label class="col-form-label">Select Officer</label>
+								<select class="form-control">
+									<option value="opt1">select Officer</option>
+
+								</select>
+							</div>
+						</div>-->
+										</div>
+										<!-- Search by Department-->
+										<div class="row" ng-show="gdept">
+											<div class="col-sm-4">
+												<div class="form-group">
+													<label class="col-form-label">Department</label>
+													<select class="form-control" ng-model="hodid" ng-change="GetSubject();">
+														<option value="">select Department</option>
+														<option ng-repeat="obj in departmentlist" value="{{obj.HodId}}">{{obj.HodName}}</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<label class="col-form-label">Subject</label>
+													<select class="form-control" ng-model="subjectcode" ng-change="GetSubSubject();">
+														<option value="">select Subject</option>
+														<option ng-repeat="obj in subjectlist" value="{{obj.SubjectId}}">{{obj.Subject}}</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<label class="col-form-label">Sub-Subject </label>
+													<select class="form-control" ng-model="subsubjectcode">
+														<option value="">select Sub Subject</option>
+														<option ng-repeat="obj in subsubjectlist" value="{{obj.SubSubjectId}}">{{obj.SubSubject}}</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-3">
+												<div class="form-group">
+													<label class="col-form-label">Source Type</label>
+													<select class="form-control" ng-model="apptype">
+														<option value="113">GSWS</option>
+													</select>
+												</div>
+											</div>
+
+										</div>
+										<div class="row mt-4" ng-show="divgrievance">
+											<div class="col-sm-12 spandan-ttl">
+												<h1> Remarks/ Other Details</h1>
+											</div>
+											<div class="col-sm-12">
+												<div class="form-group">
+													<label class="col-form-label">Enter if any Remarks</label>
+													<textarea class="form-control" ng-model="SRemarks" placeholder="Please Enter Remarks">
+                                                      </textarea>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-sm-12" ng-show="divgrievance">
+											<label></label>
+											<input type="button" class="btn btn-success" value="Submit" ng-click="SpandanaSubmit();" />
+										</div>
+
+
+									</div>
+								</div>
+							</div>
+							<div class="" ng-show="divspanstatus">
+								<div class="row">
+									<div class="form-group col-sm-4 offset-sm-4">
+										<div class="row">
+											<div class="col-sm-8">
+												<input type="text" ng-model="sdocnum" class="form-control" placeholder="Enter Document Number" maxlength="20" />
+											</div>
+											<div class="col-sm-4">
+												<button type="submit" ng-click="GetSpandanaStatus();" class="btn alpha-blue text-blue-800 border-blue-600">Get Details</button>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row mt-4" ng-show="divstatus">
+									<div class="col-sm-12 spandan-ttl">
+										<h1> Family Grievance Information</h1>
+									</div>
+
+									<div class="col-sm-12">
+										<div class="table-responsive">
+
+											<table class="table table-bordered">
+												<thead>
+													<tr ng-repeat="obj in SStatusList">
+														<th class="alpha-blue">Doc No</th>
+														<td>{{obj.DOC_NO}}</td>
+
+														<th class="alpha-blue">Name</th>
+														<td>{{obj.Applicatent_Name}}</td>
+													</tr>
+													<tr ng-repeat="obj in SStatusList">
+														<th class="alpha-blue">C/O Name</th>
+														<td> {{obj.C_O}}</td>
+
+														<th class="alpha-blue">Date Of Registration</th>
+														<td>{{obj.Date_Of_Apply}} </td>
+													</tr>
+													<tr ng-repeat="obj in SStatusList">
+														<th class="alpha-blue">Department</th>
+														<td>{{obj.PETTYP}} </td>
+
+														<th class="alpha-blue">Subject</th>
+														<td>{{obj.subject}} </td>
+													</tr>
+													<tr ng-repeat="obj in SStatusList">
+														<th class="alpha-blue">Sub Subject</th>
+														<td>{{obj.subsubject}} </td>
+
+														<th class="alpha-blue">Status</th>
+														<td> {{obj.App_Status}}</td>
+													</tr>
+													<tr ng-repeat="obj in SStatusList">
+														<th class="alpha-blue">Remarks</th>
+														<td>{{obj.OTHER_DETAILS}} </td>
+
+														<th class="alpha-blue">Last Updated Date</th>
+														<td> {{obj.Last_UpdatedDate}}</td>
+													</tr>
+												</thead>
+											</table>
+										</div>
+
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Page Content  -->
+			<div id="content">
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+						<div class="slider  navarathnalu">
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx1 text-center  hvr-hang" ng-click="GetNavaRatnalu('YSR Rythu Bharosa','1')" data-toggle="modal" data-target="#myModal1">
+									<img src="assets/images/icn/ysr_rythubharosa_64.png" class="img-fluid" />
+									<h4> YSR Rythu Bharosa</h4>
+								</div>
+							</div>
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx2 text-center  hvr-hang" data-toggle="modal"  ng-click="GetNavaRatnalu('Fee Reimbursement','2')" data-target="#myModal1">
+									<img src="assets/images/icn/fee_reimbursement_64.png" class="img-fluid" />
+									<h4> Fee Reimbursement</h4>
+								</div>
+							</div>
+
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx5 text-center  hvr-hang" data-toggle="modal"  ng-click="GetNavaRatnalu('Ban on Alcohol','3')"  data-target="#myModal1">
+									<img src="assets/images/icn/alcohol_ban_64.png" class="img-fluid" />
+									<h4>
+										Ban on Alcohol
+									</h4>
+								</div>
+							</div>
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx6 text-center  hvr-hang" data-toggle="modal" ng-click="GetNavaRatnalu('Amma Vodi','4')"  data-target="#myModal1">
+									<img src="assets/images/icn/ammavodi_64.png" />
+									<h4>
+										Amma Vodi
+									</h4>
+								</div>
+							</div>
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx7 text-center  hvr-hang" data-toggle="modal"  data-target="#myModal13">
+									<img src="assets/images/icn/ysr_asara_64.png" class="img-fluid" />
+									<h4>
+										YSR Asara
+									</h4>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="navarathnalu-bx navarathnalu-bx8 text-center  hvr-hang" data-toggle="modal" ng-click="GetNavaRatnalu('Pension','6')"  data-target="#myModal1">
+									<img src="assets/images/icn/pension_64.png" class="img-fluid" />
+									<h4>
+										Pension
+									</h4>
+								</div>
+							</div>
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx9 text-center  hvr-hang" data-toggle="modal" ng-click="GetNavaRatnalu('Pedalandariki Illu','7')"  data-target="#myModal1">
+									<img src="assets/images/icn/paydalandariki_illu_64.png" class="img-fluid" />
+									<h4>
+										Pedalandariki Illu
+									</h4>
+								</div>
+							</div>
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx3 text-center  hvr-hang" data-toggle="modal" ng-click="GetNavaRatnalu('Arogyasri','8')"  data-target="#myModal1">
+									<img src="assets/images/icn/arogyasri_64.png" class="img-fluid" />
+									<h4>Arogyasri</h4>
+								</div>
+							</div>
+							<div class="item">
+								<div class="navarathnalu-bx navarathnalu-bx4 text-center  hvr-hang" data-toggle="modal" data-target="#myModal4">
+									<img src="assets/images/icn/jalayagnam_64.png" class="img-fluid" />
+									<h4> Jalayagnam</h4>
+								</div>
+							</div>
+							<!--<div class="col-md-1 ">
+								<div class="navarathnalu-bx navarathnalu-bx1 text-center  hvr-hang" ng-click="GetNavaRatnalu('YSR Rythu Bharosa','11')" data-toggle="modal" data-target="#myModal1">
+									<img src="assets/images/icn/ysr_rythubharosa_64.png" class="img-fluid" />
+									<h4> YSR Rythu Bharosa</h4>
+								</div>
+							</div>
+							<div class="col-sm-1 ">
+								<div class="navarathnalu-bx navarathnalu-bx2 text-center  hvr-hang" data-toggle="modal" data-target="#myModal2">
+									<img src="assets/images/icn/fee_reimbursement_64.png" class="img-fluid" />
+									<h4> Fee Reimbursement</h4>
+								</div>
+							</div>
+
+							<div class="col-sm-1 ">
+								<div class="navarathnalu-bx navarathnalu-bx5 text-center" data-toggle="modal" data-target="#myModal5">
+									<img src="assets/images/icn/alcohol_ban_64.png" class="img-fluid" />
+									<h4>
+										Ban on Alcohol
+									</h4>
+								</div>
+							</div>-->
+						</div>
+					</div>
+				</div>
+
+
+
+				<section class="scheme">
+					<div class="row" >
+						<div class="col-sm-12 col-md-6 col-lg-7 col-xl-7 custom-col" ng-show="role == '110' || role=='204' || username=='chandu'">
+							<div class="wallet-amount d-flex">
+								<h2 class="text-indigo"><img src="assets/images/walletone.jpeg" style="width:20px;" /> Wallet Amount : <span class="text-success"><i class="flaticon-rupee-indian mr-1"></i>{{WalletAmount}}</span></h2>
+								<button class="btn btn-info p-1 ml-3" ng-click="GetRecharge();" style="height:32px"><img src="assets/images/walletone.jpeg" style="width:16px;" /> Day End Report</button>
+							</div>
+							<div id="PaymentId" ng-show="hidepayment"></div>
+						</div>
+
+						<div class="col-sm-12 col-md-6 col-lg-5 col-xl-5 custom-col ">
+
+							<fieldset>
+								<div class="input-group">
+									<input type="text" ng-model="search.URL_DESCRIPTION" class="form-control" placeholder="Search Service Name" ng-change="get_data()" aria-describedby="button-addon3">
+									<div class="input-group-prepend mr-0">
+										<button class="btn bg-primary-800" ng-ciick="get_data()" type="button"><i class="icon-search4"></i></button>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col-sm-12">
+							<div id="demo" class="filter collapse">
+
+								<div class="custom-control custom-checkbox mb-3">
+									<input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+									<label class="custom-control-label" for="customCheck">Frequently View</label>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<hr />
+					<div class="row services">
+						<div class="col-sm-12">
+
+						</div>
+						<!--<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 custom-col">
+								<div class="card" ng-show="role == '110' || role == '111' || username = 'chandu'|| username = 'ramsaid'|| username = 'brsreddy'">
+									<div class="card-header header-elements-inline card-dept-header29">
+										<h6 class="card-title">NavaSakam</h6>
+									</div>
+									<div class="card-body pb-0">
+
+										<div class="col-md-12">
+
+										</div>
+										<ul>
+											<li>
+												<span class="caret" ng-class="viewDropdown? 'caret caret-down' : 'caret'" ng-click="viewDropdown= !viewDropdown">NavaSakam Services (<b>6</b>)</span>
+												<ul class="nested" ng-class="viewDropdown? 'nested active' : 'nested'">
+													<li  ng-click="GetNavaSakamDetails('jvd');">
+														<a  class="sub-service">Jagananna  Vidya Deevena</a>
+													</li>
+													<li ng-click="GetNavaSakamDetails('bcs');">
+														<a class="sub-service">Tailors,Rajakas,Naye Brahmins</a>
+													</li>
+													<li  ng-click="GetNavaSakamDetails('pastors');">
+														<a class="sub-service">Pastors</a>
+													</li>
+													<li ng-click="GetNavaSakamDetails('kapu');" >
+														<a class="sub-service">Kapu</a>
+													</li>
+													<li ng-click="GetNavaSakamDetails('arogyasri');">
+														<a  class="sub-service">Arogya Sri </a>
+													</li>
+													<li  ng-click="GetNavaSakamDetails('ammavodi');">
+														<a class="sub-service">Amma Vodi</a>
+													</li>
+																									  <li>
+														<a class="sub-service" href="#!/SecToVolunteerMap">Household Mapping to Volunteer</a>
+													</li>
+													</ul>
+												</li>
+												</ul>
+	</div>
+								</div>
+							</div>-->
+						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6  custom-col" ng-repeat="obj in final_data" ng-show="role!='207'">
+
+							<div class="card" ng-show="role!='108'">
+								<div class="card-header header-elements-inline card-dept-header{{obj.DEPT_ID}}">
+									<!--<div class="progress-bar2 progress-bar" style="max-width: 33%; width: 33%"> <span class=" service-percentage count">33%</span></div>-->
+									<h6 class="card-title">{{obj.DEPT_NAME}}</h6>
+
+								</div>
+
+
+
+								<div class="card-body pb-0">
+
+									<ul id="myUL {{obj.DEPT_ID}}" class="services-list">
+										<li ng-repeat="inner_obj in obj.HOD_LIST">
+											<span class="caret" ng-class="viewDropdown? 'caret caret-down' : 'caret'" ng-click="viewDropdown= !viewDropdown">{{inner_obj.HOD_NAME}} ({{inner_obj.URL_LIST.length}})</span>
+											<ul class="nested" ng-class="viewDropdown? 'nested active' : 'nested'">
+												<li ng-show="url_obj.ACTIVE_STATUS==1 && url_obj.TYPE_OF_SERVICE!=3 && url_obj.TYPE_OF_SERVICE!=4" ng-mousedown="onMouseHold(event, url_obj);" ng-mouseup="onMouseRelease();" ng-click="process_url(url_obj);" ng-repeat="url_obj in inner_obj.URL_LIST" compile="details" ng-bind-html="url_obj.URL_DESCRIPTION | highlight:search.URL_DESCRIPTION">
+													<a class="sub-service" data-popup="tooltip" title="For USER MANUAL use 'Right Click Button'" data-placement="top" style="cursor:pointer"> {{url_obj.URL_DESCRIPTION}}</a>
+												</li>
+												<li ng-show="url_obj.ACTIVE_STATUS==2" ng-mousedown="onMouseHold(event, url_obj);" ng-mouseup="onMouseRelease();" ng-click="process_url(url_obj);" ng-repeat="url_obj in inner_obj.URL_LIST" compile="details" ng-bind-html="url_obj.URL_DESCRIPTION | highlight:search.URL_DESCRIPTION">
+													<a class="sub-service" data-popup="tooltip" title="For USER MANUAL use 'Right Click Button'" data-placement="top" style="cursor:pointer"> {{url_obj.URL_DESCRIPTION}}</a>
+												</li>
+												<li class="sub-inactive" ng-show="url_obj.ACTIVE_STATUS==0" ng-mousedown="onMouseHold(event, url_obj);" ng-mouseup="onMouseRelease();" ng-click="process_url(url_obj);" ng-repeat="url_obj in inner_obj.URL_LIST" compile="details" ng-bind-html="url_obj.URL_DESCRIPTION | highlight:search.URL_DESCRIPTION">
+													<a class="sub-service" data-popup="tooltip" title="For USER MANUAL use 'Right Click Button'" data-placement="top" style="cursor:pointer">{{url_obj.URL_DESCRIPTION}}</a>
+												</li>
+												<li ng-show="url_obj.TYPE_OF_SERVICE==3" ng-click="GetMeesevaData(url_obj.STATUS,url_obj.URL_DESCRIPTION);" ng-repeat="url_obj in inner_obj.URL_LIST" compile="details">
+													<a class="sub-service tesitngsed1" style="cursor:pointer" data-popup="tooltip" data-placement="top"><img src="images/meeseva.png" width="18px" height="18px" /> <span ng-bind-html="url_obj.URL_DESCRIPTION | highlight:search.URL_DESCRIPTION">{{url_obj.URL_DESCRIPTION}}</span> </a>
+												</li>
+
+												<li ng-show="url_obj.TYPE_OF_SERVICE==4" ng-click="GetSpandanaUrl(url_obj);" ng-repeat="url_obj in inner_obj.URL_LIST" compile="details">
+													<a class="sub-service tesitngsed1" style="cursor:pointer" data-popup="tooltip" data-placement="top"><img src="images/spandana.png" width="18px" height="18px" /> <span ng-bind-html="url_obj.URL_DESCRIPTION | highlight:search.URL_DESCRIPTION">{{url_obj.URL_DESCRIPTION}}</span> </a>
+												</li>
+											</ul>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+
+
+						</div>
+
+						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 custom-col" ng-show="role=='101'|| role=='110' || role=='1' || role=='201' ||  role=='207' || role=='204' || role=='108'">
+							<div class="card ">
+								<div class="card-header header-elements-inline card-dept-header15">
+									<h6 class="card-title">Energy</h6>
+								</div>
+								<div class="card-body pb-0">
+									<div class="row">
+										<div class="col-sm-8 mb-3">
+											<autocomplete DISTRICTNAMES="items" enteredtext1="text" minlength="1" selected="selected"></autocomplete>
+											<div class="autocomplete">
+												<input class="form-control" type="text" placeholder="Enter District Name" style="border-radius: 0px;" ng-model="enteredtext1" minlength ng-keyup="filterdistItems()" />
+												<div class="ULBNAMES ulb-muncipal" ng-show="isVisible1.suggestions">
+													<ul class="item" ng-repeat=" item in filtereddist"
+														ng-click="selectdistItem(item)">
+														<li>
+															<a href=""> {{item.DISTRICTNAME}} </a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<!--<select class="form-control" data-ng-model="seldistrict" ng-change="LoadEnergy();">
+							<option selected="selected" value="">-Select District-</option>
+							<option data-ng-repeat="dis in DISTRICTNAME" value="{{dis.DISTRICTID}}">{{dis.DISTRICTNAME}}</option>
+						</select>-->
+										</div>
+
+									</div>
+									<ul>
+										<li ng-repeat="obj in mainEnergydata | unique:'HOD_ID'">
+											<span class="caret" ng-class="viewDropdown? 'caret caret-down' : 'caret'" ng-click="viewDropdown= !viewDropdown">{{obj.HOD_NAME}} ({{mainEnergydata.length}})</span>
+											<ul class="nested" ng-class="viewDropdown? 'nested active' : 'nested'">
+												<li ng-mousedown="onMouseHold(event, url_obj);" ng-mouseup="onMouseRelease();" ng-click="process_url(url_obj);" ng-repeat="url_obj in mainEnergydata" ng-if="url_obj.HOD_ID==obj.HOD_ID" compile="details" ng-bind-html="url_obj.URL_DESCRIPTION | highlight:search.URL_DESCRIPTION">
+													<a class="sub-service" style="cursor:pointer">{{url_obj.URL_DESCRIPTION}}</a>
+												</li>
+
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 custom-col" ng-show="role=='201' || role=='202' || role=='203' || role=='204' ||role=='205' || role=='1'">
+							<div class="card ">
+								<div class="card-header header-elements-inline card-dept-header21">
+									<h6 class="card-title">Municipal Administration and Urban Development</h6>
+								</div>
+								<div class="card-body pb-0">
+									<div class="row">
+										<div class="col-sm-12 mt-2 mb-3">
+											<autocomplete ULBNAMES="items" enteredtext="text" minlength="1" selected="selected"></autocomplete>
+											<div class="autocomplete">
+												<input class="form-control" type="text" placeholder="Enter Muncipality Name" style="border-radius: 0px;" ng-model="enteredtext" minlength ng-keyup="filterItems()" />
+												<div class="ULBNAMES ulb-muncipal" ng-show="isVisible.suggestions">
+													<ul class="item" ng-repeat=" item in filteredChoices"
+														ng-click="selectItem(item)">
+														<li>
+															<a href=""> {{item.ULBNAME}} </a>
+														</li>
+													</ul>
+												</div>
+											</div>
+
+											<!--<select class="form-control" data-ng-model="selmandal" ng-change="GetSubmit();">
+							<option selected="selected" value="">-Select Muncipality-</option>
+							<option data-ng-repeat="man in ULBNAMES" value="{{man.DISTRICTID}}_{{man.ULBID}}">{{man.ULBNAME}}</option>
+						</select>-->
+
+
+										</div>
+
+									</div>
+									<ul>
+										<li ng-repeat="obj in maindata | unique:'HOD_ID'">
+											<span class="caret" ng-class="viewDropdown? 'caret caret-down' : 'caret'" ng-click="viewDropdown= !viewDropdown">{{obj.HOD_NAME}} (<b ng-show="obj.HOD_ID=='2701'">{{muncount}}</b> <b ng-if="obj.HOD_ID=='2702'">{{towncount}}</b> <b ng-if="obj.HOD_ID=='2703'">{{phealthcount}}</b>)</span>
+											<ul class="nested" ng-class="viewDropdown? 'nested active' : 'nested'">
+												<li ng-mousedown="onMouseHold(event, url_obj);" ng-mouseup="onMouseRelease();" ng-click="process_url(url_obj);" ng-repeat="url_obj in maindata" ng-if="url_obj.HOD_ID==obj.HOD_ID" compile="details" ng-bind-html="url_obj.URL_DESCRIPTION | highlight:search.URL_DESCRIPTION">
+													<a class="sub-service" style="cursor:pointer">{{url_obj.URL_DESCRIPTION}}</a>
+												</li>
+
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 custom-col" ng-show="role==('209' && mflag=='251746') || ('201' && mflag=='251746')">
+							<div class="card ">
+								<div class="card-header header-elements-inline card-dept-header21">
+									<h6 class="card-title">Revenue-HouseSites</h6>
+								</div>
+								<div class="card-body pb-0">
+									
+									<ul>
+										<li ng-repeat="obj in Housesitelist | unique:'HOD_ID'">
+											<span class="caret" ng-class="viewDropdown? 'caret caret-down' : 'caret'" ng-click="viewDropdown= !viewDropdown">{{obj.HOD_NAME}} </span>
+											<ul class="nested" ng-class="viewDropdown? 'nested active' : 'nested'">
+												<li ng-mousedown="onMouseHold(event, url_obj);" ng-mouseup="onMouseRelease();" ng-click="process_url(url_obj);" ng-repeat="url_obj in Housesitelist" ng-if="url_obj.HOD_ID==obj.HOD_ID" compile="details" ng-bind-html="url_obj.URL_DESCRIPTION | highlight:search.URL_DESCRIPTION">
+													<a class="sub-service" style="cursor:pointer">{{url_obj.URL_DESCRIPTION}}</a>
+												</li>
+
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 custom-col">
+							<div class="card" ng-show="role=='110' || role=='207' || role=='204' || role=='1'">
+								<div class="card-header header-elements-inline card-dept-header29">
+									<h6 class="card-title">MEESEVA SERVICE</h6>
+								</div>
+								<div class="card-body pb-0">
+
+									<div class="col-md-12" id="DYNAMICDATA">
+
+									</div>
+									<ul id="myUL" class="services-list">
+										<li>
+											<a ng-click="GetMeesevaData();" class="btn btn-success text-white">MEESEVA SERVICE LINKS</a>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-12" style="padding-top:20px;" align="center">
+							<img src="assets/images/psloader.gif" ng-show="ploader" />
+							<h2 ng-show="!final_data.length">No Data Available</h2>
+						</div>
+
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="assets/js/slick.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+
+<script>
+	/* slider */
+
+	$('.responsive').slick({
+		dots: false,
+		infinite: false,
+		arrow: true,
+		prevArrow: "<button type='button' class='slick-prev'><i class='icon icon-arrow-left13' aria-hidden='true'></i></button>",
+		nextArrow: "<button type='button' class='slick-next'><i class='icon icon-arrow-right14' aria-hidden='true'></i></button>",
+
+		speed: 500,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		responsive: [
+			{
+				breakpoint: 1366,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				}
+			},
+			{
+				breakpoint: 1280,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				}
+			}, {
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 6,
+					slidesToScroll: 1,
+					infinite: false,
+				}
+			}, {
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2
+				}
+			}, {
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+			}
+		]
+	});
+
+	$('.navarathnalu').slick({
+		dots: false,
+		infinite: true,
+		speed: 300,
+		prevArrow: "<button type='button' class='slick-prev'><i class='icon icon-circle-left2' aria-hidden='true'></i></button>",
+		nextArrow: "<button type='button' class='slick-next'><i class='icon icon-circle-right2' aria-hidden='true'></i></button>",
+		arrows: false,
+		slidesToShow: 9,
+		slidesToScroll: 1,
+		autoplay: false,
+
+		responsive: [
+			{
+				breakpoint: 1366,
+				settings: {
+					slidesToShow: 8,
+					slidesToScroll: 1,
+				}
+			},
+			{
+				breakpoint: 1280,
+				settings: {
+					slidesToShow: 5,
+					slidesToScroll: 1,
+				}
+			}, {
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 4,
+					slidesToScroll: 1,
+					infinite: false,
+				}
+			}, {
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 2
+				}
+			}, {
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+			}
+		]
+	});
+
+
+
+
+	$('[data-popup="tooltip"]').tooltip();
+
+
+
+	$(document).ready(function () {
+		$('#sidebarCollapse').on('click', function () {
+			$('#sidebar').toggleClass('active');
+			$('#content').toggleClass('testing');
+		});
+	});
+	$(document).ready(function () {
+		$('#sidebarClose').on('click', function () {
+			$('#sidebar').toggleClass('active');
+			$('#content').toggleClass('testing');
+		});
+	});
+
+
+	var toggler = document.getElementsByClassName("caret");
+	var i;
+
+	for (i = 0; i < toggler.length; i++) {
+		toggler[i].addEventListener("click", function () {
+			this.parentElement.querySelector(".nested").classList.toggle("active");
+			this.classList.toggle("caret-down");
+		});
+	};
+
+	/* number count */
+
+	$('.count').each(function () {
+		$(this).prop('Counter', 33).animate({
+			Counter: $(this).text()
+		}, {
+				duration: 6000,
+				easing: 'swing',
+				step: function (now) {
+					$(this).text(Math.ceil(now));
+				}
+			});
+	});
+
+	$(document).ready(function () {
+		var interval = setInterval(function () {
+			var momentNow = moment();
+			$('#date-part').html(momentNow.format('DD MMMM YYYY') + ' ' +
+				momentNow.format('dddd')
+					.substring(0, 3).toUpperCase());
+			$('#time-part').html(momentNow.format('hh:mm:ss A'));
+		}, 100);
+
+
+	});
+
+
+	//$(document).ready(function () {
+	//	$("#cm-message").modal('show');
+	//});
+
+</script>
+
+<div class="modal" id="myModal12">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h1 class="mb-0 ml-5 pl-5" {{MTitle}}</h1>
+				<button type="button" class="close" ng-click="getclose();" data-dismiss="modal">&times;</button>
+			</div>
+			<!-- Modal body -->
+			<div class="modal-body">
+				
+				<div class="row">
+
+					<iframe src="{{urldes}}" width="800" height="600" />
+					<!--<iframe src="https://ysrrythubharosa.ap.gov.in/RBAPP/Downloads/YSRRythubharosa_Web%20app_User%20manual.pdf" width="800" height="500">Open URL</iframe>-->
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal" id="Meesevamodel">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header ">
+				<span class="meesevaname">Income Certificate</span>
+				<button type="button" class="close" ng-click="getclose();" data-dismiss="modal">&times;</button>
+				<button ng-click="SkipInterval();" class="btn btn-info btn-sm" style="position: relative; left: 26%;"> Skip <i class="ml-1 icon-forward3"></i> </button>  <label class="Timer" style="margin-right: 55px;    margin-left: 15px;    margin-top: 8px;    font-weight: bold;"> </label>
+			</div>			<!-- Modal body -->
+			<div class="modal-body">
+				<!--                    <img src="assets/images/navarathnalu.jpg" class="navr-modal-img" />-->
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<img id="meesevaframe" src="http://gramawardsachivalayam.ap.gov.in//PSTESTAPP/MeesevaService/Images/revenue-18.income%20certificate.jpg" class="w-75" height="600" />
+					</div>
+					<!--<iframe id=""  width="100%" height="600" >
+						<img id="meesevaframe" src="http://gramawardsachivalayam.ap.gov.in//PSTESTAPP/MeesevaService/Images/revenue-18.income%20certificate.jpg" width="100%" />
+					</iframe>-->
+					<!--<iframe src="https://ysrrythubharosa.ap.gov.in/RBAPP/Downloads/YSRRythubharosa_Web%20app_User%20manual.pdf" width="800" height="500">Open URL</iframe>-->
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade " id="myModal1">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content  modal-services-bg" style="border: 5px solid white;">
+			<!-- Modal Header -->
+			<div class="modal-header bg-dark py-2">
+				<h1 class="text-center mb-0">{{Ntitle}}</h1>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<!-- Modal body -->
+			<div class="modal-body">
+				<!--                    <img src="assets/images/navarathnalu.jpg" class="navr-modal-img" />-->
+				<div class="row">
+					<div class="col-sm-12 target-div">
+						<div id="div1" class="targetDiv">
+
+							<div class="service-nv-list">
+								<div class="row">
+									<div class="col-sm-5">
+										<div class="row">
+
+											<div class="col-sm-12" ng-repeat="obj in navalist | unique:'HOD_ID'">
+												<div class="modal-service">
+													<h2> {{obj.HOD_NAME}}</h2>
+
+													<ul>
+														<li ng-repeat="obj1 in  navalist" ng-if="obj1.HOD_ID==obj.HOD_ID" ng-mousedown="onMouseHold(event, url_obj);" ng-mouseup="onMouseRelease();" ng-click="process_url(obj1);">
+															<a class="sub-service" style="cursor:pointer">{{obj1.URL_DESCRIPTION}}</a>
+														</li>
+
+													</ul>
+												</div>
+											</div>
+
+										</div>
+
+
+									</div>
+									<div class="col-sm-7">
+										
+										<img src="assets/images/navarathnalu/bg-{{ID}}.png" class="w-75" />
+
+									
+									
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade " id="mobile-modal" data-backdrop="static">
+	<div class="modal-dialog" style="top: 29%;">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header bg-dark">
+				Mobile verification ({{popurlname}})
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<!-- Modal body -->
+			<div class="modal-body">
+				<!--                    <img src="assets/images/navarathnalu.jpg" class="navr-modal-img" />-->
+				<div class="row">
+					<div class="col-sm-12 target-div">
+
+
+
+						<div class="row">
+
+							<div class="col-sm-12">
+								<div class="form-group row">
+
+									<div class=" col-sm-6 offset-sm-2">
+										<label class="col-form-label">Enter Beneficiary Name </label><span style="color:red;">*</span>
+										<input type="text" ng-model="Citizenname" maxlength="35" alpha-bets class="form-control" placeholder="Enter Beneficiary Name">
+									</div>
+
+									<div class=" col-sm-6 offset-sm-2">
+										<label class="col-form-label">Enter Beneficiary Mobile Number</label><span style="color:red;">*</span>
+										<input type="text" numbers-only ng-model="pmobile" maxlength="10" class="form-control" placeholder="Enter Mobile Number">
+									</div>
+									<div class=" col-sm-6 offset-sm-2">
+										<label class="col-form-label">Enter Beneficiary Aadhaar Number</label><span style="color:red;">*</span>
+										<input type="text" numbers-only ng-model="uidnum" maxlength="12" class="form-control" placeholder="Enter Aadhaar Number">
+									</div>
+									<div class=" col-sm-2">
+										<button type="button" class="btn btn-outline-primary btn-sm mt-4" ng-click="GetInitiate();">Submit</button>
+									</div>
+								</div>
+							</div>
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade " id="spandana-modal" data-backdrop="static">
+	<div class="modal-dialog" style="top: 29%;">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header bg-dark">
+				Mobile verification ({{popurlname}})
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<!-- Modal body -->
+			<div class="modal-body">
+				<!--                    <img src="assets/images/navarathnalu.jpg" class="navr-modal-img" />-->
+				<div class="row">
+					<div class="col-sm-12 target-div">
+
+
+
+						<div class="row">
+
+							<div class="col-sm-12">
+								<div class="form-group row">
+
+									<div class=" col-sm-6 offset-sm-2">
+										<label class="col-form-label">Enter Beneficiary Name </label>
+										<input type="text" ng-model="SCitizenname" maxlength="35" alpha-bets class="form-control" placeholder="Enter Beneficiary Name">
+									</div>
+									<div class=" col-sm-6 offset-sm-2">
+										<label class="col-form-label">Enter Beneficiary Aadhaar Number </label>
+										<input type="text" ng-model="Suid" numbers-only maxlength="12" class="form-control" placeholder="Enter Aadhaar Number">
+									</div>
+									<div class=" col-sm-6 offset-sm-2">
+										<label class="col-form-label">Enter Beneficiary Mobile Number</label>
+										<input type="text" numbers-only ng-model="Smobile" maxlength="10" class="form-control" placeholder="Enter Mobile Number">
+									</div>
+									<div class=" col-sm-2">
+										<button type="button" class="btn btn-outline-primary btn-sm mt-4" ng-click="GetSpandanaRequest();">Submit</button>
+									</div>
+								</div>
+							</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade " id="notification">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+
+			<div class="modal-header bg-dark py-2">
+				<h1 class="text-center mb-0">Notification</h1>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<!-- Modal body -->
+			<div class="modal-body">
+
+				<div class="row">
+					<div class="col-sm-12 notification-list">
+
+						<ul class="media-list">
+
+							<li class="media">
+
+								<div class="media-body">
+									<div class="media-title">
+										<a href="#">
+											<span class="font-weight-bold text-dark">22 December 2019</span>
+
+										</a>
+									</div>
+
+									<span class="text-muted">Hon’ble CM Sri YS Jagan Mohan Reddy Participated in Andhra University Alumni Conference program,along with Hon’ble Ministers and other Officials.</span>
+								</div>
+							</li>
+							<li class="media">
+								<div class="media-body">
+									<div class="media-title">
+										<a href="#">
+											<span class="font-weight-bold text-dark">22 December 2019</span>
+										</a>
+									</div>
+
+									<span class="text-muted">Hon’ble CM Sri YS Jagan Mohan Reddy launched YSR Law Nestham scheme, at Camp office Tadepalli.</span>
+								</div>
+							</li>
+							<li class="media">
+								<div class="media-body">
+									<div class="media-title">
+										<a href="#">
+											<span class="font-weight-bold text-dark">22 December 2019</span>
+										</a>
+									</div>
+
+									<span class="text-muted">Hon’ble CM Sri YS Jagan Mohan Reddy, held a review meeting with Higher Education Regulatory and Monitoring Commission, at Secretariat.</span>
+								</div>
+							</li>
+							<li class="media">
+								<div class="media-body">
+									<div class="media-title">
+										<a href="#">
+											<span class="font-weight-bold text-dark">22 December 2019</span>
+										</a>
+									</div>
+
+									<span class="text-muted">ఇకపై ప్రతి ఏటా జనవరిలో ఉద్యోగాల భర్తీకి నోటిఫికేషన్ జారీ చేస్తామన్నారు. రాబోయే రోజుల్లో వివిధ శాఖల్లో ఉన్న ప్రభుత్వ ఉద్యోగాల భర్తీ ప్రక్రియ చేపడతామని</span>
+								</div>
+							</li>
+
+						</ul>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade " id="cm-message">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<!-- Modal body -->
+			<div class="modal-body notify-bg">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<!--                    <img src="assets/images/navarathnalu.jpg" class="navr-modal-img" />-->
+				<div class="row">
+					<div class="col-sm-12 target-div">
+						<div id="div1" class="targetDiv">
+							<div class="service-nv-list">
+								<div class="row">
+
+									<div class="col-sm-7 offset-5 mt-3">
+										<div class="row">
+
+											<div class="col-sm-12 text-center mt-3 mb-2">
+												<h1 style="font-family: 'ramabhadra' , sans-serif;
+    font-size: 45px;
+    color: #4CAF50;">
+													గౌ|| ముఖ్యమంత్రి గారి సందేశం
+												</h1>
+											</div>
+											<div class="col-sm-12">
+												<h2 style=" font-family: 'ramabhadra' , sans-serif;">
+													``మ‌న భార‌తీయ ఆత్మ అంతాకూడా మ‌న గ్రామాల్లోనే ఉంది`` అని మ‌హాత్మాగాంధీ గారు అన్నారు.  అటువంటి గ్రామాల‌ల్లో అభివృద్ధి ఫ‌లాలు, ప‌రిపాల‌న ప్ర‌తి గ‌డ‌ప ద‌గ్గ‌రికి తీసుకుని పోవాల‌న్న ఉద్దేశంతోనే గ్రామ స‌చివాల‌య వ్య‌వ‌స్థ‌ను తెచ్చాం.
+													<br>
+													
+													<span class="float-right">
+														- ముఖ్య‌మంత్రి వైయ‌స్ జ‌గ‌న్ మోహ‌న్ రెడ్డి
+													</span>
+
+
+												</h2>
+
+
+												<div class="modal-notification">
+
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

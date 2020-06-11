@@ -1,0 +1,58 @@
+﻿
+<style>
+	/*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('assets/images/loader.gif') 50% 50% no-repeat #ffffffb8;
+    }
+</style>
+<div class="scheme">
+	<div class="container">
+		<div class="loader" ng-show="Preloader"></div>
+		<div class="col-md-12" align="center" style="margin-top:10px">
+			<h3><b style="border-bottom:5px solid black">AIDS AND APPLIANCES REGISTRATION FORM</b></h3>
+		</div>
+		<div class="col-md-12" style="margin-top:40px">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<div class="col-md-12">
+						<label style="font-weight:bold">User Name</label> <span style="color:red;font-weight:bold">*</span>
+						<input type="text" ng-model="txtname" placeholder="Enter User Name" class="form-control" />
+					</div>
+					<div class="col-md-12">
+						<label style="font-weight:bold">Email ID</label> <span style="color:red;font-weight:bold">*</span>
+						<input type="email" ng-model="txtemaid" autocomplete="off" placeholder="Enter Email ID" class="form-control" />
+					</div>
+					<div class="col-md-12">
+						<label style="font-weight:bold">Password</label> <span style="color:red;font-weight:bold">*</span>
+						<input type="password" ng-model="txtpswd" autocomplete="off" placeholder="Enter Password" class="form-control" />
+					</div>
+					<div class="col-md-12">
+						<label style="font-weight:bold">Confirm Password</label> <span style="color:red;font-weight:bold">*</span>
+						<input type="password" ng-model="txtcnpswd" placeholder="Enter Confirm Password" class="form-control" />
+					</div>
+					<div class="col-md-12">
+						<label style="font-weight:bold">Mobile Number</label> <span style="color:red;font-weight:bold">*</span>
+						<input type="text" maxlength="10" chars="0-9\\" ng-model="txtmob" placeholder="Enter Mobile Number" class="form-control" />
+					</div>
+					<div class="col-md-12">
+						<label style="font-weight:bold">Aadhaar Number</label> <span style="color:red;font-weight:bold">*</span>
+						<input type="text" maxlength="12" chars="0-9\\" ng-model="txtaadhaar" placeholder="Enter Aadhaar Number" class="form-control" />
+					</div>
+					<div class="col-md-12" align="right" style="margin-top:10px">
+						<button class="btn btn-sm btn-primary" id="btnGetReport" ng-click="getdetails()">REGISTER</button>
+						<button class="btn btn-sm btn-danger" id="btnreset" ng-click="Refresh()">RESET</button>
+					</div>
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+		</div>
+	</div>
+
+</div>

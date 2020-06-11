@@ -1,0 +1,1925 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Praja Sachivalayam</title>
+  <link rel="shortcut icon" href="images/favicon.png" />
+
+  <!-- CSS & Fonts -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+
+  <!-- Lobi Plugin -->
+  <link rel="stylesheet" href="lobi/lib/jquery-ui.min.css"/>
+  <link rel="stylesheet" href="lobi/lib/font-awesome/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="lobi/lib/highlight/github.css"/>
+  <link rel="stylesheet" href="lobi/demo/documentation.css"/>
+  <link rel="stylesheet" href="lobi/dist/css/lobipanel.min.css"/>
+  <link rel="stylesheet" href="lobi/demo/demo.css"/>
+
+  <style>
+    .card .card-body {
+      padding: 0.55rem 0.55rem;
+    }
+
+    .card .card-body .brd-t {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tab-content {
+      border: 0px solid #eee;
+      border-top: 0;
+      padding: 0rem 0rem;
+      text-align: justify;
+    }
+
+    .accordion.accordion-bordered {
+      border-radius: 0.625rem;
+    }
+  </style>
+
+</head>
+
+
+<body ng-app="GSWS">
+  
+  <div class="bgoverlay">
+    <div class="circle-loader"></div>
+  </div>
+  <div class="container-scroller">
+    <div class="horizontal-menu">
+      <nav class="navbar top-navbar col-lg-12 col-12 p-0">
+        <div class="container-fluid">
+          <div class="text-center d-flex align-items-center justify-content-center">
+            
+              <img src="images/cm.jpg" style="height: 70px;" />
+              <div class="text-center pt-2 ml-2 minister-text">
+                Y.S. Jagan Mohan Reddy Garu<br>
+                Hon'ble.Cheif Minister<br>Andhra Pradesh
+              </div>
+
+          </div>
+          <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo text-white" href=""><img src="images/ap-logo.png" alt="logo" /> Praja Sachivalayam</a>
+            <a class="navbar-brand brand-logo-mini" href=""><img src="images/ap-logo.png" alt="logo" /></a>
+          </div>
+          <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+            <!-- <ul class="navbar-nav navbar-nav-left">
+              <li class="nav-item d-none d-lg-block">
+                <a href="#" class="nav-link">
+                  <p>Feedback</p>
+                </a>
+              </li>
+              <li class="nav-item d-none d-lg-block">
+                <a href="#" class="nav-link">
+                  <p>Support</p>
+                </a>
+              </li>
+            </ul> -->
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item nav-search d-none d-lg-block">
+                <a href="#!" data-toggle="modal" data-target="#exampleModal" class="text-white">
+                  <i class="mdi mdi-message-alert"></i> Message
+                </a>
+              </li>
+              <li class="nav-item nav-search d-none d-lg-block">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="search">
+                      <i class="mdi mdi-magnify"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Type to search" aria-label="search"
+                    aria-describedby="search">
+                </div>
+              </li>
+
+
+              <li class="nav-item nav-language dropdown">
+                <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
+                  id="languageDropdown" href="#" data-toggle="dropdown">
+                  <p class="mb-0 ml-1">English</p>
+                  <i class="mdi mdi-unfold-more-horizontal mx-0"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                  aria-labelledby="languageDropdown">
+                  <p class="mb-0 font-weight-normal float-left dropdown-header">Language</p>
+
+                  <a class="dropdown-item preview-item" href="index-telugu.html">
+
+                    <div class="preview-item-content flex-grow">
+                      <p class="font-weight-light small-text mb-0">
+                        <i class="fa fa-language"></i>  Telugu
+                      </p>
+                    </div>
+
+                  </a>
+
+                </div>
+              </li>
+              <li class="nav-item nav-profile dropdown">
+                <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
+                  <i class="mdi mdi-account-circle mdi-24px text-white"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item">
+                    <i class="mdi mdi-logout text-primary"></i>
+                    Logout
+                  </a>
+                </div>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+              data-toggle="horizontal-menu-toggle">
+              <span class="mdi mdi-menu"></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <nav class="bottom-navbar">
+        <div class="container-fluid">
+
+          <div class="row">
+            <div class="col-md-5">
+              <ul class="nav page-navigation">
+
+                <li class="nav-item active">
+                  <a class="nav-link" href="">
+                    <i class="mdi mdi-home menu-icon"></i>
+                    <span class="menu-title">Home</span>
+                  </a>
+                </li>
+
+              </ul>
+            </div>
+            <div class="col-md-7">
+              <ul class="nav page-navigation justify-content-end" role="tablist">
+
+                <li class="nav-item bg-facebook rounded pl-2 pr-2">
+                  <a class="nav-link text-white filter-button" data-filter="all">
+                    <i class="mdi mdi-view-list menu-icon text-white"></i>
+                    <span class="menu-title"> All</span>
+                  </a>
+                </li>
+
+                <li class="nav-item bg-success rounded pl-2 pr-2">
+                  <a class="nav-link text-white filter-button" data-filter="frequently">
+                    <i class="mdi mdi-refresh menu-icon text-white"></i>
+                    <span class="menu-title"> Frequently Viewed</span>
+                  </a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </nav>
+    </div>
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <div class="main-panel" style="background: #ffffff !important;">
+        <div class="content-wrapper" style="max-width:100% !important;">
+
+          <div class="row">
+
+            <div class="col-12 col-sm-9 col-md-9" id="colA">
+
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="home-1" role="tabpanel" aria-labelledby="home-tab">
+
+                  <!-- <h4 class="text-white mb-3">All: </h4> -->
+                  
+                  <div class="row counts">
+                    <div class="col-md-3">
+                      <div class="sachivalayam-tiles border-warning">
+                        <!-- <i class="mdi mdi-update text-warning"></i> -->
+                        <img src="images/pending.png">
+                        <p>Pending Tasks</p>
+                        <h2 class="text-warning">49</h2>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="sachivalayam-tiles border-info">
+                        <!-- <i class="mdi mdi-format-float-left text-info"></i> -->
+                        <img src="images/registered.png">
+                        <p>Registered</p>
+                        <h2 class="text-info">752</h2>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="sachivalayam-tiles border-success">
+                        <!-- <i class="mdi mdi-checkbox-marked-circle-outline text-success"></i> -->
+                        <img src="images/success.png">
+                        <p>Success</p>
+                        <h2 class="text-success">580</h2>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="sachivalayam-tiles border-red">
+                        <!-- <i class="mdi mdi-close-box-outline text-danger"></i> -->
+                        <img src="images/rejected.png">
+                        <p>Rejected</p>
+                        <h2 class="text-danger">21</h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 px-0 mb-4 search-bar" id="SearchBoxContainer">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="row justify-content-center" style="width: 100%;">
+                          <div class="col-md-2"><a href="http://spandana.ap.gov.in/" target="_blank" class="btn btn-rounded btn-orange ntr">స్పందన <i class="mdi mdi-arrow-right-bold-circle-outline"></i></a></div>
+                          <div class="col-md-8">
+                            <div class="form-group mb-0">
+                              <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search Services..."
+                                  aria-label="Search Services..." onfocus="DisplaySearchResultBox();">
+                                <div class="input-group-append">
+                                  <button class="btn btn-sm btn-primary" type="button"><i class="mdi mdi-magnify mdi-20px"></i> Search</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                              <div class="dropdown mt-1 float-right">
+                                  <button class="btn btn-orange dropdown-toggle btn-rounded" type="button" id="Sortby" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="mdi mdi-view-list text-white"></i> Sort by
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="Sortby" x-placement="top-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 5px, 0px);">
+                                    <h6 class="dropdown-header">Sorting</h6>
+                                    <a class="dropdown-item" href="#">Sort by Name</a>
+                                    <a class="dropdown-item" href="#">Sort by Usage</a>
+                                    <a class="dropdown-item" href="#">Sort by No. of Services</a>
+                                  </div>
+                                </div>
+                          </div>
+                        </div>
+                        
+                    <div class="col-md-12 bg-white search-result" id="searchResultDisplayDiv" style="display: none;">
+                        <div class="">
+                          <h4>Search Result</h4>
+                          <a href="#!" id="close" class="halfCircleTop"><i class="mdi mdi-close-circle icon-box"></i></a>
+                          <div class="col-md-12">
+                            <div class="row">
+                              <div class="col-md-4 sub-category">
+                                <h5>Agriculture</h5>
+                                <ul class="list-arrow">
+                                  <li><a href="" title="Issue of Crop Cultivator Rights Card(CCRC)">Issue of Crop Cultivator Rights Card(CCRC)</a></li>
+                                  <li><a href="">Testing of seeds, Fertilizers, Micronutrients and Pesticide samples of the farmer in the Integrated Agri labs</a></li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4">
+                                <h5>Horticulture</h5>
+                                <ul class="list-arrow">
+                                  <li><a href="" title="E-crop booking">E-crop booking</a></li>
+                                  <li><a href="" title="Technical Guidance">Technical Guidance</a></li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4">
+                                <h5>Sericulture</h5>
+                                <ul class="list-arrow">
+                                  <li><a href="" title="Technical guidance to farmers ">Technical guidance to farmers </a></li>
+                                  <li><a href="">Registration-New Farmer registration & issue of Farmer ID</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4 sub-category">
+                                <h5>Agriculture</h5>
+                                <ul class="list-arrow">
+                                  <li><a href="" title="Issue of Crop Cultivator Rights Card(CCRC)">Issue of Crop Cultivator Rights Card(CCRC)</a></li>
+                                  <li><a href="">Testing of seeds, Fertilizers, Micronutrients and Pesticide samples of the farmer in the Integrated Agri labs</a></li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4">
+                                <h5>Horticulture</h5>
+                                <ul class="list-arrow">
+                                  <li><a href="" title="E-crop booking">E-crop booking</a></li>
+                                  <li><a href="" title="Technical Guidance">Technical Guidance</a></li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4">
+                                <h5>Sericulture</h5>
+                                <ul class="list-arrow">
+                                  <li><a href="" title="Technical guidance to farmers ">Technical guidance to farmers </a></li>
+                                  <li><a href="">Registration-New Farmer registration & issue of Farmer ID</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      </div>
+                      <!-- <div class="card-footer">
+                      </div> -->
+                    </div>
+
+                  </div>
+                  <div class="row departments">
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter frequently fadeInUp"><span class=""></span>
+                      <div class="card bg-primary">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <img src="images/icons/agriculture.png">
+                            </div>
+                            <p class="mb-0">Agriculture & Marketing </p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>52</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1225</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a data-toggle="collapse" href="#department-1" aria-expanded="false" aria-controls="department-1" ><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-secondary">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/science-tech.png">
+                            </div>
+                            <p class="mb-0">Environment,Forest,<br>Science & Technology</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>32</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>2652</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-red">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/industries.png">
+                            </div>
+                            <p class="mb-0">Industries and Commerce</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>19</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1877</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Department 1 -->
+                    <div class="col-md-12 col-12 department-expand" id="lobipanel-multiple">
+                    
+                      <div class="accordion accordion-bordered" id="department-1" role="tablist">
+                        <div id="department-1" class="collapse" role="tabpanel" aria-labelledby="heading-1" data-parent="#department-1">
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <a data-toggle="collapse" href="#department-1" aria-expanded="true" aria-controls="department-1"
+                                class="btn btn-custom btn-sm btn-default"><i class="mdi mdi-close-circle btn-icon-prepend"></i></a>
+                            </div>
+                            <div class="panel-body pl-2 pr-2">
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                      <li class="nav-item">
+                                        <a class="nav-link active" id="servicelist-1-tab" data-toggle="tab" href="#servicelist-1" role="tab"
+                                          aria-controls="servicelist-1" aria-selected="true"> Services List</a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link" id="servicelist-2-tab" data-toggle="tab" href="#servicelist-2" role="tab"
+                                          aria-controls="servicelist-2" aria-selected="true"> Frequently Used</a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="row">
+                                      <div class="col-md-8">
+                                        <div class="form-group">
+                                          <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search Services..."
+                                              aria-label="Search Services...">
+                                            <div class="input-group-append">
+                                              <button class="btn btn-sm btn-primary" type="button"> Search</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <div class="dropdown">
+                                          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuIconButton1"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Sort by <i class="mdi mdi-view-list text-dark"></i>
+                                          </button>
+                                          <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton1" x-placement="top-start"
+                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 0px, 0px);">
+                                            <h6 class="dropdown-header">Sorting</h6>
+                                            <a class="dropdown-item" href="#">Sort by Name</a>
+                                            <a class="dropdown-item" href="#">Sort by Usage</a>
+                                            <a class="dropdown-item" href="#">Sort by --</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                              
+                              
+                                  </div>
+                                </div>
+                              </div>
+                    
+                              <div class="tab-content">
+                                <div class="tab-pane fade show active" id="servicelist-1" role="tabpanel"
+                                  aria-labelledby="servicelist-1-tab">
+                                  <div class="col-md-12">
+                                    <!-- <div class="row mt-3 justify-content-between">
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                          <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search Services..."
+                                              aria-label="Search Services...">
+                                            <div class="input-group-append">
+                                              <button class="btn btn-sm btn-primary" type="button"> Search</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-3 text-center">
+                                        <div class="dropdown">
+                                          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuIconButton1"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Sort by <i class="mdi mdi-view-list text-dark"></i>
+                                          </button>
+                                          <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton1" x-placement="top-start"
+                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 0px, 0px);">
+                                            <h6 class="dropdown-header">Sorting</h6>
+                                            <a class="dropdown-item" href="#">Sort by Name</a>
+                                            <a class="dropdown-item" href="#">Sort by Uses</a>
+                                            <a class="dropdown-item" href="#">Sort by --</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div> -->
+                                    <div class="row mt-3 services-list">
+                                      <div class="col-md-6">
+                                        <h5> Agriculture</h5>
+                                        <ul class="list-arrow">
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                              title="Left Click (Open) / Right Click (Download Guide)">Issue of Crop Cultivator Rights Card
+                                              (CCRC</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">Testing of seeds, Fertilizers, Micronutrients and Pesticide samples of the farmer
+                                              in the Integrated Agri labs</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">Information on crop loans/term loans/scale of finances</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">e-crop booking data (e-Panta Services)</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">Weather Forecast</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">Agro-advisories through Expert on demand and advisories during Pest & Disease
+                                              Outbreaks.</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">Information on Quality Control systems on Agricultural Inputs.</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">Distribution of Available subsidized inputs to farmers through D-Krishi including
+                                              contingency seed in the relevant seasons</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">Collection of Act Samples from dealer points on information of spurious</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">Information on Agriculture Departmental Schemes</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">Information on latest farming Technologies and Training to Farmers on Good
+                                              Agricultural Practices (GAPs).</a></li>
+                    
+                                        </ul>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <h5> Horticulture</h5>
+                                        <ul class="list-arrow">
+                                          <li><a href="">e- crop booking</a></li>
+                                          <li><a href="">Call Centre Services</a></li>
+                                          <li><a href="">Area Expansion</a></li>
+                                          <li><a href="">Rejuvenation & Canopy Management</a></li>
+                                          <li><a href="">IPM & INM</a></li>
+                                          <li><a href="">Creation of Water Resources<br>
+                                              a) Individual Farm Pond<br>
+                                              b) Community Farm Pond</a></li>
+                                          <li><a href="">Protected Cultivation<br>
+                                              a) Shadenet House<br>
+                                              b) Poly Houses</a></li>
+                                          <li><a href="">Permanent Pendals</a></li>
+                                          <li><a href="">Horticulture Mechanization</a></li>
+                                          <li><a href="">Integrated Pack houses, Cold storage units, Pre cooling units, Refer Vans, Ripening
+                                              chamber etc.</a></li>
+                    
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="tab-pane fade" id="servicelist-2" role="tabpanel" aria-labelledby="servicelist-2-tab">
+                                  <div class="col-md-12">
+                                    
+                                    <div class="row mt-3 services-list">
+                                      <div class="col-md-6">
+                                        <h5> Agriculture</h5>
+                                        <ul class="list-arrow">
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                              title="Left Click (Open) / Right Click (Download Guide)">Issue of Crop Cultivator Rights Card
+                                              (CCRC</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">Testing of seeds, Fertilizers, Micronutrients and Pesticide samples of the farmer
+                                              in the Integrated Agri labs</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">Information on crop loans/term loans/scale of finances</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">e-crop booking data (e-Panta Services)</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">Weather Forecast</a></li>
+                    
+                                        </ul>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <h5> Horticulture</h5>
+                                        <ul class="list-arrow">
+                                          <li><a href="">e- crop booking</a></li>
+                                          <li><a href="">Call Centre Services</a></li>
+                                          <li><a href="">Area Expansion</a></li>
+                                          <li><a href="">Rejuvenation & Canopy Management</a></li>
+                                          <li><a href="">IPM & INM</a></li>
+                    
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                    
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Department 1 -->
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-green">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/public-enterprises.png">
+                            </div>
+                            <p class="mb-0">Public Enterprises</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>42</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>944</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-yellow">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/skills-development.png">
+                            </div>
+                            <p class="mb-0">Skills Development, <br>Entrepreneurship and Innovation</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>23</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1457</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-blue">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/tourism-culture.png">
+                            </div>
+                            <p class="mb-0">Your Advancement,<br>Tourism and Culture</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>13</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1784</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-primary">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <img src="images/icons/bcwelfare-tribal.png">
+                            </div>
+                            <p class="mb-0">Backward Classes Welfare & <br>Tribal Welfare</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>21</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1197</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-secondary">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/education.png">
+                            </div>
+                            <p class="mb-0">School Education</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>16</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1655</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-red">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/bcwelfare-tribal.png">
+                            </div>
+                            <p class="mb-0">Social Welfare</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>35</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1604</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-green">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/higher-edu.png">
+                            </div>
+                            <p class="mb-0">Higher Education</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>22</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1811</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-yellow">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/bcwelfare-tribal.png">
+                            </div>
+                            <p class="mb-0">Minorities Welfare</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>17</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1963</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-blue">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/health-medical.png">
+                            </div>
+                            <p class="mb-0">Health,Medical & Family Welfare</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>33</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1562</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-primary">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/water-resource.png">
+                            </div>
+                            <p class="mb-0">Water Resources Department</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>18</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>2564</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-secondary">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/animal-husbandry.png">
+                            </div>
+                            <p class="mb-0">Animal Husbandry and Fisheries</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>14</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1315</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-red">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/finance.png">
+                            </div>
+                            <p class="mb-0">Finance</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>29</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>3208</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-green">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/rain-shadow.png">
+                            </div>
+                            <p class="mb-0">Rain Shadow Areas Department</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>13</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>752</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-yellow">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/road-buildings.png">
+                            </div>
+                            <p class="mb-0">Transport Roads & Buildings</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>27</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1689</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-blue">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/home.png">
+                            </div>
+                            <p class="mb-0">Home</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>24</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1065</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-primary">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/labour-employment.png">
+                            </div>
+                            <p class="mb-0">Labour Employment Training and<br> Factories</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>31</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>2212</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-secondary">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/rural-development.png">
+                            </div>
+                            <p class="mb-0">Panchayat Raj and <br>Rural Development</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>34</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1426</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-red">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/energy.png">
+                            </div>
+                            <p class="mb-0">Energy,Infrastructure & Investment</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>26</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>760</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-green">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/information-technology.png">
+                            </div>
+                            <p class="mb-0">Information Technology,Electronics & Communications</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>33</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1298</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-yellow">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/housing.png">
+                            </div>
+                            <p class="mb-0">Housing</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>15</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1689</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-blue">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/urban-development.png">
+                            </div>
+                            <p class="mb-0">Municipal Administration and<br> Urban Development</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>34</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1700</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-primary">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/serp.png">
+                            </div>
+                            <p class="mb-0">SERP</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>19</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1598</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-secondary">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/food-civil-supplies.png">
+                            </div>
+                            <p class="mb-0">Consumer Affairs Food & <br>Civil Supplies</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>26</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1358</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-red">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/finance.png">
+                            </div>
+                            <p class="mb-0">Revenue - CCLA / SSLR,Endowment</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>29</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1903</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-green">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/registration-stamps.png">
+                            </div>
+                            <p class="mb-0">Revenue - Registration & Stamps</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>18</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1209</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-yellow">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/excise.png">
+                            </div>
+                            <p class="mb-0">Revenue - Excise</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>38</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>993</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-blue">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                                <img src="images/icons/women-children.png">
+                            </div>
+                            <p class="mb-0">Department for Women,Children,<br>Disabled and Senior Citizens</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">Add Favorite</a>
+                                <a class="dropdown-item"  id="removefav">Remove Favorite</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>Services</p>
+                              <h3>25</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p>Users</p>
+                              <h3>1785</h3>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                </div>
+              </div>
+
+             
+
+              <div class="col-12 col-sm-3 col-md-3 navaratnalu2">
+                <div class="card">
+                  <div class="card-header">
+                    <h6 class="card-title mb-1 mt-1 text-center">Navaratnalu </h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-6 mb-2" data-toggle="modal" data-target="#exampleModalCenter">
+                        <div class="card">
+                          <div class="card-body">
+                            <img src="images/Navaratnalu/YSR-Rythu-Bharosa.jpg">
+                          </div>
+                          <div class="card-footer color1">YSR Rythu Bharosa</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/Fee-Reimbursement.jpg">
+                          </div>
+                          <div class="card-footer color2">Fee Reimbursement</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/Arogyasri.jpg">
+                          </div>
+                          <div class="card-footer color3">Arogyasri</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/Amma-Vodi.jpg">
+                          </div>
+                          <div class="card-footer color6">Amma Vodi</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/YSR-Asara.jpg">
+                          </div>
+                          <div class="card-footer color7">YSR Asara</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/Paydalandariki-Illu.jpg">
+                          </div>
+                          <div class="card-footer color8">Paydalandariki Illu</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/Ban-on-Alcohol.jpg">
+                          </div>
+                          <div class="card-footer color5">Ban on Alcohol</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/Pensionla-Pempu.jpg">
+                          </div>
+                          <div class="card-footer color9">Pensionla Pempu</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/Jalayagnam.jpg">
+                          </div>
+                          <div class="card-footer color4">Jalayagnam</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="w-100 clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019 <a href=""
+                target="_blank">Praja Sachivalayam</a>. All rights reserved.</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+
+  <!-- <div class="ys-jagan-circle">
+    <a href=""  data-toggle="modal" data-target="#exampleModal">
+    <img src="images/Navaratnalu/ys-jagan-circle.png" data-toggle="tooltip" data-placement="left" title=""
+    data-original-title=" Message !" data-custom-class="tooltip-info">
+  </a>
+  </div> -->
+  <!-- Navaratnalu Popup -->
+  <!-- YSR Rythu Bharosa -->
+  <div class="modal modal-lg fade navaratnalu-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalCenterTitle"><img src="images/Navaratnalu/YSR-Rythu-Bharosa.jpg" class="mr-3"> YSR Rythu Bharosa</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><i class="mdi mdi-close-circle"></i></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12">
+              <div class="media">
+                
+                <div class="media-body">
+                  <div class="row">
+                    <div class="col-md-4 sub-category">
+                      <h5>Agriculture</h5>
+                      <ul class="list-arrow">
+                        <li><a href="" title="">YSR Rythu Bharosa</a></li>
+                        <li><a href="" title="">Crop Insurance</a></li>
+                        <li><a href="" title="">Interest Free Crop Loan</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <h5>Agriculture</h5>
+                      <ul class="list-arrow">
+                        <li><a href="" title="">Free boars for Framers</a></li>
+                        <li><a href="" title="">1.5 Rs per Unit for Aqua farmers</a></li>
+                        <li><a href="" title="4 Rs bonus for farmers supplying milk to coperative socities">4 Rs bonus for farmers supplying milk to coperative socities</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <h5>Agriculture</h5>
+                      <ul class="list-arrow">
+                        <li><a href="" title="Road Tax & Toll Tax weave off for agriculture tractors">Road Tax & Toll Tax weave off for agriculture tractors</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+             
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YSR Notifications -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><i class="mdi mdi-comment-check text-danger"></i> Message From Hon'ble.Cheif Minister<strong>  Sri.Y.S. Jagan Mohan Reddy Garu,</strong> , Andhra Pradesh </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="mdi mdi-close-circle"></i></span>
+              </button>
+            </div>
+            <div class="modal-body py-2">
+              <div class="container-fluid">
+                <div class="row justify-content-center">
+
+
+                  <div class="col-md-4">
+<img src="images/ys-jagan-mohanreddy.jpg" class="img-fluid">
+                  </div>
+
+
+                  <div class="col-md-8">
+
+
+              <ul class="list-ticked" style="font-size: 18px; font-weight: 600;font-family: 'Mandali', sans-serif;">
+                <li style="margin-bottom:20px;">ప్రజల కష్టాలు దగ్గరి నుంచి చూశారు.. నేనున్నానంటూ భరోసా ఇచ్చారు.. కులం, మతం, రాజకీయం చూడకుండా సాయం చేస్తామన్నారు. అధికారంలోకి రాగానే వాయు వేగంతో నిర్ణయాలు.. నవరత్నాలతో పేదల జీవితాల్లో వెలుగు నింపేందుకు శ్రీకారం.</li>
+                <li style="margin-bottom: 8px;">సచివాలయాల ద్వారా ఇంటి ముంగిటకే పాలన.</li>
+              </ul>
+            </div>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <!-- Navaratnalu Popup -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/todolist.js"></script>
+  <script src="vendors/chart.js/Chart.min.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/todolist.js"></script>
+	<script src="js/tooltips.js"></script>
+  <!-- CUSTOM JS -->
+  <script src="js/custom.js"></script>
+  <!-- CUSTOM JS -->
+  
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+
+  <script src="lobi/lib/jquery.1.11.min.js"></script>
+    <script src="lobi/lib/jquery-ui.min.js"></script>
+    <script src="lobi/lib/jquery.ui.touch-punch.min.js"></script>
+    <script src="lobi/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lobi/lib/highlight/highlight.pack.js"></script>
+    <script src="lobi/dist/js/lobipanel.js"></script>
+
+    <script>
+      
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+﻿<style type="text/css">
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="col-md-12 bg-light py-3">
+                    <div class="row justify-content-between">
+                        <div class="col-md-3">
+                            <h3>Skill Development </h3>
+                        </div>
+                        <div class="col-md-6" style="float:right;">
+                            <a style="cursor:pointer;" data-ng-click="GoTO('jobs');" class="btn btn-outline-success mr-2">Upcomming Jobs</a>
+                            <a style="cursor:pointer;" data-ng-click="GoTO('batches');" class="btn btn-outline-primary mr-2">Upcomming Batches</a>
+                            <a style="cursor:pointer;" data-ng-click="GoTO('status');" class="btn btn-outline-secondary mr-2">Job/Batch Status Check</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>Status Check</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Category :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selcategory" data-ng-change="CategoryChange();">
+                                                <option selected="selected" value="">-Select Category-</option>
+                                                <option value="JFO">Job</option>
+                                                <option value="TC_BATCH">Batch</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3" ng-show="typejob">
+                                        <label class="col-lg-12 col-form-label"><b>Job Name :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="seljob">
+                                                <option selected="selected" value="">-Select Name-</option>
+                                                <option data-ng-repeat="dis in JobsDD" value="{{dis.jobId}}">{{dis.jobRole}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3" ng-show="typebatch">
+                                        <label class="col-lg-12 col-form-label"><b>Batch Name :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selbatch">
+                                                <option selected="selected" value="">-Select Name-</option>
+                                                <option data-ng-repeat="dis in BatchesDD" value="{{dis.batch_id}}">{{dis.batch_name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3" style="margin-top:2.5%;">
+                                        <button type="button" data-ng-click="GetStatus();" class="btn btn-primary">Get Status</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mt-2 " ng-show="dttable">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <label>Status : </label> <label style="font-weight:bold;">{{app_status}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

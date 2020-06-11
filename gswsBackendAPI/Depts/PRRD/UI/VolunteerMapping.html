@@ -1,0 +1,78 @@
+﻿<style type="text/css">
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>Volunteer Mapping Details</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-3 col-form-label text-right">Volunteer ID</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" alpha-numerics maxlength="25" data-ng-model="volunteerid"  autocomplete="off" placeholder="Enter Volunteer ID"  class="form-control" />
+                                    </div>
+                                    <!--<div class="col-lg-3 row">
+                                        <img src="images/captcha.gif" class="w-50" />
+                                        <input type="text" class="form-control w-50" placeholder="Enter Captcha">
+                                    </div>-->
+                                    <div class="col-lg-3">
+                                        <button type="button" ng-click="GetStatus();" class="btn btn-primary">Get Deatils</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mt-2 " ng-show="dttable">
+                        <table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+                            <thead>
+                                <tr class="bg-dark" style="color:white !important;">
+                                    <th>S.No</th>
+                                    <th>House Hold ID</th>
+                                    <th>Name</th>
+                                    <th>Gender</th>
+                                    <th>Mobile Number</th>
+                                    <th>Date of Birth</th>
+                                    <th>Address</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dt-rows ng-repeat="stu in VolDetails |  filter : SearchText">
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{stu.HOUSEHOLD_ID}}</td>
+                                    <td>{{stu.HHOUSE_NAME}}</td>
+                                    <td ng-show="stu.GENDER == 713">Male</td>
+                                    <td ng-show="stu.GENDER == 714">Female</td>
+                                    <td>{{stu.MOBILE_NUMBER}}</td>
+                                    <td>{{stu.DOB_DT.substr(0,10)}}</td>
+                                    <td>{{stu.ADDRESS}}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

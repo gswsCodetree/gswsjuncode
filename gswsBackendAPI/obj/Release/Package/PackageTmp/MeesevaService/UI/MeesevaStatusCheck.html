@@ -1,0 +1,72 @@
+﻿<style type="text/css">
+
+
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('../images/loader.gif') 50% 50% no-repeat #fff;
+	}
+</style>
+<div class="page-content">
+	<div data-ng-show="preloader" class="loader"></div>
+	<!-- Main content -->
+	<div class="content-wrapper">
+		<!-- Content area -->
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 text-center mb-4">
+						<h1>Check Your Application Status</h1>
+					</div>
+					<div class="col-sm-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="form-group row mb-0">
+									<label class="col-lg-3 col-form-label text-right">Enter Meeseva Application Number</label>
+									<div class="col-lg-3">
+										<input type="text" alpha-numerics maxlength="50" ng-model="MeesevaAppNo" placeholder="Enter Meeseva Application Number" class="form-control">
+									</div>
+									<div class="col-lg-3">
+										<button type="button" ng-click="GetMeesevaStatus();" class="btn btn-primary">Submit</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 mt-2 " ng-show="dttable">
+						<table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+							<thead>
+								<tr class="bg-dark" style="color:white !important;">
+									<th>S.No</th>
+									<th>NAME</th>
+									<th>MEESEVAAPPLICATION NUMBER</th>
+									<th>GSWS APPLICATION NUMBER</th>
+									<th>APPLICATION TYPE</th>
+									<th>DISTRICT NAME</th>
+									<th>MANDAL NAME</th>
+									<th>SECRETARIAT NAME</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>{{APPLICANTNAME}}</td>
+									<td>{{DESCRIPTION}}</td>
+									<td>{{DISTRICT_NAME}}</td>
+									<td>{{MANDAL_NAME}}</td>
+									<td>{{SECRETARIAT_NAME}}</td>
+
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

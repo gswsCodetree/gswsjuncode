@@ -1,0 +1,1 @@
+080620174912PM:GetProdgswsDataAdapterORA-12545: Network Transport: Unable to resolve connect hostname

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://in.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="ValidSadaremidService" targetNamespace="http://in.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://sadarem.ap.gov.in:443/Sadaremwebservice/ValidSadaremid?xsd=1" namespace="http://in.com/" />
+    </xsd:schema>
+  </types>
+  <message name="operation">
+    <part name="parameters" element="tns:operation" />
+  </message>
+  <message name="operationResponse">
+    <part name="parameters" element="tns:operationResponse" />
+  </message>
+  <message name="getSADAREMDetailsValidation">
+    <part name="parameters" element="tns:getSADAREMDetailsValidation" />
+  </message>
+  <message name="getSADAREMDetailsValidationResponse">
+    <part name="parameters" element="tns:getSADAREMDetailsValidationResponse" />
+  </message>
+  <message name="getSADAREMValidation">
+    <part name="parameters" element="tns:getSADAREMValidation" />
+  </message>
+  <message name="getSADAREMValidationResponse">
+    <part name="parameters" element="tns:getSADAREMValidationResponse" />
+  </message>
+  <message name="getTemparyorpermenant">
+    <part name="parameters" element="tns:getTemparyorpermenant" />
+  </message>
+  <message name="getTemparyorpermenantResponse">
+    <part name="parameters" element="tns:getTemparyorpermenantResponse" />
+  </message>
+  <message name="getDisabilitydetails">
+    <part name="parameters" element="tns:getDisabilitydetails" />
+  </message>
+  <message name="getDisabilitydetailsResponse">
+    <part name="parameters" element="tns:getDisabilitydetailsResponse" />
+  </message>
+  <message name="getcertificatvalid">
+    <part name="parameters" element="tns:getcertificatvalid" />
+  </message>
+  <message name="getcertificatvalidResponse">
+    <part name="parameters" element="tns:getcertificatvalidResponse" />
+  </message>
+  <message name="RTGSSadaremData">
+    <part name="parameters" element="tns:RTGSSadaremData" />
+  </message>
+  <message name="RTGSSadaremDataResponse">
+    <part name="parameters" element="tns:RTGSSadaremDataResponse" />
+  </message>
+  <message name="checkSadaremDetails">
+    <part name="parameters" element="tns:checkSadaremDetails" />
+  </message>
+  <message name="checkSadaremDetailsResponse">
+    <part name="parameters" element="tns:checkSadaremDetailsResponse" />
+  </message>
+  <portType name="ValidSadaremid">
+    <operation name="operation">
+      <input wsam:Action="http://in.com/ValidSadaremid/operationRequest" message="tns:operation" />
+      <output wsam:Action="http://in.com/ValidSadaremid/operationResponse" message="tns:operationResponse" />
+    </operation>
+    <operation name="getSADAREMDetailsValidation">
+      <input wsam:Action="http://in.com/ValidSadaremid/getSADAREMDetailsValidationRequest" message="tns:getSADAREMDetailsValidation" />
+      <output wsam:Action="http://in.com/ValidSadaremid/getSADAREMDetailsValidationResponse" message="tns:getSADAREMDetailsValidationResponse" />
+    </operation>
+    <operation name="getSADAREMValidation">
+      <input wsam:Action="http://in.com/ValidSadaremid/getSADAREMValidationRequest" message="tns:getSADAREMValidation" />
+      <output wsam:Action="http://in.com/ValidSadaremid/getSADAREMValidationResponse" message="tns:getSADAREMValidationResponse" />
+    </operation>
+    <operation name="getTemparyorpermenant">
+      <input wsam:Action="http://in.com/ValidSadaremid/getTemparyorpermenantRequest" message="tns:getTemparyorpermenant" />
+      <output wsam:Action="http://in.com/ValidSadaremid/getTemparyorpermenantResponse" message="tns:getTemparyorpermenantResponse" />
+    </operation>
+    <operation name="getDisabilitydetails">
+      <input wsam:Action="http://in.com/ValidSadaremid/getDisabilitydetailsRequest" message="tns:getDisabilitydetails" />
+      <output wsam:Action="http://in.com/ValidSadaremid/getDisabilitydetailsResponse" message="tns:getDisabilitydetailsResponse" />
+    </operation>
+    <operation name="getcertificatvalid">
+      <input wsam:Action="http://in.com/ValidSadaremid/getcertificatvalidRequest" message="tns:getcertificatvalid" />
+      <output wsam:Action="http://in.com/ValidSadaremid/getcertificatvalidResponse" message="tns:getcertificatvalidResponse" />
+    </operation>
+    <operation name="RTGSSadaremData">
+      <input wsam:Action="http://in.com/ValidSadaremid/RTGSSadaremDataRequest" message="tns:RTGSSadaremData" />
+      <output wsam:Action="http://in.com/ValidSadaremid/RTGSSadaremDataResponse" message="tns:RTGSSadaremDataResponse" />
+    </operation>
+    <operation name="checkSadaremDetails">
+      <input wsam:Action="http://in.com/ValidSadaremid/checkSadaremDetailsRequest" message="tns:checkSadaremDetails" />
+      <output wsam:Action="http://in.com/ValidSadaremid/checkSadaremDetailsResponse" message="tns:checkSadaremDetailsResponse" />
+    </operation>
+  </portType>
+  <binding name="ValidSadaremidPortBinding" type="tns:ValidSadaremid">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="operation">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getSADAREMDetailsValidation">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getSADAREMValidation">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getTemparyorpermenant">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getDisabilitydetails">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getcertificatvalid">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="RTGSSadaremData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="checkSadaremDetails">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ValidSadaremidService">
+    <port name="ValidSadaremidPort" binding="tns:ValidSadaremidPortBinding">
+      <soap:address location="https://sadarem.ap.gov.in:443/Sadaremwebservice/ValidSadaremid" />
+    </port>
+  </service>
+</definitions>

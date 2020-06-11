@@ -1,0 +1,139 @@
+﻿
+<style>
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('../assets/images/loader.gif') 50% 50% no-repeat #fff;
+	}
+</style>
+<div class="container">
+	<div class="loader" ng-show="Preloader"></div>
+	<section class="scheme">
+		<div class="col-md-12" align="center" style="margin-top:20px">
+			<h3><b style="border-bottom:5px solid black">Arrest Particulars Report</b></h3>
+		</div>
+		<div>
+			<div class="col-md-12" style="margin-top:20px">
+				<div class="row">
+					<div class="col-md-1"></div>
+					<div class="col-md-10">
+						<table class="table">
+							<tr>
+								<td style="width:20%">
+									<b style="font-size:small">Name</b>
+								</td>
+								<td style="width:30%">
+									<input type="text" alpha-numerics maxlength="50" ng-model="txtname" class="form-control" value=" " />
+								</td>
+								<td style="width:20%">
+									<b style="font-size:small">Age</b>
+								</td>
+								<td style="width:30%">
+									<input type="text" numbers-only maxlength="3" ng-model="txtage" class="form-control" value=" " />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<b style="font-size:small">Gender</b>
+								</td>
+								<td>
+									<select class="form-control" ng-model="ddlgender">
+										<option value="">Select</option>
+										<option value="8400">Eunuch</option>
+										<option value="3034">Transgender</option>
+										<option value="3035">Female</option>
+										<option value="3036">Male</option>
+									</select>
+								</td>
+								<td>
+									<b style="font-size:small">District <span style="color:red">*</span></b>
+								</td>
+								<td>
+									<select class="form-control" ng-model="ddldist" ng-change="GetPS(ddldist)">
+										<option value="">Select</option>
+										<!--<option value="2012">Kurnool</option>-->
+										<option ng-repeat="obj in distlist" value="{{obj.DISTRICT_CD}}">{{obj.DISTRICT}}</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<b style="font-size:small">Police Station <span style="color:red">*</span></b>
+								</td>
+								<td>
+									<select class="form-control" ng-model="ddlps">
+										<option value="">Select</option>
+										<!--<option value="2012021">Kurnool II TN</option>-->
+										<option ng-repeat="obj in PSlist" value="{{obj.PS_CD}}">{{obj.PS}}</option>
+									</select>
+								</td>
+								<td>
+									<b style="font-size:small">Crime Head <span style="color:red">*</span></b>
+								</td>
+								<td>
+									<select class="form-control" ng-model="ddlcrimehead">
+										<option value="">Select</option>
+										<option ng-repeat="obj in CHlist" value="{{obj.MAJOR_HEAD_CD}}">{{obj.MAJOR_HEAD_VALUE}}</option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<b style="font-size:small">From Date <span style="color:red">*</span></b>
+								</td>
+								<td>
+									<input type="date" id="frmdate" ng-model="txtfromdate" class="form-control" value="" data-date-format="DD MM YYYY" />
+								</td>
+								<td>
+									<b style="font-size:small">To Date <span style="color:red">*</span></b>
+								</td>
+								<td>
+									<input type="date" id="todate" ng-model="txttodate" class="form-control" value="" data-date-format="DD MM YYYY" />
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-md-12" align="center">
+						<div class="col-md-3" style="margin-top:22px">
+							<button class="btn btn-primary" id="btnGetReport" ng-click="getdetails()">Search</button>
+							<button class="btn btn-danger" id="btnreset" ng-click="Refresh()">Refresh</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12" style="margin-top:50px">
+					<table class="table table-bordered">
+						<thead style="background-color:lightslategrey;color:white;font-weight:bold">
+							<tr>
+								<td>S.No</td>
+								<td>District</td>
+								<td>PS</td>
+								<td>Cr.No</td>
+								<td>Arrest Date</td>
+								<td>Name of Accused</td>
+								<td>Crime Head</td>
+								<td>Sec. of Law</td>
+								<td>Accused Image</td>
+							</tr>
+						</thead>
+						<tr ng-repeat="res in RData">
+							<td>{{$index + 1 }}</td>
+							<td>{{res.district}}</td>
+							<td>{{res.ps}}</td>
+							<td>{{res.firno}}</td>
+							<td>{{res.arrestDate}}</td>
+							<td>{{res.accusedName}}</td>
+							<td>{{res.crimeHead}}</td>
+							<td>{{res.section}}</td>
+							<td><img src="data:image/png;base64, {{res.image}}" alt="-" width="85" height="98" /></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

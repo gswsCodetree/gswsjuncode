@@ -1,0 +1,158 @@
+﻿<style>
+    body {
+        background: #1A237E url(assets/images/login-bg.png) no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .form-control {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 1.6rem;
+        font-size: 0.8125rem;
+        line-height: 1.5385;
+        color: #333;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ddd;
+        border-radius: 35px;
+        box-shadow: 0 0 0 0 transparent;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .form-group-feedback-left .form-control-feedback {
+        left: 12px;
+    }
+
+    .login-form {
+        color: white;
+    }
+
+    .login-title {
+        color: white;
+        font-size: 60px;
+        font-family: 'Ramabhadra', sans-serif;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+    }
+
+    @media (max-width: 620px) {
+        body {
+            background: #1A237E;
+            background-size: cover;
+        }
+
+        .login-title {
+            color: white;
+            font-size: 48px !important;
+            font-family: 'Ramabhadra', sans-serif;
+            position: absolute;
+            top: 24px !important;
+            right: 16px !important;
+            line-height: 1;
+        }
+
+        .login-form {
+            width: 20rem;
+            margin: 0px auto !important;
+            color: white;
+        }
+    }
+
+    @media (max-width: 768px) {
+        body {
+            background: #1A237E;
+            background-size: cover;
+        }
+
+        .login-title {
+            color: white;
+            font-size: 73px;
+            font-family: ramabhadra;
+            position: absolute;
+            top: 24px;
+            right: 20px;
+            line-height: 1;
+        }
+
+        .login-form {
+            width: 20rem;
+            margin: 0px auto !important;
+            color: white;
+        }
+    }
+
+    @media (max-width: 576px) {
+        background: #1A237E !important;
+    }
+
+    @media (min-width: 769px) {
+        .login-form {
+            width: 20rem;
+            margin-right: 6%;
+            color: white;
+        }
+    }
+</style>
+<body>
+    <!-- Page content -->
+    <div class="page-content">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content d-flex justify-content-end  align-items-center">
+                <h1 class="login-title align-items-start"> గ్రామ - వార్డు సచివాలయము  </h1>
+
+                <!-- Login form -->
+                <form class="login-form">
+                    <div class=" mb-4">
+                        <h2 class="mb-0 text-white">Welcome</h2>
+                        <span class="d-block text-muted">Login to your account</span>
+                    </div>
+
+                    <div class="form-group form-group-feedback form-group-feedback-left">
+                        <input type="text" ng-model="userid" autocomplete="off" class="form-control" placeholder="Enter User Id
+">
+                        <div class="form-control-feedback">
+                            <i class="icon-user text-muted"></i>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-feedback form-group-feedback-left">
+                        <input type="password" class="form-control" autocomplete="off" ng-model="password" placeholder="Enter Password">
+                        <div class="form-control-feedback">
+                            <i class="icon-lock2 text-muted"></i>
+                        </div>
+                    </div>
+                    <div class="form-group form-row ">
+                        <div class="col-sm-6 d-flex mb-2">
+                            <table id="captchdis">
+                                <tbody></tbody>
+                            </table>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="javascript:void(0);" title="click here to get new confirmation code" class="btn bg-primary-800 btn-round" ng-click="GetRefresh();"><i class="icon-reload-alt" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" ng-model="Fcaptcha" class="form-control" placeholder="Enter Captcha">
+                        </div>
+                    </div>
+                    <div class="form-group form-group-feedback form-group-feedback-left">
+                        <div class="form-control-feedback">
+                            <i class="icon-lock2 text-muted"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn bg-success-600 btn-block  rounded-round  btn-ladda btn-ladda-spinner btn-ladda-progress" data-style="zoom-out" data-spinner-color="#fff" ng-disabled="isdisabled" ng-click="GetLogin();">
+                            <span class="ladda-label">Login <i class="icon-enter2 ml-2"></i></span>
+                        </button>
+                        <!--<button type="button" class="btn bg-success rounded-round btn-block" ng-disabled="isdisabled" ng-click="GetLogin();">Login <i class="icon-circle-right2 ml-2"></i></button>-->
+                    </div>
+
+                </form>
+                <!-- /login form -->
+            </div>
+            <!-- /content area -->
+        </div>
+        <!-- /main content -->
+    </div>
+    <!-- /page content -->
+</body>

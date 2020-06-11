@@ -1,0 +1,97 @@
+﻿<style>
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('assets/images/loader.gif') 50% 50% no-repeat #fff;
+	}
+</style>
+
+<div class="container">
+	<div class="loader" ng-show="Preloader"></div>
+	<div class="col-md-12" align="center" style="margin-top:20px">
+		<h3><b style="border-bottom:5px solid black">VIEW FIR</b></h3>
+	</div>
+	<div>
+
+		<div class="col-md-12" style="margin-top:50px">
+			<div class="row">
+				<div class="col-md-5">
+					<table class="table table-bordered">
+						<tr>
+							<td colspan="2" align="center" style="background-color:gray;color:white;font-weight:bold">VIEW FIR</td>
+						</tr>
+						<tr>
+							<td>District <span style="color:red">*</span></td>
+							<td>
+								<select class="form-control" ng-model="ddldist" ng-change="GetPS(ddldist)">
+									<option value="">Select</option>
+									<option ng-repeat="obj in distlist" value="{{obj.DISTRICT_CD}}">{{obj.DISTRICT}}</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Police Station <span style="color:red">*</span></td>
+							<td>
+								<select class="form-control" ng-model="ddlps">
+									<option value="">Select</option>
+									<!--<option value="2012003">2014012</option>-->
+									<option ng-repeat="obj in PSlist" value="{{obj.PS_CD}}">{{obj.PS}}</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>FIR Registration Date <span style="color:red">*</span></td>
+							<td>
+								<input type="date" id="regdate" ng-model="FIRregDate" class="form-control" />
+							</td>
+						</tr>
+						<tr>
+							<td>FIR No  <span style="color:red">*</span></td>
+							<td>
+								<input type="text" alpha-numerics maxlength="25" class="form-control" ng-model="txtfir" placeholder="Enter FIR No" />
+							</td>
+						</tr>
+					</table>
+					<div class="col-md-12" align="center">
+						<div style="margin-top:22px">
+							<button class="btn btn-primary" id="btnGetReport" ng-click="getdetails()">Search</button>
+							<button class="btn btn-danger" id="btnreset" ng-click="Refresh()">Refresh</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1"></div>
+				<div class="col-md-5" ng-show="divdetails">
+					<table class="table table-bordered">
+						<tr>
+							<td colspan="2" align="center" style="background-color:gray;color:white;font-weight:bold">FIR DETAILS</td>
+						</tr>
+						<tr>
+							<td><b>Sno</b></td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td><b>FIR Number</b></td>
+							<td>{{RData.fir_reg_num}}</td>
+						</tr>
+						<tr>
+							<td><b>Date of Registration</b></td>
+							<td>{{RData.fir_date}}</td>
+						</tr>
+						<tr>
+							<td><b>Download FIR</b></td>
+							<td>
+								<a id='dwnldLnk' download='FIR.pdf' style="display:none;" />
+								<a ng-click="GetFile()" style="color: blue;    cursor: pointer;    text-decoration: underline;">Download</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

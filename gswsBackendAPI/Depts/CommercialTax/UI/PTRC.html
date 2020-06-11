@@ -1,0 +1,242 @@
+﻿<style type="text/css">
+
+
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('images/loader.gif') 50% 50% no-repeat #fff;
+	}
+
+	.col-form-label-lg {
+	}
+</style>
+<link href="assets/css/printcss.css" rel="stylesheet" />
+<!-- Page content -->
+<div class="page-content">
+	<div data-ng-show="preloader" class="loader"></div>
+	<!-- Main content -->
+	<div class="content-wrapper">
+		<!-- Content area -->
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 text-center mb-4">
+						<h1>Proffession Tax Registration Certificate</h1>
+					</div>
+					<div class="col-sm-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="form-group row mb-0">
+									<label class="col-lg-3 col-form-label text-right">TIN Number</label>
+									<div class="col-lg-3">
+										<input type="text" alpha-numerics maxlength="25" data-ng-model="entertin" autocomplete="off" placeholder="Enter TIN Number" class="form-control" />
+									</div>
+									<div class="col-lg-3">
+										<button type="button" data-ng-click="GetRC();" class="btn btn-primary">Get RC</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!--<div class="col-sm-12 mt-2 mb-3" ng-show="dttable">
+						<table class="table bg-white table-bordered table-striped table-hover datatable-show-all " style="table-layout:fixed;">
+							<tr dt-rows><td class="font-weight-bold">PTIN : </td><td>{{prof_tin}}</td><td class="font-weight-bold">Date : </td><td>{{pt_reg_date}}</td></tr>
+							<tr dt-rows><td class="font-weight-bold">Tax Division</td><td>{{division_name}}</td><td class="font-weight-bold">Tax Circle</td><td>{{circle_name}}</td></tr>
+							<tr dt-rows><td class="font-weight-bold">Name : </td><td colspan="3">{{enterprise_name}}</td></tr>
+							<tr dt-rows><td class="font-weight-bold">Main Profession : </td><td colspan="3">{{profession_type}}</td></tr>
+							<tr dt-rows><td class="font-weight-bold"> Door No./Street Address : </td><td colspan="3">{{address}}</td></tr>
+							<tr dt-rows><td class="font-weight-bold">City/Village/Locality : </td><td colspan="3">{{city}}</td></tr>
+							<tr dt-rows><td class="font-weight-bold">Mandal/Municipality : </td><td colspan="3">{{mandal_code}}</td></tr>
+							<tr dt-rows><td class="font-weight-bold">District : </td><td colspan="3">{{district_code}}</td></tr>
+							<tr dt-rows><td class="font-weight-bold">PIN : </td><td colspan="3">{{pin}}</td></tr>
+							<tr dt-rows><td class="font-weight-bold">Telephone/Mobile Number : </td><td colspan="3">{{mobile_number}}</td></tr>
+							<tr dt-rows><td class="font-weight-bold">Email : </td><td colspan="3">{{email_id}}</td></tr>
+							<tr dt-rows>
+								<td class="font-weight-bold" colspan="4">
+									The holder of this certificate shall abide by all the provisions of Andhra Pradesh Tax on
+									Profession Trade, Calling and Employement Act,1987 and the Rules framed there under as
+									amended from time to time.
+								</td>
+							</tr>
+							<tr dt-rows><td class="font-weight-bold">Date : </td><td>{{pt_reg_date}}</td><td></td><td></td></tr>
+
+						</table>
+					</div>-->
+
+
+
+				</div>
+			</div>
+
+			<div ng-show="dttable" class="card">
+				<div id="printdiv" class="card-body">
+					<div class="container proffession-tax">
+						<div class="col-md-12">
+							<div class="row mt-5">
+								<div class="col-md-12 text-center">
+									<img src="assets/images/ap-logo.png" width="150px">
+									<h2 class="text-center font-weight-bold">
+										Government of Andhra Pradesh<br>
+										Commercial Taxes Department <br>
+										AP Profession Tax Payer Registration Certificate
+									</h2>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<label class="col-form-label-lg font-weight-bold"> PTIN</label>
+								</div>
+								<div class="col-md-4 text-left">
+									<label class="col-form-label-lg"> : {{prof_tin}}</label>
+								</div>
+								<div class="col-md-4">
+									<div class="row">
+										<div class="col-md-6"><label class="col-form-label-lg font-weight-bold"> Date</label></div>
+										<div class="col-md-6"><label class="col-form-label-lg"> : {{pt_reg_date}}</label></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<label class="col-form-label-lg font-weight-bold"> Tax Division</label>
+								</div>
+								<div class="col-md-4 text-left">
+									<label class="col-form-label-lg"> : {{division_name}}</label>
+								</div>
+								<div class="col-md-4">
+									<div class="row">
+										<div class="col-md-6"><label class="col-form-label-lg font-weight-bold"> Tax Circle</label></div>
+										<div class="col-md-6"><label class="col-form-label-lg"> : {{circle_name}}</label></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<label class="col-form-label-lg font-weight-bold"> Name</label>
+								</div>
+								<div class="col-md-4 text-left">
+									<label class="col-form-label-lg"> : {{enterprise_name}}</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<label class="col-form-label-lg font-weight-bold"> Main Profession</label>
+								</div>
+								<div class="col-md-4 text-left">
+									<label class="col-form-label-lg"> : {{profession_type}}</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<label class="col-form-label-lg font-weight-bold"> Door No./Street Address</label>
+								</div>
+								<div class="col-md-4 text-left">
+									<label class="col-form-label-lg">
+										: {{address}}
+									</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<label class="col-form-label-lg font-weight-bold"> City/Village/Locality</label>
+								</div>
+								<div class="col-md-4 text-left">
+									<label class="col-form-label-lg"> : {{city}}</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<label class="col-form-label-lg font-weight-bold"> Mandal/Muncipality</label>
+								</div>
+								<div class="col-md-4 text-left">
+									<label class="col-form-label-lg"> : {{mandal_code}}</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<label class="col-form-label-lg font-weight-bold"> District</label>
+								</div>
+								<div class="col-md-4 text-left">
+									<label class="col-form-label-lg"> : {{district_code}}</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<label class="col-form-label-lg font-weight-bold"> PIN</label>
+								</div>
+								<div class="col-md-4 text-left">
+									<label class="col-form-label-lg"> : {{pin}}</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-4">
+									<label class="col-form-label-lg font-weight-bold"> Telephone/Mobile Number</label>
+								</div>
+								<div class="col-md-4 text-left">
+									<label class="col-form-label-lg"> : {{mobile_number}}</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12">
+									<p>
+										The holder of this certificate shall abide by all the provisions of Andhra Pradesh Tax on
+										Profession Trade, Calling and Employement Act,1987 and the Rules framed there under as
+										amended from time to time.
+									</p>
+								</div>
+							</div>
+
+							<div class="row mt-5">
+
+								<div class="col-md-6">
+									<div class="row">
+										<div class="col-md-6"><label class="col-form-label-lg font-weight-bold"> Date</label></div>
+										<div class="col-md-6"><label class="col-form-label-lg"> : {{pt_reg_date}}</label></div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="row">
+										<div class="col-md-12 text-center">
+											<label class="col-form-label-lg font-weight-bold">
+												Signature of
+												Competent
+												Authority
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="container-fluid mb-2">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-sm-12 text-center">
+								<button class="btn btn-primary btn-sm" ng-click="PrintReceipt();"><i class="icon-shredder mr-2"></i> Print</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

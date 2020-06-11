@@ -1,0 +1,88 @@
+﻿<style type="text/css">
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('assets/images/loader.gif') 50% 50% no-repeat #ffffffb8;
+    }
+</style>
+
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>RTA Registration Application Status</h1>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="card">
+
+                            <div class="card-body">
+
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-2 col-form-label text-right">Application Number</label>
+                                    <div class="col-lg-2">
+                                        <input type="text" alpha-numerics maxlength="25" data-ng-model="AppNo" autocomplete="off" placeholder="Enter Application Number" class="form-control" />
+                                    </div>
+                                    <label class="col-lg-2 col-form-label text-right">Chassis Number</label>
+                                    <div class="col-lg-2">
+                                        <input type="text" alpha-numerics maxlength="25" data-ng-model="ChassisNo" autocomplete="off" placeholder="Enter Chassis Number" class="form-control" />
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button type="button" ng-click="GetStatus();" class="btn btn-primary">Get Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 mt-2 " ng-show="dttable">
+                        <table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+                            <thead>
+                                <tr class="bg-dark text-white text-center" style="white-space:nowrap;">
+                                    <th colspan="4" class="text-center">Application Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                    <td><b>Applicant Name</b></td>
+                                    <td>{{applicantName}}</td>
+                                    <td><b>Father Number</b></td>
+                                    <td>{{fatherName}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Temporary Number</b></td>
+                                    <td>{{trNo}}</td>
+                                    <td><b>Perminent Name</b></td>
+                                    <td>{{prNo}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Application Number</b></td>
+                                    <td>{{applicationNumber}}</td>
+                                    <td><b>Application Status</b></td>
+                                    <td>{{applicationStatus}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

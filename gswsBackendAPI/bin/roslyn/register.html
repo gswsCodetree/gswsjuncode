@@ -1,0 +1,1171 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>:: Mukhyamantri Yuvanestham ::</title>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/revolution-slider.css" rel="stylesheet">
+	<link href="css/slider-setting.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link href="css/responsive.css" rel="stylesheet">
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+	<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js" integrity="sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g=" crossorigin="anonymous"></script>
+	<script src="Angular/mask_uid.min.js"></script>
+	<link href="css/stylish-tooltip.css" rel="stylesheet" />
+
+
+	<SCRIPT language=Javascript>
+
+		function isNumberKey(evt) {
+			var charCode = (evt.which) ? evt.which : evt.keyCode;
+			if (charCode != 46 && charCode > 31
+				&& (charCode < 48 || charCode > 57))
+				return false; s
+
+			return true;
+		}
+
+	</SCRIPT>
+
+</head>
+
+<body ng-app="MyApp" ng-controller="UnEMPRegistrationCtrl">
+
+
+	<div class="page-wrapper">
+
+		<div class="preloader"></div>
+
+		<header class="main-header header-style-one">
+
+
+			<div class="header-top-one">
+				<div class="auto-container">
+					<div class="clearfix">
+						<div class="top-left top-links">
+							<ul class="clearfix">
+								<li>Department of Skill Development, Youth, Unemployment Benefits |</li>
+								<li><i class="fa fa-phone"></i> 1100</li>
+							</ul>
+						</div>
+						<div class="top-right top-links">
+							<ul class="clearfix">
+								<li><a href="#">Select Language</a></li>
+								<li id="CDACGISTWebLocalisationDIV" style="color:#333;"></li>
+								<script type="text/javascript">
+									$(document).ready(function () {
+										setLanguageComboBox("CDACGISTWebLocalisationDIV");
+									});
+								</script>
+							</ul>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			<div class="header-lower">
+				<div class="main-box">
+					<div style="float:left"><img src="images/cm.png" width="85" height="85" class="hidden-sm hodden-xs" border="0" /></div>
+					<div style="float:right"><img src="images/itminister.png" style="padding-right:10px" width="95" height="95" class="img-rounded hidden-sm hodden-xs" border="0" /><img src="images/minister.png" width="85" height="85" class="hidden-sm hodden-xs" border="0" /></div>
+
+					<div class="auto-container">
+						<div class="outer-container clearfix">
+							<div class="logo-box">
+								<div class="logo">
+									<a href="index.html" title="Mukhyamantri Yuvanestham
+">
+										<img src="images/logonew(1).png" alt="Mukhyamantri Yuva Nestham" title="Mukhyamantri Yuva Nestham">
+									</a>
+
+								</div>
+							</div>
+
+							<div class="nav-outer clearfix">
+
+								<nav class="main-menu">
+									<div class="navbar-header">
+										<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+											<span class="icon-bar"></span>
+										</button>
+									</div>
+
+									<div class="navbar-collapse collapse clearfix">
+										<ul class="navigation clearfix">
+											<li><a href="index.html">Home</a></li>
+											<!--<li><a href="">Download APK</a></li>-->
+											<!--<li><a href="register.html">Apply For Mukhyamantri Yuvanestham</a></li>-->
+											<!--<li class="dropdown"><a href="">Reports</a>
+												<ul>
+													<li><a href="">Reports</a></li>
+												</ul>
+											</li>-->
+											<li class="dropdown">
+												<a href="">Menu</a>
+												<ul>
+													<li class="dropdown">
+														<a href="">Login</a>
+														<ul class="from-right"><li><a href="SeedUnEmployeeData.html">College login</a></li></ul>
+													</li>
+													<li><a href="Dashboard.html">Dashboard</a></li>
+													<li>
+													<li class="dropdown">
+														<a href="">Reports</a>
+														<ul class="from-right">
+															<li><a href="EligibleReport.html" target="_blank">Registration Report</a></li>
+															<li><a href="PaymentAbstractReport.html" target="_blank">Payment abstract</a></li>
+															<li><a href="GrievanceReport.html" target="_blank">Grievance report</a></li>
+															<li><a href="StudentSeededAbstract.html" target="_blank">Student seeding</a></li>
+														</ul>
+													</li>
+
+													<li><a href="Faq.html">Faq's</a></li>
+												</ul>
+											</li>
+
+
+
+
+											<li class="current"><a href="register.html">Apply</a></li>
+
+											<li><a href="contact.html">Contact</a></li>
+										</ul>
+										<!--<img src="images/people2.png" id="loading" class="hidden-sm hidden-xs" style="margin-top:18px;" />
+										<img src="images/peoplefirst.png" class="hidden-sm hidden-xs" style="margin-top:18px;" />-->
+
+									</div>
+								</nav>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="sticky-header">
+				<div style="float:left"><img src="images/cm.png" width="50" height="50" class="hidden-sm hodden-xs" border="0" /></div>
+				<div style="float:right"><img src="images/itminister.png" style="padding-right:10px" width="60" height="60" class="img-rounded hidden-sm hodden-xs" border="0" /><img src="images/minister.png" width="50" height="50" class="hidden-sm hodden-xs" border="0" /></div>
+
+
+
+				<div class="auto-container clearfix">
+
+					<div class="logo pull-left">
+						<div class="logo"><a href="index.html" title="Mukhyamantri Yuvanestham"><img src="images/logo-small(new).png" alt="Mukhyamantri Yuva Nestham" title="Mukhyamantri Yuva Nestham"></a></div>
+					</div>
+
+					<div class="right-col pull-right">
+						<nav class="main-menu">
+							<div class="navbar-header">
+								<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div>
+
+							<div class="navbar-collapse collapse clearfix">
+								<ul class="navigation clearfix">
+									<li><a href="index.html">Home</a></li>
+									<!--<li><a href="">Download APK</a></li>-->
+									<!--<li><a href="register.html">Apply For Mukhyamantri Yuvanestham</a></li>-->
+									<!--<li class="dropdown"><a href="">Reports</a>
+										<ul>
+											<li><a href="">Reports</a></li>
+										</ul>
+									</li>-->
+									<li class="dropdown">
+										<a href="">Menu</a>
+										<ul>
+											<li class="dropdown">
+												<a href="">Login</a>
+												<ul class="from-right"><li><a href="SeedUnEmployeeData.html">College login</a></li></ul>
+											</li>
+											<li><a href="Dashboard.html">Dashboard</a></li>
+											<li>
+											<li class="dropdown">
+												<a href="">Reports</a>
+												<ul class="from-right">
+													<li><a href="EligibleReport.html" target="_blank">Eligible report</a></li>
+													<li><a href="PaymentAbstractReport.html" target="_blank">Payment abstract</a></li>
+													<li><a href="GrievanceReport.html" target="_blank">Grievance report</a></li>
+													<li><a href="StudentSeededAbstract.html" target="_blank">Student seeding</a></li>
+												</ul>
+											</li>
+
+											<li><a href="Faq.html">Faq's</a></li>
+										</ul>
+									</li>
+
+
+
+
+									<li class="current"><a href="register.html">Apply</a></li>
+
+									<li><a href="contact.html">Contact</a></li>
+								</ul>
+							</div>
+						</nav>
+
+					</div>
+
+				</div>
+			</div>
+
+		</header>
+
+
+		<section class="page-title" style="background-image:url(images/bg1.jpg)">
+			<div class="auto-container">
+				<h1>Apply For Mukhyamantri Yuvanestham</h1>
+				<div class="bread-crumb-outer">
+					<ul class="bread-crumb clearfix">
+						<li><a href="index.html">Home</a></li>
+						<li class="active">Register</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section class="about-us" style="margin-bottom:50px">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 default-form">
+						<ul class="accordion-box">
+
+							<li class="accordion block active-block" ng-show="lisendotp">
+								<div class="acc-btn active"><div class="icon-outer"><span class="icon fa fa-address-book"></span></div> Register Here</div>
+								<div class="acc-content current">
+									<div class="content">
+										<form method="post" action="">
+											<div class="row clearfix">
+												<div class="col-md-6 col-xs-offset-3">
+													<label>Enter Aadhaar of Unemployed</label>
+
+													<div class="form-group">
+														<input type="text" ng-disabled="disableaadhaar" maxlength="12" placeholder="Aadhaar Number" required id="mainuid">
+													</div>
+												</div>
+											</div>
+											<div>
+												<p style="text-align:center"><span style="color:red">*</span>The OTP will be sent to the Registered Mobile number.<a href="https://resident.uidai.gov.in/aadhaarverification" target="_blank" style="color:orangered">click here</a> to know the mobile number linked with your aadhaar number </p>
+											</div>
+											<div class="desc-text" ng-show="checkdeclarationataadhaar" ng-click="clickdeclarationataadhaar();">
+												<label class="pull-left">
+													<input type="checkbox" style="height:18px;width:18px;" ng-model="disableaadhaarbtn" />
+												</label><b>
+													I hereby state that I have no objection in authenticating myself with aadhaar based authentication system and consent to provide my aadhaar number, Biometric for Aadhaar based know your customer. I also give my explicit consent for accessing the mobile number and email address from aadhaar system.
+												</b>
+											</div>
+											<div class="row clearfix">
+												<div class="col-md-6 col-xs-offset-3" align="center">
+													<input type="button" class="theme-btn btn-style-five" ng-show="disableaadhaarbtn" ng-click="SendOTP(1);" value="Send OTP">
+
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</li>
+
+							<li class="accordion block active-block" ng-show="liotp">
+								<div class="acc-btn active"><div class="icon-outer"><span class="icon fa fa-comment"></span></div> Enter OTP Sent To Registered Mobile Number</div>
+								<div class="acc-content current ">
+									<div class="content">
+										<form method="post" action="">
+											<div class="row clearfix">
+												<div class="col-md-6 col-xs-offset-3">
+													<label>Enter OTP Received</label>
+													<div class="form-group">
+														<input type="text" ng-model="pwdOTP" chars="0-9\\" maxlength="6" placeholder="OTP.." required>
+													</div>
+												</div>
+											</div>
+											<div class="row clearfix">
+												<div class="col-md-6 col-xs-offset-2" align="center">
+													<input type="button" class="theme-btn btn-style-five" ng-click="VerifyOTP();" value="Verify OTP" />
+													<input type="button" class="theme-btn btn-style-five" ng-click="SendOTP(2);" ng-disabled="resenddesable	" value="Resend OTP {{counter}}">
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</li>
+
+
+
+							<li class="accordion block active-block" ng-show="lipersonal">
+								<div class="acc-btn active"><div class="icon-outer"><span class="icon fa fa-address-card"></span></div> Personal Details</div>
+								<div class="acc-content current">
+									<div class="content">
+										<div class="row">
+
+
+											<div class=" col-md-6" style="border-right:2px solid #ffb600;">
+												<h4 style="font-weight:bold;" class="text-primary">Personal Details ( Praja Sadhikara Survey)</h4>
+
+												<label class="pull-right"><input type="checkbox" ng-model="chckeditdetails" ng-click="checkeditadress();">Update Address Details</label>
+												<!--<form method="post" action="">-->
+												<div class="row clearfix">
+													<div class="col-md-12">
+
+														<div class="form-group col-md-9">
+															<label>Name</label>
+															<input type="text" ng-model="pssapplicatename" readonly="readonly" placeholder="Name" required>
+														</div>
+														<div class="col-md-3" align="center">
+															<img src="{{imagebase64}}" class="img-rounded img-responsive">
+														</div>
+													</div>
+
+													<div class="col-md-12">
+														<label>Gender</label>
+														<div class="form-group">
+															<input type="text" ng-model="pssgender" readonly="readonly" placeholder="Gender" required>
+														</div>
+													</div>
+
+												</div>
+
+												<div class="row clearfix">
+													<div class="col-md-12">
+														<label>Date Of Birth</label>
+														<div class="form-group">
+															<input type="text" ng-model="pssdob" readonly="readonly" placeholder="DOB" required>
+														</div>
+													</div>
+
+
+												</div>
+
+												<div class="row clearfix">
+
+
+
+
+													<div class="col-md-12">
+														<label>District</label>
+														<div class="form-group">
+															<input type="text" readonly="readonly" ng-model="pssdistrictname" placeholder="district" required>
+														</div>
+													</div>
+
+
+													<div class="col-md-12">
+														<label>Rural/Urban</label>
+														<div class="form-group">
+															<input type="text" readonly="readonly" ng-model="pssruralurbanflag" placeholder="Rural/Urban" required>
+														</div>
+													</div>
+
+													<div class="col-md-12">
+														<label>Mandal</label>
+														<div class="form-group">
+															<input type="text" ng-model="pssmandalname" placeholder="mandal" readonly="readonly" required>
+														</div>
+													</div>
+
+													<div class="col-md-12">
+														<label>Village</label>
+														<div class="form-group">
+															<input type="text" ng-model="pssvillagename" placeholder="village" readonly="readonly" required>
+														</div>
+													</div>
+
+													<div class="col-md-12">
+														<label>Door Number</label>
+														<div class="form-group">
+															<input type="text" ng-model="doornumber" placeholder="Enter Door num" required>
+														</div>
+													</div>
+
+													<div class="col-md-12">
+														<label>Street Name</label>
+														<div class="form-group">
+															<input type="text" ng-model="streetname" placeholder="Enter Street name" required>
+														</div>
+													</div>
+
+
+
+													<div class="col-md-12">
+														<label>Pin Code</label>
+														<div class="form-group">
+															<input type="text" readonly="readonly" ng-model="psspincode" placeholder="pincode" required>
+														</div>
+													</div>
+												</div>
+
+
+												<!--</form>-->
+											</div>
+
+											<div class="col-md-6" ng-show="editaddressdetails">
+												<h4 style="font-weight:bold;" class="text-primary">Update Address Details</h4>
+												<!--<form method="post" action="">-->
+
+
+												<div class="col-md-12">
+													<label>District</label>
+													<div class="form-group">
+														<!--<input type="text" ng-model="districtname" placeholder="district" required>-->
+														<!--<select ng-model="selecteddistrict" ng-change="mandal(selecteddistrict);" ng-disabled="chckeditdetails == '2'">-->
+														<select ng-model="selecteddistrict" ng-disabled="chckeditdetails == '2'">
+															<option value="">Select District</option>
+															<option ng-repeat="dis in districtsarray" value="{{dis.Distcode}}">{{dis.Distname}}</option>
+														</select>
+													</div>
+												</div>
+
+												<div class="col-md-12">
+													<label>Rural/Urban</label>
+													<div class="form-group">
+														<!--<input type="text" ng-model="districtname" placeholder="district" required>-->
+														<select ng-model="pssruralurbanflag" ng-change="mandal(selecteddistrict);" ng-disabled="chckeditdetails == '2'">
+															<option value="">Select Rural/Urban</option>
+															<option value="U">U</option>
+															<option value="R">R</option>
+															<!--<option ng-repeat="dis in districtsarray" value="{{dis.pssruralurbanflag}}">{{dis.pssruralurbanflag}}</option>-->
+														</select>
+													</div>
+												</div>
+
+
+												<div class="col-md-12">
+													<label>Mandal</label>
+													<div class="form-group">
+														<!--<input type="text" ng-model="mandalname" placeholder="mandal" required>-->
+														<select ng-model="selectedmandal" ng-change="village(selecteddistrict,selectedmandal,pssruralurbanflag);">
+															<option value="">Select Mandal</option>
+															<option ng-repeat="man in mandalsarray" value="{{man.Mcode}}">{{man.Mname}}</option>
+														</select>
+													</div>
+												</div>
+
+
+												<div class="col-md-12">
+													<label>Village</label>
+													<div class="form-group">
+														<!--<input type="text" ng-model="villagename" placeholder="village" required>-->
+														<select ng-model="selectedvillage">
+															<option value="">Select Village</option>
+															<option ng-repeat="val in villagesarray" value="{{val.Vtcode}}">{{val.Vtname}}</option>
+														</select>
+													</div>
+												</div>
+
+												<div class="col-md-12">
+													<label>Door Number</label>
+													<div class="form-group">
+														<input type="text" ng-model="pssdoornumber" placeholder="Door no" required>
+													</div>
+												</div>
+
+												<div class="col-md-12">
+													<label>Street Name</label>
+													<div class="form-group">
+														<input type="text" ng-model="pssstreetname" placeholder="Street Name" required>
+													</div>
+												</div>
+
+												<div class="col-md-12">
+													<label>Pin Code</label>
+													<div class="form-group">
+														<input type="text" ng-model="pincode" placeholder="pincode" required>
+													</div>
+												</div>
+												<!--</form>-->
+
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<li class="accordion block" ng-show="lipersonal">
+								<div class="acc-btn active"><div class="icon-outer"><span class="icon fa fa-phone"></span></div>Contact Verification</div>
+								<div class="acc-content current">
+									<div class="content">
+										<div class="row">
+											<div class="col-md-6">
+
+
+
+
+
+												<div class="form-group">
+													<label>Mobile Number</label><span>*</span>
+													<label class="pull-right"><input type="checkbox" ng-model="chckmobile" data-toggle="modal" data-target=".popupmobile">Edit</label>
+													<input type="text" chars="0-9\\" ng-model="mobilenum" ng-disabled="disablemobilenum" maxlength="10" placeholder="mobile" required>
+												</div>
+											</div>
+
+											<div class="col-md-6">
+												<label>E-Mail</label>
+												<div class="form-group">
+													<input type="email" ng-model="emailid" placeholder="E-mail ID" required>
+												</div>
+											</div>
+										</div>
+										<div class="row clearfix">
+											<div class="col-md-6 col-xs-offset-3" align="center">
+												<a href="#li_edu" class=" btn theme-btn btn-style-five" ng-click="GetEligibleData();" value="" id="lieligible">Apply/Continue</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+
+
+
+							<li class="accordion block" ng-show="lieligible" id="lieligible">
+								<div class="acc-btn active"><div class="icon-outer"><span class="icon fa fa-check-circle"></span></div> Check Eligible Details</div>
+								<div class="acc-content current">
+									<div class="content">
+
+										<div class="row">
+											<table class="table table-condensed table-bordered table-hover table-responsive">
+												<tr>
+													<th>
+														S No
+													</th>
+													<th>
+														Eligibility Criteria
+													</th>
+													<th>
+														Eligibility
+													</th>
+
+												</tr>
+												<tr ng-repeat="el in Checkedeligiblelist">
+													<td style="font-weight:bold;vertical-align:middle;">{{$index + 1}}</td>
+													<td style="font-weight:bold;vertical-align:middle;text-align:left;">{{el.ELIGIBILITY}}</td>
+
+
+
+													<!--{{el.STATUS}}-->
+
+
+													<td style="color:green" ng-if="el.STATUS=='Eligible' "><i class="fa fa-check fa-2x"></i></td>
+
+													<td style="color:red" ng-if="el.STATUS!='Eligible' "><i class="fa fa-times fa-2x"></i></td>
+												</tr>
+												<tr>
+													<td style="font-weight:bold;vertical-align:middle">13</td>
+													<td style="font-weight:bold;vertical-align:middle;text-align:left;">Aadhaar Seeded Bank Account (<a href="https://resident.uidai.gov.in/bank-mapper  " style="color:red; font-size:15px;">Click Here</a><b style="font-size:15px;"> to check your Aadhaar and Bank account Linking Status)</b></td>
+													<td style="color:green"><i class="fa fa-check fa-2x"></i></td>
+
+												</tr>
+											</table>
+										</div>
+										<div class="col-md-12" align="left">
+											<h4 class="title">Remarks </h4>
+										</div>
+										<div class="col-md-12" align="left" ng-if="finalstatus!='success' " style="margin-bottom:10px;">
+
+											<div class="alert alert-info">
+												<span><b>Dear {{pssapplicatename}}, we regret to inform you that you are not eligible for <b style="color:blue;">"Yuvanestham"</b> Scheme due to the following reasons:</b></span>
+												<div ng-repeat="el in Checkedeligiblelist">
+													<span ng-if="el.STATUS!='Eligible'">
+														<b style="color:#ed1432" ng-if="el.CODE=='201514897'">
+															Not Surveyed in Praja Sadhikara Survey
+														</b>
+														<b style="color:#ed1432" ng-if="el.CODE=='201514876'">
+															Not Having White Ration Card
+														</b>
+														<b style="color:#ed1432" ng-if="el.CODE=='201514885'">
+															Having Four wheeler in family
+														</b>
+														<b style="color:#ed1432" ng-if="el.CODE=='201514879'">
+															Taken Loan/Subsidy from government(OBMMS)
+														</b>
+														<b style="color:#ed1432" ng-if="el.CODE=='201514900'">
+															Getting NTR Bharosa Pension
+														</b>
+														<b style="color:#ed1432" ng-if="el.CODE=='201514896'">
+															Biometric EKYC in PSS Not Done
+														</b>
+														<b style="color:#ed1432" ng-if="el.CODE=='201514898'">
+															Employed
+														</b>
+														<b style="color:#ed1432" ng-if="el.CODE=='201514880'">
+															Having Government employee in Family
+														</b>
+														<b style="color:#ed1432" ng-if="el.CODE=='201514905'">
+															Taking Scholarship
+														</b>
+														<b style="color:#ed1432" ng-if="el.CODE=='201514883'">
+															Age Not between 22 and 35
+														</b>
+														<b style="color:#ed1432" ng-if="el.CODE=='201514877'">
+															Not PG or Graduate or Diploma Holder
+														</b>
+														<b style="color:#ed1432" ng-if="el.CODE=='201514882'">
+															Having land More than 5 acres in family
+														</b>
+														<!--<b style="color:#ed1432">
+															{{el.ELIGIBILITY.replace('Not','').replace('Having White Ration Card','Not Having White Ration Card')}}
+														</b>-->
+													</span>
+												</div>
+											</div>
+											<br />
+
+
+										</div>
+
+
+
+									</div>
+								</div>
+							</li>
+
+
+							<li class="accordion block" ng-show="lieducation" id="li_edu" tabindex="1">
+								<div class="acc-btn active"><div class="icon-outer"><span class="icon fa fa-check-circle"></span></div> Check Education Details</div>
+								<div class="acc-content current">
+									<div class="content">
+
+										<div class="row">
+
+											<div ng-show="educationmapped" class="col-md-12 form-group">
+												<div class="col-md-6">
+													<label>Enter Registration Number *</label> <span> (In Capital Letters)</span>
+
+													<a class="mytooltip pull-right lightbox-image" href="images/REGISTRATION.jpg" title="" data-fancybox-group="example-gallery">
+														Help?<span class="tooltip-content5">
+															<span class="tooltip-text3">
+																<span class="tooltip-inner2">
+																	<img src="images/REGISTRATION.jpg">
+																</span>
+															</span>
+														</span>
+													</a>
+													<input type="text" ng-model="halltilnum" maxlength="20" class="form-control" placeholder="Enter Registration Number" />
+												</div>
+												<div class="col-md-6">
+													<br />
+
+													<input type="button" class="btn btn-success" value="Get Education Details" ng-click="GetEducationDetails();" />
+												</div>
+											</div>
+
+											<div class="col-md-12 form-group" ng-show="divstudetails">
+
+												<div class="col-md-6">
+													<h4><b>University Details</b></h4>
+													<br />
+													<ul class="list-group" style="box-shadow:0px 0px 5px 3px rgba(221,221,221,0.5);">
+														<li class="list-group-item"><div class="row"><div class="col-md-3 text-info bold-font">Name </div><div class="col-md-1">:</div> <div class="col-md-8">{{stuname}}</div></div></li>
+														<li class="list-group-item"><div class="row"><div class="col-md-3 text-info bold-font">University</div><div class="col-md-1">:</div> <div class="col-md-8">{{stuunversity}}</div></div></li>
+														<li class="list-group-item"><div class="row"><div class="col-md-3 text-info bold-font">Year of Pass</div><div class="col-md-1">:</div> <div class="col-md-8">{{stuyear}}</div></div></li>
+														<li class="list-group-item"><div class="row"><div class="col-md-3 text-info bold-font">Course</div><div class="col-md-1">:</div> <div class="col-md-8">{{stucourse}}</div></div></li>
+														<li class="list-group-item"><div class="row"><div class="col-md-3 text-info bold-font">Father Name</div><div class="col-md-1">:</div> <div class="col-md-8">{{stufathername}}</div></div></li>
+													</ul>
+												</div>
+
+												<div class="col-md-6">
+													<h4><b>Personal Details</b></h4><br />
+													<ul class="list-group" style="box-shadow:0px 0px 5px 3px rgba(221,221,221,0.5);">
+														<li class="list-group-item"><div class="row"><div class="col-md-3 text-info bold-font">Name </div><div class="col-md-1">:</div> <div class="col-md-8">{{pssapplicatename}}</div></div></li>
+														<li class="list-group-item"><div class="row"><div class="col-md-3 text-info bold-font">Gender</div><div class="col-md-1">:</div> <div class="col-md-8">{{pssgender}}</div></div></li>
+														<li class="list-group-item"><div class="row"><div class="col-md-3 text-info bold-font">Date Of Birth</div><div class="col-md-1">:</div> <div class="col-md-8">{{pssdob}}</div></div></li>
+														<li class="list-group-item"><div class="row"><div class="col-md-3 text-info bold-font">District</div><div class="col-md-1">:</div> <div class="col-md-8">{{pssdistrictname}}</div></div></li>
+														<li class="list-group-item"><div class="row"><div class="col-md-3 text-info bold-font">Pin Code</div><div class="col-md-1">:</div> <div class="col-md-8">{{psspincode}}</div></div></li>
+													</ul>
+												</div>
+
+
+												<div class="col-md-5 form-group">
+													<label class="text-warning">Certificate Upload *</label><span> Upload Image </span>
+													<input type="file" data-ak-file-model="filename.attachment" class="form-control" />
+												</div>
+												<div class="col-md-2">
+													<input type="button" style="margin-top:20px;" ng-click="ImageUpload(1,filename,2);" class="theme-btn btn-style-five" value="Upload" />
+												</div>
+
+												<!--<div class="col-md-12 form-group">
+													<span style="color:red; font:bold;">{{namecomerror}}</span>
+												</div>-->
+
+												<div class="col-md-12" align="center">
+													<div class="alert alert-info">
+														<input type="checkbox"  ng-checked="isChecked" ng-model="valueagree" style="height:18px;width:18px;margin-top:10px;" />I here by declare that the information in the University records as indicated above is matching with my personal information
+														<br />
+														<a class="btn btn-info" ng-show="valueagree" ng-click="agreeuinversityinfo();"><i class="fa fa-check-circle"></i> &nbsp;Agree</a>
+													</div>
+												</div>
+
+											</div>
+
+											<div class="col-md-12 form-group" ng-show="divnotstu">
+												<span style="color:red;font:bold;">{{STUERROR}}</span>
+											</div>
+
+											<div class="col-md-12 form-group" ng-show="dicanothermatch">
+												<h3 style="color:red;font-weight:bold">This Register Number is already matched with another member,For any queries please call 1100</h3>
+											</div>
+									</div>
+								</div>
+							</li>
+
+							<li class="accordion block" ng-show="applicationsubmission" tabindex="1">
+								<div class="acc-btn active"><div class="icon-outer"><span class="icon fa fa-check-circle"></span></div> Submission Of Application</div>
+								<div class="acc-content current">
+									<div class="content">
+
+										<div class="row">
+											<div class="col-md-12 form-group">
+
+
+												<!--not eligible message and agree&disagree text boxes-->
+												<div class="col-md-12" align="left" style="margin-bottom:10px;" ng-show="agreedisagree">
+													<div class="col-md-9">
+														<h4>
+															As per the information available with us, You are not eligible for the allowance
+														</h4>
+													</div>
+
+													<div class="col-md-3">
+														<a class="btn btn-success" ng-click="GetChangesurvey(1);"><i class="fa fa-check"></i>&nbsp;Agree</a>
+														<a class="btn btn-danger" ng-click="GetChangesurvey(2);"><i class="fa fa-times"></i>&nbsp;Disagree</a>
+													</div>
+
+												</div>
+
+												<!--save grievance-->
+												<div class="col-md-12" align="center" style="margin-bottom:10px;">
+
+													<input type="button" class="theme-btn btn-style-five" ng-click="SaveGrievanceRegistration();" data-toggle="modal" data-target=".popup" value="Grievance Registration" ng-show="savegrievancereg" />
+												</div>
+
+												<!--save without grievance-->
+												<div class="col-md-12" align="center" style="margin-bottom:10px;">
+
+													<input type="button" class="theme-btn btn-style-five" ng-click="SavewithoutGrievanceRegistration();" value="Submit&Close" ng-show="savewithougrievancereg" />
+
+												</div>
+
+												<!--eligible and save data-->
+												<div class="col-md-12" align="left" ng-if="finalstatus=='success' " style="margin-bottom:10px;">
+													<div class="form-control">
+														<span style="color:green;">You are eligible for Mukhyamantri Yuvanestham allowance. Kindly click on the below button to proceed.</span>
+													</div>
+
+													<div class="col-md-12" align="center" ng-if="finalstatus=='success' ">
+														<div class="desc-text">
+															<label class="pull-left">
+																<input type="checkbox" ng-model="chkboxlast" />
+															</label>
+															I hereby state that I have no objection in showing the data to companies recruiting for jobs. I also give my explicit consent for accessing the mobile number and email address from aadhaar system.
+														</div>
+
+														<input type="button" style="margin:10px" class="btn btn-success" ng-show="chkboxlast" ng-click="SaveUnEmployeeData(1);" value="Apply For Mukhyamantri Yuvanestham" />
+
+														<input type="button" style="margin:10px" class="btn btn-danger" ng-show="chkboxlast" ng-click="optout();" value="Opt Out" />
+													</div>
+
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+
+						</ul>
+
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!--modal popup for grievance-->
+		<!--modal popup for grievance-->
+
+
+		<div class="modal fade popup" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-lg" role="document" style="border:2px solid #f15c26;border-radius:10px">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 style="color:#ffb600"><b>Grievance Registration</b></h4>
+					</div>
+					<div class="modal-body">
+
+						<div class="row">
+
+							<div class="col-md-12">
+
+								<div class="panel panel-warning" style="box-shadow: 0px 0px 5px 3px rgba(221,221,221,0.5);" ng-show="divemp">
+									<div class="panel-body" style="background:#FFF0F5">
+										<input type="checkbox" ng-model="chkempgri" />
+										<ul class="list-group">
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Department</b> - {{empdepart}}</li>
+											<li style="border:1px solid #ddd"></li>
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Sub Subject Name</b> - {{empsubsubject}}</li>
+										</ul>
+										<div class="form-group">
+											<label class="text-warning">Remarks</label>
+											<textarea class="form-control" ng-model="textareaempfeedback" placeholder="Enter Remarks"></textarea>
+										</div>
+									</div>
+								</div>
+
+								<div class="panel panel-warning" style="box-shadow: 0px 0px 5px 3px rgba(221,221,221,0.5);" ng-show="divvehicle">
+									<div class="panel-body" style="background:#E6E6FA">
+										<input type="checkbox" ng-model="chkvehigri" />
+										<ul class="list-group">
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Department</b> - {{vehicledepart}}</li>
+											<li style="border:1px solid #ddd"></li>
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Sub Subject Name</b> - {{vehiclesubsubject}}</li>
+										</ul>
+										<div class="form-group">
+											<label class="text-warning">Remarks</label>
+											<textarea class="form-control" ng-model="textareavehiclefeedback" placeholder="Enter Remarks"></textarea>
+										</div>
+									</div>
+								</div>
+
+								<div class="panel panel-warning" style="box-shadow: 0px 0px 5px 3px rgba(221,221,221,0.5);" ng-show="divobmms">
+									<div class="panel-body" style="background:#F0FFF0">
+										<input type="checkbox" ng-model="chkobmsgri" />
+										<ul class="list-group">
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Department</b> - {{obmmsdepart}}</li>
+											<li style="border:1px solid #ddd"></li>
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Sub Subject Name</b> - {{obmmssubsubject}}</li>
+										</ul>
+										<div class="form-group">
+											<label class="text-warning">Remarks</label>
+											<textarea class="form-control" ng-model="textareaobmsfeedback" placeholder="Enter Remarks"></textarea>
+										</div>
+									</div>
+								</div>
+
+								<div class="panel panel-warning" style="box-shadow: 0px 0px 5px 3px rgba(221,221,221,0.5);" ng-show="divage">
+									<div class="panel-body">
+										<input type="checkbox" ng-model="chkagegri" />
+										<ul class="list-group">
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Department</b> - {{agedepart}}</li>
+											<li style="border:1px solid #ddd"></li>
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Sub Subject Name</b> - {{agesubsubject}}</li>
+										</ul>
+
+										<div class="col-md-12">
+											<div class="col-md-5 form-group">
+												<label class="text-warning">Date of birth Certificate Number</label>
+												<input type="text" class="form-control" ng-model="dobcertificte" placeholder="Date of birth Certificate Number" />
+											</div>
+
+											<div class="col-md-5 form-group">
+												<label class="text-warning">Upload File</label><span>Upload Image or PDF*</span>
+												<input type="file" data-ak-file-model="filename.attachment" class="form-control" />
+											</div>
+											<div class="col-md-2">
+												<input type="button" style="margin-top:20px;" ng-click="ImageUpload(dobcertificte,filename,2);" class="theme-btn btn-style-five" value="Upload" />
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="text-warning">Remarks</label>
+											<textarea class="form-control" ng-model="textareaagefeedback" placeholder="Enter Remarks"></textarea>
+										</div>
+
+
+									</div>
+								</div>
+
+								<div class="panel panel-warning" style="box-shadow: 0px 0px 5px 3px rgba(221,221,221,0.5);" ng-show="divration">
+
+									<div class="panel-body bg-success">
+										<input type="checkbox" ng-model="chkrationgri" />
+										<ul class="list-group">
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Department</b> - {{rationdepart}}</li>
+											<li style="border:1px solid #ddd"></li>
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Sub Subject Name</b> - {{rationsubsubject}}</li>
+										</ul>
+
+										<div class="col-md-12">
+											<div class="col-md-5 form-group">
+												<label class="text-warning">Enter Ration Id</label>
+												<input type="text" class="form-control" maxlength="16" ng-model="Rationmum" placeholder="Ration Number" />
+											</div>
+
+											<div class="col-md-5 form-group">
+												<label class="text-warning">Upload File</label><span>Upload Image or PDF*</span>
+												<input type="file" class="form-control" data-ak-file-model="filename.attachment" />
+											</div>
+											<div class="col-md-2">
+												<input type="button" style="margin-top:20px;" value="Upload" ng-click="ImageUpload(Rationmum,filename,2);" class="theme-btn btn-style-five" />
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="text-warning">Remarks</label>
+											<textarea class="form-control" ng-model="textarearationfeedback" placeholder="Enter Remarks"></textarea>
+										</div>
+									</div>
+								</div>
+
+								<div class="panel panel-warning" style="box-shadow: 0px 0px 5px 3px rgba(221,221,221,0.5);" ng-show="divland">
+									<div class="panel-body bg-warning">
+										<input type="checkbox" ng-model="chklandgri" />
+										<ul class="list-group">
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Department</b> - {{landdepart}}</li>
+											<li style="border:1px solid #ddd"></li>
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Sub Subject Name</b> - {{landsubsubject}}</li>
+										</ul>
+										<div class="form-group">
+											<label class="text-warning">Remarks</label>
+											<textarea class="form-control" ng-model="textarealandfeedback" placeholder="Enter Remarks"></textarea>
+										</div>
+									</div>
+								</div>
+
+								<div class="panel panel-warning" style="box-shadow: 0px 0px 5px 3px rgba(221,221,221,0.5);" ng-show="divedu">
+									<div class="panel-body bg-success">
+										<input type="checkbox" ng-model="chkeducationgri" />
+										<ul class="list-group">
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Department</b> - {{edudepart}}</li>
+											<li style="border:1px solid #ddd"></li>
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Sub Subject Name</b> - {{edusubsubject}}</li>
+										</ul>
+										<div class="col-md-12" ng-show="divedu">
+											<div class="col-md-4 form-group">
+												<label>Registration Number</label>
+												<input type="text" maxlength="20" class="form-control" ng-model="edurollno" placeholder="Enter Registration Number" />
+											</div>
+
+											<div class="col-md-4 form-group">
+												<label>Hall Ticket Number</label>
+												<input type="text" maxlength="15" class="form-control" ng-model="eduhallticketno" placeholder="Enter Hall Ticket Number" />
+											</div>
+
+											<div class="col-md-4 form-group">
+												<label>Year of Pass</label>
+												<input type="text" maxlength="4" class="form-control" ng-model="eduyearpass" placeholder="Enter Year of Pass" />
+											</div>
+
+											<div class="col-md-4m form-group">
+												<label>Select State</label>
+												<select ng-model="selectedstate" class="form-control" ng-change="GetUniversity();">
+													<option value="">select State</option>
+													<option ng-repeat="s in statelist" value="{{s.STATE1}}">{{s.STATE1}}</option>
+												</select>
+											</div>
+											<div class="col-md-4 form-group">
+												<label>Select Unversity</label>
+												<select ng-model="selectedunversity" class="form-control">
+													<option value="">select unversity</option>
+													<option ng-repeat="u in Universitylist" value="{{u.UNIVERSITY}}">{{u.UNIVERSITY}}</option>
+												</select>
+											</div>
+											<div class="col-md-4 form-group">
+												<label>Select Course</label>
+												<select ng-model="selectedcourse" class="form-control">
+													<option value="">select course</option>
+													<option ng-repeat="c in courslist" value="{{c.COURSE}}">{{c.COURSE}}</option>
+												</select>
+											</div>
+
+
+										</div>
+										<div class="col-md-12">
+											<div class="col-md-4 form-group">
+												<label class="text-warning">Upload File</label><span>Upload Image or PDF*</span>
+												<input type="file" data-ak-file-model="filename.attachment" class="form-control" />
+											</div>
+											<div class="col-md-2">
+												<input type="button" style="margin-top:20px;" ng-click="ImageUpload('edu',filename,2);" class="theme-btn btn-style-five" value="Upload" />
+											</div>
+
+										</div>
+										<div class="form-group">
+											<label class="text-warning">Remarks</label>
+											<textarea class="form-control" ng-model="textareaedufeedback" placeholder="Enter Remarks"></textarea>
+										</div>
+									</div>
+								</div>
+
+								<div class="panel panel-warning" style="box-shadow: 0px 0px 5px 3px rgba(221,221,221,0.5);" ng-show="divpsssurvey">
+									<div class="panel-body" style="background:#E6E6FA">
+										<input type="checkbox" ng-model="chkpsssurveygri" />
+										<ul class="list-group">
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Department</b> - {{pssdepart}}</li>
+											<li style="border:1px solid #ddd"></li>
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Sub Subject Name</b> - {{psssubsubject}}</li>
+										</ul>
+										<div class="form-group">
+											<label class="text-warning">Remarks</label>
+											<textarea class="form-control" ng-model="textareapssfeedback" placeholder="Enter Remarks"></textarea>
+										</div>
+									</div>
+								</div>
+
+								<!--PSS BOIMETRIC-->
+								<div class="panel panel-warning" style="box-shadow: 0px 0px 5px 3px rgba(221,221,221,0.5);" ng-show="divpssbio">
+									<div class="panel-body" style="background:#F0FFF0">
+										<input type="checkbox" ng-model="chkpssbiogri" />
+										<ul class="list-group">
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Department</b> - {{pssbiodepart}}</li>
+											<li style="border:1px solid #ddd"></li>
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Sub Subject Name</b> - {{pssbiosubsubject}}</li>
+										</ul>
+										<div class="form-group">
+											<label class="text-warning">Remarks</label>
+											<textarea class="form-control" ng-model="textareapssbiofeedback" placeholder="Enter Remarks"></textarea>
+										</div>
+									</div>
+								</div>
+
+								<!--Scholarship-->
+								<div class="panel panel-warning" style="box-shadow: 0px 0px 5px 3px rgba(221,221,221,0.5);" ng-show="divscholar">
+									<div class="panel-body">
+										<input type="checkbox" ng-model="chkscholargri" />
+										<ul class="list-group">
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Department</b> - {{scholardepart}}</li>
+											<li style="border:1px solid #ddd"></li>
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Sub Subject Name</b> - {{scholarsubsubject}}</li>
+										</ul>
+
+										<div class="form-group">
+											<label class="text-warning">Remarks</label>
+											<textarea class="form-control" ng-model="textareascholarfeedback" placeholder="Enter Remarks"></textarea>
+										</div>
+
+
+									</div>
+								</div>
+
+								<!--pension-->
+								<div class="panel panel-warning" style="box-shadow: 0px 0px 5px 3px rgba(221,221,221,0.5);" ng-show="divpension">
+
+									<div class="panel-body bg-success">
+										<input type="checkbox" ng-model="chkpensiongri" />
+										<ul class="list-group">
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Department</b> - {{pensiondepart}}</li>
+											<li style="border:1px solid #ddd"></li>
+											<li class="list-group-item" style="border:none;background:none;"><b class="text-info">Sub Subject Name</b> - {{pensionsubsubject }}</li>
+										</ul>
+
+										<div class="form-group">
+											<label class="text-warning">Remarks</label>
+											<textarea class="form-control" ng-model="textareapensionfeedback" placeholder="Enter Remarks"></textarea>
+										</div>
+									</div>
+								</div>
+
+
+
+							</div>
+
+							<!--<div class="col-md-12 default-form">
+								<div class="row clearfix">
+									<div class="col-md-12 form-group" ng-show="divpsssurvey">
+										<span>pss survey is not done raise the unsurvey request</span>
+									</div>
+								</div>
+							</div>-->
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+						<button type="button" class="btn btn-success" ng-click="submitgrievance();">Submit</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--end modal popup-->
+		<!--end modal popup-->
+		<!--modal popup for Mobile Number-->
+		<div class="modal fade popupmobile" tabindex="-1" role="dialog" id="mobilemodalpopup">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+
+							<div class="col-md-12">
+								<h4><b>Edit Mobile Number</b></h4>
+								<hr />
+								<div>
+									<label>Mobile Number</label>
+									<input type="text" chars="0-9\\" class="form-control" ng-model="mobilenumpopup" maxlength="10" placeholder="mobile" required>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<label>Enter OTP</label>
+								<input type="text" chars="0-9\\" class="form-control" ng-model="mobileverifyotp" maxlength="6" placeholder="OTP" required>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" ng-click="sendmobileotp();">Send OTP</button>
+						<button type="button" class="btn btn-success" ng-click="verifymobileotp();">Verify OTP</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--end modal popup-->
+
+
+
+		<footer class="main-footer">
+
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-2">
+							<img src="images/footer (1).png" class="img-rounded hidden-sm hidden-xs" />
+						</div>
+						<div class="col-md-10"><p align="right" style="padding-top:12px;">Copyrights © Real Time Governance Society (RTGS), Government of Andhra Pradesh</p></div>
+
+
+
+					</div>
+				</div>
+			</div>
+
+		</footer>
+
+	</div>
+
+
+	<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-long-arrow-up"></span></div>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/revolution.min.js"></script>
+	<script src="js/jquery.fancybox.pack.js"></script>
+	<script src="js/jquery.fancybox-media.js"></script>
+	<script src="js/owl.js"></script>
+	<script src="js/wow.js"></script>
+	<script type="text/javascript" src="https://leveraging.e-pragati.in/Content/WSLToolbar/Scripts/Snippets/js/cdac-gist-translation-snippet.min.js "></script>
+	<script src="js/appear.js"></script>
+	<script src="js/script.js"></script>
+	<script src="JavaScript/helper.js"></script>
+	<script src="JavaScript/JS_Aadhar_Verifivation.js"></script>
+	<script src="Angular/angular.min.js"></script>
+	<script src="Angular/sweet-alert.min.js"></script>
+	<link href="Angular/sweet-alert.css" rel="stylesheet" />
+	<script src="Angular/Registration.js"></script>
+
+	<script src="Angular/dataContext.js"></script>
+
+
+</body>
+</html>

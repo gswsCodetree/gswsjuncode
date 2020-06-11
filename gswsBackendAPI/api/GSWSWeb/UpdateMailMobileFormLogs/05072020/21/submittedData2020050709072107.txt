@@ -1,0 +1,1 @@
+{"Ftype":1,"FDistrictCode":"503","FMandalCode":"5391","FSeccCode":"11090984","FUserId":"11090984-ENA","FMobileNumber":"8096424075","FMailID":"chandu@gmail.com","FPassword":"123456","FRoleId":"107","Insertby":"11090984-ENA"}

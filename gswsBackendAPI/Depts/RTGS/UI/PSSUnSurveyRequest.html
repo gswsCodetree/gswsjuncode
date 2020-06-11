@@ -1,0 +1,109 @@
+﻿
+
+<div class="content">
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-header">
+				<h2 align="center">PSS UN-Survey Request</h2>
+			</div>
+			<div class="card-body">
+
+				<div class="row">
+					<div class="col-sm-6 offset-sm-3">
+						<div class="form-group">
+							<label class="col-form-label">Enter Aadhaar Number</label>
+							<div class="row">
+								<div class="col-sm-9">
+									<input type="text" autocomplete="off" uid-input-model="uid" mask-length="8" class="form-control" maxlength="12" placeholder="Enter Aadhaar Number">
+								</div>
+								<div class="col-sm-3">
+									<input type="button" class="btn btn-success btn-block" ng-click="CheckAadhaar();" value="Check Aadhaar" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group" ng-show="divmob">
+							<label class="col-form-label">Enter Mobile Number</label>
+							<div class="row">
+								<div class="col-sm-9">
+									<input type="text" autocomplete="off" class="form-control" maxlength="10" placeholder="Enter Mobile Number">
+								</div>
+								<div class="col-sm-3">
+									<input type="button" class="btn btn-success btn-block" ng-show="divotp" ng-click="SendOTP();" value="Send OTP" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group" ng-show="divotp">
+							<label class="col-form-label">Enter OTP</label>
+							<div class="row">
+								<div class="col-sm-9">
+									<input type="text" autocomplete="off" ng-model="otpval" class="form-control" maxlength="6" placeholder="Enter OTP Number">
+								</div>
+								<div class="col-sm-3">
+									<input type="button" class="btn btn-success  btn-block" ng-click="VerifyOTP();" value="verify OTP" />
+								</div>
+							</div>
+						</div>
+						<div class="row" ng-show="divmaster">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label class="col-form-label">Select District</label><span style="color:red;">*</span>
+									<select class="form-control" ng-model="sdistname">
+										<option value="">Select District</option>
+										<option value="{{obj.DISTRICT_CODE}}" ng-repeat="obj in seccdistlist" >{{obj.DISTRICT_NAME}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label class="col-form-label">Select Rural/Urban</label><span style="color:red;">*</span>
+									<select class="form-control" ng-model="sruflag" ng-change="GetMandalload();">
+										<option value="">Select District</option>
+										<option value="R">Rural</option>
+										<option value="U">Uraban</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-sm-6">
+
+								<div class="form-group">
+									<label class="col-form-label">Select Mandal</label><span style="color:red;">*</span>
+									<select class="form-control" ng-model="smanname" ng-change="getVillageload();">
+										<option value="">Select Mandal/Muncipality</option>
+										<option  ng-repeat="obj in seccmandallist" value="{{obj.TEHSIL_CODE}}">{{obj.TEHSIL_NAME}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label class="col-form-label">Select Village</label><span style="color:red;">*</span>
+									<select class="form-control" ng-model="svtcode">
+										<option value="">Select Village</option>
+										<option ng-repeat="obj in seccvillagelist" value="{{obj.VT_CODE}}">{{obj.VT_NAME}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label class="col-form-label">No of Members to be Enumerated</label><span style="color:red;">*</span>
+									<input type="text" class="form-control" placeholder="Enter No of Members to Enumerated" maxlength="2" ng-model="noofmembers" />
+								</div>
+							</div>
+
+						</div>
+
+						<div class="col-sm-12" style="align-content:center;" ng-show="divmaster">
+							<div class="row">
+								<input type="button" class="btn btn-success" value="Submit" ng-click="GetUnsurveyRequest();" />
+							</div>
+						</div>
+					</div>
+					
+				</div>		
+
+
+
+			
+					</div>
+				</div>
+			</div>
+</div>

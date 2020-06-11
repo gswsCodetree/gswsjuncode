@@ -1,0 +1,485 @@
+﻿
+<link href="assets/css/printcss.css" rel="stylesheet" />
+<style>
+	.neft-table {
+		width: 100%;
+		margin: 0 auto;
+		border: 1px solid #000;
+		font-size: 16px;
+	}
+
+		.neft-table tr th {
+			text-align: center;
+			border: 1px solid #000;
+			font-weight: bold;
+			background-color: #cacaca;
+		}
+
+		.neft-table tr td {
+			border: 1px solid #000;
+		}
+
+		.neft-table .text-danger {
+			font-weight: bold;
+		}
+
+		.neft-table label {
+			margin-bottom: 0;
+			font-weight: bold;
+		}
+
+		.neft-table sup {
+			font-size: 18px;
+			top: 0;
+		}
+
+	hr {
+		width: 50%;
+		margin: 20px auto;
+		border: 1px dashed #000;
+	}
+
+	@media print {
+		body {
+			background-color: #fff;
+		}
+
+		.navbar {
+			display: none;
+		}
+
+		.neft-table {
+			width: 100%;
+		}
+
+			.neft-table tr th {
+				text-align: center !important;
+				border: 1px solid #000 !important;
+				font-weight: bold;
+				background-color: #cacaca !important;
+			}
+
+			.neft-table tr td {
+				border: 1px solid #000 !important;
+			}
+
+		.note-p {
+			font-size: 16px;
+		}
+	}
+</style>
+<style>
+	.cd-table {
+		width: 75%;
+		margin: 0 auto;
+		border: 1px solid #000;
+		font-size: 16px;
+		background-color: #fff;
+	}
+
+		.cd-table tr th {
+			text-align: center;
+			border: 1px solid #000;
+			font-weight: bold;
+			background-color: #cacaca;
+		}
+
+		.cd-table tr td {
+			border: 1px solid #000;
+			font-weight: 500;
+			padding: 5px;
+		}
+
+		.cd-table label {
+			margin-bottom: 0;
+			font-weight: bold;
+		}
+
+	.cd-inner-table {
+		border: 1px solid #000;
+	}
+
+		.cd-inner-table tr td {
+			padding: 5px;
+			text-align: center;
+		}
+
+	hr {
+		width: 50%;
+		margin: 20px auto;
+		border: 1px dashed #000;
+	}
+
+	.d-table {
+		width: 75%;
+		margin: 0 auto;
+		border: 1px solid #000;
+	}
+
+	@media print {
+		body {
+			background-color: #fff;
+		}
+
+		.navbar {
+			display: none;
+		}
+
+		.cd-table {
+			width: 100%;
+		}
+
+		.d-table {
+			width: 85%;
+			margin: 0 auto;
+			border: 1px solid #000;
+		}
+	}
+</style>
+
+<div class="container">
+	
+	<div class="col-sm-12">
+		<div class="row">
+			<div class="col-md-6">
+				<button class="btn btn-primary float-right btn-sm" ng-click="BankChallan();"><i class="icon-shredder mr-2"></i> Bank Challan</button>
+			</div>
+			<div class="col-md-6">
+				<button class="btn btn-primary float-right btn-sm" ng-click="BankDepositForm();"><i class="icon-shredder mr-2"></i>Bank Deposit Form</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="printdiv" ng-show="divprint">
+	<div class="container bg-certificate" style="margin-top: 10px !important; color:#000;">
+		<!--
+
+				<div class="row ">
+					  <div class="col-sm-12">
+					<button class="btn btn-primary float-right"><i class="icon-shredder mr-2"></i> Print</button>
+					</div>
+				</div>
+		-->
+		<div class="row">
+			<div class="col-sm-3 mt-5 text-center">
+				<img src="assets/images/ap-logo.png" style="width: 33% !important; margin-top: 10px;" />
+			</div>
+			<div class="col-sm-6 text-center mt-5">
+				<h1 style="    font-size: 34px; font-family: Rubik-Medium; margin-bottom: 0px;">గ్రామ - వార్డు సచివాలయము</h1>
+				<h2>Government of Andhra Pradesh</h2>
+			</div>
+			<div class="col-sm-3 text-center mt-5">
+				<img src="assets/images/grama-ward-sachivalayam-logo-300px.png" style="    width: 33% !important;
+    margin-top: 10px;" />
+			</div>
+			<!--<div class="col-sm-12 text-center">
+				<h2 style=" font-family: Rubik-Medium;font-size: 17px; margin-right: 56px;">
+					<span style=" color: #3F51B5;">Y</span>our <span style=" color: #3F51B5;">S</span>ervice <span style=" color: #3F51B5;">R</span>equest No : GSWS-181219115812122
+				</h2>
+			</div>-->
+		</div>
+		<div class="row print-option">
+			<div class="col-md-11 mx-auto mt-2 mb-3">
+				<table class="table table-bordered neft-table">
+					<thead>
+						<tr>
+							<th colspan="2">NEFT / RTGS Slip to be filled in and submitted to bank</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Challan ID: <label>{{nefttransctnid}}</label></td>
+							<td>Secretariat Name: <label>{{secretariatname}}</label></td>
+						</tr>
+						<tr>
+
+							<td>Bank and Branch: <label>{{secretariatbranch}}</label></td>
+							<td>Date: <label>{{nefttransctndate}}</label></td>
+						</tr>
+						<tr>
+							<td colspan="2">Funds to be Sent through NEFT / RTGS: _________</td>
+						</tr>
+						<tr>
+							<td>Name of VS A/c Holder: <label>{{Nameofvsact}}</label></td>
+							<td>Sender Account Number: <label>{{secretariatactno}}</label></td>
+						</tr>
+						<tr>
+							<td colspan="2">Beneficiary Name: <label>{{BenName}}</label></td>
+						</tr>
+						<tr>
+							<td>Beneficiary Account Number: <label>{{BenAccnum}}</label></td>
+							<td>Beneficiary IFSC Code: <label>{{neftifsccode}}</label></td>
+						</tr>
+						<tr>
+							<td>Amount in Figures: <label>{{totalamnt}}</label></td>
+							<td rowspan="2">UTR No : <label></label></td>
+						</tr>
+						<tr>
+							<td colspan="1">Amount in Words: <label>{{amountwords}}</label></td>
+						</tr>
+						<tr>
+							<td colspan="2">VDA Signature (eServices Account Holder): <label></label> </td>
+						</tr>
+						<tr>
+							<td>
+								Cashier: <label></label> <br>
+								Entered with Employee ID: <label></label> <br>
+								Verified with Employee ID: <label></label>
+							</td>
+							<td>Authorized Signatory:</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="col-md-11 mx-auto mt-3 mb-5">
+				<table class="table table-bordered neft-table">
+					<thead>
+						<tr>
+							<th colspan="2"> NEFT / RTGSSecretariat Copy for NEFT / RTGS from Secretariat Account to AGROs Pool Account</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Challan ID: <label>{{nefttransctnid}}</label></td>
+							<td>Secretariat Name: <label>{{secretariatname}}</label></td>
+						</tr>
+						<tr>
+
+							<td>Bank and Branch: <label>{{secretariatbranch}}</label></td>
+							<td>Date: <label>{{nefttransctndate}}</label></td>
+						</tr>
+						<tr>
+							<td colspan="2">Funds to be Sent through NEFT / RTGS: _________</td>
+						</tr>
+						<tr>
+							<td>Name of VS A/c Holder: <label>{{Nameofvsact}}</label></td>
+							<td>Sender Account Number: <label>{{secretariatactno}}</label></td>
+						</tr>
+						<tr>
+							<td colspan="2">Beneficiary Name: <label>{{BenName}}</label></td>
+						</tr>
+						<tr>
+							<td>Beneficiary Account Number: <label>{{BenAccnum}}</label></td>
+							<td>Beneficiary IFSC Code: <label>{{neftifsccode}}</label></td>
+						</tr>
+						<tr>
+							<td>Amount in Figures: <label>{{totalamnt}}</label></td>
+							<td rowspan="2">UTR No : <label></label></td>
+						</tr>
+						<tr>
+							<td colspan="1">Amount in Words: <label>{{amountwords}}</label></td>
+						</tr>
+						<tr>
+							<td colspan="2">VDA Signature (eServices Account Holder): <label></label> </td>
+						</tr>
+						<tr>
+							<td>
+								Cashier: <label></label> <br>
+								Entered with Employee ID: <label></label> <br>
+								Verified with Employee ID: <label></label>
+							</td>
+							<td>Authorized Signatory:</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div class="container" ng-show="!divprint">
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 style="color:red; font-size:15px;">{{errormsg}}</h2>
+		</div>
+	</div>
+</div>
+<div id="printdivbank" ng-show="divprintbank">
+	<div class="container bg-certificate" style="margin-top: 10px !important; color:#000;">
+		<!--
+
+				<div class="row ">
+					  <div class="col-sm-12">
+					<button class="btn btn-primary float-right"><i class="icon-shredder mr-2"></i> Print</button>
+					</div>
+				</div>
+		-->
+		<div class="row">
+			<div class="col-sm-3 mt-5 text-center">
+				<img src="assets/images/ap-logo.png" style="width: 33% !important; margin-top: 10px;" />
+			</div>
+			<div class="col-sm-6 text-center mt-5">
+				<h1 style="    font-size: 34px; font-family: Rubik-Medium; margin-bottom: 0px;">గ్రామ - వార్డు సచివాలయము</h1>
+				<h2>Government of Andhra Pradesh</h2>
+			</div>
+			<div class="col-sm-3 text-center mt-5">
+				<img src="assets/images/grama-ward-sachivalayam-logo-300px.png" style="    width: 33% !important;
+    margin-top: 10px;" />
+			</div>
+			<!--<div class="col-sm-12 text-center">
+				<h2 style=" font-family: Rubik-Medium;font-size: 17px; margin-right: 56px;">
+					<span style=" color: #3F51B5;">Y</span>our <span style=" color: #3F51B5;">S</span>ervice <span style=" color: #3F51B5;">R</span>equest No : GSWS-181219115812122
+				</h2>
+			</div>-->
+		</div>
+		<div class="row print-option">
+			<div class="col-md-11 mx-auto mt-2 mb-3">
+
+
+				<table class="table table-bordered cd-table">
+					<thead>
+						<tr>
+							<th colspan="2">Counter Foil for Cash Deposit</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Challan ID: <label>{{nefttransctnid}}</label></td>
+							<td>*Challan Date: <label>{{nefttransctndate}}</label></td>
+
+						</tr>
+						<tr>
+							<td colspan="2">*Branch: <label>{{secretariatbranch}}</label></td>
+						</tr>
+						<tr>
+							<td colspan="2">*Name of A/c Holder: <label>{{secretariatname}}</label></td>
+						</tr>
+						<tr>
+							<td colspan="2">*Account Number: <label>{{secretariatactno}}</label></td>
+						</tr>
+						<tr>
+							<td colspan="2" style="border-bottom: 0;">
+								Cash Deposit Denomination:
+								<table class="table table-bordered w-50 mx-auto cd-inner-table">
+									<tr>
+										<td>Notes</td>
+										<td>No.</td>
+										<td>Rupees</td>
+										<td>Paisa</td>
+									</tr>
+									<tr ng-repeat="amt in Amountlist">
+										<td>{{amt.AmountVal}}</td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+
+									<tr>
+										<td>Total</td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr style="text-align: center;">
+							<td class="pt-5" style="border:0;">Cashier</td>
+							<td class="pt-5" style="border:0;">Authorized Signatory</td>
+						</tr>
+					</tbody>
+				</table>
+
+
+				<hr>
+
+				<div class="row">
+					<table class="table table-bordered cd-table">
+						<thead>
+							<tr>
+								<th colspan="3">Pay-in-Slip for Cash Deposit</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td colspan="2">*Challan ID: <label>{{nefttransctnid}}</label></td>
+								<td>*Challan Date: <label>{{nefttransctndate}}</label></td>
+							</tr>
+							<tr>
+								<td colspan="3">*Branch: <label>{{secretariatbranch}}</label></td>
+							</tr>
+							<tr>
+								<td colspan="3">*Name of A/c Holder: <label>{{secretariatname}}</label></td>
+							</tr>
+							<tr>
+								<td colspan="3">*Account Number: <label>{{secretariatactno}}</label></td>
+							</tr>
+							<tr>
+								<td colspan="3" style="border-bottom: 0;">
+									Cash Deposit Denomination:
+									<table class="table table-bordered w-50 mx-auto cd-inner-table">
+										<tr>
+											<td>Notes</td>
+											<td>No.</td>
+											<td>Rupees</td>
+											<td>Paisa</td>
+										</tr>
+										<tr ng-repeat="amt in Amountlist">
+											<td>{{amt.AmountVal}}</td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+
+										<tr>
+											<td>Total</td>
+											<td></td>
+											<td></td>
+											<td></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" style="border-bottom: 0;">
+									Deposited Cash:
+									<table class="table table-bordered d-table">
+										<tr>
+											<td>Amount In Figures</td>
+											<td>{{totalamnt}}</td>
+											<td>Amount in Words( Rs.)</td>
+											<td>{{amountwords}}</td>
+										</tr>
+										<tr>
+											<td>Entered with ID No.</td>
+											<td></td>
+											<td>Posted/Verified with ID No.</td>
+											<td></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3" style="border: 0;">*Phone Number: <label></label></td>
+							</tr>
+							<tr>
+								<td colspan="3" style="border: 0;">*Deposited by: </td>
+							</tr>
+							<tr>
+								<td class="pt-5" style="border: 0;">Signatory</td>
+								<td class="pt-5 text-right" style="border: 0;">Cashier</td>
+								<td class="pt-5 text-right" style="border: 0;">Authorized Signatory</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div class="container" ng-show="divprint">
+	<div class="row">
+		<div class="col-sm-12">
+			<button class="btn btn-primary float-right btn-sm" ng-click="PrintReceipt();"><i class="icon-shredder mr-2"></i> Print</button>
+		</div>
+	</div>
+</div>
+<div class="container" ng-show="divprintbank">
+	<div class="row">
+		<div class="col-sm-12">
+			<button class="btn btn-primary float-right btn-sm" ng-click="PrintReceiptBank();"><i class="icon-shredder mr-2"></i> Print</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetHonorariumToImamAndMouzansDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BeneficiaryCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHonorariumToImamAndMouzansDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHonorariumToImamAndMouzansDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWomenDivorcedDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MCNO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWomenDivorcedDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWomenDivorcedDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetHonorariumToImamAndMouzansDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHonorariumToImamAndMouzansDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetHonorariumToImamAndMouzansDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHonorariumToImamAndMouzansDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWomenDivorcedDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWomenDivorcedDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetWomenDivorcedDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWomenDivorcedDetailsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MinorityServiceSoap">
+    <wsdl:operation name="GetHonorariumToImamAndMouzansDetails">
+      <wsdl:input message="tns:GetHonorariumToImamAndMouzansDetailsSoapIn" />
+      <wsdl:output message="tns:GetHonorariumToImamAndMouzansDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWomenDivorcedDetails">
+      <wsdl:input message="tns:GetWomenDivorcedDetailsSoapIn" />
+      <wsdl:output message="tns:GetWomenDivorcedDetailsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MinorityServiceSoap" type="tns:MinorityServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHonorariumToImamAndMouzansDetails">
+      <soap:operation soapAction="http://tempuri.org/GetHonorariumToImamAndMouzansDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWomenDivorcedDetails">
+      <soap:operation soapAction="http://tempuri.org/GetWomenDivorcedDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MinorityServiceSoap12" type="tns:MinorityServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetHonorariumToImamAndMouzansDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetHonorariumToImamAndMouzansDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWomenDivorcedDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetWomenDivorcedDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MinorityService">
+    <wsdl:port name="MinorityServiceSoap" binding="tns:MinorityServiceSoap">
+      <soap:address location="https://apwaqf.aponline.gov.in/minorityservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MinorityServiceSoap12" binding="tns:MinorityServiceSoap12">
+      <soap12:address location="https://apwaqf.aponline.gov.in/minorityservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

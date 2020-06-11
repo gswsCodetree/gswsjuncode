@@ -1,0 +1,84 @@
+﻿
+<link href="assets/css/printcss.css" rel="stylesheet" />
+<div id="printdiv">
+	<div class="container bg-certificate" style="margin-top: 10px !important; color:#000;">
+		<!--
+
+				<div class="row ">
+					  <div class="col-sm-12">
+					<button class="btn btn-primary float-right"><i class="icon-shredder mr-2"></i> Print</button>
+					</div>
+				</div>
+		-->
+		<div class="row">
+			<div class="col-sm-3 mt-5 text-center">
+				<img src="assets/images/ap-logo.png" style="width: 33% !important; margin-top: 10px;" />
+			</div>
+			<div class="col-sm-6 text-center mt-5">
+				<h1 style="    font-size: 34px; font-family: Rubik-Medium; margin-bottom: 0px;">గ్రామ - వార్డు సచివాలయము</h1>
+				<h2>Government of Andhra Pradesh</h2>
+			</div>
+			<div class="col-sm-3 text-center mt-5">
+				<img src="assets/images/grama-ward-sachivalayam-logo-300px.png" style="    width: 33% !important;
+    margin-top: 10px;" />
+			</div>
+			<!--<div class="col-sm-12 text-center">
+				<h2 style=" font-family: Rubik-Medium;font-size: 17px; margin-right: 56px;">
+					<span style=" color: #3F51B5;">Y</span>our <span style=" color: #3F51B5;">S</span>ervice <span style=" color: #3F51B5;">R</span>equest No : GSWS-181219115812122
+				</h2>
+			</div>-->
+		</div>
+		<div class="row print-option">
+			<div class="col-sm-12">
+				<!--                <img src="assets/images/ap-logo.png" class="w-100 print-logo">-->
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<ul class="left-print-data">
+							<li>Secretariat Name<span>: &nbsp; {{secretariatname}} </span> </li>
+							<li>Secretariat Branch<span>: &nbsp; {{secretariatbranch}} </span> </li>
+							<li>Secretariat Account No.<span>: &nbsp; {{secretariatactno}} </span> </li>
+							<li>Secretariat IFSC Code<span>: &nbsp; {{secretariatifsccode}} </span> </li>
+							<li>Secretariat Account Type<span>: &nbsp; {{secretariatacttype}} </span> </li>
+						</ul>
+
+					</div>
+					<div class="col-sm-6">
+						<ul class="left-print-data ml-0">
+							<li>Bank Deposit Transaction ID<span>: &nbsp; {{nefttransctnid}} </span> </li>
+							<li>Bank Deposit Transaction Date<span>: &nbsp; {{nefttransctndate}} </span> </li>
+							<li>Total Amount <span>: &nbsp; {{totalamnt}} </span> </li>
+							<li>NEFT District Name <span>: &nbsp; {{neftdistrictname}} </span></li>
+							<li>NEFT Bank and Branch <span>: &nbsp; {{neftbankbranch}} </span></li>
+							<li>NEFT IFSC Code <span>: &nbsp; {{neftifsccode}} </span> </li>
+							<li>NEFT Account No. <span>: &nbsp; {{neftactno}} </span></li>
+
+
+						</ul>
+
+
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<!--                    <p>Note : You are supposed to pay Rs.145/- towards service charge. If any excess amount has been collected/demanded. Please collect Parisham Call center No:<b>1100/1800425225110 or send email to helpdesk_esd@ap.com </b></p>-->
+				</div>
+				<div class="row mb-3 mx-5">
+
+					<!--<div class="col-sm-8 text-center text-danger">
+						<b> అవినీతి పై ఫిర్యాదు చేయుట కొరకు టోల్ ఫ్రీ నెంబర్ : 14400 ను సంప్రదించండి</b>
+					</div>-->
+
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<button class="btn btn-primary float-right btn-sm" ng-click="PrintReceipt();"><i class="icon-shredder mr-2"></i> Print</button>
+		</div>
+	</div>
+</div>

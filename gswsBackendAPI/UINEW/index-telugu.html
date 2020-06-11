@@ -1,0 +1,2347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>ప్రజా సచివాలయం</title>
+  <link rel="shortcut icon" href="images/favicon.png" />
+
+  <!-- CSS & Fonts -->
+  <link rel="stylesheet" href="css/style-te.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+
+  <!-- Lobi Plugin -->
+  <link rel="stylesheet" href="lobi/lib/jquery-ui.min.css"/>
+  <link rel="stylesheet" href="lobi/lib/font-awesome/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="lobi/lib/highlight/github.css"/>
+  <link rel="stylesheet" href="lobi/demo/documentation.css"/>
+  <link rel="stylesheet" href="lobi/dist/css/lobipanel.min.css"/>
+  <link rel="stylesheet" href="lobi/demo/demo.css"/>
+
+  <style>
+    .card .card-body {
+      padding: 0.55rem 0.55rem;
+    }
+
+    .card .card-body .brd-t {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tab-content {
+      border: 0px solid #eee;
+      border-top: 0;
+      padding: 0rem 0rem;
+      text-align: justify;
+    }
+
+    .accordion.accordion-bordered {
+      border-radius: 0.625rem;
+    }
+  </style>
+
+</head>
+
+
+<body>
+  
+  <div class="bgoverlay">
+    <div class="circle-loader"></div>
+  </div>
+  <div class="container-scroller">
+    <div class="horizontal-menu">
+      <nav class="navbar top-navbar col-lg-12 col-12 p-0">
+        <div class="container-fluid">
+          <div class="text-center d-flex align-items-center justify-content-center">
+            
+              <img src="images/cm.jpg" style="height: 70px;" />
+              <div class="text-center pt-2 ml-2 minister-text">
+                శ్రీ.వై.ఎస్ జగన్ మోహన్ రెడ్డి గారు<br>
+                ముఖ్యమంత్రి<br>ఆంధ్రప్రదేశ్
+              </div>
+
+          </div>
+          <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo text-white text-uppercase" href=""><img src="images/ap-logo.png" alt="logo" /> ప్రజా సచివాలయం</a>
+            <a class="navbar-brand brand-logo-mini" href=""><img src="images/ap-logo.png" alt="logo" /></a>
+          </div>
+          <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+            <!-- <ul class="navbar-nav navbar-nav-left">
+              <li class="nav-item d-none d-lg-block">
+                <a href="#" class="nav-link">
+                  <p>Feedback</p>
+                </a>
+              </li>
+              <li class="nav-item d-none d-lg-block">
+                <a href="#" class="nav-link">
+                  <p>Support</p>
+                </a>
+              </li>
+            </ul> -->
+            <ul class="navbar-nav navbar-nav-right">
+              
+              <li class="nav-item nav-search d-none d-lg-block">
+                <a href="#!" data-toggle="modal" data-target="#exampleModal" class="text-white">
+                  <i class="mdi mdi-message-alert"></i> Message
+                </a>
+              </li>
+              <li class="nav-item nav-search d-none d-lg-block">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="search">
+                      <i class="mdi mdi-magnify"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="టైప్ చేయండి" aria-label="search"
+                    aria-describedby="search">
+                </div>
+              </li>
+
+
+              <li class="nav-item nav-language dropdown">
+                <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
+                  id="languageDropdown" href="#" data-toggle="dropdown">
+                  <p class="mb-0 ml-1">తెలుగు</p>
+                  <i class="mdi mdi-unfold-more-horizontal mx-0"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                  aria-labelledby="languageDropdown">
+                  <p class="mb-0 font-weight-normal float-left dropdown-header">Language</p>
+
+                  <a class="dropdown-item preview-item" href="index.html">
+
+                    <div class="preview-item-content flex-grow">
+                      <p class="font-weight-light small-text mb-0">
+                        <i class="fa fa-language"></i> English
+                      </p>
+                    </div>
+                  </a>
+
+                </div>
+              </li>
+              <li class="nav-item nav-profile dropdown">
+                <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
+                  <i class="mdi mdi-account-circle mdi-24px text-white"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item">
+                    <i class="mdi mdi-logout text-primary"></i>
+                    Logout
+                  </a>
+                </div>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+              data-toggle="horizontal-menu-toggle">
+              <span class="mdi mdi-menu"></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <nav class="bottom-navbar">
+        <div class="container-fluid">
+
+          <div class="row">
+            <div class="col-md-5">
+              <ul class="nav page-navigation">
+
+                <li class="nav-item active">
+                  <a class="nav-link" href="">
+                    <i class="mdi mdi-home menu-icon"></i>
+                    <span class="menu-title">హోమ్</span>
+                  </a>
+                </li>
+
+              </ul>
+            </div>
+            <div class="col-md-7">
+              <ul class="nav page-navigation justify-content-end" role="tablist">
+
+                <li class="nav-item bg-facebook rounded pl-2 pr-2">
+                  <a class="nav-link text-white filter-button" data-filter="all">
+                    <i class="mdi mdi-view-list menu-icon text-white"></i>
+                    <span class="menu-title"> అన్ని</span>
+                  </a>
+                </li>
+
+                <li class="nav-item bg-success rounded pl-2 pr-2">
+                  <a class="nav-link text-white filter-button" data-filter="natural">
+                    <i class="mdi mdi-refresh menu-icon text-white"></i>
+                    <span class="menu-title"> తరుచుగా చూసినవి</span>
+                  </a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </nav>
+    </div>
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <div class="main-panel" style="background: #ffffff !important;">
+        <div class="content-wrapper" style="max-width:100% !important;">
+
+          <div class="row">
+
+            <div class="col-12 col-sm-9 col-md-9" id="colA">
+
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="home-1" role="tabpanel" aria-labelledby="home-tab">
+
+                  <!-- <h4 class="text-white mb-3">All: </h4> -->
+                  <div class="row counts">
+                    <div class="col-md-3">
+                      <div class="sachivalayam-tiles border-warning">
+                        <!-- <i class="mdi mdi-update text-warning"></i> -->
+                        <img src="images/pending.png">
+                        <p>Pending Tasks</p>
+                        <h2 class="text-warning">49</h2>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="sachivalayam-tiles border-info">
+                        <!-- <i class="mdi mdi-format-float-left text-info"></i> -->
+                        <img src="images/registered.png">
+                        <p>Registered</p>
+                        <h2 class="text-info">752</h2>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="sachivalayam-tiles border-success">
+                        <!-- <i class="mdi mdi-checkbox-marked-circle-outline text-success"></i> -->
+                        <img src="images/success.png">
+                        <p>Success</p>
+                        <h2 class="text-success">580</h2>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="sachivalayam-tiles border-red">
+                        <!-- <i class="mdi mdi-close-box-outline text-danger"></i> -->
+                        <img src="images/rejected.png">
+                        <p>Rejected</p>
+                        <h2 class="text-danger">21</h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 px-0 mb-4 search-bar" id="SearchBoxContainer">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="row justify-content-center" style="width: 100%;">
+                          <div class="col-md-2"><a href="http://spandana.ap.gov.in/" target="_blank" class="btn btn-rounded btn-orange ntr">స్పందన <i class="mdi mdi-arrow-right-bold-circle-outline"></i></a></div>
+                          <div class="col-md-8">
+                            <div class="form-group mb-0">
+                              <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search Services..."
+                                  aria-label="Search Services..." onfocus="DisplaySearchResultBox();">
+                                <div class="input-group-append">
+                                  <button class="btn btn-sm btn-primary" type="button"><i class="mdi mdi-magnify mdi-20px"></i> Search</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                              <div class="dropdown mt-1 float-right">
+                                  <button class="btn btn-orange dropdown-toggle btn-rounded" type="button" id="Sortby" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="mdi mdi-view-list text-white"></i> Sort by
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="Sortby" x-placement="top-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 5px, 0px);">
+                                    <h6 class="dropdown-header">Sorting</h6>
+                                    <a class="dropdown-item" href="#">Sort by Name</a>
+                                    <a class="dropdown-item" href="#">Sort by Usage</a>
+                                    <a class="dropdown-item" href="#">Sort by No. of Services</a>
+                                  </div>
+                                </div>
+                          </div>
+                        </div>
+                        
+                    <div class="col-md-12 bg-white search-result" id="searchResultDisplayDiv" style="display: none;">
+                        <div class="">
+                          <h4>Search Result</h4>
+                          <a href="#!" id="close" class="halfCircleTop"><i class="mdi mdi-close-circle icon-box"></i></a>
+                          <div class="col-md-12">
+                            <div class="row">
+                              <div class="col-md-4 sub-category">
+                                <h5>Agriculture</h5>
+                                <ul class="list-arrow">
+                                  <li><a href="" title="Issue of Crop Cultivator Rights Card(CCRC)">Issue of Crop Cultivator Rights Card(CCRC)</a></li>
+                                  <li><a href="">Testing of seeds, Fertilizers, Micronutrients and Pesticide samples of the farmer in the Integrated Agri labs</a></li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4">
+                                <h5>Horticulture</h5>
+                                <ul class="list-arrow">
+                                  <li><a href="" title="E-crop booking">E-crop booking</a></li>
+                                  <li><a href="" title="Technical Guidance">Technical Guidance</a></li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4">
+                                <h5>Sericulture</h5>
+                                <ul class="list-arrow">
+                                  <li><a href="" title="Technical guidance to farmers ">Technical guidance to farmers </a></li>
+                                  <li><a href="">Registration-New Farmer registration & issue of Farmer ID</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4 sub-category">
+                                <h5>Agriculture</h5>
+                                <ul class="list-arrow">
+                                  <li><a href="" title="Issue of Crop Cultivator Rights Card(CCRC)">Issue of Crop Cultivator Rights Card(CCRC)</a></li>
+                                  <li><a href="">Testing of seeds, Fertilizers, Micronutrients and Pesticide samples of the farmer in the Integrated Agri labs</a></li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4">
+                                <h5>Horticulture</h5>
+                                <ul class="list-arrow">
+                                  <li><a href="" title="E-crop booking">E-crop booking</a></li>
+                                  <li><a href="" title="Technical Guidance">Technical Guidance</a></li>
+                                </ul>
+                              </div>
+                              <div class="col-md-4">
+                                <h5>Sericulture</h5>
+                                <ul class="list-arrow">
+                                  <li><a href="" title="Technical guidance to farmers ">Technical guidance to farmers </a></li>
+                                  <li><a href="">Registration-New Farmer registration & issue of Farmer ID</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      </div>
+                      <!-- <div class="card-footer">
+                      </div> -->
+                    </div>
+
+                  </div>
+                  <div class="row departments">
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource fadeInUp"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-leaf"></i>
+                            </div>
+                            <p class="mb-0">వ్యవసాయం & మార్కెటింగ్ </p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>52</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1225</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a data-toggle="collapse" href="#department-1" aria-expanded="false" aria-controls="department-1" ><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-weight-kilogram"></i>
+                            </div>
+                            <p class="mb-0">పర్యావరణం, అడవులు,<br>
+                                సైన్స్ & టెక్నాలజీ</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>32</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>2652</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">పరిశ్రమలు మరియు వాణిజ్యం</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>19</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1877</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Department 1 -->
+                    <div class="col-md-12 col-12 department-expand" id="lobipanel-multiple">
+                    
+                      <div class="accordion accordion-bordered" id="department-1" role="tablist">
+                        <div id="department-1" class="collapse" role="tabpanel" aria-labelledby="heading-1" data-parent="#department-1">
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <a data-toggle="collapse" href="#department-1" aria-expanded="true" aria-controls="department-1"
+                                class="btn btn-custom btn-sm btn-default"><i class="mdi mdi-close-circle btn-icon-prepend"></i></a>
+                            </div>
+                            <div class="panel-body pl-2 pr-2">
+                              <div class="col-md-12">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                      <li class="nav-item">
+                                        <a class="nav-link active" id="servicelist-1-tab" data-toggle="tab" href="#servicelist-1" role="tab"
+                                          aria-controls="servicelist-1" aria-selected="true"> సేవల జాబితా</a>
+                                      </li>
+                                      <li class="nav-item">
+                                        <a class="nav-link" id="servicelist-2-tab" data-toggle="tab" href="#servicelist-2" role="tab"
+                                          aria-controls="servicelist-2" aria-selected="true"> తరచుగా ఉపయోగించేవి</a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="row">
+                                      <div class="col-md-8">
+                                        <div class="form-group">
+                                          <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="సర్వీసెస్ సెర్చ్..."
+                                              aria-label="సర్వీసెస్ సెర్చ్...">
+                                            <div class="input-group-append">
+                                              <button class="btn btn-sm btn-primary" type="button"> వెతకండి</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <div class="dropdown">
+                                          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuIconButton1"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            సొర్త్ బై <i class="mdi mdi-view-list text-dark"></i>
+                                          </button>
+                                          <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton1" x-placement="top-start"
+                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 0px, 0px);">
+                                            <h6 class="dropdown-header">విభజన</h6>
+                                            <a class="dropdown-item" href="#">పేరు ప్రకారం క్రమబద్ధీకరించు</a>
+                                            <a class="dropdown-item" href="#">వాడుక ద్వారా క్రమబద్ధీకరించు</a>
+                                            <a class="dropdown-item" href="#">Sort by --</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                              
+                              
+                                  </div>
+                                </div>
+                              </div>
+                    
+                              <div class="tab-content">
+                                <div class="tab-pane fade show active" id="servicelist-1" role="tabpanel"
+                                  aria-labelledby="servicelist-1-tab">
+                                  <div class="col-md-12">
+                                    
+                                    <div class="row mt-3 services-list">
+                                      <div class="col-md-6">
+                                        <h5> వ్యవసాయం & మార్కెటింగ్</h5>
+                                        <ul class="list-arrow">
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                              title="Left Click (Open) / Right Click (Download Guide)">పంట సాగు హక్కుల కార్డు (సిసిఆర్‌సి) జారీ</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">ఇంటిగ్రేటెడ్ అగ్రి ల్యాబ్‌లలో రైతు విత్తనాలు, ఎరువులు, సూక్ష్మపోషకాలు మరియు పురుగుమందుల నమూనాలను పరీక్షించడం</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">పంట రుణాలు / టర్మ్ లోన్స్ / ఫైనాన్షియల్ స్కేల్ పై సమాచారం</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">ఇ-క్రాప్ బుకింగ్ డేటా (ఇ-పాంటా సేవలు)</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">వాతావరణ సూచన</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">పెస్ట్ & డిసీజ్ వ్యాప్తి సమయంలో డిమాండ్ మరియు సలహాదారులపై నిపుణుల ద్వారా వ్యవసాయ సలహాదారులు.</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">వ్యవసాయ ఇన్పుట్లపై నాణ్యత నియంత్రణ వ్యవస్థలపై సమాచారం.</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">సంబంధిత సీజన్లలో ఆకస్మిక విత్తనంతో సహా డి-కృషి ద్వారా రైతులకు అందుబాటులో ఉన్న సబ్సిడీ ఇన్పుట్లను పంపిణీ చేయడం.</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">నకిలీ సమాచారంపై డీలర్ పాయింట్ల నుండి చట్టం నమూనాల సేకరణ.</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">వ్యవసాయ శాఖల పథకాలపై సమాచారం.</a></li>
+                                          <li><a href="" data-toggle="tooltip" data-placement="top"
+                                            title="Left Click (Open) / Right Click (Download Guide)">తాజా వ్యవసాయ సాంకేతిక పరిజ్ఞానం మరియు మంచి వ్యవసాయ పద్ధతులపై రైతులకు శిక్షణ (GAP లు).</a></li>
+                    
+                                        </ul>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <h5> ఉద్యాన</h5>
+                                        <ul class="list-arrow">
+                                          <li><a href="">ఇ-క్రాప్ బుకింగ్</a></li>
+                                          <li><a href="">కాల్ సెంటర్ సేవలు</a></li>
+                                          <li><a href="">ప్రాంతం విస్తరణ</a></li>
+                                          <li><a href="">పునరుజ్జీవనం & పందిరి నిర్వహణ</a></li>
+                                          <li><a href="">IPM & INM</a></li>
+                                          <li><a href="">నీటి వనరుల సృష్టి<br>ఎ) వ్యక్తిగత వ్యవసాయ చెరువు<br>బి) కమ్యూనిటీ ఫార్మ్ చెరువు</a></li>
+                                          <li><a href="">రక్షిత సాగు<br>
+                                            ఎ) షాడెనెట్ హౌస్<br>
+                                            బి) పాలీ ఇళ్ళు</a></li>
+                                          <li><a href="">శాశ్వత పెండల్స్</a></li>
+                                          <li><a href="">హార్టికల్చర్ మెకనైజేషన్</a></li>
+                                          <li><a href="">ఇంటిగ్రేటెడ్ ప్యాక్ హౌసెస్, కోల్డ్ స్టోరేజ్ యూనిట్లు, ప్రీ శీతలీకరణ యూనిట్లు, రెఫర్ వ్యాన్లు, పండిన గది మొదలైనవి.</a></li>
+                    
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="tab-pane fade" id="servicelist-2" role="tabpanel" aria-labelledby="servicelist-2-tab">
+                    
+                                </div>
+                    
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Department 1 -->
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">పబ్లిక్ ఎంటర్ప్రైజెస్</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>42</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>944</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">నైపుణ్యాల అభివృద్ధి, <br> వ్యవస్థాపకత మరియు ఆవిష్కరణ</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>23</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1457</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">మీ అభివృద్ధి,<br>పర్యాటకం మరియు సంస్కృతి</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>13</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1784</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">వెనుకబడిన తరగతుల సంక్షేమం &<br>గిరిజన సంక్షేమం</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>21</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1197</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">పాఠశాల విద్య</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>16</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1655</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">సామాజిక సంక్షేమం</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>35</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1604</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">ఉన్నత విద్య</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>22</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1811</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">మైనారిటీల సంక్షేమం</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>17</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1963</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">ఆరోగ్యం, వైద్య మరియు కుటుంబ సంక్షేమం</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>33</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1562</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">జల వనరుల శాఖ</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>18</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>2564</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">పశుసంవర్ధక మరియు మత్స్య సంపద</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>14</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1315</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">ఆర్థిక శాఖ</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>29</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>3208</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">రెయిన్ షాడో ప్రాంతాల విభాగం</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>13</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>752</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">రవాణా రోడ్లు & భవనాలు</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>27</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1689</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">ఇంటి పని</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>24</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1065</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">కార్మిక ఉపాధి శిక్షణ మరియు <br> కర్మాగారాలు</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>31</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>2212</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">పంచాయతీ రాజ్ మరియు <br> గ్రామీణాభివృద్ధి</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>34</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1426</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">విద్యుత్, మౌలిక సదుపాయాలు & పెట్టుబడి</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>26</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>760</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">ఇన్ఫర్మేషన్ టెక్నాలజీ, ఎలక్ట్రానిక్స్ & కమ్యూనికేషన్స్</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>33</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1298</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">గృహ</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>15</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1689</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">మునిసిపల్ అడ్మినిస్ట్రేషన్ మరియు <br> పట్టణ అభివృద్ధి</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>34</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1700</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">సెర్ప్</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>19</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1598</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">వినియోగదారుల వ్యవహారాల ఆహారం & <br> పౌర సామాగ్రి</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>26</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1358</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">రాబడి - సిసిఎల్‌ఎ / ఎస్‌ఎస్‌ఎల్‌ఆర్, ఎండోమెంట్</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>29</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1903</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">రాబడి - నమోదు & స్టాంపులు</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>18</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1209</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">ఆదాయం - ఎక్సైజ్</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>38</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>993</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card filter resource"><span class=""></span>
+                      <div class="card bg-success">
+                        <div class="card-header">
+                          <div class="d-flex align-items-start justify-content-between">
+                            <div class="icon mb-0 mb-md-2 mb-xl-0 mr-2">
+                              <i class="mdi mdi-trophy"></i>
+                            </div>
+                            <p class="mb-0">మహిళలు, పిల్లలు, <br> వికలాంగులు మరియు సీనియర్ సిటిజన్ల విభాగం</p>
+                            <div class="dropdown dropright card-menu-dropdown">
+                              <button class="btn" type="button" id="cardMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardMenuButton1">
+                                <a class="dropdown-item"  id="addfav">ఇష్టమైన వాటికి జోడించండి</a>
+                                <a class="dropdown-item" id="removefav"> ఇష్టమైనవి నుండి తీసివేయండి </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body custom-com">
+                          <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <p>సేవలు</p>
+                              <h3>25</h3>
+                            </div>
+                            <div class="col-md-8">
+                              <p> వినియోగదారుల </p>
+                              <h3>1785</h3>
+                            </div>
+                          </div>
+                          <div class="row d-flex justify-content-center">
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-info"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                            <i class="mdi mdi-star text-secondary"></i>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="card-footer text-center">
+                          <a href="#!" class=""><i class="mdi mdi-arrow-right-drop-circle"></i> View</a>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                </div>
+              </div>
+
+              <!-- <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-header text-center">
+                              AeBAS
+                          </div>
+                          <div class="card-body">
+                            <div class="row text-center">
+                              <div class="col-12 col-sm-6 col-md-6">
+                                <h6>1745</h6>
+                                <p>Present Today</p>
+                              </div>
+                              <div class="col-12 col-sm-6 col-md-6">
+                                <h6>74.29%</h6>
+                                <p>Percentage</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-header text-center">
+                              NTR Bharosa
+                          </div>
+                          <div class="card-body">
+                            <div class="row text-center">
+                              <div class="col-12 col-sm-12 col-md-12">
+                                <h6>51,59,715</h6>
+                                <p> (94.72%)</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-header text-center">
+                              Titli Cyclone
+                          </div>
+                          <div class="card-body">
+                            <div class="row text-center">
+                              <div class="col-12 col-sm-12 col-md-12">
+                                  <p>Beneficiaries :<strong> 464742</strong></p>
+
+                                <p>Amount  :<strong> 4756805839</strong> </p>
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-header text-center">
+                              Praja Sadhikara Survey
+                          </div>
+                          <div class="card-body">
+                            <div class="row text-center">
+                              <div class="col-12 col-sm-6 col-md-6">
+                                <h6>1,44,06,015</h6>
+                                <p>Household</p>
+                              </div>
+                              <div class="col-12 col-sm-6 col-md-6">
+                                <h6>4,49,46,615</h6>
+                                <p>Family Members</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-header text-center">
+                              People First
+                          </div>
+                          <div class="card-body">
+                            <div class="row text-center">
+                              <div class="col-12 col-sm-6 col-md-6">
+                                <h6>16340831</h6>
+                                <p>Total Grievances</p>
+                              </div>
+                              <div class="col-12 col-sm-6 col-md-6">
+                                <h6>15944709</h6>
+                                <p>Total Redresed</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-header text-center">
+                              EODB
+                          </div>
+                          <div class="card-body">
+                            <div class="row text-center">
+                              <div class="col-12 col-sm-6 col-md-6">
+                                <h6>4,666</h6>
+                                <p>Within SLA</p>
+                              </div>
+                              <div class="col-12 col-sm-6 col-md-6">
+                                <h6>99.76%</h6>
+                                <p>SLA Percentage</p>
+                              </div>
+                            </div>
+                            <p class="text-center">Last 6 Months<br><i class="mdi mdi-star text-warning"></i><i class="mdi mdi-star text-warning"></i><i class="mdi mdi-star text-warning"></i></p>
+                            
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-header text-center">
+                              AP ROMS
+                          </div>
+                          <div class="card-body">
+                            <div class="row text-center">
+                              <div class="col-12 col-sm-6 col-md-6">
+                                <h6>4,666</h6>
+                                <p>Within SLA</p>
+                              </div>
+                              <div class="col-12 col-sm-6 col-md-6">
+                                <h6>99.76%</h6>
+                                <p>SLA Percentage</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-header text-center">
+                              JnanaBhumi
+                          </div>
+                          <div class="card-body">
+                            <div class="row text-center">
+                              <div class="col-12 col-sm-6 col-md-6">
+                                
+                              </div>
+                              <div class="col-12 col-sm-6 col-md-6">
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-header text-center">
+                              AP RERA
+                          </div>
+                          <div class="card-body">
+                            <div class="row text-center">
+                              <div class="col-12 col-sm-6 col-md-6">
+                                  <h6>239/388 </h6>
+                                  <p>Projects</p>
+                              </div>
+                              <div class="col-12 col-sm-6 col-md-6">
+                                  <h6>43/48 </h6>
+                                  <p>Agents</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-header text-center">
+                              Paperless files
+                          </div>
+                          <div class="card-body">
+                            <div class="row text-center">
+                              <div class="col-12 col-sm-12 col-md-12">
+                                  <h6>Paperless files last 15 days: 72786/125513(58%)<br>
+                                      Paperless HOD's last 15 days: 21/87
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-header text-center">
+                          Investment Tracker
+                        </div>
+                        <div class="card-body">
+                          <div class="row text-center justify-content-center">
+                            <div class="col-12 col-sm-6 col-md-6">
+                              <h6>15,85,876.82</h6>
+                              <p>Investment (in Cr.)</p>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6">
+                              <h6>33,21,993</h6>
+                              <p>Employment</p>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6">
+                              <h6>2639</h6>
+                              <p>Total Projects</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-header text-center">
+                            AP Innovations
+                        </div>
+                        <div class="card-body">
+                          <div class="row text-center justify-content-center">
+                            
+                            <div class="col-12 col-sm-6 col-md-6">
+                              <p><i class="mdi mdi-star text-warning"></i></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-header text-center">
+                            APCRDA
+                        </div>
+                        <div class="card-body">
+                          <div class="row text-center justify-content-center">
+                            <div class="col-12 col-sm-6 col-md-6">
+                              <h6>34195</h6>
+                              <p>Registrations Completed : </p>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6">
+                              <h6>1839</h6>
+                              <p>Registrations Pending &nbsp;: </p>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6">
+                                <p><i class="mdi mdi-star text-warning"></i>
+                                  <i class="mdi mdi-star text-warning"></i>
+                                  <i class="mdi mdi-star text-warning"></i>
+                                </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 grid-margin stretch-card">
+                      <div class="card">
+                        <div class="card-header text-center">
+                            Agriculture & Allied Sector
+                        </div>
+                        <div class="card-body">
+                          <div class="row text-center justify-content-center">
+                            
+                            <div class="col-12 col-sm-6 col-md-6">
+                              <p><i class="mdi mdi-star text-warning"></i><i class="mdi mdi-star text-warning"></i></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+                </div> -->
+
+              <div class="col-12 col-sm-3 col-md-3 navaratnalu2">
+                <div class="card">
+                  <div class="card-header">
+                    <h6 class="card-title mb-1 mt-1 text-center">నవరత్నాలు </h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-6 mb-2" data-toggle="modal" data-target="#exampleModalCenter">
+                        <div class="card">
+                          <div class="card-body">
+                            <img src="images/Navaratnalu/YSR-Rythu-Bharosa.jpg">
+                          </div>
+                          <div class="card-footer color1">వైఎస్ఆర్ రైతు భరోసా</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/Fee-Reimbursement.jpg">
+                          </div>
+                          <div class="card-footer color2">ఫీజు రీయింబర్స్‌మెంట్</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/Arogyasri.jpg">
+                          </div>
+                          <div class="card-footer color3">ఆరోగ్యశ్రీ</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/Amma-Vodi.jpg">
+                          </div>
+                          <div class="card-footer color6">అమ్మ వోడి</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/YSR-Asara.jpg">
+                          </div>
+                          <div class="card-footer color7">వైఎస్ఆర్ ఆసరా</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/Paydalandariki-Illu.jpg">
+                          </div>
+                          <div class="card-footer color8">పెదలందరికి ఇల్లు</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/Ban-on-Alcohol.jpg">
+                          </div>
+                          <div class="card-footer color5">మద్యంపై నిషేధం</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/Pensionla-Pempu.jpg">
+                          </div>
+                          <div class="card-footer color9">పెన్షన్ల పెంపు</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-2">
+                        <div class="card">
+                          <div class="card-body">
+                              <img src="images/Navaratnalu/Jalayagnam.jpg">
+                          </div>
+                          <div class="card-footer color4">జలయజ్ఞం</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="w-100 clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018 <a href=""
+                target="_blank">Tribal Welfare Department</a>. All rights reserved.</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+
+  <!-- <div class="ys-jagan-circle">
+    <a href=""  data-toggle="modal" data-target="#exampleModal">
+    <img src="images/Navaratnalu/ys-jagan-circle.png" data-toggle="tooltip" data-placement="left" title=""
+    data-original-title=" Message !" data-custom-class="tooltip-info">
+  </a>
+  </div> -->
+  <!-- Navaratnalu Popup -->
+  <!-- YSR Rythu Bharosa -->
+  <div class="modal modal-lg fade navaratnalu-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalCenterTitle"><img src="images/Navaratnalu/YSR-Rythu-Bharosa.jpg" class="mr-3"> YSR Rythu Bharosa</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"><i class="mdi mdi-close-circle"></i></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12">
+              <div class="media">
+                
+                <div class="media-body">
+                  <div class="row">
+                    <div class="col-md-4 sub-category">
+                      <h5>Agriculture</h5>
+                      <ul class="list-arrow">
+                        <li><a href="" title="">YSR Rythu Bharosa</a></li>
+                        <li><a href="" title="">Crop Insurance</a></li>
+                        <li><a href="" title="">Interest Free Crop Loan</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <h5>Agriculture</h5>
+                      <ul class="list-arrow">
+                        <li><a href="" title="">Free boars for Framers</a></li>
+                        <li><a href="" title="">1.5 Rs per Unit for Aqua farmers</a></li>
+                        <li><a href="" title="4 Rs bonus for farmers supplying milk to coperative socities">4 Rs bonus for farmers supplying milk to coperative socities</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-4">
+                      <h5>Agriculture</h5>
+                      <ul class="list-arrow">
+                        <li><a href="" title="Road Tax & Toll Tax weave off for agriculture tractors">Road Tax & Toll Tax weave off for agriculture tractors</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+             
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YSR Notifications -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><i class="mdi mdi-comment-check text-danger"></i> ముఖ్యమంత్రి వర్యులు నుండి సందేశం <strong> శ్రీ.వై.ఎస్. జగన్ మోహన్ రెడ్డి గారు,</strong> ఆంధ్రప్రదేశ్ </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="mdi mdi-close-circle"></i></span>
+              </button>
+            </div>
+            <div class="modal-body py-2">
+              <div class="container-fluid">
+                <div class="row justify-content-center">
+
+
+                  <div class="col-md-4">
+<img src="images/ys-jagan-mohanreddy.jpg" class="img-fluid">
+                  </div>
+
+
+                  <div class="col-md-8">
+
+
+              <ul class="list-ticked" style="font-size: 18px; font-weight: 600;font-family: 'Mandali', sans-serif;">
+                <li style="margin-bottom:20px;">ప్రజల కష్టాలు దగ్గరి నుంచి చూశారు.. నేనున్నానంటూ భరోసా ఇచ్చారు.. కులం, మతం, రాజకీయం చూడకుండా సాయం చేస్తామన్నారు. అధికారంలోకి రాగానే వాయు వేగంతో నిర్ణయాలు.. నవరత్నాలతో పేదల జీవితాల్లో వెలుగు నింపేందుకు శ్రీకారం.</li>
+                <li style="margin-bottom: 8px;">సచివాలయాల ద్వారా ఇంటి ముంగిటకే పాలన.</li>
+              </ul>
+            </div>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <!-- Navaratnalu Popup -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/todolist.js"></script>
+  <script src="vendors/chart.js/Chart.min.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/todolist.js"></script>
+	<script src="js/tooltips.js"></script>
+  <!-- CUSTOM JS -->
+  <script src="js/custom.js"></script>
+  <!-- CUSTOM JS -->
+  
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+
+  <script src="lobi/lib/jquery.1.11.min.js"></script>
+    <script src="lobi/lib/jquery-ui.min.js"></script>
+    <script src="lobi/lib/jquery.ui.touch-punch.min.js"></script>
+    <script src="lobi/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lobi/lib/highlight/highlight.pack.js"></script>
+    <script src="lobi/dist/js/lobipanel.js"></script>
+
+    <script>
+      
+    </script>
+
+</body>
+
+</html>

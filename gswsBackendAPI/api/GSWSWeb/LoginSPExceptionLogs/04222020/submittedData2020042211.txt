@@ -1,0 +1,1 @@
+220420111957AM:Error From GetLogin_SP:ORA-12545: Network Transport: Unable to resolve connect hostname

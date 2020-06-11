@@ -1,0 +1,2 @@
+080520151332PM:Error From GetWalletAmount:Unable to connect to the remote server
+080520151415PM:Error From GetWalletAmount:Unable to connect to the remote server

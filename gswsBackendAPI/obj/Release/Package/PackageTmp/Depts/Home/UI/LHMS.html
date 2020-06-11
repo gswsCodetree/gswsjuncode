@@ -1,0 +1,181 @@
+﻿<!-- Page content -->
+<div class="loader" ng-show="preloader"></div>
+<div class="page-content">
+	<!-- Main content -->
+	<div class="content-wrapper">
+		<!-- Content area -->
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 text-center mb-4">
+						<h1>Locked House Monitoring System</h1>
+					</div>
+					<div class="col-sm-12">
+						<div class="card">
+							<div class="card-body">
+
+								<div class="row justify-content-center">
+									<div class="col-md-12 text-center">
+										<img src="../../../images/lhms-ap-police.png" width="100px;" class="mb-3" /><br />
+									</div>
+								</div>
+
+								<!--1st slide start-->
+								<div class="row justify-content-center" ng-show="slide==1">
+									<div class="col-md-6 text-center">
+										<a href="" ng-click="selected(2);" class="btn btn-success btn-rounded rounded-round mr-2"><i class="icon icon-user-check"></i> Register</a>
+
+										<a href="" ng-click="selected(3);" class="btn btn-danger btn-rounded rounded-round"><i class="mi-av-timer"></i> Request Police Watch</a>
+									</div>
+								</div>
+								<!--1st slide end-->
+								<!--2nd slide start-->
+								<div class="row" ng-show="slide==2">
+									<div class="col-md-12 text-right"><button class="btn btn-info" ng-click="back(1);"><i class="mi-"></i> Back</button></div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="">Name</label>
+											<input type="text" ng-model="regname" class="form-control" id="" placeholder="Enter Name">
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="">Mobile Number</label>
+											<input type="text" ng-model="regmobile" maxlength="10" class="form-control" id="" placeholder="Enter Mobile Number">
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="">District</label>
+											<select class="form-control" ng-model="regdistrict">
+												<option selected value="">Select District</option>
+												<option selected ng-repeat="dis in districts" value={{dis.id}}>{{dis.name}}</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="">Municipality</label>
+											<select class="form-control" ng-model="regmunicipality" >
+												<option selected value="">Select Town</option>
+												<option selected ng-repeat="mun in municipality" value="{{mun.id}}" ng-show="regdistrict=={{mun.discode}}">{{mun.name}}</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="">Door Number</label>
+											<input type="text" ng-model="regdoorno" class="form-control" id="" placeholder="Enter Door Number">
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="">Address</label>
+											<textarea class="form-control" ng-model="regaddress" rows="1"></textarea>
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="">Latitude</label>
+											<input type="text" ng-model="reglatitude" class="form-control" id="" placeholder="Enter Latitude">
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="">Longitude</label>
+											<input type="text" ng-model="reglongitude" class="form-control" id="" placeholder="Enter Longitude">
+										</div>
+									</div>
+									<div class="col-md-12 text-center mt-2">
+										<button class="btn btn-outline-info" ng-click="GetLocation();"><i class="mi-my-location"></i> Get My Current Location</button>
+									</div>
+									<div class="col-md-12 text-center mt-2">
+										<button class="btn btn-outline-danger" ng-click="submitregisterreq();"><i class="mi-"></i> Register</button>
+									</div>
+								</div>
+								<!--2nd slide end-->
+								<!--3rd slide start-->
+								<div class="row" ng-show="slide==3">
+									<div class="col-md-12 text-right"><button class="btn btn-info" ng-click="back(1);"><i class="mi-"></i> Back</button></div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label for="">User ID</label>
+											<input type="text" ng-model="watchuserid" class="form-control" id="" placeholder="Enter ID">
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<div class="form-group">
+											<label>Start Date</label>
+											<div class="input-group">
+												<span class="input-group-prepend">
+													<span class="input-group-text"><i class="icon-calendar22"></i></span>
+												</span>
+												<input type="date" ng-model="watchstartdate" class="form-control daterange-single" value="" {{watchstartdate | date:'yyyy-MM-dd'}}>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<div class="form-group">
+											<label>Start Time</label>
+											<div class="input-group">
+												<span class="input-group-prepend">
+													<span class="input-group-text"><i class="icon-alarm"></i></span>
+												</span>
+												<input type="time" ng-model="watchstarttime" class="form-control daterange-single" value="">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<div class="form-group">
+											<label>End Date</label>
+											<div class="input-group">
+												<span class="input-group-prepend">
+													<span class="input-group-text"><i class="icon-calendar22"></i></span>
+												</span>
+												<input type="date" ng-model="watchenddate" class="form-control daterange-single" value="">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<div class="form-group">
+											<label>End Time</label>
+											<div class="input-group">
+												<span class="input-group-prepend">
+													<span class="input-group-text"><i class="icon-alarm"></i></span>
+												</span>
+												<input type="time" ng-model="watchendtime" class="form-control daterange-single" value="">
+											</div>
+										</div>
+									</div>
+
+
+
+
+									<div class="col-md-12 text-center mt-2">
+										<button class="btn btn-outline-danger" ng-click="submitwatchreq();"><i class="mi-"></i> Submit Watch Request</button>
+									</div>
+								</div>
+								<!--3rd slide end-->
+
+
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 mt-2">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

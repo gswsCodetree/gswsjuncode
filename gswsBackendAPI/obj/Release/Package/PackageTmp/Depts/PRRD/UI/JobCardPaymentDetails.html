@@ -1,0 +1,143 @@
+﻿<style>
+    th {
+        font-weight: bold !important;
+    }
+
+    thead {
+        background-color: cornflowerblue !important;
+        font-weight: bold !important;
+    }
+</style>
+<div class="container" style="margin-top:10px">
+    <div class="col-md-12" align="center">
+        <h3><b style="border-bottom:5px solid black">JOB CARD PAYMENT DETAILS</b></h3>
+    </div>
+    <div class="col-md-12" style="margin-top:50px">
+        <div class="row">
+            <div class="col-md-3">
+                <b>Search By</b>
+                <select ng-model="ddlSearchby" class="form-control">
+                    <option value="">Select</option>
+                    <option value="1">JobCard Number </option>
+                    <option value="2">UID</option>
+
+                </select>
+            </div>
+            <div class="col-md-3">
+                <b>Number</b>
+                <input type="text" alpha-numerics maxlength="25" ng-model="txtjobCardNumber" placeholder="Enter JobCard Number" class="form-control" />
+            </div>
+            <div class="col-md-2" style="margin-top:22px">
+                <button class="btn btn-primary" id="btnGetReport" ng-click="getdetails()">Get Details</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" style="margin-top:30px" ng-show="detailsshow">
+        <h3 align="center">JOB CARD PAYMENT DETAILS</h3>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr style="background-color: #2886cd; color: white">
+                                <th>HHCODE</th>
+                                <th>NAME </th>
+                                <th>WORKNAME </th>
+                                <th>DAYSWORKED </th>
+                                <th>MUSTERROLLSID </th>
+                                <th>TODATE </th>
+                                <th>PAYORDERNO </th>
+                                <th>EPAYORDERNO </th>
+                                <th>SENTDATE </th>
+                                <th>FTODEPOSTEDDATE </th>
+                                <th>DISBURSEDTIMEANDDATE </th>
+                                <th>DISBURSEDUPLOADEDDATE </th>
+                                <th>PAYORDERAMOUNT </th>
+                                <th>DISBURSEDAMOUNT </th>
+                                <th>OUTSTANDING </th>
+                                <th>MODEOFPAYMENT </th>
+                            </tr>
+                        </thead>
+                        <tr ng-repeat="responsedata in resdata">
+                            <td>{{responsedata.hhCode}}</td>
+                            <td>{{responsedata.name}}</td>
+                            <td>{{responsedata.workName}}</td>
+                            <td>{{responsedata.daysWorked}}</td>
+                            <td>{{responsedata.musterRollsId}}</td>
+                            <td>{{responsedata.toDate}}</td>
+                            <td>{{responsedata.payOrderNo}}</td>
+                            <td>{{responsedata.epayOrderNo}}</td>
+                            <td>{{responsedata.sentDate}}</td>
+                            <td>{{responsedata.ftoDepostedDate}}</td>
+                            <td>{{responsedata.disbursedTimeandDate}}</td>
+                            <td>{{responsedata.disbursedUploadedDate}}</td>
+                            <td>{{responsedata.payOrderAmount}}</td>
+                            <td>{{responsedata.disbursedAmount}}</td>
+                            <td>{{responsedata.outStanding}}</td>
+                            <td>{{responsedata.modeOfPayment}}</td>
+
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" style="margin-top:30px" ng-show="detailsshowUID">
+        <h3 align="center">PAYMENT DETAILS</h3>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr style="background-color: #2886cd; color: white">
+
+                                <th>HHCODE</th>
+                                <th>WORKERCODE </th>
+                                <th>BNFNAME </th>
+                                <th>EPAYORDERNO </th>
+                                <th>AMOUNT </th>
+                                <th>UIDNO </th>
+                                <th>NREGAACCNO </th>
+                                <th>FILESENTDATE </th>
+                                <th>CREDITSTATUS </th>
+                                <th>CREDITEDACCNO </th>
+                                <th>BANKNAME </th>
+                                <th>CBANKIINNO </th>
+                                <th>CBANKUTRNO </th>
+                                <th>REMARKS </th>
+
+                            </tr>
+                        </thead>
+                        <tr ng-repeat="responsedata in resdata">
+                            <td>{{responsedata.hhCode}}</td>
+                            <td>{{responsedata.workerCode}}</td>
+                            <td>{{responsedata.bnfName}}</td>
+                            <td>{{responsedata.epayOrderNo}}</td>
+                            <td>{{responsedata.amount}}</td>
+                            <td>{{responsedata.uidNo}}</td>
+                            <td>{{responsedata.nregaAccNo}}</td>
+                            <td>{{responsedata.fileSentDate}}</td>
+                            <td>{{responsedata.creditStatus}}</td>
+                            <td>{{responsedata.creditedAccNo}}</td>
+                            <td>{{responsedata.bankName}}</td>
+                            <td>{{responsedata.cbankIINNo}}</td>
+                            <td>{{responsedata.cbankUTRNo}}</td>
+                            <td>{{responsedata.remarks}}</td>
+
+
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12"> <div class="row">&nbsp;</div></div>
+    <div class="col-md-12"> <div class="row">&nbsp;</div></div>
+</div>
+
+

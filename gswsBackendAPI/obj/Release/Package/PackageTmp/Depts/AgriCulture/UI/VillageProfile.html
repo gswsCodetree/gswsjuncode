@@ -1,0 +1,143 @@
+﻿<style type="text/css">
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>e-Panta Village Profile</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-2 " style="text-align: end;">
+                                        <label class="col-lg-12"><b>Search By :</b></label>
+                                    </div>
+                                    <div class="col-md-3" style="text-align:center;">
+                                        <input type="radio" value="option1" data-ng-model="inputradio" ng-change='changeOption(inputradio)' />Village Name
+                                    </div>
+                                    <div class="col-md-3" style="text-align:center;">
+                                        <input type="radio" value="option2" data-ng-model="inputradio" ng-change='changeOption(inputradio)' />Survey Number
+                                    </div>
+                                    <div class="col-md-3" style="text-align:center;">
+                                        <input type="radio" value="option3" data-ng-model="inputradio" ng-change='changeOption(inputradio)' />Aadhaar Number
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-3">
+                                        <label class="col-lg-6 col-form-label"><b>District :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="seldistrict" ng-change="LoadMandal();" ng-options="rev.DName for rev in RevenuMasterDD | unique:'DCode'">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <!--<option data-ng-repeat="dis in RevenuMasterDD" value="{{dis.DCode}}">{{dis.DName}}</option>-->
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Mandal :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selmandal" ng-change="LoadVillages();" ng-options="rev.MName for rev in MandalDD | unique:'Mcode'">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <!--<option data-ng-repeat="man in RevenuMasterDD" ng-show="dis.Mcode = seldistrict.DCode" value="{{man.Mcode}}">{{man.MName}}</option>-->
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Village :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selvill" ng-options="rev.VName for rev in VillageDD | unique:'Vcode'">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <!--<option data-ng-repeat="vil in RevenuMasterDD" ng-show="dis.Mcode = seldistrict.DCode && dis.Vcode = selmandal.Mcode" value="{{vil.Vcode}}">{{vil.VName}}</option>-->
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2" ng-show="divsurvey">
+                                        <label class="col-lg-12 col-form-label"><b>Survey Number :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" alpha-numerics maxlength="25" data-ng-model="selsurveyNo" class="form-control" placeholder="Enter Survey Number" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2" ng-show="divaadhar">
+                                        <label class="col-lg-12 col-form-label"><b>Aadhaar Number :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" uid-input-model="selaadhaar" mask-length="8" autocomplete="off" placeholder="Enter Aadhaar Number" maxlength="12" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-1" style="margin-top:2.5%;">
+                                        <button type="button" data-ng-click="GetDetails(inputradio);" class="btn btn-primary">Get Details</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mt-2 " ng-show="dttable">
+                        <table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+                            <thead>
+                                <tr class="bg-dark" style="color:white !important;">
+                                    <th>S.No</th>
+                                    <th>Name</th>
+                                    <th>Father Name</th>
+                                    <th>Mobile Number</th>
+                                    <th>Aadhaar NO</th>
+                                    <th>Khata NO</th>
+                                    <th>Survey NO</th>
+                                    <th>Water Source</th>
+                                    <th>Crop Name</th>
+                                    <th>Sowing Date</th>
+                                    <th>Enjoyment Nature</th>
+
+                                    <th>Acreage Of Crop Area</th>
+                                    <th>Occupant Extent</th>
+                                    <th>Total Extent</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dt-rows ng-repeat="stu in VilDetails |  filter : SearchText">
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{stu.occupant_name_wl}}</td>
+                                    <td>{{stu.occupant_father_name_wl}}</td>
+                                    <td>{{stu.occupant_mobile_no}}</td>
+                                    <td>{{stu.occupant_aadhar_no}}</td>
+                                    <td>{{stu.khata_no_wl}}</td>
+                                    <td>{{stu.survey_no_wl}}</td>
+                                    <td>{{stu.source}}</td>
+                                    <td>{{stu.crop_name}}</td>
+                                    <td>{{stu.sowing_date}}</td>
+                                    <td>{{stu.enjoyment_nature_wl}}</td>
+
+                                    <td>{{stu.acreage_of_crop_area}}</td>
+                                    <td>{{stu.occupant_extent_wl}}</td>
+                                    <td>{{stu.total_extent_wl}}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

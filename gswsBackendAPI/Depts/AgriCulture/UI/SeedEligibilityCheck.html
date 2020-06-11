@@ -1,0 +1,121 @@
+﻿<style>
+	.panel {
+		margin-bottom: 20px;
+		background-color: #fff;
+		border: 1px solid transparent;
+		border-radius: 4px;
+	}
+
+	.panel-body {
+		padding: 15px;
+	}
+</style>
+<div class="container">
+	<div class="col-md-12" align="center" style="margin-top:10px">
+		<h3><b style="border-bottom:5px solid black">Seed Eligibility Check</b></h3>
+	</div>
+	<div class="col-md-12" style="margin-top:50px">
+		<div class="row">
+
+			<div class="col-md-3">
+				<b>District</b>
+				<select class="form-control" ng-model="ddldist">
+					<option value="">Select</option>
+					<option ng-repeat="obj in distlist| orderBy : 'LGD_DISTRICT_NAME'" value="{{obj.LGD_DISTRICT_CODE}}">{{obj.LGD_DISTRICT_NAME}}</option>
+				</select>
+			</div>
+			<div class="col-md-3">
+				<b>Seed Group</b>
+				<select class="form-control" ng-model="ddlgroup" ng-change="GetVariety(ddlgroup)">
+					<option value="">Select</option>
+					<option ng-repeat="x in SeedGroup| orderBy : 'groupname'" value="{{x.groupcode}}">{{x.groupname}}</option>
+				</select>
+			</div>
+			<div class="col-md-3">
+				<b>Seed Variety</b>
+				<select class="form-control" ng-model="ddlvariety">
+					<option value="">Select</option>
+					<option ng-repeat="x in SeedVariety| orderBy : 'varietyname'" value="{{x.varietycode}}">{{x.varietyname}}</option>
+				</select>
+			</div>
+			<div class="col-md-3">
+				<b>Crop Year</b>
+				<select class="form-control" ng-model="ddlseason">
+					<option value="">Select</option>
+					<option ng-repeat="x in Seasons" value="{{x.seasonvalue}}">{{x.seasonname}}</option>
+				</select>
+			</div>
+
+			<div class="col-md-12" style="margin-top:22px" align="center">
+				<button class="btn btn-primary" id="btnGetReport" ng-click="getdetails()">Get Details</button>
+				<button class="btn btn-danger" id="btnreset" ng-click="Refresh()">Reset</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-12" style="margin-top:10px" ng-show="divdetails">
+		<div class="row">
+
+			<div class="col-md-12">
+				<div class="panel" style="box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.3)">
+					<div class="panel-body">
+						<table class="table" style="background-color:white">
+							<tr>
+								<td><b>Seed Variety:</b> {{Info.varietyname}}</td>
+
+								<td> <b>District:</b> {{distName}}</td>
+
+								<td><b>Season:</b> {{Info.season}}</td>
+
+								<td><b>Crop Year:</b> {{Info.cropyear}}</td>
+
+								<td><b>Units:</b> Kg</td>
+
+							</tr>
+							<tr>
+								<td><b>Quantity Per Bag:</b> {{Info.qtyperbag}}</td>
+
+								<td><b>Price Per Unit:</b> {{Info.product_price}}</td>
+
+								<td><b>Subsidy Amount Per Unit:</b> {{Info.subsidy_amt}}</td>
+
+								<td><b>Payable Amount Per Unit:</b> {{Info.payable_amt}}</td>
+								<td></td>
+
+							</tr>
+						</table>
+						<div style="border:2px solid black"></div>
+						<table class="table table-bordered" style="margin-top:10px;">
+							<thead style="font-weight:bold;background-color:darkgrey;color:white">
+								<tr style="text-align:center">
+									<td colspan="3">Eligibility of Seeds</td>
+									<td colspan="2">Active Period</td>
+								</tr>
+								<tr>
+									<td>From Extent Acres</td>
+									<td>To Extent Acres</td>
+									<td>No Bags Allowed</td>
+
+									<td>From Date</td>
+									<td>To Date</td>
+								</tr>
+							</thead>
+
+							<tr ng-repeat="res1 in Eligibilities_Seed">
+								<td>{{res1.fromExtent}}</td>
+								<td>{{res1.toExtent}}</td>
+								<td>{{res1.eligibleBags}}</td>
+
+								<td>{{res1.fromDate}}</td>
+								<td>{{res1.toDate}}</td>
+							</tr>
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

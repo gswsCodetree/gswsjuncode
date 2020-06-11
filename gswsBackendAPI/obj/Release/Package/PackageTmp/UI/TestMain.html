@@ -1,0 +1,100 @@
+﻿
+    <style>
+        .highlighted {
+            background: yellow
+        }
+		.sub-service {
+			font-size: 12px !important;
+			text-decoration: underline !important;
+			color: #3f51b5 !important;
+		}
+
+        .description {
+    display:none;
+    position:absolute;
+    border:1px solid #000;
+    width:400px;
+    height:400px;
+}
+
+
+    </style>
+
+<section class="profile-bg pt-3  pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <span class="mr-5"><strong> Name :</strong> {{username}}</span> 
+                <span class="mr-3"><strong> Designation : </strong> </span>  
+                <p class="mr-3"><strong>Login Time:  </strong> {{ldate}}</p>
+            </div>
+            <div class="col-sm-6 text-right">
+                <!--<a href="profile-page.html" class="btn btn-success mb-3">Back</a>-->
+                <button class="btn btn-danger mb-3 btn-sm" ng-click="GetLogout();">Logout</button>
+                
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="container-fluid px-5 mb-5">
+
+    <div class="row">
+        <div class="col-sm-4 offset-4">
+
+            <h5 class="mb-3 scheme-title  text-center">Department Services</h5>
+        </div>
+        <div class="col-sm-12">
+
+            <div class="col-sm-4 offset-4  mb-4">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control"  ng-model="search.URL_DESCRIPTION" placeholder="Please Search By Keyword" ng-change="get_data()">
+                    <div class="input-group-append">
+                        <span class="btn btn-primary" type="submit"><i class="fa fa-search"></i></span>
+                    </div>
+                </div>
+               
+
+            </div>
+
+
+            <div class="row scheme">
+
+                <div class="col-sm-4" ng-repeat="obj in final_data">
+                    <h5 class="mb-3"> {{obj.DEPT_NAME}} </h5>
+                    <ul id="myUL {{obj.DEPT_ID}}">
+
+                        <li ng-repeat="inner_obj in obj.HOD_LIST">
+                            <span class="caret" ng-class="viewDropdown? 'caret caret-down' : 'caret'" ng-click="viewDropdown= !viewDropdown">{{inner_obj.HOD_NAME}}</span>
+                            <ul class="nested" ng-class="viewDropdown? 'nested active' : 'nested'">
+                                <li ng-mousedown="onMouseHold(event, url_obj);" ng-mouseup="onMouseRelease();" ng-click="process_url(url_obj);" ng-repeat="url_obj in inner_obj.URL_LIST" compile="details" ng-bind-html="url_obj.URL_DESCRIPTION | highlight:search.URL_DESCRIPTION">
+                                    <a class="sub-service" style="cursor:pointer">{{url_obj.URL_DESCRIPTION}}</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <iframe ng-show="hint_frame" class="description" src="http://www.google.co.in"></iframe>
+
+                <div class="col-sm-12" style="padding-top:20px;" ng-show="!final_data.length" align="center">
+                    <h2>No Data Available</h2>
+                </div>
+
+
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>

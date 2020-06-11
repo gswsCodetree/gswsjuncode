@@ -1,0 +1,16 @@
+190520223432PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223432PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223432PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223433PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223433PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223433PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223433PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223433PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223433PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223433PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223433PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223434PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223434PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223434PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223434PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname
+190520223540PM:Error From GSWS_SP_IN_CAPTCHA:ORA-12545: Network Transport: Unable to resolve connect hostname

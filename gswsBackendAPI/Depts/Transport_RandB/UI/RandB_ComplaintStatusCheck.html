@@ -1,0 +1,69 @@
+﻿
+<div class="container">
+	<div class="col-md-12" align="center" style="margin-top:10px">
+		<h3><b style="border-bottom:5px solid black">Complaint Status Check</b></h3>
+	</div>
+	<div class="col-md-12" style="margin-top:50px">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-4">
+				<b>Enter Complaint ID</b>
+				<input type="text" ng-model="txtcmplttid" placeholder="Enter Complaint ID" class="form-control" />
+			</div>
+			<div class="col-md-3" style="margin-top:22px">
+				<button class="btn btn-primary" id="btnGetReport" ng-click="getdetails()">Get Details</button>
+				<button class="btn btn-danger" id="btnreset" ng-click="Refresh()">Reset</button>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12" style="margin-top:30px" ng-show="detailsshow">
+		<div class="row">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-10">
+				<table class="table table-bordered">
+					<tr style="background-color:lightgray">
+						<td colspan="4" align="center"><b>COMPLAINT DETAILS</b></td>
+					</tr>
+					<tr>
+						<td style="font-weight:bold">REFERENCE ID</td>
+						<td>{{ResData.ReferenceId}}</td>
+
+						<td style="font-weight:bold">STATUS</td>
+						<td>{{ResData.Status}}</td>
+					</tr>
+
+					<tr>
+						<td style="font-weight:bold">USER NAME</td>
+						<td>{{ResData.UserName}}</td>
+						<td style="font-weight:bold">DISTRICT</td>
+						<td>{{ResData.distname}}</td>
+					</tr>
+					<tr>
+						<td style="font-weight:bold">CATEGORY</td>
+						<td>{{ResData.Category}}</td>
+						<td style="font-weight:bold">COMPLAINT RAISED ON</td>
+						<td>{{ResData.CreatedDate| date : "dd-MM-yyyy HH :mm:ss"}}</td>
+					</tr>
+					<tr>
+						<td style="font-weight:bold">PERSONAL ADDRESS</td>
+						<td>{{ResData.PersonalAddress}}</td>
+						<td style="font-weight:bold">COMPLAINT ADDRESS</td>
+						<td>{{ResData.ComplaintAddress}}</td>
+					</tr>
+
+					<tr>
+						<td style="font-weight:bold">COMPLAINT TYPE</td>
+						<td>{{ResData.ComplaintTitle}}</td>
+						<td style="font-weight:bold">COMPLAINT DESCRIPTION</td>
+						<td>{{ResData.ComplaintDescription}}</td>
+					</tr>
+
+
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+

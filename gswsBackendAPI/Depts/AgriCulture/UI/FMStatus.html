@@ -1,0 +1,108 @@
+﻿<style type="text/css">
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('../images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>Former Mechanization Application Status</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-3 col-form-label text-right">Application Number</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" alpha-numerics maxlength="25" data-ng-model="app_no" autocomplete="off" placeholder="Enter Application Number" class="form-control" />
+                                    </div>
+                                    <!--<div class="col-lg-3 row">
+                                        <img src="images/captcha.gif" class="w-50" />
+                                        <input type="text" class="form-control w-50" placeholder="Enter Captcha">
+                                    </div>-->
+                                    <div class="col-lg-3">
+                                        <button type="button" ng-click="GetStatus();" class="btn btn-primary">Get Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mt-2 " ng-show="dttable">
+                        <table class="table bg-white table-bordered table-striped table-hover layout-boxed-bg datatable-show-all">
+                            <thead>
+                                <tr class="bg-dark" style="color:white !important;">
+                                    <td colspan="4" class="text-center">Application Details</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Farmer Name</b></td>
+                                    <td>{{FarmerName}}</td>
+                                    <td><b>Father/Husband Name</b></td>
+                                    <td>{{FatherHusbandName}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Implement Subsidy Name</b></td>
+                                    <td>{{ImplementSubsidyName}}</td>
+                                    <td><b>Registation Date</b></td>
+                                    <td>{{ApplicationRegistrationDate}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Financial Year</b></td>
+                                    <td>{{FinYear}}</td>
+                                    <td><b>Reason for Rejection</b></td>
+                                    <td>{{ReasonforRejection}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Status</b></td>
+                                    <td colspan="3">{{Status}}</td>
+
+                                </tr>
+                            </tbody>
+
+                            <!--<thead>
+                                <tr class="bg-dark" style="color:white !important;">
+                                    <th>S.No</th>
+                                    <th>Farmer Name</th>
+                                    <th>Father/Husband Name</th>
+                                    <th>Implement Subsidy Name</th>
+                                    <th>Registation Date</th>
+                                    <th>Financial Year</th>
+                                    <th>Reason for Rejection</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dt-rows ng-repeat="stu in StudentDetails |  filter : SearchText">
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{stu.FarmerName}}</td>
+                                    <td>{{stu.FatherHusbandName}}</td>
+                                    <td>{{stu.ImplementSubsidyName}}</td>
+                                    <td>{{stu.ApplicationRegistrationDate}}</td>
+                                    <td>{{stu.FinYear}}</td>
+                                    <td>{{stu.ReasonforRejection}}</td>
+                                    <td>{{stu.Status}}</td>
+                                </tr>
+                            </tbody>-->
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

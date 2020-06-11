@@ -1,0 +1,133 @@
+﻿<style>
+
+    @font-face {
+        font-family: 'digital-7';
+        src: url('../../../fonts/digital-7.ttf') format('truetype');
+    }
+    .count-bx {
+        background: #4caf50;
+        color: white;
+        border-radius: 10px;
+        padding: 40px 10px;
+    }
+        .count-bx h5 {
+            font-size: 15px;
+            text-align: center;
+            margin-bottom: 26px;
+        }
+        .count-bx h4 {
+            font-size: 34px;
+            font-family: 'digital-7';
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+</style>
+
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-sm-12 text-center">
+            <h2>Dashboard Summary</h2>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-sm-4">
+            <div class="count-bx">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h5>Today Registered User</h5>
+                        <h4>{{todayreguser}}</h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <h5 style="margin-bottom:45px;">Total Users</h5>
+                        <h4>{{totuser}}</h4>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <h5>Total Deployed Today</h5>
+                        <h4>{{todaydeploy}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="count-bx">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h5>Today Watch Request</h5>
+                        <h4>{{todaywatch}}</h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <h5>Total Watch Request</h5>
+                        <h4>{{totalwatch}}</h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <h5>Failure Watch Request</h5>
+                        <h4>{{Failurewatch}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="count-bx">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h5>Successful Prevention WatchRequest</h5>
+                        <h4>{{sucpreWatch}}</h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5>RealTime Prevention Watch Request</h5>
+                        <h4>{{realprewatch}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row mt-5">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-5">
+                    <label>Start Date</label>
+                    <input type="date" ng-model="startdate" placeholder="Please select start date" class="form-control" />
+                </div>
+                <div class="col-sm-5">
+                    <label>End Date</label>
+                    <input type="date" ng-model="enddate" placeholder="Please select end date" class="form-control" />
+                </div>
+                <div class="col-sm-2">
+                    <label><br /><br /><br /></label>
+                    <input type="button" class="btn btn-success" value="Submit" ng-click="GetDateData();" />
+                </div>
+            </div>
+            </div>
+        </div>
+            <div class="row mt-5">
+                <div class="col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Sno</th>
+                                    <th>DISTRICT NAME</th>
+                                    <th>MANDAL NAME</th>
+                                    <th>TOTAL USERS</th>
+                                    <th>WATCH REQUEST</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="obj in  lhmsmandallist">
+                                    <td>{{$index+1}}</td>
+                                    <td>{{obj.name}}</td>
+                                    <td>{{obj.name}}</td>
+                                    <td>{{obj.user}}</td>
+                                    <td>{{obj.watchRequest}}</td>
+                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>

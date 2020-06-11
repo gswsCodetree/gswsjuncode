@@ -1,0 +1,89 @@
+﻿<style type="text/css">
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('assets/images/loader.gif') 50% 50% no-repeat #ffffffb8;
+    }
+</style>
+
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>Housing Application Status</h1>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="card">
+
+                            <div class="card-body">
+
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-4 col-form-label text-right">Enter Benificiary ID/Registration NO/Aadhaar NO/Ration Card</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" alpha-numerics maxlength="25" data-ng-model="userinput" autocomplete="off" placeholder="Enter " class="form-control" />
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button type="button" ng-click="GetStatus();" class="btn btn-primary">Get Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 mt-2 " ng-show="dttable">
+                        <table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+                            <thead>
+                                <tr class="bg-dark" style="color:white !important;">
+                                    <th>S.No</th>
+                                    <th>Benificiary ID</th>
+                                    <th>Benificiary Name</th>
+                                    <th>District Name</th>
+                                    <th>Mandal Name</th>
+                                    <th>Village Name</th>
+                                    <th>Registration Number</th>
+                                    <th>Aadhaar</th>
+                                    <th>Ration Card</th>
+                                    <th>Phase Status </th>
+                                    <th>Scheme Name</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>{{ben_id}}</td>
+                                    <td>{{ben_name}}</td>
+                                    <td>{{dist_name}}</td>
+                                    <td>{{mandal_name}}</td>
+                                    <td>{{village_name}}</td>
+                                    <td>{{reg_no}}</td>
+                                    <td>{{uid_no}}</td>
+                                    <td>{{ration_card_no}}</td>
+                                    <td>{{phase_status}}</td>
+                                    <td>{{scheme_name}}</td>
+                                    <td>{{ben_status}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

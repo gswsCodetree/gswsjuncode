@@ -1,0 +1,99 @@
+﻿
+<style>
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('images/loader.gif') 50% 50% no-repeat #fff;
+	}
+</style>
+<div class="page-content">
+	<div data-ng-show="preloader" class="loader"></div>
+	<!-- Main content -->
+	<div class="content-wrapper">
+		<!-- Content area -->
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<h3 class="api-page-title">AP Brahmin Welfare Corporation Check Applicant Status </h3>
+					</div>
+				
+					<div class="col-sm-12">						
+						<div class="card">
+							<div class="card-body">
+								<div class="form-group row mb-4">
+									<div class="col-md-4" style="text-align: right;">
+									<input type="radio" value="option1" data-ng-model="inputradio" />Aadhaar</div>
+									<div class="col-md-4" style="text-align: center;">
+										<input type="radio" value="option2" data-ng-model="inputradio" />Beneficiary ID
+									</div>
+									<div class="col-md-4" style="text-align: left;">
+										<input type="radio" value="option3" data-ng-model="inputradio" />Mobile No
+									</div>
+								</div>
+								<div class="form-group row mb-4">
+									<label class="col-lg-3 offset-sm-1 col-form-label text-right">Input ID : </label>
+									<div class="col-lg-3">
+										<input type="text" alpha-numerics maxlength="25" data-ng-model="benid" class="form-control" placeholder="Enter Input ID">
+									</div>
+									<div class="col-lg-3">
+										<button type="submit" data-ng-click="getdata();" class="btn btn-primary">Submit</button>
+									</div>
+								</div>
+
+						
+							<div class="col-sm-12 mt-2" data-ng-show="divtable">
+								<div class="table-responsive">
+									<table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+										<thead>
+											<tr class="bg-dark text-white text-center" style="white-space:nowrap;">
+												<th>Year</th>
+												<th>Scheme Name</th>
+												<th>BEN ID</th>
+												<th>Name</th>
+												<th>Application Status</th>
+												<th>Father/Gaurdian Name</th>
+												<th>Gender</th>
+												<th>DOB</th>
+												<!--<th>Address</th>
+								<th>District</th>-->
+												<th>Mobile</th>
+												<th>e-Mail ID</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr data-ng-repeat="ben in benstatus">
+												<td style="min-width: 90px;">{{ben.fin_year}}</td>
+												<td style="min-width: 300px;">{{ben.sch_name}}</td>
+												<td>{{ben.ben_id}}</td>
+												<td style="min-width: 300px;">{{ben.ben_fname}}</td>
+												<td style="min-width: 870px;">{{ben.app_stat}}</td>
+												<td style="min-width: 300px;">{{ben.gua_name}}</td>
+
+												
+
+												<td>{{ben.gen}}</td>
+												<td>{{ben.bir_dt}}</td>
+												<!--<td>{{ben.ben_add}}</td>
+								<td>{{ben.dis_name}}</td>-->
+												<td>{{ben.mob_pno}}</td>
+												<td>{{ben.mail_id}}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						</div>
+				
+				</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>

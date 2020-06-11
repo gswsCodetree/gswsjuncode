@@ -1,0 +1,166 @@
+﻿
+
+<style>
+
+    body {
+        background: #fff !important;
+    }
+
+    .table thead th {
+        padding: 8px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .table tbody td {
+        padding: 5px;
+    }
+
+    .btn {
+        padding: 2px 8px;
+    }
+
+    .table tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .table tbody tr:nth-of-type(even) {
+        background-color: rgba(120, 120, 120, 0.12);
+    }
+
+    .table tr td p {
+        margin-bottom: 0;
+    }
+
+    .form-control {
+        height: 30px !important;
+        padding: 0;
+    }
+
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
+        display: none !important;
+    }
+</style>
+
+
+<div class="row" style="padding-top:20px;" ng-show="tableData">
+    <div class="col-md-12 table-responsive">
+        <table class="table table-bordered">
+            <thead class="bg-success">
+                <tr align="center">
+                    <th>S.No.</th>
+                    <th>Cluster Name</th>
+                    <th>Volunteer Name</th>
+                    <th>Volunteer Mobile Number</th>
+                    <th>Incharge Name</th>
+                    <th>Incharge Mobile Number</th>
+                    <th>Incharge Designation</th>
+                    <th>Volunteer / Other</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody ng-show="!loader && inChargesList != ''">
+                <tr ng-repeat="obj in inChargesList" align="center">
+                    <td>{{$index + 1}}</td>
+                    <td>{{obj.CLUSTER_NAME}}</td>
+                    <td>{{obj.VOLUNTEER_NAME}}</td>
+                    <td>{{obj.VOLUNTEER_MOBILE}}</td>
+                    <td>{{obj.INCHARGE_NAME}}</td>
+                    <td>{{obj.INCHARGE_MOBILE}}</td>
+                    <td>{{obj.INCHARGE_DESIGNATION}}</td>
+                    <td>
+                        <p ng-if="obj.IS_VOLUNTEER == '0'">OTHER</p>
+                        <p ng-if="obj.IS_VOLUNTEER == '1'">VOLUNTEER</p>
+                        <p ng-if="obj.IS_VOLUNTEER == null">NA</p>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary" ng-if="obj.INCHARGE_STATUS == '0'" ng-click="btnChangeIncharge(obj);">Map Incharge</button>
+                        <button type="button" class="btn btn-warning" ng-if="obj.INCHARGE_STATUS == '1'" ng-click="btnChangeIncharge(obj);">Change Incharge</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody ng-show="!loader && inChargesList == ''" align="center">
+                <tr>
+                    <td colspan="8">
+                        <p>No Data Available</p>
+                    </td>
+                </tr>
+            </tbody>
+            <tbody ng-show="loader" align="center">
+                <tr>
+                    <td colspan="8">
+                        <p>Loading....</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="modal fade" id="changeInchargeModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Incharge Addition</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <h5>SECRETARIAT : {{secName}}</h5>
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <div class="form-group">
+                            <label for="InchargeType">Incharge Type <span style="color:red">*</span></label>
+                            <select id="InchargeType" class="form-control" ng-model="isVolunteer" ng-change="inchargeTypeChange();">
+                                <option value="">-- SELECT INCHARGE TYPE --</option>
+                                <option value="1">Volunteer</option>
+                                <option value="0">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-6" ng-show="isVolunteer == '1'">
+                        <div class="form-group">
+                            <label for="InchargeType">Incharge Type <span style="color:red">*</span></label>
+                            <select id="InchargeType" class="form-control" ng-model="volunteerDetails" >
+                                <option value="">-- SELECT VOLUNTEER --</option>
+                                <option value="{{obj}}" ng-repeat="obj in volunteerList">{{obj.VOLUNTEER_NAME}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-12" ng-show="isVolunteer == '0'">
+                        <div class="form-group">
+                            <label for="InchargeName">Incharge Name <span style="color:red">*</span></label>
+                            <input id="InchargeName" type="text" class="form-control" maxlength="100" placeholder="Please Enter Incharge Name" ng-model="InchargeName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="InchargeUid">Incharge Aadhaar <span style="color:red">*</span></label>
+                            <input id="InchargeUid" type="text" class="form-control" maxlength="12" placeholder="Please Enter Incharge Aadhaar Number" mask-length="8" uid-input-model="InchargeUid" />
+                        </div>
+                        <div class="form-group">
+                            <label for="InchargeId">Incharge CFMS ID <span style="color:red">*</span></label>
+                            <input id="InchargeId" type="text" class="form-control" maxlength="8" placeholder="Please Enter Incharge CFMS ID" numbers-only ng-model="InchargeId" />
+                        </div>
+                        <div class="form-group">
+                            <label for="InchargeMobile">Incharge Mobile Number <span style="color:red">*</span></label>
+                            <input id="InchargeMobile" type="text" class="form-control" maxlength="10" placeholder="Please Enter Incharge Mobile Number" numbers-only ng-model="InchargeMobile" />
+                        </div>
+                        <div class="form-group">
+                            <label for="Inchargedesignation">Incharge Designation<span style="color:red">*</span></label>
+                            <input id="Inchargedesignation" type="text" class="form-control" maxlength="50" placeholder="Please Enter Incharge Designation " ng-model="Inchargedesignation" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" align="center" ng-show="isVolunteer != ''">
+                        <button type="button" class="btn btn-success" ng-click="btnAddInchargeData();">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

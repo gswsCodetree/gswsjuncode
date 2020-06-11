@@ -1,0 +1,156 @@
+﻿<div class="loader" ng-show="preloader"></div>
+<div class="container">
+	<div class="row mt-4 scheme">
+		<div class="col-md-4">
+
+			<div class="dropdown">
+				<button type="button" class="btn bg-indigo-800 dropdown-toggle dropdown-toggle-cusotm float-left px-4 " data-toggle="dropdown" aria-expanded="false">
+					<i class="mi-cloud-download mr-1"></i> Downloads
+				</button>
+				<div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(951px, 38px, 0px);">
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/Desktop_Service_Centers_List.pdf" target="_blank">Desktop Service Centers List</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/Desktop_SLA.pdf" download>Desktop SLA</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/FPS_User_manual.pdf" download>FPS User manual</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/Laminator_machine_User_manual.pdf" download>Laminator machine User manual</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/M200_USer_Manual.pdf">M200 USer Manual</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/Mobile_Service_Centers_List.pdf">Mobile Service Centers List</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/Mobile_SLA.pdf">Mobile SLA</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/M200_USer_Manual.pdf">M200 USer Manual</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/Mobile_Service_Centers_List.pdf">Mobile Service Centers List</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/Mobile_SLA.pdf">Mobile SLA</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/Printer_Service_Centers_List.pdf">Printer Service Centers List</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/Printer_SLA.pdf">Printer SLA</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/Startek_Installation_for_Windows_USer_manual.pdf">Startek Installation for Windows USer manual</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/UPS_User_Manual.pdf">UPS User Manual</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/UPS_SLA.pdf">UPS SLA</a>
+					<a class="dropdown-item" href="../GSWS/Depts/Services/Downloads/UPS_FAQs.pdf">UPS FAQs</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 mb-3 text-center">
+			<h2><b>Report a Hardware Issue</b></h2>
+		</div>
+		<div class="col-md-4 text-right" ng-show="MAINDIV=='RAISEISSUES'">
+			<input type="button" class="btn btn-primary" value="Raised Issue Tracking" ng-click="ResolvedIssuesclick('SOLVEDISSUES','1');" />
+		</div>
+		<div class="col-md-4 text-right" ng-show="MAINDIV=='SOLVEDISSUES'">
+			<input type="button" class="btn btn-primary" value="Raise Issue" ng-click="ResolvedIssuesclick('RAISEISSUES');" />
+		</div>
+		<div class="row" ng-show="MAINDIV=='RAISEISSUES'">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label">District<span style="color:red"> *</span></label>
+					<input type="text" class="form-control" disabled ng-model="seldistrictname" />
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label">Mandal<span style="color:red"> *</span></label>
+					<input type="text" class="form-control" disabled ng-model="selmandalname" />
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label">Secretariat<span style="color:red"> *</span></label>
+					<input type="text" class="form-control" disabled ng-model="selVillagename" />
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label">Hardware Component<span style="color:red"> *</span></label>
+					<select class="form-control" ng-model="hwcomponent" ng-change="hwcomponentchange();">
+						<option value="">Select</option>
+						<option value="{{hw.COMPONENT_ID}}" ng-repeat="hw in HWComponentDD">{{hw.COMPONENT_NAME}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="form-control-label">Hardware Issue<span style="color:red"> *</span></label>
+					<select class="form-control" ng-model="hwissue">
+						<option value="">Select</option>
+						<option value="{{hi.ISSUE_ID}}" ng-repeat="hi in HWIssueDD">{{hi.ISSUE_NAME}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-9">
+							<label class="form-control-label">Image Upload</label><span style="color:red;
+    font-size: 10px;">(Only Image File - Max 1MB)</span>
+							<input type="file" ng-model="Image1" class="form-control" data-ak-file-model="userfilename1.attachment" />
+						</div>
+						<div class="col-sm-3 mt-4">
+							<input type="button" class="btn btn-success" value="Upload" ng-click="uploadfile(userfilename1,selVillage,hwcomponent,'Image1');" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="form-control-label">Remarks<span style="color:red"> *</span></label>
+					<textarea class="form-control" ng-model="hwremarks"></textarea>
+				</div>
+			</div>
+			<div class="col-md-12 text-center">
+				<button class="btn bg-indigo-800" ng-click="submit();">Submit </button>
+			</div>
+		</div>
+		<!--Closed Issues Start-->
+		<div class="col-md-12 mt-3" ng-show="MAINDIV=='SOLVEDISSUES'">
+			<div class="row">
+
+				<div class="col-md-4">
+					<input type="button" class="btn btn-primary" value="Open" ng-click="ResolvedIssuesclick('SOLVEDISSUES','1');" />
+					<input type="button" class="btn btn-primary" value="Closed" ng-click="ResolvedIssuesclick('SOLVEDISSUES','2');" />
+				</div>
+
+				<div class="col-md-4 text-center" ng-show="headshow=='1'"><h1 style="text-align: center;">Open Issues</h1></div>
+				<div class="col-md-4 text-center" ng-show="headshow=='2'"><h1 style="text-align: center;">Closed Issues</h1></div>
+
+				<div class="col-md-4"></div>
+
+
+			</div>
+			<!--Detail Data-->
+			<div class="row  text-center">
+				<div class="table table-responsive table-bordered mt-2">
+					<table class="table table-bordered bg-white">
+						<thead class="bg-dark">
+							<tr class="text-center">
+								<td>S.No</td>
+								<td>Asset Name</td>
+								<td>Issue Name</td>
+								<td>Token ID</td>
+								<td>Image</td>
+								<td>Remarks</td>
+								<td>Status</td>
+								<td>Closing Remarks</td>
+								<td>Closing Date</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="text-center " ng-repeat="det in ResolvedIssuesData">
+								<td>{{$index + 1}}</td>
+								<td>{{det.ASSETS}}</td>
+								<td>{{det.ISSUE_NAME}}</td>
+								<td>{{det.REPORT_ID}}</td>
+								<td ng-if="det.IMAGE_URL=='NA'">{{det.IMAGE_URL}}</td>
+								<td ng-if="det.IMAGE_URL!='NA'"><img style="height: 55px;" src="{{det.IMAGE_URL}}" /></td>
+								<td>{{det.REMARKS}}</td>
+								<td>{{det.STATUS}}</td>
+								<td>{{det.UPDATED_REMARKS}}</td>
+								<td ng-if="det.CLOSED_DATE==null">NA</td>
+								<td ng-if="det.CLOSED_DATE!=null">{{det.CLOSED_DATE}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!--Closed Issues End-->
+	</div>
+</div>

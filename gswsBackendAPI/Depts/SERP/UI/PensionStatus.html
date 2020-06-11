@@ -1,0 +1,84 @@
+﻿
+<style>
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('../images/loader.gif') 50% 50% no-repeat #fff;
+	}
+</style>
+
+<div class="page-content">
+	<div data-ng-show="preloader" class="loader"></div>
+	<!-- Main content -->
+	<div class="content-wrapper">
+
+		<!-- Content area -->
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+
+					<div class="col-sm-12 text-center mb-4">
+						<h1 style="text-align: center;">Pension Payment Status </h1>
+					</div>
+					<div class="col-sm-12">
+						<div class="card">
+
+							<div class="card-body">
+								<div class="form-group row mb-0">
+									<div class="col-md-6" style="text-align: end;">
+										<input type="radio" value="option1" data-ng-model="inputradio" />Aadhaar
+									</div>
+									<div class="col-md-6">
+										<input type="radio" value="option2" data-ng-model="inputradio" />Pension ID
+									</div>
+								</div>
+								<div class="form-group row mb-0" style="margin-top: 55px;margin-left: 223px;">
+									<label class="col-lg-3 col-form-label text-right"><b>Input ID :</b></label>
+									<div class="col-lg-3">
+										<!--<input type="text" autocomplete="off" uid-input-model="uid" mask-length="8" class="form-control" maxlength="12" placeholder="Enter Aadhaar Number">-->
+										<input type="text" autocomplete="off" data-ng-model="uid" class="form-control" placeholder="Enter Input ID" oninput="let p = this.selectionStart; this.value = this.value.toUpperCase();this.setSelectionRange(p, p);" />
+									</div>
+									<div class="col-lg-3">
+										<button type="submit" data-ng-click="getdata();" class="btn btn-primary">Submit</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-12 mt-2" data-ng-show="divtable">
+						<div class="table-responsive">
+							<table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+								<thead>
+									<tr class="bg-dark text-white text-center" style="white-space:nowrap;">
+										<th>Pensioner Name</th>
+										<th>Pensioner ID</th>
+										<th>Payment Date</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="text-center" data-ng-repeat="ben in benstatus">
+										<td>{{ben.PENSIONER_NAME}}</td>
+										<td>{{ben.PENSION_ID}}</td>
+										<td>{{ben.PAYMENT_DATE}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

@@ -1,0 +1,83 @@
+﻿<style type="text/css">
+
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('../images/loader.gif') 50% 50% no-repeat #fff;
+	}
+</style>
+<div class="page-content">
+	<div data-ng-show="preloader" class="loader"></div>
+	<!-- Main content -->
+	<div class="content-wrapper">
+		<!-- Content area -->
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 text-center mb-4">
+						<h1>Check Your Application Status</h1>
+					</div>
+					<div class="col-sm-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="form-group row mb-0">
+									<label class="col-lg-3 col-form-label text-right">Enter Your Service Request Number</label>
+									<div class="col-lg-3">
+										<input type="text" alpha-numerics maxlength="50"  ng-model="RequestId"  placeholder="Enter Your Service Request Number" class="form-control">
+									</div>
+
+									<div class="col-lg-3">
+										<button type="button" ng-click="GetStatus();" class="btn btn-primary">Submit</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12 mt-2 " ng-show="dttable">
+						<table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+							<thead>
+                                <tr class="bg-dark" style="color:white !important;">
+                                    <th>S.No</th>
+                                    <th>Transaction ID</th>
+                                    <th>HOD name</th>
+                                    <th>URL Description</th>
+                                    <th>Service Name</th>
+                                    <th>Registration Date</th>
+                                    <th>Department ID</th>
+                                    <th>Beneficiary Transaction ID</th>
+                                    <th>District Name</th>
+                                    <th>Mandal Name</th>
+                                    <th>Secretariat Name</th>
+                                    <th>Status</th>
+                                   
+                                </tr>
+							</thead>
+							<tbody>
+                                <tr dt-rows ng-repeat="stu in ApplicationDetails |  filter : SearchText">
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{stu.TRANSACTION_ID}}</td>
+                                    <td>{{stu.HOD_NAME}}</td>
+                                    <td>{{stu.URL_DESCRIPTION}}</td>
+                                    <td>{{stu.SERVICE_NAME}}</td>
+                                    <td>{{stu.INSERTED_DATE}}</td>
+                                    <td>{{stu.DEPT_TRANS_ID}}</td>
+                                    <td>{{stu.BEN_TRANS_ID}}</td>
+                                    <td>{{stu.DISTRICT_NAME}}</td>
+                                    <td>{{stu.MANDAL_NAME}}</td>
+                                    <td>{{stu.SECRETARIAT_NAME}}</td>
+                                    
+                                    <!--<td><button class="btn btn-danger" ng-click="GetPrint(stu.TRANSACTION_ID);">Print</button></td>-->
+                                </tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,1488 @@
+﻿<script type="text/javascript">var File1Base64 = "", File2Base64 = "", File3Base64 = "", File4Base64 = "", File5Base64 = "", File6Base64 = "", File7Base64 = "", File8Base64 = "", File9Base64 = "", File10Base64 = "", File11Base64 = "";
+    var FileNames = ['Photo of Proprietor/Managing Director/Managing Partner', 'Photo of other partners/Directors etc', 'Sale deed/Rental agreement/Lease Deed/No objection certificate in case of Rent free for principal place of business(1st & last pages)', 'Sale deed/Rental agreement/Lease Deed/No objection certificate in case of Rent free for "Additional places of business"(1st & last pages)', 'Proof of residence of proprietor,Managing partner,Managing Director,Authorised Person [Aadhaar]', 'Proof of residence of other partners/Directors [Aadhaar]', 'Copy of PAN card of business[in case of company/Partnership/society firm]/Copy of PAN card of Proprietor[proprietorship firm]', 'Copy of Bank Account', 'Dead of partnership/Memorandum and articles of association along with certificate from registrar of companies in case of private limited company/public limited Company(1st & last pages)', 'Municipal tax receipt/Municipal tax assessment proceedings/Electricity bill in case of own principal place of business', 'Municipal tax receipt/Municipal tax assessment proceedings/Electricity bill in case of own Additional places of business']
+
+    function CheckFileType(sno) {
+
+        var ext = $('#file' + sno).val().split('.').pop().toLowerCase();
+        if (ext == "jpeg" || ext == "jpg" || ext == "png" || ext == "pdf") {
+            var fn = $('#file' + sno).val();
+            var startIndex = (fn.indexOf('\\') >= 0 ? fn.lastIndexOf('\\') : fn.lastIndexOf('/'));
+            var filename = fn.substring(startIndex);
+            if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+                filename = filename.substring(1);
+                var filena = filename.split('.').slice(0, -1).join('.');
+                var dots = filena.split(".");
+                var str = filena;
+                if (/^[a-zA-Z0-9- ]*$/.test(str) == false || dots.length > 1) {
+                    swal("Info", 'Not Allowed Special Characters.', "info");
+                    $('#file' + sno).val('');
+                }
+                else {
+                    encodeImageFileAsURL($('#file' + sno).get(0), sno);
+
+                    swal("Info", "File Selected Successfully.", "info"); return;
+                }
+            }
+        }
+        else {
+            $('#file' + sno).val('');
+            swal('Info', 'upload only jpeg/jpg/png/pdf format', 'info'); $('#file' + sno).focus();
+        }
+    }
+
+    function encodeImageFileAsURL(element, sno) {
+        var file = element.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+
+            if (sno == "1")
+                File1Base64 = reader.result;
+            else if (sno == "2")
+                File2Base64 = reader.result;
+            else if (sno == "3")
+                File3Base64 = reader.result;
+            else if (sno == "4")
+                File4Base64 = reader.result;
+            else if (sno == "5")
+                File5Base64 = reader.result;
+            else if (sno == "6")
+                File6Base64 = reader.result;
+            else if (sno == "7")
+                File7Base64 = reader.result;
+            else if (sno == "8")
+                File8Base64 = reader.result;
+            else if (sno == "9")
+                File9Base64 = reader.result;
+            else if (sno == "10")
+                File10Base64 = reader.result;
+            else if (sno == "11")
+                File11Base64 = reader.result;
+
+        }
+        reader.readAsDataURL(file);
+    }
+
+    console.log("Test")</script>
+<style type="text/css">
+
+
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+
+    legend {
+        background: #004085;
+        padding: 4px 22px;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+    }
+
+    fieldset {
+        border: 2px solid gray !important;
+        border-radius: 3px;
+        padding: 30px !important;
+    }
+
+    .w-72 {
+        width: 72% !important;
+    }
+
+    .card {
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    }
+</style>
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row mb-5 justify-content-center">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1 style="text-align: center;">Profession Tax Application For Enrollment - Form II Edit (Annual)</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body pb-5">
+                                <!--Step 1 Starting-->
+                                <div ng-show="show_step1">
+                                    <!--Main Fieldset-->
+                                    <fieldset>
+                                        <legend class="w-auto">
+                                            Step 1
+                                        </legend>
+                                        <div class="form-group row mb-3">
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>TIN :</b></label>
+                                                <div>
+                                                    <input type="text" alpha-numerics maxlength="15" data-ng-model="EnteredTIN" data-ng-blur="GetDetails(EnteredTIN)" class="form-control" placeholder="Enter TIN">
+                                                    <p style="font-size:12px;">If you are already Registered under VAT Tax,ENter TIN</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>ETIN :</b></label>
+                                                <div>
+                                                    <input type="text" alpha-numerics maxlength="11" data-ng-model="EnteredETIN" data-ng-blur="GetDetails(EnteredETIN)" class="form-control" placeholder="Enter ETIN">
+                                                    <p style="font-size:12px;">If you are already Registered under Professional Tax,ENter TIN</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>LTIN :</b></label>
+                                                <div>
+                                                    <input type="text" alpha-numerics maxlength="11" data-ng-model="EnteredLTIN" data-ng-blur="GetDetails(EnteredLTIN)" class="form-control" placeholder="Enter LTIN">
+                                                    <p style="font-size:12px;">If you are already Registered under Luxury Tax,ENter TIN</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="form-group row mb-3">
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Application Date :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="date" data-ng-model="AppDate" class="form-control" placeholder="DD/MM/YYYY">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>EDR :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="date" data-ng-model="selEDR" class="form-control" placeholder="DD/MM/YYYY">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Tax Period :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <select class="form-control" data-ng-model="seltaxperiod" data-ng-change="">
+                                                        <option selected="selected" value="">-Select-</option>
+                                                        <option data-ng-repeat="dis in TPeriodsDD | filter:{status : 'A' }" value="{{dis.id}}">{{dis.value}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-3">
+                                            <div class="col-md-4">
+                                                <label class="col-lg-12 col-form-label"><b>Division :</b><span style="color:red"> *</span></label>
+                                                <div>
+                                                    <select class="form-control" data-ng-model="seldivision" data-ng-change="">
+                                                        <option selected="selected" value="">-Select-</option>
+                                                        <option data-ng-repeat="dis in DivisonsDD | filter:{ status : 'A' }" value="{{dis.division_code}}">{{dis.division_name}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-lg-12 col-form-label"><b>Circle :</b><span style="color:red"> *</span></label>
+                                                <div>
+                                                    <select class="form-control" data-ng-model="selcircle" data-ng-change="">
+                                                        <option selected="selected" value="">-Select-</option>
+                                                        <option data-ng-repeat="dis in CirclesDD | filter:{ status : 'A' }" ng-show="dis.division_code == seldivision" value="{{dis.circle_code}}">{{dis.circle_name}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-lg-12 col-form-label"><b>Category Type :</b><span style="color:red"> *</span></label>
+                                                <div>
+                                                    <select class="form-control" data-ng-model="selcategory" data-ng-change="">
+                                                        <option selected="selected" value="">-Select-</option>
+                                                        <option data-ng-repeat="dis in CategoryDD | filter:{ status : 'A' }" value="{{dis.categorytype_id}}">{{dis.cat_name}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Enterprise Name Field Set-->
+                                        <fieldset>
+                                            <legend class="w-auto">
+                                                Enterprise Name and Details
+                                            </legend>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Name of the Enterprise :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="100" alpha-numeric data-ng-model="Nameofenterprise" class="form-control" placeholder="Enter Name Of Enterprise" /><p style="font-size:12px;">(A to Z,0 to 9,&,/ and space only) (Max 100 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>PAN :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="10" data-ng-model="EnteredPAN" class="form-control" placeholder="Enter PAN" />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Email :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" data-ng-model="EnteredEmail" class="form-control" placeholder="Enter Email" />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Door Number :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="75" alpha-numeric data-ng-model="Entereddoorno" class="form-control" placeholder="Enter Door Number" /><p style="font-size:12px;">(A to Z,0 to 9,&,/ and space only) (Max 75 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Road/Street/Building Name :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="75" alpha-numeric data-ng-model="Enteredaddress" class="form-control" placeholder="Enter Road/Street/Building Name" /><p style="font-size:12px;">(A to Z,0 to 9,&,/ and space only) (Max 75 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Locality :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="75" alpha-numeric data-ng-model="Enteredlocality" class="form-control" placeholder="Enter Locality" /><p style="font-size:12px;">(A to Z,0 to 9,&,/ and space only) (Max 75 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>City/Town/Village :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="60" alpha-numeric data-ng-model="EnteredCity" class="form-control" placeholder="Enter City/Town/Village" /><p style="font-size:12px;">(A to Z,0 to 9,&,/ and space only) (Max 60 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Mandal/Municipality :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="60" alpha-numeric data-ng-model="Enteredmandal" class="form-control" placeholder="Enter Mandal/Municipality" /><p style="font-size:12px;">(A to Z,0 to 9,&,/ and space only) (Max 60 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>District :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <select class="form-control" data-ng-model="seldistrict" data-ng-change="">
+                                                        <option selected="selected" value="">-Select-</option>
+                                                        <option data-ng-repeat="dis in DistrictsDD | filter:{ status : 'A' }" ng-show="dis.state_code == '1'" value="{{dis.district_name}}">{{dis.district_name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3 text-right">
+                                                    <label><b>PIN :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" numbers-only maxlength="6" data-ng-model="EnteredPIN" class="form-control" placeholder="Enter PIN" />
+                                                    <p style="font-size:12px;">(6 Digits)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Phone Number :</b></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" numbers-only maxlength="12" data-ng-model="EnteredPhone" class="form-control" placeholder="Enter Phone Number" />
+                                                    <p style="font-size:12px;">(12 Digits)</p>
+                                                </div>
+                                                <div class="col-md-3 text-right">
+                                                    <label><b>Mobile Number :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" numbers-only maxlength="10" data-ng-model="EnteredMobile" class="form-control" placeholder="Enter Mobile Number" /><p style="font-size:12px;">(10 Digits)</p>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <!--Other Details Field Set-->
+                                        <fieldset class="mt-3">
+                                            <legend class="w-auto">
+                                                Other Details
+                                            </legend>
+                                            <div class="form-group row mb-3">
+                                                <div class="col-md-4">
+                                                    <label class="col-lg-12 col-form-label"><b>Profession,Trade or Calling :</b><span style="color:red"> *</span></label>
+                                                    <div>
+                                                        <select class="form-control" data-ng-model="selprofession" data-ng-change="">
+                                                            <option selected="selected" value="">-Select-</option>
+                                                            <option data-ng-repeat="dis in ProfessionDD | filter:{status : 'A' }" ng-show="dis.tax_period_code ==seltaxperiod" value="{{dis.profession_type_code}}">{{dis.profession_type}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="col-lg-12 col-form-label"><b>Profession Commencement Year :</b><span style="color:red"> *</span></label>
+                                                    <div>
+                                                        <select class="form-control" data-ng-model="selcomyear" data-ng-change="CalPStanding();">
+                                                            <option selected="selected" value="">-Select-</option>
+                                                            <option data-ng-repeat="dis in TaxPeriodDD" value="{{dis.id}}">{{dis.value}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="col-lg-12 col-form-label"><b>Profession of standing in Profession in Years & Months :</b></label>
+                                                    <div>
+                                                        <input type="text" data-ng-model="profyearmonths" class="form-control" disabled="disabled" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
+                                                <div class="col-md-4">
+                                                    <label class="col-form-label"><b>Service Tax Number :</b></label>
+                                                    <div>
+                                                        <input type="text" data-ng-model="servtaxno" class="form-control" placeholder="Enter Service Tax Number">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="col-form-label"><b>Annual Turnover :</b></label>
+                                                    <div>
+                                                        <input type="text" only-digits data-ng-model="annualturnover" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="col-form-label"><b>Numberof employees :</b></label>
+                                                    <div>
+                                                        <input type="text" numbers-only data-ng-model="noofemployees" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </fieldset>
+                                    <div class="mt-3 text-right">
+                                        <button type="button" data-ng-click="Next1();" class="btn btn-primary">Next</button>
+                                    </div>
+                                </div>
+                                <!--Step 1 Ending-->
+                                <!--Step 2 Starting-->
+                                <div ng-show="show_step2">
+                                    <fieldset>
+                                        <legend class="w-auto">
+                                            Step 2
+                                        </legend>
+                                        <!--<div class="form-group row mb-3">
+                                            <label><b>Registration No :</b></label>
+                                            <label style="color:cornflowerblue">&nbsp;37190311845002</label>
+                                        </div>-->
+                                        <fieldset>
+                                            <legend class="w-auto">
+                                                Owner/MD/Managing Partner Name and Details
+                                            </legend>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Name :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" alpha-numeric maxlength="75" data-ng-model="MDName" class="form-control" placeholder="Enter Name" /><p style="font-size:12px;">(A to Z and space only) (Max 75 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Father Name :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" alpha-numeric maxlength="50" data-ng-model="MDFName" class="form-control" placeholder="Enter Father Name" /><p style="font-size:12px;">(A to Z and space only) (Max 50 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Date of Birth :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="date" maxlength="50" data-ng-model="MDdob" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Gender :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <select class="form-control" data-ng-model="MDGender" data-ng-change="">
+                                                        <option selected="selected" value="">-Select Gender-</option>
+                                                        <option data-ng-repeat="dis in GendersDD | filter:{ status : 'A' }" value="{{dis.id}}">{{dis.value}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Email :</b></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="50" data-ng-model="MDEmail" class="form-control" placeholder="Enter Email" />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Door Number :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" alpha-numeric maxlength="50" data-ng-model="MDDoorno" class="form-control" placeholder="Enter Door Number" /><p style="font-size:12px;">(A to Z and space only) (Max 50 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Road/Street/Building Name :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" alpha-numeric maxlength="75" data-ng-model="MDstreet" class="form-control" placeholder="Enter Road/Street/Building Name" /><p style="font-size:12px;">(A to Z and space only) (Max 75 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Locality :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" alpha-numeric maxlength="75" data-ng-model="MDLocality" class="form-control" placeholder="Enter Locality" /><p style="font-size:12px;">(A to Z and space only) (Max 75 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>City/Town/village :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" alpha-numeric maxlength="60" data-ng-model="MDCity" class="form-control" placeholder="Enter City/Town/village" /><p style="font-size:12px;">(A to Z and space only) (Max 60 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Country :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <select class="form-control" data-ng-model="MDCountry" data-ng-change="step2_countrychange();">
+                                                        <option selected="selected" value="">-Select Country-</option>
+                                                        <option data-ng-repeat="dis in CountriesDD| filter:{ status : 'A' }" value="{{dis.country_code}}">{{dis.country_name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3 text-right" ng-show="step2_sate">
+                                                    <label><b>State :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3" ng-show="step2_sate">
+                                                    <select class="form-control" data-ng-model="MDState" data-ng-change="step2_statechange();">
+                                                        <option selected="selected" value="">-Select State-</option>
+                                                        <option data-ng-repeat="dis in StatesDD | filter:{ status : 'A' }" value="{{dis.state_name}}">{{dis.state_name}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3" ng-show="step2_dis">
+                                                    <label><b>District :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3" ng-show="step2_dis">
+                                                    <select class="form-control" data-ng-model="MDDistrict" data-ng-change="">
+                                                        <option selected="selected" value="">-Select District-</option>
+                                                        <option data-ng-repeat="dis in DistrictsDD | filter:{ status : 'A' }" ng-show="dis.state_code =='1'" value="{{dis.district_name}}">{{dis.district_name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3 text-right">
+                                                    <label><b>PIN :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" numbers-only maxlength="6" data-ng-model="MDPIN" class="form-control" placeholder="Enter PIN" /><p style="font-size:12px;">(6 Digits)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>PAN(Owner) :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" maxlength="6" data-ng-model="MDPAN" class="form-control" placeholder="Enter PAN" /><p style="font-size:12px;">(A to Z,0 to 9 only)</p>
+                                                </div>
+                                                <div class="col-md-3 text-right">
+                                                    <label><b>AADHAAR :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" numbers-only maxlength="12" data-ng-model="MDAadhaar" class="form-control" placeholder="Enter AADHAAR Number" /><p style="font-size:12px;">(12 Digits)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Phone Number :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" numbers-only maxlength="12" data-ng-model="MDPhone" class="form-control" placeholder="Enter PhoneNumber" /><p style="font-size:12px;">(12 Digits)</p>
+                                                </div>
+                                                <div class="col-md-3 text-right">
+                                                    <label><b>Mobile Number :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" numbers-only maxlength="12" data-ng-model="MDMobile" class="form-control" placeholder="Enter Mobile Number" /><p style="font-size:12px;">(10 Digits)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-4">
+                                                    <label><b>Have You Nominated any "Authorized Person"?</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="radio" ng-model="MDNominee" value="Y" />Yes
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="radio" ng-model="MDNominee" value="N" />No
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </fieldset>
+                                    <div class="row mt-3 justify-content-end">
+                                        <button type="button" data-ng-click="Previous2();" class="btn btn-primary mr-1">Previous</button>
+                                        <button type="button" data-ng-click="Next2();" class="btn btn-primary">Next</button>
+                                    </div>
+                                </div>
+                                <!--Step 2 Ending-->
+                                <!--Step 3 Starting-->
+                                <div ng-show="show_step3">
+                                    <fieldset>
+                                        <legend class="w-auto">
+                                            Step 3
+                                        </legend>
+                                        <!--<div class="form-group row mb-3">
+                                            <label><b>Registration No :</b></label>
+                                            <label style="color:cornflowerblue">&nbsp;37190311845002</label>
+                                        </div>-->
+                                        <fieldset>
+                                            <legend class="w-auto">
+                                                Authorised Person Name and Address
+                                            </legend>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Name :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="75" data-ng-model="AuthorName" class="form-control" placeholder="Enter Name" /><p style="font-size:12px;">(A to Z and space only) (Max 75 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Father Name :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="50" data-ng-model="AuthorFName" class="form-control" placeholder="Enter Father Name" /><p style="font-size:12px;">(A to Z and space only) (Max 50 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Date of Birth :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="date" maxlength="50" data-ng-model="Authordob" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Gender :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <select class="form-control" data-ng-model="AuthorGender" data-ng-change="">
+                                                        <option selected="selected" value="">-Select Gender-</option>
+                                                        <option data-ng-repeat="dis in GendersDD | filter:{ status : 'A' }" value="{{dis.id}}">{{dis.value}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Email :</b></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="50" data-ng-model="AuthorEmail" class="form-control" placeholder="Enter Email" />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Door Number :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="50" data-ng-model="AuthorDoorno" class="form-control" placeholder="Enter Door Number" /><p style="font-size:12px;">(A to Z and space only) (Max 50 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Road/Street/Building Name :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="75" data-ng-model="Authorstreet" class="form-control" placeholder="Enter Road/Street/Building Name" /><p style="font-size:12px;">(A to Z and space only) (Max 75 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Locality :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="75" data-ng-model="AuthorLocality" class="form-control" placeholder="Enter Locality" /><p style="font-size:12px;">(A to Z and space only) (Max 75 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>City/Town/village :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" maxlength="60" data-ng-model="AuthorCity" class="form-control" placeholder="Enter City/Town/village" /><p style="font-size:12px;">(A to Z and space only) (Max 60 Characters)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>District :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <select class="form-control" data-ng-model="AuthorDistrict" data-ng-change="">
+                                                        <option selected="selected" value="">-Select District-</option>
+                                                        <option data-ng-repeat="dis in DistrictsDD | filter:{ status : 'A' }" ng-show="dis.state_code == '1'" value="{{dis.district_name}}">{{dis.district_name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3 text-right">
+                                                    <label><b>PIN :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" numbers-only maxlength="6" data-ng-model="AuthorPIN" class="form-control" placeholder="Enter PIN" /><p style="font-size:12px;">(6 Digits)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>PAN(Owner) :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" maxlength="10" data-ng-model="AuthorPAN" class="form-control" placeholder="Enter PAN" /><p style="font-size:12px;">(A to Z,0 to 9 only)</p>
+                                                </div>
+                                                <div class="col-md-3 text-right">
+                                                    <label><b>AADHAAR :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" numbers-only maxlength="12" data-ng-model="AuthorAadhaar" class="form-control" placeholder="Enter AADHAAR Number" /><p style="font-size:12px;">(12 Digits)</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-3">
+                                                    <label><b>Phone Number :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" numbers-only maxlength="12" data-ng-model="AuthorPhone" class="form-control" placeholder="Enter PhoneNumber" /><p style="font-size:12px;">(12 Digits)</p>
+                                                </div>
+                                                <div class="col-md-3 text-right">
+                                                    <label><b>Mobile Number :</b><span style="color:red">*</span></label>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" numbers-only maxlength="12" data-ng-model="AuthorMobile" class="form-control" placeholder="Enter Mobile Number" /><p style="font-size:12px;">(10 Digits)</p>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </fieldset>
+                                    <div class="row mt-3 justify-content-end">
+                                        <button type="button" data-ng-click="Previous3();" class="btn btn-primary mr-1">Previous</button>
+                                        <button type="button" data-ng-click="Next3();" class="btn btn-primary">Next</button>
+                                    </div>
+                                </div>
+                                <!--Step 3 Ending-->
+                                <!--Step 4 Starting-->
+                                <div ng-show="show_step4">
+                                    <fieldset>
+                                        <legend class="w-auto">
+                                            Step 4
+                                        </legend>
+                                        <!--<div class="form-group row mb-3">
+                                            <label><b>Registration No :</b></label>
+                                            <label style="color:cornflowerblue">&nbsp;37190311845002</label>
+                                        </div>-->
+                                        <fieldset>
+                                            <legend class="w-auto">
+                                                Bank Details
+                                            </legend>
+                                            <div class="col-sm-12 mb-3">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Bank Name : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <select class="form-control" data-ng-model="BankName" ng-options="dis as dis.bank_name for dis in BanksDD">
+                                                                    <option selected="selected" value="">-Select Bank-</option>
+                                                                    <!--<option data-ng-repeat="dis in BanksDD | filter:{ status : 'A' }" value="{{dis.bank_code}}">{{dis.bank_name}}</option>-->
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>IFSC Code : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" alpha-numbers data-ng-model="BankIFSC" class="form-control" placeholder="Enter IFSC Code" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Branch Address : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" alpha-numbers data-ng-model="BranchAddr" class="form-control" placeholder="Enter Branch Address" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Account Number : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" alpha-numbers data-ng-model="BankACNo" class="form-control" placeholder="Enter Account Number" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="button" class="d-block btn btn-primary" data-ng-click="addBank();" value="ADD" style="background: #004085;justify-content: center;width:100%;" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <table class="table table-bordered mb-3">
+                                                    <thead class="text-white" style="text-align:center;background: #004085">
+                                                        <tr>
+                                                            <th>SNO</th>
+                                                            <th>Bank Name</th>
+                                                            <th>IFSC Code</th>
+                                                            <th>Branch Address</th>
+                                                            <th>Account Number</th>
+                                                            <th>Modifications</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="text-align:center">
+                                                        <tr data-ng-repeat="bank in BanksTable">
+                                                            <td> {{$index + 1}} </td>
+                                                            <td> {{bank.bankname}} </td>
+                                                            <td>{{bank.ifsc_code}} </td>
+                                                            <td>{{bank.bank_branch_address}} </td>
+                                                            <td>  {{bank.account_number}} </td>
+                                                            <td><input type="button" class="d-block btn btn-danger" data-ng-click="removeBank($index)" value="DELETE" style="width: 100%;justify-content: center;" /></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <p style="font-size:12px;">(Enter A to Z,0 to 9,/ Only)</p>
+                                                <!-- <p style="font-size:12px;color:red">All the Fields are Mandatory</p>-->
+                                            </div>
+                                        </fieldset>
+                                    </fieldset>
+                                    <div class="row mt-3 justify-content-end">
+                                        <button type="button" data-ng-click="Previous4();" class="btn btn-primary mr-1">Previous</button>
+                                        <button type="button" data-ng-click="Next4();" class="btn btn-primary">Next</button>
+                                    </div>
+                                </div>
+                                <!--Step 4 Ending-->
+                                <!--Step 5 Starting-->
+                                <div ng-show="show_step5">
+                                    <fieldset>
+                                        <legend class="w-auto">
+                                            Step 5
+                                        </legend>
+                                        <!--<div class="form-group row mb-3">
+                                            <label><b>Registration No :</b></label>
+                                            <label style="color:cornflowerblue">&nbsp;37190311845002</label>
+                                        </div>-->
+                                        <div class="form-group row mb-3">
+                                            <label><b>If you have partners fill the Details below otherwise click next button to proceed</b></label>
+                                        </div>
+                                        <fieldset>
+                                            <legend class="w-auto">
+                                                Partner/Director Address
+                                            </legend>
+                                            <div class="col-sm-12 mb-3">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Partner/Director Name : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" alpha-numbers data-ng-model="PartnerName" class="form-control" placeholder="Enter Name" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Date of Birth : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="date" data-ng-model="PartnerDOB" class="form-control" placeholder="DDMMYYYY" />
+                                                            </div>
+
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Partner Type : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <select class="form-control" data-ng-model="PartnerType">
+                                                                    <option selected="selected" value="">-Select Type-</option>
+                                                                    <option data-ng-repeat="dis in PartnersDD | filter:{ status : 'A' }" value="{{dis.partner_id}}">{{dis.Partner_type}}</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Gender : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <select class="form-control" data-ng-model="PartnerGender">
+                                                                    <option selected="selected" value="">-Select Gender-</option>
+                                                                    <option data-ng-repeat="dis in GendersDD | filter:{ status : 'A' }" value="{{dis.id}}">{{dis.value}}</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>House Wife : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="radio" ng-model="PartnerHouseWife" value="Y" />Yes
+                                                                <input type="radio" ng-model="PartnerHouseWife" value="N" />NO
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Email ID : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" data-ng-model="PartnerEmail" class="form-control" placeholder="Enter Email" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Door Number : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" alpha-numerics data-ng-model="PartnerDoor" class="form-control" placeholder="Enter Door Number" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Road/Street/Building : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" alpha-numerics data-ng-model="PartnerStreet" class="form-control" placeholder="Enter Street" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Locality : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" alpha-numerics data-ng-model="PartnerLocation" class="form-control" placeholder="Enter Location" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>City : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" alpha-numerics data-ng-model="PartnerCity" class="form-control" placeholder="Enter City" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>District : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <select class="form-control" data-ng-model="PartnerDistrict">
+                                                                    <option selected="selected" value="">-Select District-</option>
+                                                                    <option data-ng-repeat="dis in DistrictsDD | filter:{ status : 'A' }" ng-show="dis.state_code == '1'" value="{{dis.district_name}}">{{dis.district_name}}</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>PIN : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" numbers-only maxlength="6" data-ng-model="PartnerPIN" class="form-control" placeholder="Enter PIN" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>PAN : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" data-ng-model="PartnerPAN" class="form-control" placeholder="Enter PAN" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Aadhaar Number : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" numbers-only maxlength="12" data-ng-model="PartnerUID" class="form-control" placeholder="Enter Aadhaar" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Phone Number : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" numbers-only maxlength="12" data-ng-model="PartnerPhone" class="form-control" placeholder="Enter Phone" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Mobile Number : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" numbers-only maxlength="10" data-ng-model="PartnerMobile" class="form-control" placeholder="Enter Mobile" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="button" class="d-block btn btn-primary" data-ng-click="addPartner();" value="ADD" style="background: #004085;justify-content: center;width:100%;" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered mb-3">
+                                                        <thead class="text-white" style="text-align:center;background: #004085">
+                                                            <tr>
+                                                                <th>SNO</th>
+                                                                <th>Partner/Director Name</th>
+                                                                <th>Date Of Birth</th>
+                                                                <th>Partner Type</th>
+                                                                <th>Gender</th>
+                                                                <th>House Wife</th>
+                                                                <th>Email ID</th>
+                                                                <th>Door Number</th>
+                                                                <th>Road/Street/Building</th>
+                                                                <th>Locality</th>
+                                                                <th>City</th>
+                                                                <th>District</th>
+                                                                <th>PIN</th>
+                                                                <th>PAN</th>
+                                                                <th>Aadhaar Number</th>
+                                                                <th>Phone Number</th>
+                                                                <th>Mobile Number</th>
+                                                                <th>Modifications</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="text-align:center">
+                                                            <tr data-ng-repeat="par in PartnersTable">
+                                                                <td> {{$index + 1}} </td>
+                                                                <td> {{par.name}} </td>
+                                                                <td>{{par.DOB}} </td>
+                                                                <td>{{par.partner_type}} </td>
+                                                                <td>{{par.gender}} </td>
+                                                                <td>  {{par.is_housewife}} </td>
+                                                                <td>  {{par.email_id}} </td>
+                                                                <td>  {{par.door_no}} </td>
+                                                                <td>  {{par.street}} </td>
+                                                                <td>  {{par.location}} </td>
+                                                                <td>  {{par.city}} </td>
+                                                                <td>  {{par.district_code}} </td>
+                                                                <td>  {{par.pin}} </td>
+                                                                <td>  {{par.pan_number}} </td>
+                                                                <td>  {{par.uid}} </td>
+                                                                <td>  {{par.phone_number}} </td>
+                                                                <td>  {{par.mobile_number}} </td>
+                                                                <td><input type="button" class="d-block btn btn-danger" data-ng-click="removePartner($index)" value="DELETE" style="width: 100%;justify-content: center;" /></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <p style="font-size:12px;">(Enter A to Z,0 to 9,/ Only)</p>
+                                                    <!-- <p style="font-size:12px;color:red">All the Fields are Mandatory</p>-->
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+                                    </fieldset>
+                                    <div class="row mt-3 justify-content-end">
+                                        <button type="button" data-ng-click="Previous5();" class="btn btn-primary mr-1">Previous</button>
+                                        <button type="button" data-ng-click="Next5();" class="btn btn-primary">Next</button>
+                                    </div>
+                                </div>
+                                <!--Step 5 Ending-->
+                                <!--Step 6 Starting-->
+                                <div ng-show="show_step6">
+                                    <fieldset>
+                                        <legend class="w-auto">
+                                            Step 6
+                                        </legend>
+                                        <!--<div class="form-group row mb-3">
+                                            <label><b>Registration No :</b></label>
+                                            <label style="color:cornflowerblue">&nbsp;37190311845002</label>
+                                        </div>-->
+                                        <div class="form-group row mb-3">
+                                            <label><b>If you have additional place of business fill the details below otherwise click next button to proceed</b></label>
+                                        </div>
+                                        <fieldset>
+                                            <legend class="w-auto">
+                                                Additional place of Business Address
+                                            </legend>
+                                            <div class="col-sm-12 mb-3">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="form-group row">
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Door Number : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" alpha-numerics data-ng-model="BusinessDoor" class="form-control" placeholder="Enter Door Number" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Road/Street/Building : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" alpha-numerics data-ng-model="BusinessStreet" class="form-control" placeholder="Enter Street" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Locality : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" alpha-numerics data-ng-model="BusinessLocation" class="form-control" placeholder="Enter Location" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>Mandal : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" alpha-numerics data-ng-model="BusinessMandal" class="form-control" placeholder="Enter Location" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>City : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" alpha-numerics data-ng-model="BusinessCity" class="form-control" placeholder="Enter City" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>District : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <select class="form-control" data-ng-model="BusinessDistrict">
+                                                                    <option selected="selected" value="">-Select District-</option>
+                                                                    <option data-ng-repeat="dis in DistrictsDD | filter:{ status : 'A' }" ng-show="dis.state_code == '1'" value="{{dis.district_name}}">{{dis.district_name}}</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label><b>State :</b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <select class="form-control" data-ng-model="BusinessState" data-ng-change="">
+                                                                    <option selected="selected" value="">-Select State-</option>
+                                                                    <option data-ng-repeat="dis in StatesDD | filter:{ status : 'A' }" value="{{dis.state_code}}">{{dis.state_name}}</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <label class=""><b>PIN : </b><span style="color:red">*</span></label>
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="text" numbers-only maxlength="6" data-ng-model="BusinessPIN" class="form-control" placeholder="Enter PIN" />
+                                                            </div>
+                                                            <div class="col-md-2 mb-3">
+                                                                <input type="button" class="d-block btn btn-primary" data-ng-click="addBusiness();" value="ADD" style="background: #004085;justify-content: center;width:100%;" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered mb-3">
+                                                        <thead class="text-white" style="text-align:center;background: #004085">
+                                                            <tr>
+                                                                <th>SNO</th>
+                                                                <th>Door Number</th>
+                                                                <th>Road/Street/Building</th>
+                                                                <th>Locality</th>
+                                                                <th>Mandal</th>
+                                                                <th>City</th>
+                                                                <th>District</th>
+                                                                <th>State</th>
+                                                                <th>Pin/Zip</th>
+                                                                <th>Modifications</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="text-align:center">
+                                                            <tr data-ng-repeat="par in BusinessTable">
+                                                                <td> {{$index + 1}} </td>
+                                                                <td>  {{par.door_no}} </td>
+                                                                <td>  {{par.street}} </td>
+                                                                <td>  {{par.location}} </td>
+                                                                <td>  {{par.mandal_code}} </td>
+                                                                <td>  {{par.city}} </td>
+                                                                <td>  {{par.district_name}} </td>
+                                                                <td>  {{par.state_code}} </td>
+                                                                <td>  {{par.pin}} </td>
+                                                                <td><input type="button" class="d-block btn btn-danger" data-ng-click="removeBusiness($index)" value="DELETE" style="width: 100%;justify-content: center;" /></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <p style="font-size:12px;">(Enter A to Z,0 to 9,/ Only)</p>
+                                                    <!-- <p style="font-size:12px;color:red">All the Fields are Mandatory</p>-->
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+                                    </fieldset>
+                                    <div class="row mt-3 justify-content-end">
+                                        <button type="submit" data-ng-click="Previous6();" class="btn btn-primary mr-1">Previous</button>
+                                        <button type="submit" data-ng-click="Next6();" class="btn btn-primary">Next</button>
+                                    </div>
+                                </div>
+                                <!--Step 6 Ending-->
+                                <!--Step 7 Starting -->
+                                <div ng-show="show_step7">
+                                    <fieldset>
+                                        <legend class="w-auto">
+                                        </legend>
+                                        <div class="form-group row mb-3">
+                                            <label><b>Registration No :</b></label>
+                                            <label style="color:cornflowerblue">&nbsp;37190311845002</label>
+                                        </div>
+                                        <fieldset>
+                                            <legend class="w-auto">
+                                                Check & Upload Documents<span style="color:red">*</span>
+                                            </legend>
+                                            <div class="form-group">
+                                                <label class="row"><b>Note : </b>You can submit the supporting documents </label>
+                                                <label class="row">a.Through Courier(indicate the documents by ticking the checklist)</label>
+                                                <label class="row">(or)</label>
+                                                <label class="row">b.Through online mode (Upload scanned copies.Accepted file formats are jpg,jpeg,png,pdf(PDF and Image)only,with size less than500kb)</label>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <input type="radio" ng-model="IsOnline" value="Y" />
+                                                <div class="col-md-3">
+                                                    <label><b>Online :</b><span style="color:red">*</span></label>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3 justify-content-center">
+                                                <button type="button" data-ng-click="confirm();" class="btn btn-primary mr-1">Confirm</button>
+                                            </div>
+                                            <label class="mt-3">Please Note that you cannot change the option once you confirmed it.</label>
+                                        </fieldset>
+                                    </fieldset>
+                                    <div class="row mt-3 justify-content-end">
+                                        <button type="button" data-ng-click="Previous7();" class="btn btn-primary mr-1">Previous</button>
+                                        <button type="button" data-ng-click="Next7();" class="btn btn-primary">Finish</button>
+                                    </div>
+                                </div>
+                                <!--Step 7 Ending -->
+                                <!--Step 8 Starting -->
+                                <div class="mt-3" ng-show="show_step8">
+                                    <fieldset>
+                                        <legend class="w-auto">
+                                        </legend>
+                                        <div class="form-group">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead class="text-white" style="text-align:center;background: #004085">
+                                                        <tr>
+                                                            <th>Documents Checklist</th>
+                                                            <th>Upload Documents</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><input type="checkbox" data-ng-model="UplDoc1" value="1" ng-change="DocumentCheckChange('1');" /><label>&nbsp;&nbsp;Photo of Proprietor/Managing Director/Managing Partner</label></td>
+                                                            <td ng-show="isupload1"><input type="file" accept="image/jpeg,image/png,image/jpg,application/pdf" ng-model="UplFile1" id="file1" name="file" onchange="CheckFileType('1');" class="w-72" /><button type="submit" data-ng-click="UploadDocumnet('1','1');" class="btn btn-primary mr-1">Upload</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox" data-ng-model="UplDoc2" value="1" ng-change="DocumentCheckChange('2');" /><label>&nbsp;&nbsp;Photo of other partners/Directors etc</label></td>
+                                                            <td ng-show="isupload2"><input type="file" ng-model="UplFile2" accept="image/jpeg,image/png,image/jpg,application/pdf" id="file2" name="file" onchange="CheckFileType('2');" class="w-72" /><button type="submit" data-ng-click="UploadDocumnet('2','2');" class="btn btn-primary mr-1">Upload</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox" data-ng-model="UplDoc3" value="1" ng-change="DocumentCheckChange('3');" /><label>&nbsp;&nbsp;Sale deed/Rental agreement/Lease Deed/No objection certificate in case of Rent free for principal place of business(1st & last pages)</label></td>
+                                                            <td ng-show="isupload3"><input type="file" ng-model="UplFile3" accept="image/jpeg,image/png,image/jpg,application/pdf" id="file3" name="file" onchange="CheckFileType('3');" class="w-72" /><button type="submit" data-ng-click="UploadDocumnet('3','3');" class="btn btn-primary mr-1">Upload</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox" data-ng-model="UplDoc4" value="1" ng-change="DocumentCheckChange('4');" /><label>&nbsp;&nbsp;Sale deed/Rental agreement/Lease Deed/No objection certificate in case of Rent free for "Additional places of business"(1st & last pages)</label></td>
+                                                            <td ng-show="isupload4"><input type="file" ng-model="UplFile4" accept="image/jpeg,image/png,image/jpg,application/pdf" id="file4" name="file" onchange="CheckFileType('4');" class="w-72" /><button type="submit" data-ng-click="UploadDocumnet('4','5');" class="btn btn-primary mr-1">Upload</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox" data-ng-model="UplDoc5" value="1" ng-change="DocumentCheckChange('5');" /><label>&nbsp;&nbsp;Proof of residence of proprietor,Managing partner,Managing Director,Authorised Person [Aadhaar]</label></td>
+                                                            <td ng-show="isupload5"><input type="file" ng-model="UplFile5" accept="image/jpeg,image/png,image/jpg,application/pdf" id="file5" name="file" onchange="CheckFileType('5');" class="w-72" /><button type="submit" data-ng-click="UploadDocumnet('5','7');" class="btn btn-primary mr-1">Upload</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox" data-ng-model="UplDoc6" value="1" ng-change="DocumentCheckChange('6');" /><label>&nbsp;&nbsp;Proof of residence of other partners/Directors [Aadhaar]</label></td>
+                                                            <td ng-show="isupload6"><input type="file" ng-model="UplFile6" accept="image/jpeg,image/png,image/jpg,application/pdf" id="file6" name="file" onchange="CheckFileType('6');" class="w-72" /><button type="submit" data-ng-click="UploadDocumnet('6','8');" class="btn btn-primary mr-1">Upload</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox" data-ng-model="UplDoc7" value="1" ng-change="DocumentCheckChange('7');" /><label>&nbsp;&nbsp;Copy of PAN card of business[in case of company/Partnership/society firm]/Copy of PAN card of Proprietor[proprietorship firm]</label></td>
+                                                            <td ng-show="isupload7"><input type="file" ng-model="UplFile7" accept="image/jpeg,image/png,image/jpg,application/pdf" id="file7" name="file" onchange="CheckFileType('7');" class="w-72" /><button type="submit" data-ng-click="UploadDocumnet('7','9');" class="btn btn-primary mr-1">Upload</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox" data-ng-model="UplDoc8" value="1" ng-change="DocumentCheckChange('8');" /><label>&nbsp;&nbsp;Copy of Bank Account</label></td>
+                                                            <td ng-show="isupload8"><input type="file" ng-model="UplFile8" accept="image/jpeg,image/png,image/jpg,application/pdf" id="file8" name="file" onchange="CheckFileType('8');" class="w-72" /><button type="submit" data-ng-click="UploadDocumnet('8','10');" class="btn btn-primary mr-1">Upload</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox" data-ng-model="UplDoc9" value="1" accept="image/jpeg,image/png,image/jpg,application/pdf" ng-change="DocumentCheckChange('9');" /><label>&nbsp;&nbsp;Dead of partnership/Memorandum and articles of association along with certificate from registrar of companies in case of private limited company/public limited Company(1st & last pages)</label></td>
+                                                            <td ng-show="isupload9"><input type="file" ng-model="UplFile9" accept="image/jpeg,image/png,image/jpg,application/pdf" id="file9" name="file" onchange="CheckFileType('9');" class="w-72" /><button type="submit" data-ng-click="UploadDocumnet('9','11');" class="btn btn-primary mr-1">Upload</button></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td><input type="checkbox" data-ng-model="UplDoc10" value="1" ng-change="DocumentCheckChange('10');" /><label>&nbsp;&nbsp;Municipal tax receipt/Municipal tax assessment proceedings/Electricity bill in case of own principal place of business.</label></td>
+                                                            <td ng-show="isupload10"><input type="file" ng-model="UplFile10" accept="image/jpeg,image/png,image/jpg,application/pdf" id="file10" name="file" onchange="CheckFileType('10');" class="w-72" /><button type="submit" data-ng-click="UploadDocumnet('10','16');" class="btn btn-primary mr-1">Upload</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><input type="checkbox" data-ng-model="UplDoc11" value="1" ng-change="DocumentCheckChange('11');" /><label>&nbsp;&nbsp;Municipal tax receipt/Municipal tax assessment proceedings/Electricity bill in case of own Additional places of business.</label></td>
+                                                            <td ng-show="isupload11"><input type="file" ng-model="UplFile11" accept="image/jpeg,image/png,image/jpg,application/pdf" id="file11" name="file" onchange="CheckFileType('11');" class="w-72" /><button type="submit" data-ng-click="UploadDocumnet('11','17');" class="btn btn-primary mr-1">Upload</button></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <thead class="text-white" style="text-align:center;background: #004085">
+                                                        <tr>
+                                                            <th>SNO</th>
+                                                            <th>RNR</th>
+                                                            <th>Document Name</th>
+                                                            <th>File Name</th>
+                                                            <th>Delete</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!--<tr>
+                                                            <td>37190311</td>
+                                                            <td>Copy of pan card of business</td>
+                                                            <td>007.jpg</td>
+                                                            <td>DELETE</td>
+                                                        </tr>-->
+                                                        <tr data-ng-repeat="upl in UplFilesTable">
+                                                            <td> {{$index + 1}} </td>
+                                                            <td>  {{upl.doc_id}} </td>
+                                                            <td>  {{upl.doc_docname}} </td>
+                                                            <td>  {{upl.doc_uplname}} </td>
+                                                            <td><input type="button" class="d-block btn btn-danger" data-ng-click="removeUpload($index)" value="DELETE" style="width: 100%;justify-content: center;" /></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                    <div class="row mt-3 justify-content-end">
+                                        <button type="button" data-ng-click="Previous8();" class="btn btn-primary mr-1">Previous</button>
+                                        <button type="button" data-ng-click="Next8();" class="btn btn-primary">Finish</button>
+                                    </div>
+                                </div>
+                                <!--Step 8 Ending -->
+                                <!--Step 9 starting-->
+                                <div class="mt-3" ng-show="show_step9">
+                                    <div>
+                                        <h3 style="text-align:center;text-decoration:underline;color:green;">Preview Of Application</h3>
+                                        <!--Enter Enterprise Details-->
+                                        <fieldset class="mb-3">
+                                            <legend class="w-auto">
+                                                Enterprise Details
+                                            </legend>
+                                            <div class="form-group row">
+                                                <label class="col-md-2">TIN :</label> <label class="col-md-2"><b>{{EnteredTIN}}</b></label>
+                                                <label class="col-md-2">ETIN :</label> <label class="col-md-2"><b>{{EnteredETIN}}</b></label>
+                                                <label class="col-md-2">LTIN :</label> <label class="col-md-2"><b>{{EnteredLTIN}}</b></label>
+                                            </div>
+                                            <hr />
+                                            <div class="form-group row">
+                                                <label class="col-md-2">Application Date :</label> <label class="col-md-2"><b dat-bind="">{{AppDate}}</b></label>
+                                                <label class="col-md-2">EDR :</label> <label class="col-md-2"><b>{{selEDR}}</b></label>
+                                                <label class="col-md-2">Tax Period :</label> <label class="col-md-2"><b>{{seltaxperiod}}</b></label>
+                                                <label class="col-md-2">Division :</label> <label class="col-md-2"><b>{{seldivision}}</b></label>
+                                                <label class="col-md-2">Circle :</label> <label class="col-md-2"><b>{{selcircle}}</b></label>
+                                                <label class="col-md-2">Category Type :</label> <label class="col-md-2"><b>{{selcategory}}</b></label>
+                                            </div>
+                                            <fieldset>
+                                                <legend class="w-auto">
+                                                    Enterprise Details
+                                                </legend>
+                                                <div class="form-group row">
+                                                    <label class="col-md-2">Name :</label> <label class="col-md-2"><b>{{Nameofenterprise}}</b></label>
+                                                    <label class="col-md-2">PAN :</label> <label class="col-md-2"><b>{{EnteredPAN}}</b></label>
+                                                    <label class="col-md-2">Email :</label> <label class="col-md-2"><b>{{EnteredEmail}}</b></label>
+                                                    <label class="col-md-2">Door NO :</label> <label class="col-md-2"><b>{{Entereddoorno}}</b></label>
+                                                    <label class="col-md-2">Street Name :</label> <label class="col-md-2"><b>{{Enteredaddress}}</b></label>
+                                                    <label class="col-md-2">Locality :</label> <label class="col-md-2"><b>{{Enteredlocality}}</b></label>
+                                                    <label class="col-md-2">City :</label> <label class="col-md-2"><b>{{EnteredCity}}</b></label>
+                                                    <label class="col-md-2">Mandal :</label> <label class="col-md-2"><b>{{Enteredmandal}}</b></label>
+                                                    <label class="col-md-2">District :</label> <label class="col-md-2"><b>{{seldistrict}}</b></label>
+                                                    <label class="col-md-2">PIN :</label> <label class="col-md-2"><b>{{EnteredPIN}}</b></label>
+                                                    <label class="col-md-2">Phone Number :</label> <label class="col-md-2"><b>{{EnteredPhone}}</b></label>
+                                                    <label class="col-md-2">Mobile Number :</label> <label class="col-md-2"><b>{{EnteredMobile}}</b></label>
+                                                    <label class="col-md-2">Profession,Trade or Calling :</label> <label class="col-md-2"><b>{{selprofession}}</b></label>
+                                                    <label class="col-md-2">Profession Commencement Year :</label> <label class="col-md-2"><b>{{selcomyear}}</b></label>
+                                                    <label class="col-md-2">Profession of standing in Profession in Years & Months :</label> <label class="col-md-2"><b>{{EnteredLTIN}}</b></label>
+                                                    <label class="col-md-2">Service Tax Number :</label> <label class="col-md-2"><b>{{servtaxno}}</b></label>
+                                                    <label class="col-md-2">Annual Turnover :</label> <label class="col-md-2"><b>{{annualturnover}}</b></label>
+                                                    <label class="col-md-2">Numberof employees :</label> <label class="col-md-2"><b>{{noofemployees}}</b></label>
+                                                </div>
+                                            </fieldset>
+                                        </fieldset>
+                                        <!--Owner/MD/Managing Partner Name and Details-->
+                                        <fieldset class="mb-3">
+                                            <legend class="w-auto">
+                                                Owner/MD/Managing Partner Name and Details
+                                            </legend>
+                                            <div class="form-group row">
+                                                <label class="col-md-2">Name :</label> <label class="col-md-2"><b>{{MDName}}</b></label>
+                                                <label class="col-md-2">Father Name :</label> <label class="col-md-2"><b>{{MDFName}}</b></label>
+                                                <label class="col-md-2">Date of Birth :</label> <label class="col-md-2"><b>{{MDdob}}</b></label>
+                                                <label class="col-md-2">Gender :</label> <label class="col-md-2"><b>{{MDGender}}</b></label>
+                                                <label class="col-md-2">Email :</label> <label class="col-md-2"><b>{{MDEmail}}</b></label>
+                                                <label class="col-md-2">Door NO :</label> <label class="col-md-2"><b>{{MDDoorno}}</b></label>
+                                                <label class="col-md-2">Street :</label> <label class="col-md-2"><b>{{MDstreet}}</b></label>
+                                                <label class="col-md-2">Locality :</label> <label class="col-md-2"><b>{{MDLocality}}</b></label>
+                                                <label class="col-md-2">City :</label> <label class="col-md-2"><b>{{MDCity}}</b></label>
+                                                <label class="col-md-2">Country :</label> <label class="col-md-2"><b>{{MDCountry}}</b></label>
+                                                <label class="col-md-2">State :</label> <label class="col-md-2"><b>{{MDState}}</b></label>
+                                                <label class="col-md-2">District :</label> <label class="col-md-2"><b>{{MDDistrict}}</b></label>
+                                                <label class="col-md-2">PIN :</label> <label class="col-md-2"><b>{{MDPIN}}</b></label>
+                                                <label class="col-md-2">PAN :</label> <label class="col-md-2"><b>{{MDPAN}}</b></label>
+                                                <label class="col-md-2">Aadhaar :</label> <label class="col-md-2"><b>{{MDAadhaar}}</b></label>
+                                                <label class="col-md-2">Phone Number :</label> <label class="col-md-2"><b>{{MDPhone}}</b></label>
+                                                <label class="col-md-2">Mobile Number :</label> <label class="col-md-2"><b>{{MDMobile}}</b></label>
+                                                <label class="col-md-2">Have You Nominated any "Authorized Person"? :</label> <label class="col-md-2"><b>{{MDNominee}}</b></label>
+                                            </div>
+                                        </fieldset>
+                                        <!--Authorised Person Name and Address-->
+                                        <fieldset class="mb-3">
+                                            <legend class="w-auto">
+                                                Authorised Person Name and Address
+                                            </legend>
+                                            <div class="form-group row" ng-show="MDNominee=='Y'">
+                                                <label class="col-md-2">Name :</label> <label class="col-md-2"><b>{{AuthorName}}</b></label>
+                                                <label class="col-md-2">Father Name :</label> <label class="col-md-2"><b>{{AuthorFName}}</b></label>
+                                                <label class="col-md-2">Date of Birth :</label> <label class="col-md-2"><b>{{Authordob}}</b></label>
+                                                <label class="col-md-2">Gender :</label> <label class="col-md-2"><b>{{AuthorGender}}</b></label>
+                                                <label class="col-md-2">Email :</label> <label class="col-md-2"><b>{{AuthorEmail}}</b></label>
+                                                <label class="col-md-2">Door NO :</label> <label class="col-md-2"><b>{{AuthorDoorno}}</b></label>
+                                                <label class="col-md-2">Street :</label> <label class="col-md-2"><b>{{Authorstreet}}</b></label>
+                                                <label class="col-md-2">Locality :</label> <label class="col-md-2"><b>{{AuthorLocality}}</b></label>
+                                                <label class="col-md-2">City :</label> <label class="col-md-2"><b>{{AuthorCity}}</b></label>
+                                                <label class="col-md-2">District :</label> <label class="col-md-2"><b>{{AuthorDistrict}}</b></label>
+                                                <label class="col-md-2">PIN :</label> <label class="col-md-2"><b>{{AuthorPIN}}</b></label>
+                                                <label class="col-md-2">PAN :</label> <label class="col-md-2"><b>{{AuthorPAN}}</b></label>
+                                                <label class="col-md-2">Aadhaar :</label> <label class="col-md-2"><b>{{AuthorAadhaar}}</b></label>
+                                                <label class="col-md-2">Phone Number :</label> <label class="col-md-2"><b>{{AuthorPhone}}</b></label>
+                                                <label class="col-md-2">Mobile Number :</label> <label class="col-md-2"><b>{{AuthorMobile}}</b></label>
+                                            </div>
+                                        </fieldset>
+                                        <!--Bank Details-->
+                                        <fieldset class="mb-3">
+                                            <legend class="w-auto">
+                                                Bank Details
+                                            </legend>
+                                            <div class="form-group">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead class="text-white" style="text-align:center;background: #004085">
+                                                            <tr>
+                                                                <th>SNO</th>
+                                                                <th>Bank Name</th>
+                                                                <th>IFSC Code</th>
+                                                                <th>Branch Address</th>
+                                                                <th>Account Number</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="text-align:center">
+                                                            <tr data-ng-repeat="bank in BanksTable">
+                                                                <td> {{$index + 1}} </td>
+                                                                <td> {{bank.bankname}} </td>
+                                                                <td>{{bank.ifsc_code}} </td>
+                                                                <td>{{bank.bank_branch_address}} </td>
+                                                                <td>  {{bank.account_number}} </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <!--Partner/Director Address-->
+                                        <fieldset class="mb-3">
+                                            <legend class="w-auto">
+                                                Partner/Director Address
+                                            </legend>
+                                            <div class="form-group" ng-show="PartnersTable.length > 0">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead class="text-white" style="text-align:center;background: #004085">
+                                                            <tr>
+                                                                <th>SNO</th>
+                                                                <th>Partner/Director Name</th>
+                                                                <th>Date Of Birth</th>
+                                                                <th>Partner Type</th>
+                                                                <th>Gender</th>
+                                                                <th>House Wife</th>
+                                                                <th>Email ID</th>
+                                                                <th>Door Number</th>
+                                                                <th>Road/Street/Building</th>
+                                                                <th>Locality</th>
+                                                                <th>City</th>
+                                                                <th>District</th>
+                                                                <th>PIN</th>
+                                                                <th>PAN</th>
+                                                                <th>Aadhaar Number</th>
+                                                                <th>Phone Number</th>
+                                                                <th>Mobile Number</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="text-align:center">
+                                                            <tr data-ng-repeat="par in PartnersTable">
+                                                                <td>  {{$index + 1}} </td>
+                                                                <td>  {{par.name}} </td>
+                                                                <td>  {{par.DOB}} </td>
+                                                                <td>  {{par.partner_type}} </td>
+                                                                <td>  {{par.gender}} </td>
+                                                                <td>  {{par.is_housewife}} </td>
+                                                                <td>  {{par.email_id}} </td>
+                                                                <td>  {{par.door_no}} </td>
+                                                                <td>  {{par.street}} </td>
+                                                                <td>  {{par.location}} </td>
+                                                                <td>  {{par.city}} </td>
+                                                                <td>  {{par.district_name}} </td>
+                                                                <td>  {{par.pin}} </td>
+                                                                <td>  {{par.pan_number}} </td>
+                                                                <td>  {{par.uid}} </td>
+                                                                <td>  {{par.phone_number}} </td>
+                                                                <td>  {{par.mobile_number}} </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <!--Additional place of Business Address-->
+                                        <fieldset class="mb-3">
+                                            <legend class="w-auto">
+                                                Additional place of Business Address
+                                            </legend>
+                                            <div class="form-group" ng-show="BusinessTable.length > 0">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered mb-3">
+                                                        <thead class="text-white" style="text-align:center;background: #004085">
+                                                            <tr>
+                                                                <th>SNO</th>
+                                                                <th>Door Number</th>
+                                                                <th>Road/Street/Building</th>
+                                                                <th>Locality</th>
+                                                                <th>Mandal</th>
+                                                                <th>City</th>
+                                                                <th>District</th>
+                                                                <th>State</th>
+                                                                <th>Pin/Zip</th>
+                                                                
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="text-align:center">
+                                                            <tr data-ng-repeat="par in BusinessTable">
+                                                                <td>  {{$index + 1}} </td>
+                                                                <td>  {{par.door_no}} </td>
+                                                                <td>  {{par.street}} </td>
+                                                                <td>  {{par.location}} </td>
+                                                                <td>  {{par.mandal_code}} </td>
+                                                                <td>  {{par.city}} </td>
+                                                                <td>  {{par.district_name}} </td>
+                                                                <td>  {{par.state_code}} </td>
+                                                                <td>  {{par.pin}} </td>
+                                                                
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <!--Check List Document Details-->
+                                        <fieldset class="mb-3">
+                                            <legend class="w-auto">
+                                                Check List Document Details
+                                            </legend>
+                                            <div class="form-group">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead class="text-white" style="text-align:center;background: #004085">
+                                                            <tr>
+                                                                <th>SNO</th>
+                                                                <th>RNR</th>
+                                                                <th>Document Name</th>
+                                                                <th>File Name</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                            <tr data-ng-repeat="upl in UplFilesTable">
+                                                                <td>  {{$index + 1}} </td>
+                                                                <td>  {{upl.doc_id}} </td>
+                                                                <td>  {{upl.doc_docname}} </td>
+                                                                <td>  {{upl.doc_uplname}} </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="row mt-3 justify-content-center">
+                                        <button type="button" data-ng-click="Edit();" class="btn btn-primary mr-1" ng-hide="IsSuccess">Edit</button>
+                                        <button type="button" data-ng-click="RegisterEdit();" class="btn btn-primary mr-1" ng-hide="IsSuccess">Submit</button>
+                                        <button type="button" data-ng-click="Home();" class="btn btn-primary mr-1" ng-show="IsSuccess"><i class="fa fa-home"></i> &nbsp;&nbsp; Home</button>
+                                        <!--<button type="button" data-ng-click="Print();" class="btn btn-primary mr-1" ng-show="IsSuccess">Print</button>-->
+                                    </div>
+                                </div>
+                                <!--Step 9 ending-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

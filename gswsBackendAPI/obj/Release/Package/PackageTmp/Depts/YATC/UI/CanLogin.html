@@ -1,0 +1,65 @@
+﻿<style type="text/css">
+
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+<div class="page-content">
+    <div class="content-wrapper">
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 offset-sm-3 text-center">
+                        <h2>Candidate Login</h2>
+                    </div>
+                    <div class="col-sm-3 text-center">
+                        <!--<button type="submit" class="btn  btn-primary showSingle" target="1">Forget Password</button>-->
+                        <!--<button type="submit" class="btn btn-primary showSingle" target="2">Login</button>-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 offset-sm-3">
+                        <div class="login-form targetDiv" id="div2">
+                            <div class="form-group form-row">
+                                <label class="col-sm-4 col- text-right">User Id:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" ng-model="skilluserid" placeholder="Enter User Id" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group form-row">
+                                <label class="col-sm-4 col- text-right">Password </label>
+                                <div class="col-sm-7">
+                                    <input type="password" ng-model="skillpassword" placeholder="Enter Password" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group form-row">
+                                <label class="col-sm-4 col- text-right"></label>
+                                <div class="col-sm-7">
+                                    <button type="button" ng-click="SkillLogin();" class="btn btn-block btn-primary">Login</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>jQuery(function () {
+
+			jQuery('.showSingle').click(function () {
+				jQuery('.targetDiv').hide();
+				jQuery('#div' + $(this).attr('target')).show();
+			});
+		});</script>
+</div>

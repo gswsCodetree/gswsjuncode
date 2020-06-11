@@ -1,0 +1,117 @@
+﻿
+<div class="container" style="margin-top:10px">
+	<div class="col-md-12 mt-5" align="center">
+		<h3 class="api-page-title">IMAM AND MOUZANS DETAILS</h3>
+	</div>
+
+	<div class="card custom-design">
+		<div class="card-body">
+			<div class="col-md-12 mb-3">
+				<div class="row justify-content-center">
+					<div class="col-md-4">
+						<b>Enter BeneficiaryCode</b>
+						<input type="text" alpha-numerics maxlength="25" ng-model="txtBCode" placeholder="Enter BeneficiaryCode" class="form-control" />
+					</div>
+					<div class="col-md-2" style="margin-top:22px">
+						<button class="btn btn-primary" id="btnGetReport" ng-click="getdetails()">Get Details</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 mb-3" ng-show="detailsshow">
+				<h3 align="center">IMAM AND MOUZANS DETAILS</h3>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<table class="table table-bordered">
+								<thead class="bg-info">
+									<tr>
+										<th>BENEFICIARYCODE</th>
+										<th>INSTITUTIONNAME</th>
+										<th>PHASE</th>
+										<th>DISTRICT</th>
+										<th>VILLAGE</th>
+										<th>MANDAL</th>
+										<th>CONSTITUENCY</th>
+										<th>PINCODE</th>
+										<th>INSTITUTIONNAMEASPERPASSBOOK</th>
+										<th>ACCOUNTNUMBER</th>
+										<th>BANKNAME</th>
+										<th>BRANCHNAME</th>
+										<th>IFSCCODE</th>
+										<th>IMAMNAMEASPERPASSBOOK</th>
+										<th>AADHARNUMBER</th>
+										<th>CONTACTNUMBER</th>
+										<th>IMAMACCOUNTNUMBER</th>
+										<th>IMAMBANKNAME</th>
+										<th>IMAMBRANCHNAME</th>
+										<th>IMAMIFSCCODE</th>
+										<th>MOUZANNAMEPASSBOOK</th>
+										<th>MOUZANAADHAARNUMBER</th>
+										<th>MOUZANCONTACTNUMBER</th>
+										<th>MOUZANACCOUNTNUMBER</th>
+										<th>MOUZANBANKNAME</th>
+										<th>MOUZANBRANCHNAME</th>
+										<th>MOUZANIFSCCODE</th>
+										<th>PRESIDENTMUTHAWALI</th>
+										<th>PRESIDENTMUTHAWALIAADHARNUMBER</th>
+										<th>PRESIDENTMUTHAWALICONTACTNUMBER</th>
+										<th>CHEQUENO</th>
+										<th>CHEQUEDATE</th>
+										<th>CHEQUEPERIOD</th>
+										<th>CHEQUEAMOUNT</th>
+										<th>DISBURSEDPERIOD</th>
+										<th>DISBURSEDAMOUNT</th>
+									</tr>
+								</thead>
+								<tr ng-repeat="responsedata in resdata">
+									<td>{{responsedata.BENEFICIARYCODE}}</td>
+									<td>{{responsedata.INSTITUTIONNAME}}</td>
+									<td>{{responsedata.PHASE}}</td>
+									<td>{{responsedata.DISTRICT}}</td>
+									<td>{{responsedata.VILLAGE}}</td>
+									<td>{{responsedata.MANDAL}}</td>
+									<td>{{responsedata.CONSTITUENCY}}</td>
+									<td>{{responsedata.PINCODE}}</td>
+									<td>{{responsedata.INSTITUTIONNAMEASPERPASSBOOK}}</td>
+									<td>{{responsedata.ACCOUNTNUMBER}}</td>
+									<td>{{responsedata.BANKNAME}}</td>
+									<td>{{responsedata.BRANCHNAME}}</td>
+									<td>{{responsedata.IFSCCODE}}</td>
+									<td>{{responsedata.IMAMNAMEASPERPASSBOOK}}</td>
+									<td>{{responsedata.AADHARNUMBER}}</td>
+									<td>{{responsedata.CONTACTNUMBER}}</td>
+									<td>{{responsedata.IMAMACCOUNTNUMBER}}</td>
+									<td>{{responsedata.IMAMBANKNAME}}</td>
+									<td>{{responsedata.IMAMBRANCHNAME}}</td>
+									<td>{{responsedata.IMAMIFSCCODE}}</td>
+									<td>{{responsedata.MOUZANNAMEPASSBOOK}}</td>
+									<td>{{responsedata.MOUZANAADHAARNUMBER}}</td>
+									<td>{{responsedata.MOUZANCONTACTNUMBER}}</td>
+									<td>{{responsedata.MOUZANACCOUNTNUMBER}}</td>
+									<td>{{responsedata.MOUZANBANKNAME}}</td>
+									<td>{{responsedata.MOUZANBRANCHNAME}}</td>
+									<td>{{responsedata.MOUZANIFSCCODE}}</td>
+									<td>{{responsedata.PRESIDENTMUTHAWALI}}</td>
+									<td>{{responsedata.PRESIDENTMUTHAWALIAADHARNUMBER}}</td>
+									<td>{{responsedata.PRESIDENTMUTHAWALICONTACTNUMBER}}</td>
+									<td>{{responsedata.CHEQUENO}}</td>
+									<td>{{responsedata.CHEQUEDATE}}</td>
+									<td>{{responsedata.CHEQUEPERIOD}}</td>
+									<td>{{responsedata.CHEQUEAMOUNT}}</td>
+									<td>{{responsedata.DISBURSEDPERIOD}}</td>
+									<td>{{responsedata.DISBURSEDAMOUNT}}</td>
+								</tr>
+
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+				
+				<div class="row" style="margin-top:100px">
+					<br />
+				</div>
+			</div>
+

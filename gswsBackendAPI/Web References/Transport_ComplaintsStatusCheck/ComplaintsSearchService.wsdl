@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Get_Details">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ComplaintNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_DetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_DetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Details_with_GSWS_ID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GSWSID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Details_with_GSWS_IDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Details_with_GSWS_IDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Details_With_Dates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ToDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Details_With_DatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Details_With_DatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Get_DetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Details" />
+  </wsdl:message>
+  <wsdl:message name="Get_DetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_DetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Details_with_GSWS_IDSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Details_with_GSWS_ID" />
+  </wsdl:message>
+  <wsdl:message name="Get_Details_with_GSWS_IDSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Details_with_GSWS_IDResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Details_With_DatesSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Details_With_Dates" />
+  </wsdl:message>
+  <wsdl:message name="Get_Details_With_DatesSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Details_With_DatesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ComplaintsSearchServiceSoap">
+    <wsdl:operation name="Get_Details">
+      <wsdl:input message="tns:Get_DetailsSoapIn" />
+      <wsdl:output message="tns:Get_DetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Details_with_GSWS_ID">
+      <wsdl:input message="tns:Get_Details_with_GSWS_IDSoapIn" />
+      <wsdl:output message="tns:Get_Details_with_GSWS_IDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Details_With_Dates">
+      <wsdl:input message="tns:Get_Details_With_DatesSoapIn" />
+      <wsdl:output message="tns:Get_Details_With_DatesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ComplaintsSearchServiceSoap" type="tns:ComplaintsSearchServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Get_Details">
+      <soap:operation soapAction="http://tempuri.org/Get_Details" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Details_with_GSWS_ID">
+      <soap:operation soapAction="http://tempuri.org/Get_Details_with_GSWS_ID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Details_With_Dates">
+      <soap:operation soapAction="http://tempuri.org/Get_Details_With_Dates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ComplaintsSearchServiceSoap12" type="tns:ComplaintsSearchServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Get_Details">
+      <soap12:operation soapAction="http://tempuri.org/Get_Details" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Details_with_GSWS_ID">
+      <soap12:operation soapAction="http://tempuri.org/Get_Details_with_GSWS_ID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Details_With_Dates">
+      <soap12:operation soapAction="http://tempuri.org/Get_Details_With_Dates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ComplaintsSearchService">
+    <wsdl:port name="ComplaintsSearchServiceSoap" binding="tns:ComplaintsSearchServiceSoap">
+      <soap:address location="https://aprdc.ap.gov.in/ComplaintsSearchService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ComplaintsSearchServiceSoap12" binding="tns:ComplaintsSearchServiceSoap12">
+      <soap12:address location="https://aprdc.ap.gov.in/ComplaintsSearchService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

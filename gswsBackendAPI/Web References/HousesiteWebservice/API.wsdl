@@ -1,0 +1,1885 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GVS_CITIZENSERVICESCOUNT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FromDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="ToDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GVS_CITIZENSERVICESCOUNTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GVS_CITIZENSERVICESCOUNTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HouseSitePattaApplication_Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HouseBO" type="tns:HousePattaBO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="HousePattaBO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="VolunteerId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VMobile" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="VAadhaar" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="SachivalayamCodeno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SachivalayamName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BAdhaarno" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="BenficiaryName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Appno" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Bmobile" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelationID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelationName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Age" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gender" type="s1:char" />
+          <s:element minOccurs="0" maxOccurs="1" name="Religion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="isPhysChall" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CasteID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubCasteID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Occupation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherOccupation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Houseno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DistrictID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MandalID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VillageID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PanchayathID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pincode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="isRation" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rationcardno" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="isHouse" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="isHouseSite" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="isHousingScheme" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="isHouseSiteScheme" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="isLand" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WardName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="isIncome" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="isPMAY" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PMAYBenefitSchemeID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="isAHPAllotmentReceived" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AHPAllotmentDetails" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USERID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="isVolunteerApproved" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="file" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SystemIP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MandaltypeID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HouseSitePattaApplication_AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HouseSitePattaApplication_AddResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HouseSitePattaApplication_Add2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HouseBO2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HouseSitePattaApplication_Add2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HouseSitePattaApplication_Add2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HouseSitePattaApplication_Status">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="APPNO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HouseSitePattaApplication_StatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HouseSitePattaApplication_StatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHSP_APP_Status">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="APPNO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHSP_APP_StatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHSP_APP_StatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHSP_APP_ByDate_Status">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ToDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHSP_APP_ByDate_StatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHSP_APP_ByDate_StatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPopulateVillages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPopulateVillagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPopulateVillagesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPopulateSurveyNumbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MandalId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="villageId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPopulateSurveyNumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPopulateSurveyNumbersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPopulateKhataNumbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MandalId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="villageId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SurveyNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPopulateKhataNumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPopulateKhataNumbersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertLandCoordinates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DistrictCode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MandalCode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="VillageCode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SurveyNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="KhathaNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Extent" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CRD1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CRD2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CRD3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CRD4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CRD5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CRD6" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CRD7" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CRD8" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CRD9" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CRD10" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UTM1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UTM2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UTM3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UTM4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UTM5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UTM6" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UTM7" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UTM8" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UTM9" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UTM10" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Remarks1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Remarks2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Remarks3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Remarks4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Remarks5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Remarks6" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Remarks7" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Remarks8" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Remarks9" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Remarks10" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GeoCoordinateImage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertLandCoordinatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertLandCoordinatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_LandCoordinates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MandalId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="villageId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SurveyNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="KhathaNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_LandCoordinatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_LandCoordinatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPopulateVillages_New">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPopulateVillages_NewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPopulateVillages_NewResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertLCData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MOBINPUTJSON" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertLCDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertLCDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLandGeoCoordinatesDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLandGeoCoordinatesDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLandGeoCoordinatesDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLandGeoCoordinatesDetails_new">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetLandGeoCoordinatesDetails_newResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getPDF">
+        <s:complexType />
+      </s:element>
+      <s:element name="getPDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPDFResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GETAPPSTATUS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="APPNO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GETAPPSTATUSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GETAPPSTATUSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GETDATEWISEAPPROVEDLIST">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ToDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GETDATEWISEAPPROVEDLISTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GETDATEWISEAPPROVEDLISTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTokenSSO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTokenSSOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTokenSSOResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GVS_CITIZENSERVICESCOUNTSoapIn">
+    <wsdl:part name="parameters" element="tns:GVS_CITIZENSERVICESCOUNT" />
+  </wsdl:message>
+  <wsdl:message name="GVS_CITIZENSERVICESCOUNTSoapOut">
+    <wsdl:part name="parameters" element="tns:GVS_CITIZENSERVICESCOUNTResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetToken" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="HouseSitePattaApplication_AddSoapIn">
+    <wsdl:part name="parameters" element="tns:HouseSitePattaApplication_Add" />
+  </wsdl:message>
+  <wsdl:message name="HouseSitePattaApplication_AddSoapOut">
+    <wsdl:part name="parameters" element="tns:HouseSitePattaApplication_AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="HouseSitePattaApplication_Add2SoapIn">
+    <wsdl:part name="parameters" element="tns:HouseSitePattaApplication_Add2" />
+  </wsdl:message>
+  <wsdl:message name="HouseSitePattaApplication_Add2SoapOut">
+    <wsdl:part name="parameters" element="tns:HouseSitePattaApplication_Add2Response" />
+  </wsdl:message>
+  <wsdl:message name="HouseSitePattaApplication_StatusSoapIn">
+    <wsdl:part name="parameters" element="tns:HouseSitePattaApplication_Status" />
+  </wsdl:message>
+  <wsdl:message name="HouseSitePattaApplication_StatusSoapOut">
+    <wsdl:part name="parameters" element="tns:HouseSitePattaApplication_StatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHSP_APP_StatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHSP_APP_Status" />
+  </wsdl:message>
+  <wsdl:message name="GetHSP_APP_StatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHSP_APP_StatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHSP_APP_ByDate_StatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHSP_APP_ByDate_Status" />
+  </wsdl:message>
+  <wsdl:message name="GetHSP_APP_ByDate_StatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHSP_APP_ByDate_StatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateVillagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPopulateVillages" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateVillagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPopulateVillagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateSurveyNumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPopulateSurveyNumbers" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateSurveyNumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPopulateSurveyNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateKhataNumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPopulateKhataNumbers" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateKhataNumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPopulateKhataNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertLandCoordinatesSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertLandCoordinates" />
+  </wsdl:message>
+  <wsdl:message name="InsertLandCoordinatesSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertLandCoordinatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_LandCoordinatesSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_LandCoordinates" />
+  </wsdl:message>
+  <wsdl:message name="Get_LandCoordinatesSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_LandCoordinatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateVillages_NewSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPopulateVillages_New" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateVillages_NewSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPopulateVillages_NewResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertLCDataSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertLCData" />
+  </wsdl:message>
+  <wsdl:message name="InsertLCDataSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertLCDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLandGeoCoordinatesDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLandGeoCoordinatesDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetLandGeoCoordinatesDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLandGeoCoordinatesDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLandGeoCoordinatesDetails_newSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLandGeoCoordinatesDetails_new" />
+  </wsdl:message>
+  <wsdl:message name="GetLandGeoCoordinatesDetails_newSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLandGeoCoordinatesDetails_newResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPDFSoapIn">
+    <wsdl:part name="parameters" element="tns:getPDF" />
+  </wsdl:message>
+  <wsdl:message name="getPDFSoapOut">
+    <wsdl:part name="parameters" element="tns:getPDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="GETAPPSTATUSSoapIn">
+    <wsdl:part name="parameters" element="tns:GETAPPSTATUS" />
+  </wsdl:message>
+  <wsdl:message name="GETAPPSTATUSSoapOut">
+    <wsdl:part name="parameters" element="tns:GETAPPSTATUSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GETDATEWISEAPPROVEDLISTSoapIn">
+    <wsdl:part name="parameters" element="tns:GETDATEWISEAPPROVEDLIST" />
+  </wsdl:message>
+  <wsdl:message name="GETDATEWISEAPPROVEDLISTSoapOut">
+    <wsdl:part name="parameters" element="tns:GETDATEWISEAPPROVEDLISTResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenSSOSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTokenSSO" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenSSOSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTokenSSOResponse" />
+  </wsdl:message>
+  <wsdl:message name="GVS_CITIZENSERVICESCOUNTHttpGetIn">
+    <wsdl:part name="FromDate" type="s:string" />
+    <wsdl:part name="ToDate" type="s:string" />
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GVS_CITIZENSERVICESCOUNTHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HouseSitePattaApplication_Add2HttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="HouseBO2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HouseSitePattaApplication_Add2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HouseSitePattaApplication_StatusHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="APPNO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HouseSitePattaApplication_StatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHSP_APP_StatusHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="APPNO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHSP_APP_StatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHSP_APP_ByDate_StatusHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="FromDate" type="s:string" />
+    <wsdl:part name="ToDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHSP_APP_ByDate_StatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateVillagesHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="version" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateVillagesHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateSurveyNumbersHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="MandalId" type="s:string" />
+    <wsdl:part name="villageId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateSurveyNumbersHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateKhataNumbersHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="MandalId" type="s:string" />
+    <wsdl:part name="villageId" type="s:string" />
+    <wsdl:part name="SurveyNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateKhataNumbersHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertLandCoordinatesHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="DistrictCode" type="s:string" />
+    <wsdl:part name="MandalCode" type="s:string" />
+    <wsdl:part name="VillageCode" type="s:string" />
+    <wsdl:part name="SurveyNo" type="s:string" />
+    <wsdl:part name="KhathaNo" type="s:string" />
+    <wsdl:part name="Extent" type="s:string" />
+    <wsdl:part name="CRD1" type="s:string" />
+    <wsdl:part name="CRD2" type="s:string" />
+    <wsdl:part name="CRD3" type="s:string" />
+    <wsdl:part name="CRD4" type="s:string" />
+    <wsdl:part name="CRD5" type="s:string" />
+    <wsdl:part name="CRD6" type="s:string" />
+    <wsdl:part name="CRD7" type="s:string" />
+    <wsdl:part name="CRD8" type="s:string" />
+    <wsdl:part name="CRD9" type="s:string" />
+    <wsdl:part name="CRD10" type="s:string" />
+    <wsdl:part name="UTM1" type="s:string" />
+    <wsdl:part name="UTM2" type="s:string" />
+    <wsdl:part name="UTM3" type="s:string" />
+    <wsdl:part name="UTM4" type="s:string" />
+    <wsdl:part name="UTM5" type="s:string" />
+    <wsdl:part name="UTM6" type="s:string" />
+    <wsdl:part name="UTM7" type="s:string" />
+    <wsdl:part name="UTM8" type="s:string" />
+    <wsdl:part name="UTM9" type="s:string" />
+    <wsdl:part name="UTM10" type="s:string" />
+    <wsdl:part name="Remarks1" type="s:string" />
+    <wsdl:part name="Remarks2" type="s:string" />
+    <wsdl:part name="Remarks3" type="s:string" />
+    <wsdl:part name="Remarks4" type="s:string" />
+    <wsdl:part name="Remarks5" type="s:string" />
+    <wsdl:part name="Remarks6" type="s:string" />
+    <wsdl:part name="Remarks7" type="s:string" />
+    <wsdl:part name="Remarks8" type="s:string" />
+    <wsdl:part name="Remarks9" type="s:string" />
+    <wsdl:part name="Remarks10" type="s:string" />
+    <wsdl:part name="CreatedBy" type="s:string" />
+    <wsdl:part name="IPAddress" type="s:string" />
+    <wsdl:part name="GeoCoordinateImage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertLandCoordinatesHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_LandCoordinatesHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="MandalId" type="s:string" />
+    <wsdl:part name="villageId" type="s:string" />
+    <wsdl:part name="SurveyNo" type="s:string" />
+    <wsdl:part name="KhathaNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_LandCoordinatesHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateVillages_NewHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="Version" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateVillages_NewHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertLCDataHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="MOBINPUTJSON" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertLCDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLandGeoCoordinatesDetailsHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLandGeoCoordinatesDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLandGeoCoordinatesDetails_newHttpGetIn" />
+  <wsdl:message name="GetLandGeoCoordinatesDetails_newHttpGetOut" />
+  <wsdl:message name="getPDFHttpGetIn" />
+  <wsdl:message name="getPDFHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GETAPPSTATUSHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="APPNO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GETAPPSTATUSHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GETDATEWISEAPPROVEDLISTHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="FromDate" type="s:string" />
+    <wsdl:part name="ToDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GETDATEWISEAPPROVEDLISTHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenSSOHttpGetIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenSSOHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GVS_CITIZENSERVICESCOUNTHttpPostIn">
+    <wsdl:part name="FromDate" type="s:string" />
+    <wsdl:part name="ToDate" type="s:string" />
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GVS_CITIZENSERVICESCOUNTHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HouseSitePattaApplication_Add2HttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="HouseBO2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HouseSitePattaApplication_Add2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HouseSitePattaApplication_StatusHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="APPNO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HouseSitePattaApplication_StatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHSP_APP_StatusHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="APPNO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHSP_APP_StatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHSP_APP_ByDate_StatusHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="FromDate" type="s:string" />
+    <wsdl:part name="ToDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHSP_APP_ByDate_StatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateVillagesHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="version" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateVillagesHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateSurveyNumbersHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="MandalId" type="s:string" />
+    <wsdl:part name="villageId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateSurveyNumbersHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateKhataNumbersHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="MandalId" type="s:string" />
+    <wsdl:part name="villageId" type="s:string" />
+    <wsdl:part name="SurveyNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateKhataNumbersHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertLandCoordinatesHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="DistrictCode" type="s:string" />
+    <wsdl:part name="MandalCode" type="s:string" />
+    <wsdl:part name="VillageCode" type="s:string" />
+    <wsdl:part name="SurveyNo" type="s:string" />
+    <wsdl:part name="KhathaNo" type="s:string" />
+    <wsdl:part name="Extent" type="s:string" />
+    <wsdl:part name="CRD1" type="s:string" />
+    <wsdl:part name="CRD2" type="s:string" />
+    <wsdl:part name="CRD3" type="s:string" />
+    <wsdl:part name="CRD4" type="s:string" />
+    <wsdl:part name="CRD5" type="s:string" />
+    <wsdl:part name="CRD6" type="s:string" />
+    <wsdl:part name="CRD7" type="s:string" />
+    <wsdl:part name="CRD8" type="s:string" />
+    <wsdl:part name="CRD9" type="s:string" />
+    <wsdl:part name="CRD10" type="s:string" />
+    <wsdl:part name="UTM1" type="s:string" />
+    <wsdl:part name="UTM2" type="s:string" />
+    <wsdl:part name="UTM3" type="s:string" />
+    <wsdl:part name="UTM4" type="s:string" />
+    <wsdl:part name="UTM5" type="s:string" />
+    <wsdl:part name="UTM6" type="s:string" />
+    <wsdl:part name="UTM7" type="s:string" />
+    <wsdl:part name="UTM8" type="s:string" />
+    <wsdl:part name="UTM9" type="s:string" />
+    <wsdl:part name="UTM10" type="s:string" />
+    <wsdl:part name="Remarks1" type="s:string" />
+    <wsdl:part name="Remarks2" type="s:string" />
+    <wsdl:part name="Remarks3" type="s:string" />
+    <wsdl:part name="Remarks4" type="s:string" />
+    <wsdl:part name="Remarks5" type="s:string" />
+    <wsdl:part name="Remarks6" type="s:string" />
+    <wsdl:part name="Remarks7" type="s:string" />
+    <wsdl:part name="Remarks8" type="s:string" />
+    <wsdl:part name="Remarks9" type="s:string" />
+    <wsdl:part name="Remarks10" type="s:string" />
+    <wsdl:part name="CreatedBy" type="s:string" />
+    <wsdl:part name="IPAddress" type="s:string" />
+    <wsdl:part name="GeoCoordinateImage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertLandCoordinatesHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_LandCoordinatesHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="MandalId" type="s:string" />
+    <wsdl:part name="villageId" type="s:string" />
+    <wsdl:part name="SurveyNo" type="s:string" />
+    <wsdl:part name="KhathaNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Get_LandCoordinatesHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateVillages_NewHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="Version" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPopulateVillages_NewHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertLCDataHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="MOBINPUTJSON" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertLCDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLandGeoCoordinatesDetailsHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLandGeoCoordinatesDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLandGeoCoordinatesDetails_newHttpPostIn" />
+  <wsdl:message name="GetLandGeoCoordinatesDetails_newHttpPostOut" />
+  <wsdl:message name="getPDFHttpPostIn" />
+  <wsdl:message name="getPDFHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GETAPPSTATUSHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="APPNO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GETAPPSTATUSHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GETDATEWISEAPPROVEDLISTHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="FromDate" type="s:string" />
+    <wsdl:part name="ToDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GETDATEWISEAPPROVEDLISTHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenSSOHttpPostIn">
+    <wsdl:part name="userid" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenSSOHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="APISoap">
+    <wsdl:operation name="GVS_CITIZENSERVICESCOUNT">
+      <wsdl:input message="tns:GVS_CITIZENSERVICESCOUNTSoapIn" />
+      <wsdl:output message="tns:GVS_CITIZENSERVICESCOUNTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <wsdl:input message="tns:GetTokenSoapIn" />
+      <wsdl:output message="tns:GetTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Add">
+      <wsdl:input message="tns:HouseSitePattaApplication_AddSoapIn" />
+      <wsdl:output message="tns:HouseSitePattaApplication_AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Add2">
+      <wsdl:input message="tns:HouseSitePattaApplication_Add2SoapIn" />
+      <wsdl:output message="tns:HouseSitePattaApplication_Add2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Status">
+      <wsdl:input message="tns:HouseSitePattaApplication_StatusSoapIn" />
+      <wsdl:output message="tns:HouseSitePattaApplication_StatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHSP_APP_Status">
+      <wsdl:input message="tns:GetHSP_APP_StatusSoapIn" />
+      <wsdl:output message="tns:GetHSP_APP_StatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHSP_APP_ByDate_Status">
+      <wsdl:input message="tns:GetHSP_APP_ByDate_StatusSoapIn" />
+      <wsdl:output message="tns:GetHSP_APP_ByDate_StatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateVillages">
+      <wsdl:input message="tns:GetPopulateVillagesSoapIn" />
+      <wsdl:output message="tns:GetPopulateVillagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateSurveyNumbers">
+      <wsdl:input message="tns:GetPopulateSurveyNumbersSoapIn" />
+      <wsdl:output message="tns:GetPopulateSurveyNumbersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateKhataNumbers">
+      <wsdl:input message="tns:GetPopulateKhataNumbersSoapIn" />
+      <wsdl:output message="tns:GetPopulateKhataNumbersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertLandCoordinates">
+      <wsdl:input message="tns:InsertLandCoordinatesSoapIn" />
+      <wsdl:output message="tns:InsertLandCoordinatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_LandCoordinates">
+      <wsdl:input message="tns:Get_LandCoordinatesSoapIn" />
+      <wsdl:output message="tns:Get_LandCoordinatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateVillages_New">
+      <wsdl:input message="tns:GetPopulateVillages_NewSoapIn" />
+      <wsdl:output message="tns:GetPopulateVillages_NewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertLCData">
+      <wsdl:input message="tns:InsertLCDataSoapIn" />
+      <wsdl:output message="tns:InsertLCDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLandGeoCoordinatesDetails">
+      <wsdl:input message="tns:GetLandGeoCoordinatesDetailsSoapIn" />
+      <wsdl:output message="tns:GetLandGeoCoordinatesDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLandGeoCoordinatesDetails_new">
+      <wsdl:input message="tns:GetLandGeoCoordinatesDetails_newSoapIn" />
+      <wsdl:output message="tns:GetLandGeoCoordinatesDetails_newSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPDF">
+      <wsdl:input message="tns:getPDFSoapIn" />
+      <wsdl:output message="tns:getPDFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GETAPPSTATUS">
+      <wsdl:input message="tns:GETAPPSTATUSSoapIn" />
+      <wsdl:output message="tns:GETAPPSTATUSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GETDATEWISEAPPROVEDLIST">
+      <wsdl:input message="tns:GETDATEWISEAPPROVEDLISTSoapIn" />
+      <wsdl:output message="tns:GETDATEWISEAPPROVEDLISTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenSSO">
+      <wsdl:input message="tns:GetTokenSSOSoapIn" />
+      <wsdl:output message="tns:GetTokenSSOSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="APIHttpGet">
+    <wsdl:operation name="GVS_CITIZENSERVICESCOUNT">
+      <wsdl:input message="tns:GVS_CITIZENSERVICESCOUNTHttpGetIn" />
+      <wsdl:output message="tns:GVS_CITIZENSERVICESCOUNTHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <wsdl:input message="tns:GetTokenHttpGetIn" />
+      <wsdl:output message="tns:GetTokenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Add2">
+      <wsdl:input message="tns:HouseSitePattaApplication_Add2HttpGetIn" />
+      <wsdl:output message="tns:HouseSitePattaApplication_Add2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Status">
+      <wsdl:input message="tns:HouseSitePattaApplication_StatusHttpGetIn" />
+      <wsdl:output message="tns:HouseSitePattaApplication_StatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHSP_APP_Status">
+      <wsdl:input message="tns:GetHSP_APP_StatusHttpGetIn" />
+      <wsdl:output message="tns:GetHSP_APP_StatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHSP_APP_ByDate_Status">
+      <wsdl:input message="tns:GetHSP_APP_ByDate_StatusHttpGetIn" />
+      <wsdl:output message="tns:GetHSP_APP_ByDate_StatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateVillages">
+      <wsdl:input message="tns:GetPopulateVillagesHttpGetIn" />
+      <wsdl:output message="tns:GetPopulateVillagesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateSurveyNumbers">
+      <wsdl:input message="tns:GetPopulateSurveyNumbersHttpGetIn" />
+      <wsdl:output message="tns:GetPopulateSurveyNumbersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateKhataNumbers">
+      <wsdl:input message="tns:GetPopulateKhataNumbersHttpGetIn" />
+      <wsdl:output message="tns:GetPopulateKhataNumbersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertLandCoordinates">
+      <wsdl:input message="tns:InsertLandCoordinatesHttpGetIn" />
+      <wsdl:output message="tns:InsertLandCoordinatesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_LandCoordinates">
+      <wsdl:input message="tns:Get_LandCoordinatesHttpGetIn" />
+      <wsdl:output message="tns:Get_LandCoordinatesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateVillages_New">
+      <wsdl:input message="tns:GetPopulateVillages_NewHttpGetIn" />
+      <wsdl:output message="tns:GetPopulateVillages_NewHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertLCData">
+      <wsdl:input message="tns:InsertLCDataHttpGetIn" />
+      <wsdl:output message="tns:InsertLCDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLandGeoCoordinatesDetails">
+      <wsdl:input message="tns:GetLandGeoCoordinatesDetailsHttpGetIn" />
+      <wsdl:output message="tns:GetLandGeoCoordinatesDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLandGeoCoordinatesDetails_new">
+      <wsdl:input message="tns:GetLandGeoCoordinatesDetails_newHttpGetIn" />
+      <wsdl:output message="tns:GetLandGeoCoordinatesDetails_newHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPDF">
+      <wsdl:input message="tns:getPDFHttpGetIn" />
+      <wsdl:output message="tns:getPDFHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GETAPPSTATUS">
+      <wsdl:input message="tns:GETAPPSTATUSHttpGetIn" />
+      <wsdl:output message="tns:GETAPPSTATUSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GETDATEWISEAPPROVEDLIST">
+      <wsdl:input message="tns:GETDATEWISEAPPROVEDLISTHttpGetIn" />
+      <wsdl:output message="tns:GETDATEWISEAPPROVEDLISTHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenSSO">
+      <wsdl:input message="tns:GetTokenSSOHttpGetIn" />
+      <wsdl:output message="tns:GetTokenSSOHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="APIHttpPost">
+    <wsdl:operation name="GVS_CITIZENSERVICESCOUNT">
+      <wsdl:input message="tns:GVS_CITIZENSERVICESCOUNTHttpPostIn" />
+      <wsdl:output message="tns:GVS_CITIZENSERVICESCOUNTHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <wsdl:input message="tns:GetTokenHttpPostIn" />
+      <wsdl:output message="tns:GetTokenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Add2">
+      <wsdl:input message="tns:HouseSitePattaApplication_Add2HttpPostIn" />
+      <wsdl:output message="tns:HouseSitePattaApplication_Add2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Status">
+      <wsdl:input message="tns:HouseSitePattaApplication_StatusHttpPostIn" />
+      <wsdl:output message="tns:HouseSitePattaApplication_StatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHSP_APP_Status">
+      <wsdl:input message="tns:GetHSP_APP_StatusHttpPostIn" />
+      <wsdl:output message="tns:GetHSP_APP_StatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHSP_APP_ByDate_Status">
+      <wsdl:input message="tns:GetHSP_APP_ByDate_StatusHttpPostIn" />
+      <wsdl:output message="tns:GetHSP_APP_ByDate_StatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateVillages">
+      <wsdl:input message="tns:GetPopulateVillagesHttpPostIn" />
+      <wsdl:output message="tns:GetPopulateVillagesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateSurveyNumbers">
+      <wsdl:input message="tns:GetPopulateSurveyNumbersHttpPostIn" />
+      <wsdl:output message="tns:GetPopulateSurveyNumbersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateKhataNumbers">
+      <wsdl:input message="tns:GetPopulateKhataNumbersHttpPostIn" />
+      <wsdl:output message="tns:GetPopulateKhataNumbersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertLandCoordinates">
+      <wsdl:input message="tns:InsertLandCoordinatesHttpPostIn" />
+      <wsdl:output message="tns:InsertLandCoordinatesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_LandCoordinates">
+      <wsdl:input message="tns:Get_LandCoordinatesHttpPostIn" />
+      <wsdl:output message="tns:Get_LandCoordinatesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateVillages_New">
+      <wsdl:input message="tns:GetPopulateVillages_NewHttpPostIn" />
+      <wsdl:output message="tns:GetPopulateVillages_NewHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertLCData">
+      <wsdl:input message="tns:InsertLCDataHttpPostIn" />
+      <wsdl:output message="tns:InsertLCDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLandGeoCoordinatesDetails">
+      <wsdl:input message="tns:GetLandGeoCoordinatesDetailsHttpPostIn" />
+      <wsdl:output message="tns:GetLandGeoCoordinatesDetailsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLandGeoCoordinatesDetails_new">
+      <wsdl:input message="tns:GetLandGeoCoordinatesDetails_newHttpPostIn" />
+      <wsdl:output message="tns:GetLandGeoCoordinatesDetails_newHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPDF">
+      <wsdl:input message="tns:getPDFHttpPostIn" />
+      <wsdl:output message="tns:getPDFHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GETAPPSTATUS">
+      <wsdl:input message="tns:GETAPPSTATUSHttpPostIn" />
+      <wsdl:output message="tns:GETAPPSTATUSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GETDATEWISEAPPROVEDLIST">
+      <wsdl:input message="tns:GETDATEWISEAPPROVEDLISTHttpPostIn" />
+      <wsdl:output message="tns:GETDATEWISEAPPROVEDLISTHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenSSO">
+      <wsdl:input message="tns:GetTokenSSOHttpPostIn" />
+      <wsdl:output message="tns:GetTokenSSOHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="APISoap" type="tns:APISoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GVS_CITIZENSERVICESCOUNT">
+      <soap:operation soapAction="http://tempuri.org/GVS_CITIZENSERVICESCOUNT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <soap:operation soapAction="http://tempuri.org/GetToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Add">
+      <soap:operation soapAction="http://tempuri.org/HouseSitePattaApplication_Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Add2">
+      <soap:operation soapAction="http://tempuri.org/HouseSitePattaApplication_Add2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Status">
+      <soap:operation soapAction="http://tempuri.org/HouseSitePattaApplication_Status" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHSP_APP_Status">
+      <soap:operation soapAction="http://tempuri.org/GetHSP_APP_Status" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHSP_APP_ByDate_Status">
+      <soap:operation soapAction="http://tempuri.org/GetHSP_APP_ByDate_Status" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateVillages">
+      <soap:operation soapAction="http://tempuri.org/GetPopulateVillages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateSurveyNumbers">
+      <soap:operation soapAction="http://tempuri.org/GetPopulateSurveyNumbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateKhataNumbers">
+      <soap:operation soapAction="http://tempuri.org/GetPopulateKhataNumbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLandCoordinates">
+      <soap:operation soapAction="http://tempuri.org/InsertLandCoordinates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_LandCoordinates">
+      <soap:operation soapAction="http://tempuri.org/Get_LandCoordinates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateVillages_New">
+      <soap:operation soapAction="http://tempuri.org/GetPopulateVillages_New" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLCData">
+      <soap:operation soapAction="http://tempuri.org/InsertLCData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLandGeoCoordinatesDetails">
+      <soap:operation soapAction="http://tempuri.org/GetLandGeoCoordinatesDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLandGeoCoordinatesDetails_new">
+      <soap:operation soapAction="http://tempuri.org/GetLandGeoCoordinatesDetails_new" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPDF">
+      <soap:operation soapAction="http://tempuri.org/getPDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETAPPSTATUS">
+      <soap:operation soapAction="http://tempuri.org/GETAPPSTATUS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETDATEWISEAPPROVEDLIST">
+      <soap:operation soapAction="http://tempuri.org/GETDATEWISEAPPROVEDLIST" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenSSO">
+      <soap:operation soapAction="http://tempuri.org/GetTokenSSO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="APISoap12" type="tns:APISoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GVS_CITIZENSERVICESCOUNT">
+      <soap12:operation soapAction="http://tempuri.org/GVS_CITIZENSERVICESCOUNT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <soap12:operation soapAction="http://tempuri.org/GetToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Add">
+      <soap12:operation soapAction="http://tempuri.org/HouseSitePattaApplication_Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Add2">
+      <soap12:operation soapAction="http://tempuri.org/HouseSitePattaApplication_Add2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Status">
+      <soap12:operation soapAction="http://tempuri.org/HouseSitePattaApplication_Status" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHSP_APP_Status">
+      <soap12:operation soapAction="http://tempuri.org/GetHSP_APP_Status" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHSP_APP_ByDate_Status">
+      <soap12:operation soapAction="http://tempuri.org/GetHSP_APP_ByDate_Status" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateVillages">
+      <soap12:operation soapAction="http://tempuri.org/GetPopulateVillages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateSurveyNumbers">
+      <soap12:operation soapAction="http://tempuri.org/GetPopulateSurveyNumbers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateKhataNumbers">
+      <soap12:operation soapAction="http://tempuri.org/GetPopulateKhataNumbers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLandCoordinates">
+      <soap12:operation soapAction="http://tempuri.org/InsertLandCoordinates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_LandCoordinates">
+      <soap12:operation soapAction="http://tempuri.org/Get_LandCoordinates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateVillages_New">
+      <soap12:operation soapAction="http://tempuri.org/GetPopulateVillages_New" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLCData">
+      <soap12:operation soapAction="http://tempuri.org/InsertLCData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLandGeoCoordinatesDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetLandGeoCoordinatesDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLandGeoCoordinatesDetails_new">
+      <soap12:operation soapAction="http://tempuri.org/GetLandGeoCoordinatesDetails_new" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPDF">
+      <soap12:operation soapAction="http://tempuri.org/getPDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETAPPSTATUS">
+      <soap12:operation soapAction="http://tempuri.org/GETAPPSTATUS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETDATEWISEAPPROVEDLIST">
+      <soap12:operation soapAction="http://tempuri.org/GETDATEWISEAPPROVEDLIST" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenSSO">
+      <soap12:operation soapAction="http://tempuri.org/GetTokenSSO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="APIHttpGet" type="tns:APIHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GVS_CITIZENSERVICESCOUNT">
+      <http:operation location="/GVS_CITIZENSERVICESCOUNT" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <http:operation location="/GetToken" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Add2">
+      <http:operation location="/HouseSitePattaApplication_Add2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Status">
+      <http:operation location="/HouseSitePattaApplication_Status" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHSP_APP_Status">
+      <http:operation location="/GetHSP_APP_Status" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHSP_APP_ByDate_Status">
+      <http:operation location="/GetHSP_APP_ByDate_Status" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateVillages">
+      <http:operation location="/GetPopulateVillages" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateSurveyNumbers">
+      <http:operation location="/GetPopulateSurveyNumbers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateKhataNumbers">
+      <http:operation location="/GetPopulateKhataNumbers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLandCoordinates">
+      <http:operation location="/InsertLandCoordinates" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_LandCoordinates">
+      <http:operation location="/Get_LandCoordinates" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateVillages_New">
+      <http:operation location="/GetPopulateVillages_New" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLCData">
+      <http:operation location="/InsertLCData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLandGeoCoordinatesDetails">
+      <http:operation location="/GetLandGeoCoordinatesDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLandGeoCoordinatesDetails_new">
+      <http:operation location="/GetLandGeoCoordinatesDetails_new" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="getPDF">
+      <http:operation location="/getPDF" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETAPPSTATUS">
+      <http:operation location="/GETAPPSTATUS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETDATEWISEAPPROVEDLIST">
+      <http:operation location="/GETDATEWISEAPPROVEDLIST" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenSSO">
+      <http:operation location="/GetTokenSSO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="APIHttpPost" type="tns:APIHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GVS_CITIZENSERVICESCOUNT">
+      <http:operation location="/GVS_CITIZENSERVICESCOUNT" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <http:operation location="/GetToken" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Add2">
+      <http:operation location="/HouseSitePattaApplication_Add2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HouseSitePattaApplication_Status">
+      <http:operation location="/HouseSitePattaApplication_Status" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHSP_APP_Status">
+      <http:operation location="/GetHSP_APP_Status" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHSP_APP_ByDate_Status">
+      <http:operation location="/GetHSP_APP_ByDate_Status" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateVillages">
+      <http:operation location="/GetPopulateVillages" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateSurveyNumbers">
+      <http:operation location="/GetPopulateSurveyNumbers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateKhataNumbers">
+      <http:operation location="/GetPopulateKhataNumbers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLandCoordinates">
+      <http:operation location="/InsertLandCoordinates" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_LandCoordinates">
+      <http:operation location="/Get_LandCoordinates" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPopulateVillages_New">
+      <http:operation location="/GetPopulateVillages_New" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertLCData">
+      <http:operation location="/InsertLCData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLandGeoCoordinatesDetails">
+      <http:operation location="/GetLandGeoCoordinatesDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLandGeoCoordinatesDetails_new">
+      <http:operation location="/GetLandGeoCoordinatesDetails_new" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="getPDF">
+      <http:operation location="/getPDF" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETAPPSTATUS">
+      <http:operation location="/GETAPPSTATUS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GETDATEWISEAPPROVEDLIST">
+      <http:operation location="/GETDATEWISEAPPROVEDLIST" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenSSO">
+      <http:operation location="/GetTokenSSO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="API">
+    <wsdl:port name="APISoap" binding="tns:APISoap">
+      <soap:address location="http://navaratnalu-housesites.ap.gov.in/WebService/API.asmx" />
+    </wsdl:port>
+    <wsdl:port name="APISoap12" binding="tns:APISoap12">
+      <soap12:address location="http://navaratnalu-housesites.ap.gov.in/WebService/API.asmx" />
+    </wsdl:port>
+    <wsdl:port name="APIHttpGet" binding="tns:APIHttpGet">
+      <http:address location="http://navaratnalu-housesites.ap.gov.in/WebService/API.asmx" />
+    </wsdl:port>
+    <wsdl:port name="APIHttpPost" binding="tns:APIHttpPost">
+      <http:address location="http://navaratnalu-housesites.ap.gov.in/WebService/API.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

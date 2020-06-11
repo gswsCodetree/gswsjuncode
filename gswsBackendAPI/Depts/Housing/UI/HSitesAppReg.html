@@ -1,0 +1,501 @@
+﻿<style type="text/css">
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+
+    legend {
+        background: #004085;
+        padding: 4px 22px;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+    }
+
+    fieldset {
+        border: 2px solid gray !important;
+        border-radius: 3px;
+        padding: 30px !important;
+    }
+
+    .w-72 {
+        width: 72% !important;
+    }
+
+    .card {
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    }
+</style>
+<script type="text/javascript">
+    var HouseUplFile = "";
+
+    function CheckFileType() {
+
+        var ext = $('#UplDoc').val().split('.').pop().toLowerCase();
+        if (ext == "pdf") {
+            var fn = $('#UplDoc').val();
+            var startIndex = (fn.indexOf('\\') >= 0 ? fn.lastIndexOf('\\') : fn.lastIndexOf('/'));
+            var filename = fn.substring(startIndex);
+            if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+                filename = filename.substring(1);
+                var filena = filename.split('.').slice(0, -1).join('.');
+                var dots = filena.split(".");
+                var str = filena;
+                if (/^[a-zA-Z0-9- ]*$/.test(str) == false || dots.length > 1) {
+                    swal("Info", 'Not Allowed Special Characters.', "info");
+                    $('#UplDoc').val('');
+                }
+                else if ($('#UplDoc').get(0).files[0].size > 524280) {
+                    $('#UplDoc').val('');
+                    swal('Info', 'File Size should be less than 500kb.', 'info'); $('#UplDoc').focus();
+                }
+                else {
+                    encodeImageFileAsURL($('#UplDoc').get(0));
+
+                    swal("Info", "File Selected Successfully.", "info"); return;
+                }
+            }
+        }
+        else {
+            $('#UplDoc').val('');
+            swal('Info', 'upload only pdf format', 'info'); $('#UplDoc').focus();
+        }
+    }
+
+    function encodeImageFileAsURL(element) {
+        var file = element.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            var Result = reader.result;
+
+            // Split the base64 string in data and contentType
+            var block = Result.split(";");
+            // get the real base64 content of the file
+            var Base64Data = block[1].split(",")[1];// In this case "R0lGODlhPQBEAPeoAJosM...."
+            HouseUplFile = Base64Data;
+        }
+        reader.readAsDataURL(file);
+    }
+   
+</script>
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row mb-5 justify-content-center">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1 style="text-align: center;">Housing Site Registration Form</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body pb-5">
+                                <!--Volunteer Deatils Starting-->
+                                <div>
+                                    <!--Main Fieldset-->
+                                    <fieldset>
+                                        <legend class="w-auto">
+                                            Volunteer Deatils
+                                        </legend>
+                                        <div class="form-group row mb-3">
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b> Aadhaar Number :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="text" uid-input-model="VolAadhaar" mask-length="8" autocomplete="off" placeholder="Enter Aadhaar" maxlength="12" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Mobile Number :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="text" maxlength="10" numbers-only data-ng-model="VolMobile" class="form-control" placeholder="Enter Mobile Number">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Volunteer Name :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="text" data-ng-model="VolName" class="form-control" placeholder="Enter Name">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row mb-3">
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b> Idetification Number :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="text" data-ng-model="VolIDNo" class="form-control" placeholder="Enter Idetification Number">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Name of Village Secretariat :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="text" data-ng-model="VolScName" class="form-control" placeholder="Enter Name of Village Secretariat">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Code Number :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="text" data-ng-model="VolScCode" class="form-control" placeholder="Enter Code Number">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                                </div>
+                                <!--Volunteer Details Ending-->
+                                <!--Beneficiary Details Starting-->
+                                <div class="mt-3">
+                                    <fieldset>
+                                        <legend class="w-auto">
+                                            Beneficiary Details
+                                        </legend>
+                                        <div class="form-group row mb-3">
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Aadhaar Number :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="text" uid-input-model="BenAadhaar" mask-length="8" autocomplete="off" placeholder="Enter Aadhaar Number" maxlength="12" class="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Beneficiary Name :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="text" data-ng-model="BenName" class="form-control" placeholder="Enter Beneficiary Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Relationship With Beneficiary :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <div>
+                                                        <select class="form-control" data-ng-model="SelBenRel">
+                                                            <option selected="selected" value="">-Select-</option>
+                                                            <option data-ng-repeat="dis in RelationsDD" value="{{dis.RelationID}}">{{dis.RelationName}}</option>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row mb-3">
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Relation Name</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="text" data-ng-model="BenRelName" class="form-control" placeholder="Enter Relation Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Age(Years)</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="text" numbers-only maxlength="3" data-ng-model="BenAge" class="form-control" placeholder="Enter Age">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Gender :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <div>
+                                                        <select class="form-control" data-ng-model="SelBenGen">
+                                                            <option selected="selected" value="">-Select-</option>
+                                                            <option value="M">Male</option>
+                                                            <option value="F">Female</option>
+                                                            <option value="O">Others</option>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row mb-3">
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Religion :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="text" data-ng-model="BenReligion" class="form-control" placeholder="Enter Religion">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Caste :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <div>
+                                                        <select class="form-control" data-ng-model="SelBenCast" ng-change="LoadSubCasts();">
+                                                            <option selected="selected" value="">-Select-</option>
+                                                            <option data-ng-repeat="dis in CastsDD" value="{{dis.CommunityCode}}">{{dis.CommunityName}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Sub Cast :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <select class="form-control" data-ng-model="SelBenSubCast">
+                                                        <option selected="selected" value="">-Select-</option>
+                                                        <option data-ng-repeat="dis in SubCastsDD" value="{{dis.CASTE_NAME}}">{{dis.CASTE_NAME}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Occupation :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <select class="form-control" data-ng-model="SelBenOccupation" data-ng-change="">
+                                                        <option selected="selected" value="">-Select-</option>
+                                                        <option data-ng-repeat="dis in OccupationDD" value="{{dis.Occupation_id}}">{{dis.Occupation_desc}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" ng-show="SelBenOccupation=='10'">
+                                                <label class="col-form-label"><b>Other Occupation :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="text" data-ng-model="SelBenOtherOccupation" class="form-control" placeholder="Enter Other Occupation">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>IsDisabled ? :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <div>
+                                                        <input type="radio" ng-model="BenDisable" class="ml-2" value="1" /><span class="ml-2">Yes</span>
+                                                        <input type="radio" ng-model="BenDisable" class="ml-2" value="0" /><span class="ml-2">No</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Mobile Number :</b></label>
+                                                <div>
+                                                    <input type="text" maxlength="10" numbers-only data-ng-model="BenMobile" class="form-control" placeholder="Enter Mobile Number">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                                </div>
+                                <!--Beneficiary Details Ending-->
+                                <!--Beneficiary Address Details Starting-->
+                                <div class="mt-3">
+                                    <fieldset>
+                                        <legend class="w-auto">
+                                            Investment Details
+                                        </legend>
+                                        <div class="form-group row mb-3">
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>House Number :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="text" data-ng-model="BenHouse" class="form-control" placeholder="Enter House Number">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Street :</b></label>
+                                                <div>
+                                                    <input type="text" data-ng-model="BenStreet" class="form-control" placeholder="Enter Street">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>District :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <select class="form-control" data-ng-model="SelBenDistrict" ng-change="LoadMandals();">
+                                                        <option selected="selected" value="">-Select-</option>
+                                                        <!--<option data-ng-repeat="dis in DistrictDD" value="{{dis.District_Code}}">{{dis.District_Name}}</option-->>
+														<option value="510">Krishna</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>Rural/Urban :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <select class="form-control" data-ng-model="SelBenRType" ng-change="LoadMandals();">
+                                                        <option selected="selected" value="">-Select-</option>
+                                                        <option value="Rural">Rural</option>
+                                                        <option value="Urban">Urban</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4" ng-show="isrural">
+                                                <label class="col-form-label"><b>Mandal :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <select class="form-control" data-ng-model="SelBenMandal" ng-options="dis as dis.Mandal_Name for dis in MandalDD | unique:'Mandal_Name'" ng-change="LoadVillages();">
+                                                        <option value="">-Select-</option>
+                                                        <!--<option data-ng-repeat="dis in MandalDD" value="{{dis.Mandal_Code}}">{{dis.Mandal_Name}}</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" ng-hide="isrural">
+                                                <label class="col-form-label"><b>Municipality :</b><span style="color:red">*</span></label>
+												<div>
+													<select class="form-control" data-ng-model="SelBenMunicy" ng-change="LoadWards();">
+													<!-- <select class="form-control" data-ng-model="SelBenMunicy" ng-options="dis as dis.Mandal_Name for dis in MunicyDD | unique:'Mandal_Name'" ng-change="LoadWards();">
+		 <option value="">-Select-</option>
+		 <option data-ng-repeat="dis in MandalDD" value="{{dis.Mandal_Code}}">{{dis.Mandal_Name}}</option>-->
+														<option value="5010">Vijayawada (Urban)</option>
+													</select>
+													ct
+													</
+												</div>
+                                            </div>
+                                            <div class="col-md-4" ng-show="isrural">
+                                                <label class="col-form-label"><b>Village :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <select class="form-control" data-ng-model="SelBenVillage" ng-options="dis as dis.Village_Name for dis in VillageDD | unique:'Village_Name'" ng-change="LoadPanchayat();">
+                                                        <option selected="selected" value="">-Select-</option>
+                                                        <!--<option data-ng-repeat="dis in VillageDD" value="{{dis.Village_Code}}">{{dis.Village_Name}}</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" ng-hide="isrural">
+                                                <label class="col-form-label"><b>Ward :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <select class="form-control" data-ng-model="SelBenWard" ng-options="dis as dis.Village_Name for dis in WardDD | unique:'Village_Name'" >
+                                                        <option selected="selected" value="">-Select-</option>
+                                                        <!--<option data-ng-repeat="dis in VillageDD" value="{{dis.Village_Code}}">{{dis.Village_Name}}</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4" ng-show="isrural">
+                                                <label class="col-form-label"><b>Panchayat :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <select class="form-control" data-ng-model="SelBenPanchayat">
+                                                        <option selected="selected" value="">-Select-</option>
+                                                        <option data-ng-repeat="dis in PanchayatDD" value="{{dis.Panchayat_Code}}">{{dis.Panchayat_Name}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label class="col-form-label"><b>PIN Code :</b><span style="color:red">*</span></label>
+                                                <div>
+                                                    <input type="text" data-ng-model="BenPin" class="form-control" placeholder="Enter PIN Code">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </fieldset>
+                                </div>
+                                <!--Beneficiary Address Details Ending-->
+                                <!--Eligibility Details Starting-->
+                                <div class="mt-3">
+                                    <fieldset>
+                                        <legend class="w-auto">
+                                            Eligibility Details For Housing Site
+                                        </legend>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-6"><b>1. Does the beneficiary have a white ration card ? </b><span style="color:red">*</span></label>
+                                            <div>
+                                                <input type="radio" ng-model="BenIsWCard" class="ml-2" value="1" /><span class="ml-2">Yes</span>
+                                                <input type="radio" ng-model="BenIsWCard" class="ml-2" value="0" /><span class="ml-2">No</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-6"><b>2. If yes, then ration card number</b></label>
+                                            <div>
+                                                <input type="text" data-ng-model="BenWCardNo" class="form-control" placeholder="Enter Ration Card Number">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-6"><b>3. Does the beneficiary own a house in the state of Andhra Pradesh ? </b><span style="color:red">*</span></label>
+                                            <div>
+                                                <input type="radio" ng-model="BenIsOHouse" class="ml-2" value="1" /><span class="ml-2">Yes</span>
+                                                <input type="radio" ng-model="BenIsOHouse" class="ml-2" value="0" /><span class="ml-2">No</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-6"><b>4. Does the beneficiary own a house site in the state of Andhra Pradesh ? </b><span style="color:red">*</span></label>
+                                            <div>
+                                                <input type="radio" ng-model="BenIsOHSite" class="ml-2" value="1" /><span class="ml-2">Yes</span>
+                                                <input type="radio" ng-model="BenIsOHSite" class="ml-2" value="0" /><span class="ml-2">No</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-6"><b>5. Does the beneficiary already have a government-sanctioned home ? </b><span style="color:red">*</span></label>
+                                            <div>
+                                                <input type="radio" ng-model="BenIsGHouse" class="ml-2" value="1" /><span class="ml-2"> Yes</span>
+                                                <input type="radio" ng-model="BenIsGHouse" class="ml-2" value="0" /><span class="ml-2">No</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-6"><b>6. Does the beneficiary already have a government-sanctioned home site ? </b><span style="color:red">*</span></label>
+                                            <div>
+                                                <input type="radio" ng-model="BenIsGHSite" class="ml-2" value="1" /><span class="ml-2">Yes</span>
+                                                <input type="radio" ng-model="BenIsGHSite" class="ml-2" value="0" /><span class="ml-2">No</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-6"><b>7. Does the beneficiary own 2.5 acres of Wetland or 5.0 acres of Dryland ? </b><span style="color:red">*</span></label>
+                                            <div>
+                                                <input type="radio" ng-model="BenIsLand" class="ml-2" value="1" /><span class="ml-2">Yes</span>
+                                                <input type="radio" ng-model="BenIsLand" class="ml-2" value="0" /><span class="ml-2">No</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row" ng-show="isrural">
+                                            <label class="col-form-label col-lg-6"><b>8. Whether the beneficiary has an annual income of less than three (3) lakhs ? </b><span style="color:red">*</span></label>
+                                            <div>
+                                                <input type="radio" ng-model="BenIsIncome" class="ml-2" value="1" /><span class="ml-2">Yes</span>
+                                                <input type="radio" ng-model="BenIsIncome" class="ml-2" value="0" /><span class="ml-2">No</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row" ng-show="isrural">
+                                            <label class="col-form-label col-lg-6"><b>9. Does the beneficiary own a house previously granted under the PMAY schemes ?  </b><span style="color:red">*</span></label>
+                                            <div>
+                                                <input type="radio" ng-model="BenIsPMAY" class="ml-2" value="1" /><span class="ml-2">Yes</span>
+                                                <input type="radio" ng-model="BenIsPMAY" class="ml-2" value="0" /><span class="ml-2">No</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row" ng-show="isrural">
+                                            <label class="col-form-label col-lg-6"><b>10. If yes, specify the Benefit Scheme  </b></label>
+                                            <div>
+                                                <select class="form-control" data-ng-model="SelPMAYName">
+                                                    <option selected="selected" value="0">-Select-</option>
+                                                    <option value="1">AHP</option>
+                                                    <option value="2">BLC</option>
+                                                    <option value="3">CLSS</option>
+                                                    <option value="4">Others</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row" ng-show="isrural && SelPMAYName == '1'">
+                                            <label class="col-form-label col-lg-6"><b>11. Have you assigned the assignment order under AHP ?  </b><span style="color:red">*</span></label>
+                                            <div>
+                                                <input type="radio" ng-model="BenIsAHP" class="ml-2" value="1" /><span class="ml-2">Yes</span>
+                                                <input type="radio" ng-model="BenIsAHP" class="ml-2" value="0" /><span class="ml-2">No</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row" ng-show="isrural && SelPMAYName == '1'">
+                                            <label class="col-form-label col-lg-6"><b>12. If yes, Specify the allotment details </b></label>
+                                            <div>
+                                                <input type="text" data-ng-model="AHPAllowet" class="form-control" placeholder="Enter AHP Allotment Details">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-lg-6"><b><span style="color:blue;">Declaration : </span> All of the above are realistic. If the government finds any of these information to be false, I will not be held responsible / liable for any further actions to be taken by the government. This declaration given by my will </b></label>
+                                        </div>
+                                        <div class="form-group row mb-3">
+                                            <label class="col-form-label col-lg-6"><b>Benificiary Application Form <spna style="color:red">(PDF file only, Size should not Exceed 500kb)</spna> </b><span style="color:red">*</span></label>
+                                            <input type="file" id="UplDoc" name="UplDoc" onchange="CheckFileType();" class="form-control col-lg-3" />
+                                        </div>
+
+                                    </fieldset>
+                                </div>
+                                <!--Eligibility Deatils Ending-->
+                                <div class="mt-3">
+                                    <div class="form-group row mb-3 text-center ">
+                                        <button type="button" data-ng-click="Register();" class="btn btn-primary mr-1">Submit</button>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

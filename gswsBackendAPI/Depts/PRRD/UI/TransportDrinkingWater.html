@@ -1,0 +1,47 @@
+﻿<style>
+    th {
+        font-weight: bold !important;
+    }
+
+    thead {
+        background-color: cornflowerblue !important;
+        font-weight: bold !important;
+    }
+</style>
+<div class="container" style="margin-top:10px">
+    <div class="col-md-12" align="center">
+        <h3><b style="border-bottom:5px solid black">Today Water Tanker Details</b></h3>
+    </div>
+    <div class="col-md-12" style="margin-top:50px">
+      
+    </div>
+    <div class="col-md-12" ng-show="detailsshow">
+        <br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>TANKER_TRIP_START_DATE_TIME</td>
+                    <td>SOURCEHABCODE</td>
+                    <td>TRIP_ID</td>
+                    <td>TANKER_OWNER_NAME</td>
+                    <td>TANKER_REG_NO</td>
+                    <td>TANKER_OWNER_MOBILE</td>
+                    <td>DESTHABCODE</td>
+                </tr>
+            </thead>
+            <tr ng-repeat="responsedata in resdata">
+                <td>{{responsedata.TANKER_TRIP_START_DATE_TIME}}</td>
+                <td>{{responsedata.SOURCEHABCODE}}</td>
+                <td>{{responsedata.TRIP_ID}}</td>
+                <td>{{responsedata.TANKER_OWNER_NAME}}</td>
+                <td>{{responsedata.TANKER_REG_NO}}</td>
+                <td>{{responsedata.TANKER_OWNER_MOBILE}}</td>
+                <td>{{responsedata.DESTHABCODE}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-12"> <div class="row">&nbsp;</div></div>
+    <div class="col-md-12"> <div class="row">&nbsp;</div></div>
+</div>
+
+

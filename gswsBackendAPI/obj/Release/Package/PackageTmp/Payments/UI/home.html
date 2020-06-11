@@ -1,0 +1,219 @@
+﻿<style>
+    body {
+        background-color: white;
+    }
+
+    .payment-table tr td h6 {
+        font-size: 15px;
+        font-family: rubik-Medium;
+    }
+
+    .payment-table tr td,
+    .payment-table tr th {
+        border: 0px !important;
+        vertical-align: -webkit-baseline-middle;
+    }
+</style>
+
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <h2 class="title-header">Payment Option</h2>
+        </div>
+    </div>
+
+
+    <div class="row mt-4">
+        <div class="col-sm-7">
+
+            <div class="card ">
+                <div class="card-header  ">
+                    <h4>Count Down : <span style="color:red;"> {{countDown}}</span></h4>
+                    <h2 ng-show="wallet_type == 'TA'" class="text-center"> <img src="assets/images/TAWALLET.png" width="50" class="mr-3" /> <span class="pt-5"> TA-Wallet</span></h2>
+
+                    <h2 ng-show="wallet_type == 'WONE'" class="text-center">  <i class="icon-wallet icon-2x"></i>  <span class="pt-5"> Wallet-One</span></h2>
+
+                </div>
+                <div class="card-body ">
+                    <table class="table table-borderedless payment-table border-0 ">
+                        <tr>
+                            <th> Name <span class="float-right"> : </span> </th>
+                            <td>
+                                <h6> {{payment_details.userName}} </h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th> Mobile No <span class="float-right"> : </span></th>
+                            <td>
+                                <h6> {{payment_details.mobileNumber}}</h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th> Amount <span class="float-right"> : </span> </th>
+                            <td>
+                                <h6> {{payment_details.totalAmount}} Rs/- </h6>
+                            </td>
+                        </tr>
+
+                        <tr ng-show="wallet_type == 'TA' && paymentProcess == false">
+                            <th> Enter OTP <span class="float-right"> : </span> </th>
+                            <td> <input type="text" class="form-control w-50" ng-model="taOtp" maxlength="8"> </td>
+                        </tr>
+
+
+                        <tr ng-show="paymentProcess == false">
+                            <th> </th>
+                            <td>
+                                <button class="btn bg-indigo-800" ng-click="btnPayment();">Confirm Pay</button>
+                                <button class="btn bg-danger-800" ng-click="btnCancelPayment();">Cancel</button>
+                            </td>
+                        </tr>
+
+                        <tr ng-show="paymentProcess == true">
+                            <th> Remarks <span class="float-right"> : </span> </th>
+                            <td>
+                                <h6 style="color:red;"> {{payment_response_remarks}} </h6>
+                            </td>
+                        </tr>
+
+                        <tr ng-show="paymentProcess == true" align="center">
+                            <th> </th>
+                            <td>
+                                <button class="btn bg-indigo-800" ng-click="btnFailedPayment();">Ok</button>
+                            </td>
+                        </tr>
+
+                    </table>
+
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col-sm-5 ">
+            <div class="card ">
+                <div class="card-header header-elements-inline ">
+                    <h6 class="card-title " style="font-family: rubik-bold;color: #424242; ">Order Summary</h6>
+                    <div class="header-elements ">
+                        <p class="mb-0 "> {{payment_details.TxnDate | date}}</p>
+                    </div>
+                </div>
+
+                <div class="card-body ">
+                    <table class="table table-borderedless border-0 ">
+                        <tr>
+                            <th> Order ID  </th>
+                            <td> {{payment_details.orderId}}</td>
+                        </tr>
+                        <tr>
+                            <th> Description </th>
+                            <td> {{payment_details.Description}}</td>
+                        </tr>
+                        <tr>
+                            <th> Amout </th>
+                            <td>{{payment_details.Amount}}</td>
+                        </tr>
+                        <tr>
+                            <th> Service Charges </th>
+                            <td>{{payment_details.userCharges}}</td>
+                        </tr>
+                        <tr>
+                            <th> Total Amout </th>
+                            <td>{{payment_details.totalAmount}}</td>
+                        </tr>
+                    </table>
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <!--<div class="row mt-4">
+            <div class="col-sm-8">
+                <div class="row text-center">
+                    <div class="col-sm-3 text-center">
+                        <a href="#" class="btn alpha-success border-success text-success-800  btn-block p-4 mb-3" ng-click="btnTaWallet();">
+                            <img src="assets/images/TAWALLET.png" width="40"> <br> TA-Wallet
+                        </a>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="#" class=" btn alpha-success border-success text-success-800   btn-block p-4 " onclick="return popitup( 'payment-print.html') ">
+                            <i class="icon-wallet icon-2x"></i> <br> AP-Wallet
+                        </a>
+                    </div>
+                    <div class="col-sm-3 ">
+                        <a href="# " class="btn alpha-indigo border-indigo text-primary-800 btn-block p-4 " onclick="return popitup( 'payment-print.html') "> <i class="icon-wallet icon-2x"></i> <br> Wallet One</a>
+                    </div>
+                    <div class="col-sm-3 ">
+                        <a href="# " class="btn alpha-indigo border-indigo text-primary-800 btn-block mb-1 p-4 " onclick="return popitup( 'payment-print.html') "><i class="icon-wallet icon-2x"></i> <br> Wallet</a>
+                    </div>
+                    <div class="col-sm-3 ">
+                        <a href="# " class="btn alpha-indigo border-indigo text-primary-800 btn-block p-4 " onclick="return popitup( 'payment-print.html') "><i class="icon-wallet icon-2x"></i> <br> Wallet</a>
+                    </div>
+                    <div class="col-sm-3 ">
+                        <a href="# " class="btn alpha-indigo border-indigo text-primary-800 btn-block p-4 " onclick="return popitup( 'payment-print.html') "> <i class="icon-wallet icon-2x"></i> <br> Wallet</a>
+                    </div>
+                    <div class="col-sm-3 ">
+                        <a href="# " class="btn alpha-indigo border-indigo text-primary-800 btn-block p-4 " onclick="return popitup( 'payment-print.html') "><i class="icon-wallet icon-2x"></i> <br> Wallet</a>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+            <div class="col-sm-4 ">
+                <div class="card ">
+                    <div class="card-header header-elements-inline ">
+                        <h6 class="card-title " style="font-family: rubik-bold;color: #424242; ">Order Summary</h6>
+                        <div class="header-elements ">
+                            <p class="mb-0 "> {{today_date | date}}</p>
+                        </div>
+                    </div>
+
+                    <div class="card-body ">
+                        <table class="table table-borderedless border-0 ">
+                            <tr>
+                                <th> Order ID  </th>
+                                <td> {{order_id}}</td>
+                            </tr>
+                            <tr>
+                                <th> Service </th>
+                                <td>  {{service_name}}</td>
+                            </tr>
+                            <tr>
+                                <th> Description </th>
+                                <td> {{transaction_desc}}</td>
+                            </tr>
+                            <tr>
+                                <th> Amout </th>
+                                <td>{{amount}}</td>
+                            </tr>
+                        </table>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>-->
+
+
+
+
+    </div>
+
+</div>

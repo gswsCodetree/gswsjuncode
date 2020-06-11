@@ -1,0 +1,82 @@
+﻿<style type="text/css">
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('../images/loader.gif') 50% 50% no-repeat #fff;
+	}
+</style>
+<div class="page-content">
+	<div data-ng-show="preloader" class="loader"></div>
+	<!-- Main content -->
+	<div class="content-wrapper">
+		<!-- Content area -->
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 mt-2 ">
+						<div class="card">
+							<div class="card-body">
+								<div class="col-sm-12 text-center mb-4">
+									<h1>Spandana Grievance Details {{stitle}} Report</h1>
+								</div>
+								<div  ng-show="divtable" class="responsive table-responsive">
+									<table datatable="ng" id="myTable" class="table bg-white table-responsive table-bordered table-striped table-hover datatable-show-all">
+										<thead>
+											<tr class="bg-dark" style="color:white !important;">
+												<th>S.No</th>
+												<th>DOC NO</th>
+												<th>APPLICATENT NAME </th>
+												<th>CARE OF</th>
+												<th>DATE OF APPLY </th>
+												<th>MOBILE NUMBER </th>
+												<th>HOUSEHOLD ID</th>
+												<th>FORM ID</th>
+												<th>DEPARTMENT NAME</th>
+												<th>SUBJECT</th>
+												<th>SUB SUBJECT</th>
+												<th>DISTRICT NAME</th>
+												<th>MANDAL/MUNCIPALITY NAME</th>
+												<th>GRAMA/WARD SECRETARIAT NAME</th>
+												<th>STATUS</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr dt-rows ng-repeat="spandana in SpandanaDashboardList">
+												<td>{{$index + 1}}</td>
+												<td>{{spandana.DOC_NO}}</td>
+												<td>{{spandana.APPLICATENT_NAME}}</td>
+												<td>{{spandana.C_O}}</td>
+												<td>{{spandana.DATE_OF_APPLY}}</td>
+												<td>{{spandana.MOBILE_NUMBER}}</td>
+												<td>{{spandana.HOUSEHOLD_ID}}</td>
+												<td>{{spandana.FORM_ID}}</td>
+												<td>{{spandana.ENAME}}</td>
+												<td>{{spandana.SUBJECT}}</td>
+												<td>{{spandana.SUBSUBJECT}}</td>
+												<td>{{spandana.DISTNAME}}</td>
+												<td>{{spandana.MNAME}}</td>
+												<td>{{spandana.SECRETARIAT_NAME}}</td>
+												<td>{{spandana.OPEN_CLOSE}}</td>
+
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="row" ng-show="!divtable">
+									<h2 align="center" style="color:red;">{{errormsg}}</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+</div>

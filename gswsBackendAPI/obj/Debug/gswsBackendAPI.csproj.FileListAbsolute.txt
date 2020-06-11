@@ -1,0 +1,216 @@
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\ApplicationInsights.config
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\gswsBackendAPI.dll.config
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\gswsBackendAPI.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\gswsBackendAPI.pdb
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Antlr3.Runtime.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\CaptchaMvc.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.Agent.Intercept.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.DependencyCollector.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.Web.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.WindowsServer.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.ApplicationInsights.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.Web.Infrastructure.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Newtonsoft.Json.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Oracle.ManagedDataAccess.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Diagnostics.DiagnosticSource.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Net.Http.Formatting.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Cors.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Helpers.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.Cors.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.WebHost.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Mvc.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Optimization.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Razor.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Deployment.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Razor.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\WebGrease.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Antlr3.Runtime.pdb
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\CaptchaMvc.pdb
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\CaptchaMvc.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.DependencyCollector.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Net.Http.Formatting.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.Cors.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Newtonsoft.Json.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Helpers.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.WebHost.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Mvc.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Optimization.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Razor.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Deployment.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Razor.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\System.Diagnostics.DiagnosticSource.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.WindowsServer.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.Web.xml
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.csprojAssemblyReference.cache
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.csproj.CoreCompileInputs.cache
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.csproj.CopyComplete
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.dll
+F:\GSWS\16NOV19\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.pdb
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\ApplicationInsights.config
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\gswsBackendAPI.dll.config
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\gswsBackendAPI.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\gswsBackendAPI.pdb
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\CaptchaMvc.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.Web.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.WindowsServer.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.ApplicationInsights.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.Web.Infrastructure.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\Newtonsoft.Json.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\Oracle.ManagedDataAccess.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Diagnostics.DiagnosticSource.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Net.Http.Formatting.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Cors.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Helpers.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.Cors.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.WebHost.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Mvc.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Optimization.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Razor.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Deployment.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Razor.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\WebGrease.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\CaptchaMvc.pdb
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\CaptchaMvc.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Net.Http.Formatting.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.Cors.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\Newtonsoft.Json.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Helpers.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.WebHost.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Mvc.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Optimization.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Razor.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Deployment.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Razor.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\System.Diagnostics.DiagnosticSource.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.WindowsServer.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.Web.xml
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.csprojAssemblyReference.cache
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.csproj.CoreCompileInputs.cache
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.csproj.CopyComplete
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.dll
+F:\GSWS\Security Audit Code GSWS\security audio fixed 2.0\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.pdb
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\ApplicationInsights.config
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\gswsBackendAPI.dll.config
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\gswsBackendAPI.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\gswsBackendAPI.pdb
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\CaptchaMvc.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.Web.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.WindowsServer.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.ApplicationInsights.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.Web.Infrastructure.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\Newtonsoft.Json.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\Oracle.ManagedDataAccess.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Diagnostics.DiagnosticSource.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Net.Http.Formatting.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Cors.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Helpers.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.Cors.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.WebHost.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Mvc.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Optimization.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Razor.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Deployment.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Razor.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\WebGrease.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\CaptchaMvc.pdb
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\CaptchaMvc.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Net.Http.Formatting.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.Cors.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\Newtonsoft.Json.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Helpers.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.WebHost.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Mvc.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Optimization.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Razor.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Deployment.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Razor.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\System.Diagnostics.DiagnosticSource.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.WindowsServer.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.Web.xml
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.csprojAssemblyReference.cache
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.csproj.CoreCompileInputs.cache
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.csproj.CopyComplete
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.dll
+F:\GSWS\Security Audit Code GSWS\Productioncode\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.pdb
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\ApplicationInsights.config
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\gswsBackendAPI.dll.config
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\gswsBackendAPI.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\gswsBackendAPI.pdb
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Antlr3.Runtime.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\BouncyCastle.Crypto.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\CaptchaMvc.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.Agent.Intercept.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.DependencyCollector.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.Web.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.WindowsServer.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.ApplicationInsights.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.Web.Infrastructure.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Newtonsoft.Json.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Oracle.ManagedDataAccess.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\OracleConnect.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Diagnostics.DiagnosticSource.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Net.Http.Formatting.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Cors.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Helpers.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.Cors.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.WebHost.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Mvc.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Optimization.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Razor.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Deployment.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Razor.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\WebGrease.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Antlr3.Runtime.pdb
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\CaptchaMvc.pdb
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\CaptchaMvc.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.DependencyCollector.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Net.Http.Formatting.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.Cors.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Newtonsoft.Json.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Helpers.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Http.WebHost.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Mvc.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Optimization.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.Razor.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Deployment.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Web.WebPages.Razor.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\System.Diagnostics.DiagnosticSource.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.WindowsServer.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\bin\Microsoft.AI.Web.xml
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.csprojAssemblyReference.cache
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.csproj.CoreCompileInputs.cache
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.csproj.CopyComplete
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.dll
+F:\GSWS\Security Audit Code GSWS\LiveCodeGSWS\21FEB2020\gswsBackendAPI\gswsBackendAPI\obj\Debug\gswsBackendAPI.pdb

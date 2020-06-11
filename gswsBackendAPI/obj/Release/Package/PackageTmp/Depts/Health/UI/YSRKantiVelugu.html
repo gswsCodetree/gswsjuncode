@@ -1,0 +1,426 @@
+﻿<style type="text/css">
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('../images/loader.gif') 50% 50% no-repeat #fff;
+    }
+
+    legend {
+        background: #004085;
+        padding: 4px 22px;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+    }
+
+    fieldset {
+        border: 2px solid gray !important;
+        border-radius: 3px;
+        padding: 30px !important;
+    }
+
+    .w-72 {
+        width: 72% !important;
+    }
+
+    .card {
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    }
+</style>
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>YSR Kanti Velugu</h1>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-3 col-form-label text-right">Student ID</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" numbers-only ng-model="studentid" placeholder="Enter Student ID" maxlength="12" class="form-control">
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button type="button" ng-click="GetStatus();" class="btn btn-primary">Get Details</button>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div ng-show="dttable">
+                                    <!--Student Details Starting-->
+                                    <div>
+                                        <fieldset>
+                                            <legend class="w-auto">
+                                                Student Details
+                                            </legend>
+                                            <div class="row ">
+                                                <div class="col-md-2">
+                                                    <label><b>Student Name :</b></label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label>{{CHILD_NAME}}</label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label><b>Gender :</b></label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label>{{GENDER1}}</label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label><b>Class :</b></label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label>{{STUDYINGCLASS}}</label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label><b>District Name :</b></label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label>{{DISTRICTNAME}}</label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label><b>Mandal Name :</b></label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label>{{MANDALNAME}}</label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label><b>Village Name :</b></label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label>{{VILLAGENAME}}</label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label><b>School Name :</b></label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label>{{SCHNAME}}</label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label><b>School Complex Name :</b></label>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label>{{SCHOOLCOMPLEXNAME}}</label>
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+
+                                    </div>
+                                    <!--Student Details Ending-->
+
+                                    <!--Chief Complaint Starting-->
+                                    <div class="mt-3">
+                                        <fieldset>
+                                            <legend class="w-auto">
+                                                Chief Complaint
+                                            </legend>
+                                            <div class="row ">
+                                                <table class="table table-bordered mb-3">
+                                                    <thead class="text-white" style="text-align:center;background: #004085">
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>Blurred Vision</th>
+                                                            <th>Pain</th>
+                                                            <th>Redness</th>
+                                                            <th>Others</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="text-align:center">
+                                                        <tr>
+                                                            <td>Right Eye</td>
+                                                            <td>{{CC_R_BLURRED}}</td>
+                                                            <td>{{CC_R_PAIN}}</td>
+                                                            <td>{{CC_R_RED}}</td>
+                                                            <td>{{CC_R_OTHERS}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Left Eye</td>
+                                                            <td>{{CC_L_BLURRED}}</td>
+                                                            <td>{{CC_L_PAIN}}</td>
+                                                            <td>{{CC_L_RED}}</td>
+                                                            <td>{{CC_L_OTHERS}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </fieldset>
+
+                                    </div>
+                                    <!--Chief Complaint Ending-->
+
+                                    <!--Anterior Segment Evaluation Starting-->
+                                    <div class="mt-3">
+                                        <fieldset>
+                                            <legend class="w-auto">
+                                                Anterior Segment Evaluation
+                                            </legend>
+                                            <div class="row ">
+                                                <table class="table table-bordered mb-3">
+                                                    <thead class="text-white" style="text-align:center;background: #004085">
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>Squint</th>
+                                                            <th>Continental Contract</th>
+                                                            <th>Nystagmus</th>
+                                                            <th>Allergic Conjuctivities</th>
+                                                            <th>Others</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="text-align:center">
+                                                        <tr>
+                                                            <td>Right Eye</td>
+                                                            <td>{{ASE_R_SQUINT}}</td>
+                                                            <td>{{ASE_R_CONG_CATARACT}}</td>
+                                                            <td>{{ASE_R_NYSTAGMUS}}</td>
+                                                            <td>{{ASE_R_ALLRGC_CONJ}}</td>
+                                                            <td>{{ASE_R_OTHERS}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Left Eye</td>
+                                                            <td>{{ASE_L_SQUINT}}</td>
+                                                            <td>{{ASE_L_CONG_CATARACT}}</td>
+                                                            <td>{{ASE_L_NYSTAGMUS}}</td>
+                                                            <td>{{ASE_L_ALLRGC_CONJ}}</td>
+                                                            <td>{{ASE_L_OTHERS}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </fieldset>
+
+                                    </div>
+                                    <!--Anterior Segment Evaluation Ending-->
+
+                                    <!--Visual Acuity Test Starting-->
+                                    <div class="mt-3">
+                                        <fieldset>
+                                            <legend class="w-auto">
+                                                Visual Acuity Test
+                                            </legend>
+                                            <div class="row ">
+                                                <table class="table table-bordered mb-3">
+                                                    <thead class="text-white" style="text-align:center;background: #004085">
+                                                        <tr>
+                                                            <th rowspan="2"></th>
+                                                            <th colspan="3">Distance Vision</th>
+                                                            <th rowspan="2">Near Vision</th>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <th>With Glass</th>
+                                                            <th>Without Glass</th>
+                                                            <th>Pinhole</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="text-align:center">
+                                                        <tr>
+                                                            <td>Right Eye</td>
+                                                            <td>{{VAT_DV_R_WITHGLASS}}</td>
+                                                            <td>{{VAT_DV_R_WITHOUTGLASS}}</td>
+                                                            <td>{{VAT_DV_R_PINHOLE}}</td>
+                                                            <td>{{VAT_NV_R_VISION}}</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Left Eye</td>
+                                                            <td>{{VAT_DV_L_WITHGLASS}}</td>
+                                                            <td>{{VAT_DV_L_WITHOUTGLASS}}</td>
+                                                            <td>{{VAT_DV_L_PINHOLE}}</td>
+                                                            <td>{{VAT_NV_L_VISION}}</td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                        </fieldset>
+
+                                    </div>
+                                    <!--Visual Acuity Test Ending-->
+
+                                    <!--Other Details Starting-->
+                                    <div class="mt-3">
+                                        <fieldset>
+                                            <legend class="w-auto">
+                                                Other Details
+                                            </legend>
+
+                                            <div class="col-md-12 row">
+                                                <div class="col-md-4"><label>Visual Activity Type :  &nbsp;&nbsp;</label></div>
+                                                <div class="col-md-1"><label><b>{{RBL_PSA}} </b></label></div>
+                                            </div>
+
+                                            <div class="row" ng-show="vtype">
+                                                <table class="table table-bordered mb-3">
+                                                    <thead class="text-white" style="text-align:center;background: #004085">
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>SPH</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="text-align:center">
+                                                        <tr>
+                                                            <td>Right Eye</td>
+                                                            <td>{{P_SPH_R}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Left Eye</td>
+                                                            <td>{{P_SPH_L}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="row " ng-hide="vtype">
+                                                <table class="table table-bordered mb-3">
+                                                    <thead class="text-white" style="text-align:center;background: #004085">
+                                                        <tr>
+                                                            <th></th>
+                                                            <th>SPH</th>
+                                                            <th>CYL</th>
+                                                            <th>AXIS</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="text-align:center">
+                                                        <tr>
+                                                            <td>Right Eye</td>
+                                                            <td>{{SA_SPH_R}}</td>
+                                                            <td>{{SA_CYL_R}}</td>
+                                                            <td>{{SA_AXIS_R}}</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Left Eye</td>
+                                                            <td>{{SA_SPH_L}}</td>
+                                                            <td>{{SA_CYL_L}}</td>
+                                                            <td>{{SA_AXIS_L}}</td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+
+                                        </fieldset>
+
+                                    </div>
+                                    <!--Other Details Ending-->
+
+                                    <!--Subjective Correction (Prescription) Starting-->
+                                    <div class="mt-3">
+                                        <fieldset>
+                                            <legend class="w-auto">
+                                                Subjective Correction (Prescription)
+                                            </legend>
+
+                                            <div class="col-md-12 row">
+                                                <div class="col-md-4"><label>Is Spects Required ? &nbsp;&nbsp;</label></div>
+                                                <div class="col-md-1"><label><b>{{IS_SPECTS_REQ}} </b></label></div>
+                                            </div>
+
+                                            <div class="row ">
+                                                <table class="table table-bordered mb-3">
+                                                    <thead class="text-white" style="text-align:center;background: #004085">
+                                                        <tr>
+                                                            <th colspan="2"></th>
+                                                            <th>Vision Before Correction</th>
+                                                            <th>SPH</th>
+                                                            <th>CYL</th>
+                                                            <th>Axis</th>
+                                                            <th>Vision After Correction</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="text-align:center">
+                                                        <tr>
+                                                            <td rowspan="2">Distant Vision</td>
+                                                            <td>Right Eye</td>
+                                                            <td>{{SC_DV_VBC_R}}</td>
+                                                            <td>{{SC_DV_R_SPH}}</td>
+                                                            <td>{{SC_DV_R_CYL}}</td>
+                                                            <td>{{SC_DV_R_AXIS}}</td>
+                                                            <td>{{SC_DV_R_VISION}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Left Eye</td>
+                                                            <td>{{SC_DV_VBC_L}}</td>
+                                                            <td>{{SC_DV_L_SPH}}</td>
+                                                            <td>{{SC_DV_L_CYL}}</td>
+                                                            <td>{{SC_DV_L_AXIS}}</td>
+                                                            <td>{{SC_DV_L_VISION}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td rowspan="2">Near Vision</td>
+                                                            <td>Right Eye</td>
+                                                            <td>{{SC_NV_VBC_R}}</td>
+                                                            <td>{{SC_NV_R_SPH}}</td>
+                                                            <td>{{SC_NV_R_CYL}}</td>
+                                                            <td>{{SC_NV_R_AXIS}}</td>
+                                                            <td>{{SC_NV_R_VISION}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Left Eye</td>
+                                                            <td>{{SC_NV_VBC_L}}</td>
+                                                            <td>{{SC_NV_L_SPH}}</td>
+                                                            <td>{{SC_NV_L_CYL}}</td>
+                                                            <td>{{SC_NV_L_AXIS}}</td>
+                                                            <td>{{SC_NV_L_VISION}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+
+                                            <div class="col-md-12 row">
+                                                <div class="col-md-3"><label>Frame Size : </label></div>
+                                                <div class="col-md-3"><label>{{SPECTS_FRAME_SIZE}}</label></div>
+                                                <div class="col-md-3"><label>Frame Color : </label></div>
+                                                <div class="col-md-3"><label>{{SPECTS_FRAME_COLOR}}</label></div>
+                                            </div>
+
+                                            <div class="col-md-12 row">
+                                                <div class="col-md-3"><label>Medication : </label></div>
+                                                <div class="col-md-9"><label>{{MEDICATION}}</label></div>
+                                            </div>
+
+                                            <div class="col-md-12 row">
+                                                <div class="col-md-3"><label>Conclusion : </label></div>
+                                                <div class="col-md-9"><label>{{CONCLUSION}}</label></div>
+                                            </div>
+
+                                            <div class="col-md-12 row">
+                                                <div class="col-md-3"><label>Name Of Reffer  Institute : </label></div>
+                                                <div class="col-md-3"><label>{{NAME_OF_REF_INST}}</label></div>
+                                                <div class="col-md-3"><label>Reffered For : </label></div>
+                                                <div class="col-md-3"><label>{{REFFERED_FOR}}</label></div>
+                                            </div>
+
+                                        </fieldset>
+
+                                    </div>
+                                    <!--Subjective Correction (Prescription) Ending-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

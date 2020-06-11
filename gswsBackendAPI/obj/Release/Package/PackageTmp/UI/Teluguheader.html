@@ -1,0 +1,99 @@
+﻿<link href="assets/css/style-te.css" rel="stylesheet" />
+<div class="page-header page-header-dark cust-page-header" style="background: linear-gradient(45deg, #0D47A1, #4CAF50);">
+	<!-- Page header content -->
+	<div class="page-header-content header-elements-md-inline">
+		<div class="page-title py-1 d-flex">
+			<img src="assets/images/grama-ward-logo.png" class="logo" width="70px" height="70px" />
+			<h2>గ్రామ - వార్డు సచివాలయము </h2>
+
+			<a href="#!/Login" class="header-elements-toggle text-white d-md-none"><i class="icon-more"></i></a>
+		</div>
+		<div class="header-elements d-none bg-transparent py-0 border-0 mb-3 mb-md-0">
+			
+			<div class="profile-pic text-right">
+				<img src="assets/images/jagan-logo-te.png" class="w-75" />
+				<img src="assets/images/ap-logo.png" class="rounded-circle mr-2" style="width: 70px;" alt="">
+			</div>
+		</div>
+	</div>
+	<!-- /page header content -->
+	<!-- Secondary navbar -->
+	<div class="navbar navbar-expand-md navbar-dark bg-navbar-dark-custom  border-0 shadow-0">
+		<div class="text-center d-md-none w-100">
+			<button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-navigation">
+				<i class="icon-unfold mr-2"></i>
+				Menu
+			</button>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-navigation">
+			<ul class="navbar-nav navbar-nav-highlight">
+				<li class="nav-item dropdown">
+					<a style="cursor:pointer;" class="navbar-nav-link" data-toggle="dropdown">
+						<i class="mi-desktop-windows mr-1"></i>సమస్యను రిపోర్ట్ చెయ్యండి
+					</a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="#!/ReportIssue" target="_blank" class="dropdown-item">సాఫ్ట్‌వేర్  సమస్యలు</a>
+						<a href="#!/HardwareIssues" target="_blank" class="dropdown-item"> హార్డ్వేర్  సమస్యలు</a>
+					</div>
+				</li>
+				
+				<li class="nav-item">
+					<a href="#!/ApplicationStatus" class="navbar-nav-link" target="_blank">
+						<i class="icon-cog3 mr-1"></i> అప్లికేషన్ స్థితి తెలుసుకోండి
+					</a>
+				</li>
+				
+				
+			</ul>
+			<ul class="navbar-nav navbar-nav-highlight ml-md-auto">
+				<!--
+				 <li class="nav-item">
+					 <a href="#" class="navbar-nav-link">Text link</a>
+				 </li>
+				 -->
+				<li class="nav-item dropdown">
+					<a style="cursor:pointer" class="navbar-nav-link dropdown-toggle navbar-language" data-toggle="dropdown">
+						<span>తెలుగు</span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="#!/MainDashboard" class="dropdown-item">English</a>
+						<a href="#!/TMainDashboard" class="dropdown-item"> తెలుగు</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a style="cursor:pointer;" class="navbar-nav-link navbar-logout" ng-click="GetLogout();"><i class="mi-power-settings-new mr-1 "></i>లాగౌట్</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /secondary navbar -->
+</div>
+
+<!-- /page header -->
+<div class="page-content">
+	<div class="content-wrapper">
+		<div class="content p-0">
+			<ui-view></ui-view>
+
+		</div>
+	</div>
+</div>
+<!-- /page header content --><!-- Footer -->
+<div class="navbar navbar-expand-lg navbar-light">
+	<div class="text-center d-lg-none w-100">
+		<button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
+			<i class="icon-unfold mr-2"></i>
+			Footer
+		</button>
+	</div>
+	<div class="navbar-collapse collapse" id="navbar-footer">
+		<span class="navbar-text">
+			© Copyright Govt of AP. All Rights Reserved
+		</span>
+		<ul class="navbar-nav ml-lg-auto">
+			<li class="nav-item">
+				<a href="#" class="navbar-nav-link"></a>
+			</li>
+		</ul>
+	</div>
+</div>

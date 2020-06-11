@@ -1,0 +1,113 @@
+﻿<style type="text/css">
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('assets/images/loader.gif') 50% 50% no-repeat #ffffffb8;
+    }
+</style>
+
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>Pension Application Status</h1>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="card">
+
+                            <div class="card-body">
+
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-2 col-form-label text-right">District</label>
+                                    <div class="col-lg-2">
+                                        <select ng-model="districtId" class="form-control">
+                                            <option value="">Select</option>
+                                            <option value="12">Anantapur</option>
+                                            <option value="10">Chittoor</option>
+                                            <option value="04">East Godavari</option>
+                                            <option value="07">Guntur</option>
+                                            <option value="06">Krishna</option>
+                                            <option value="13">Kurnool</option>
+                                            <option value="09">Nellore</option>
+                                            <option value="08">Prakasam</option>
+                                            <option value="01">Srikakulam</option>
+                                            <option value="03">Visakhapatnam</option>
+                                            <option value="02">Vizianagaram</option>
+                                            <option value="05">West Godavari</option>
+                                            <option value="11">YSR Kadapa</option>
+                                        </select>
+                                    </div>
+                                    <label class="col-lg-2 col-form-label text-right">Application Number</label>
+                                    <div class="col-lg-2">
+                                        <input type="text" alpha-numerics maxlength="25" data-ng-model="applicationId" autocomplete="off" placeholder="Enter Application Number" class="form-control" />
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button type="button" ng-click="GetStatus();" class="btn btn-primary">Get Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 mt-2 " ng-show="dttable">
+                        <table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+                            <thead>
+                                <tr class="bg-dark text-white text-center" style="white-space:nowrap;">
+                                    <th colspan="4" class="text-center">Application Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                    <td><b>Application ID</b></td>
+                                    <td>{{ApplicationID}}</td>
+                                    <td><b>Pension Type</b></td>
+                                    <td>{{PensionType}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Citizen Name</b></td>
+                                    <td>{{CitizenName}}</td>
+                                    <td><b>Relation Name</b></td>
+                                    <td>{{RelationName}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Gender</b></td>
+                                    <td>{{Gender}}</td>
+                                    <td><b>District</b></td>
+                                    <td>{{District}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mandal</b></td>
+                                    <td>{{Mandal}}</td>
+                                    <td><b>Panchayath</b></td>
+                                    <td>{{Panchayath}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Status Message</b></td>
+                                    <td colspan="3">{{Statusmessage}}</td>
+                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

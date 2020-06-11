@@ -1,0 +1,61 @@
+﻿
+
+			<div data-ng-show="preloader" class="loader"></div>
+
+			<div class="row pt-4">
+				<div class="col-sm-12 text-center ">
+					<h3 class="api-page-title"> Apply Ration Card</h3>
+				</div>
+				<div class="col-sm-12 ">
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-sm-4">
+									<label>Enter Aadhaar Number</label><span style="color:red;">*</span>
+									<input type="text" numbers-only maxlength="12" ng-model="UID" placeholder="Enter Aadhaar Number" class="form-control" />
+								</div>
+
+								<div class="col-sm-4">
+									<label>Select Ditrict</label><span style="color:red;">*</span>
+									<select class="form-control" ng-model="distcode">
+										<option value="">Select District</option>
+										<option ng-repeat="obj in distlist" value="{{obj.LGD_DISTRICT_CODE}}">{{obj.LGD_DISTRICT_NAME}}</option>
+									</select>
+								</div>
+								<div class="col-sm-4">
+									<label>Select Rural/Urban</label><span style="color:red;">*</span>
+									<select class="form-control" ng-model="ruflag" ng-change="GetMandalload();">
+										<option value="">Select Rural/Urban</option>
+										<option value="R">Rural</option>
+										<option value="U">Urban</option>
+									</select>
+								</div>
+
+								<div class="col-sm-4">
+									<label>Select Mandal</label><span style="color:red;">*</span>
+									<select class="form-control" ng-model="mcode" ng-change="GPLoad();">
+										<option value="">Select Mandal</option>
+										<option ng-repeat="obj in mandallist" value="{{obj.LGD_MANDAL_CODE}}">{{obj.LGD_MANDAL_NAME}}</option>
+									</select>
+								</div>
+								<div class="col-sm-4">
+									<label>Select Village</label><span style="color:red;">*</span>
+									<select class="form-control" ng-model="gpcode">
+										<option value="">Select Village</option>
+										<option ng-repeat="obj in gplist" value="{{obj.LGD_GP_CODE}}">{{obj.LGD_PANCHAYAT_NAME}}</option>
+									</select>
+								</div>
+								<div class="col-sm-4">
+									<label><br /> <br /></label>
+									<input type="button" ng-click="ApplyRation()" value="Submit" class="btn btn-success" />
+								</div>
+							</div>
+
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		
+ 

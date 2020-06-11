@@ -1,0 +1,106 @@
+﻿
+
+<div class="container">
+
+    <div class="col-md-12">
+        <h1 class="page-title center"> Closing Issues </h1>
+    </div>
+    <div class="col-md-12">
+        <div class="row p-3" style="border: 2px solid #1193d4; background-color: white; color: darkblue; border-radius: 10px">
+            <div class="col-md-4">
+                <label class="col-form-label"><b>Select Type of Issue :</b><span style="color:red"> *</span></label>
+                <select class="form-control" data-ng-model="selIssueType" data-ng-change="ChangeIssueType();">
+                    <option value="">Select</option>
+                    <option value="2">Software Issues</option>
+                    <option value="1">Hardware Issues</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="col-form-label"><b>Select Category :</b><span style="color:red"> *</span></label>
+                <select class="form-control" data-ng-model="selCategory" ng-disabled="ddlCategory" data-ng-change="CategoryChange();">
+                    <option value="">Select</option>
+                    <option data-ng-repeat="dis in CategoryData" value="{{dis.COMPONENT_ID}}">{{dis.COMPONENT_NAME}}</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+
+                <input type="button" class="btn btn-success small mt-4" data-ng-model="btnGetData" ng-disabled="btnGetData" value="Get Data" data-ng-click="GetActiveIssuesData();" />
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <div class="row" ng-hide="tableDisplay">
+        <div class="table table-responsive table-bordered">
+            <table class="table table-bordered bg-white">
+                <thead class="bg-dark">
+                    <tr class="text-center">
+                        <td>S.No</td>
+                        <td>District</td>
+                        <td>Mandal</td>
+                        <td>Secretariat</td>
+                        <td>Report ID</td>
+                        <td>Remarks</td>
+                        <td>Status</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody ng-show="data != '' && preloader == false">
+                    <tr class="text-center " ng-repeat="obj in ActiveIssuesData | filter: DISTRICT_NAME">
+                        <td>{{$index + 1}}</td>
+                        <td>{{obj.DISTRICT_NAME}}</td>
+                        <td>{{obj.MANDAL_NAME}}</td>
+                        <td>{{obj.SECRETARIAT_NAME}}</td>
+                        <td>{{obj.REPORT_ID}}</td>
+                        <td>{{obj.REMARKS}}</td>
+                        <td>{{obj.STATUS_DATA}}</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" ng-click="CaptureReasonClick(obj);">Close</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody ng-show="data == '' && preloader == false">
+                    <tr class="text-center">
+                        <td colspan="9">No Data Available</td>
+                    </tr>
+                </tbody>
+                <tbody ng-show="preloader">
+                    <tr class="text-center">
+                        <td colspan="9">
+                            <i class="icon-spinner spinner icon-3x "></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="ReasonCaptureModel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-dark py-2">
+                <h1 class="mb-0 text-center"> Reason Capture </h1>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <div class="col-sm-12">
+                    <div class="row">
+                        Track ID: {{TrackID}}
+                    </div>
+                    <div class="row">
+                        <textarea ng-model="txtReason" name="enter-message" class="form-control mb-3" rows="3" cols="1" placeholder="Enter your message..."></textarea>
+                    </div>
+                    <div class="row" align="center">
+                        <button type="button" class="btn btn-primary" ng-click="ReasonSaveClick(TrackID,txtReason);">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

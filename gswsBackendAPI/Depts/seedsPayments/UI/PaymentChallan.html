@@ -1,0 +1,179 @@
+﻿<div class="loader" ng-show="preloader"></div>
+<script src="Reports/excel.js"></script>
+<script src="assets/js/function.js"></script>
+<style>
+
+	.cumilative-counts .card-body h2 {
+		text-align: center;
+		margin-bottom: 0;
+		line-height: 0.5;
+	}
+
+	.cumilative-counts .card-body p {
+		text-align: center;
+	}
+
+	.cumilative-counts .row .card::after {
+		content: '';
+		background: #ffffff1f;
+		width: 70px;
+		height: 70px;
+		position: absolute;
+		right: 0px;
+		bottom: 20px;
+		border-radius: 50%;
+	}
+
+	.cumilative-counts .row .card::before {
+		content: '';
+		background: #ffffff14;
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		right: -25px;
+		bottom: -32px;
+		border-radius: 50%;
+	}
+</style>
+<div class="container-fluid scheme">
+	<div class="col-md-12">
+		<h1 class="page-title text-center" ng-show="reporttype!='C'">Ap seeds corporation bank deposit module (Pending)</h1>
+		<h1 class="page-title text-center" ng-show="reporttype=='C'">Ap seeds corporation bank deposit module (Completed)</h1>
+	</div>
+	<br />
+	
+	<div class="mt-3">
+
+		<div class="row mb-3">
+			<div class="col-md-2" ng-show="table=='PENDING'">
+				<select class="form-control" ng-model="reporttype" ng-change="GetData();">
+					<option value="">Pending</option>
+					<option value="C">Completed</option>
+				</select>
+			</div>
+			<div class="col-md-10 text-right" ng-show="table!='PENDINGDETAILS'">
+				<input type="button" value="Generate Challan" align="right" class="btn btn-info" ng-click="ClickCount('5','Generate');" />
+				<input type="button" value="View Pending Transaction" align="right" class="btn btn-info" ng-click="ClickCount('5','View');" />
+			</div>
+		</div>
+
+		<!--Pending Data-->
+		<div class="row text-center">
+
+			<div class="table table-responsive table-bordered" ng-if="table=='PENDING'">
+				<table id="PENDING" dt-options="dtOptions" datatable="ng" data-page-length="-1" class="table table-bordered bg-white">
+					<thead class="bg-dark">
+						<tr class="text-center">
+							<td>S.No</td>
+							<td>Bank Deposit Transaction ID</td>
+							<td>Bank Deposit Transaction Date</td>
+							<td>Total Amount</td>
+							<td ng-show="reporttype!='C'">Update</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="text-center" dt-rows ng-repeat="pen in pendingdata">
+							<td>{{$index + 1}}</td>
+							<td><a href="" ng-click="ClickCount('6',pen);">{{pen.CHALLAN_TXN_ID}}</a></td>
+							<td>{{pen.CHALLAN_DATE}}</td>
+							<td>{{pen.TOTAL_AMOUNT}}</td>
+							<td ng-show="reporttype!='C'"><a href="" data-toggle="modal" ng-click="Updateclick(pen);" data-target="#myModal">Update</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="table table-responsive table-bordered" ng-if="table=='DETAILS'">
+				<div class="row">
+					<div class="col-md-2 text-left">
+						<button type="button" class="btn btn-info btn-rounded" ng-click="remove('2');">Bank Transaction ID : {{chalantxnid}}  <i class="mi mi-close"></i></button>
+					</div>
+				</div>
+				<table id="DETAILS" dt-options="dtOptions" datatable="ng" data-page-length="-1" class="table table-bordered bg-white">
+					<thead class="bg-dark">
+						<tr class="text-center">
+							<td>S.No</td>
+							<td>Citizen Name</td>
+							<td>Amount</td>
+							<td>Service Charge</td>
+							<td>Total Amount</td>
+							<td>Inserted Date</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="text-center" dt-rows ng-repeat="det in detaildata">
+							<td>{{$index + 1}}</td>
+							<td>{{det.CITIZEN_NAME}}</td>
+							<td>{{det.AMOUNT}}</td>
+							<td>{{det.SERVICE_CHARGE}}</td>
+							<td>{{det.TOTAL_AMOUNT}}</td>
+							<td>{{det.INSERTED_DATE}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+			<div class="table table-responsive table-bordered" ng-if="table=='PENDINGDETAILS'">
+				<div class="row">
+					<div class="col-md-2 text-left">
+						<button type="button" class="btn btn-info btn-rounded" ng-click="remove('2');">Bank Transaction ID : {{chalantxnid}}  <i class="mi mi-close"></i></button>
+					</div>
+					<div class="col-md-10 text-right" ng-show="viewgeneratebtn=='Generate'">
+						<input type="button" value="Generate Challan" align="right" class="btn btn-info" ng-click="GenerateChalan();" />
+					</div>
+				</div>
+				<table id="PENDINGDETAILS" dt-options="dtOptions" datatable="ng" data-page-length="-1" class="table table-bordered bg-white">
+					<thead class="bg-dark">
+						<tr class="text-center">
+							<td>S.No</td>
+							<td>Citizen Name</td>
+							<td>Amount</td>
+							<td>Service Charge</td>
+							<td>Total Amount</td>
+							<td>Inserted Date</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="text-center" dt-rows ng-repeat="pendet in pendetaildata">
+							<td>{{$index + 1}}</td>
+							<td>{{pendet.CITIZEN_NAME}}</td>
+							<td>{{pendet.AMOUNT}}</td>
+							<td>{{pendet.SERVICE_CHARGE}}</td>
+							<td>{{pendet.TOTAL_AMOUNT}}</td>
+							<td>{{pendet.INSERTED_DATE}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- Modal -->
+		<div id="myModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">{{chalantxnid}}</h4>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<label>Bank Transaction ID</label>
+							<input type="text" ng-model="bankrefno" class="form-control" />
+
+
+							<label>Bank Transaction Date</label>
+							<input type="date" ng-model="banktxndate" class="form-control" />
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" ng-click="Updatemodalclick();">Update</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

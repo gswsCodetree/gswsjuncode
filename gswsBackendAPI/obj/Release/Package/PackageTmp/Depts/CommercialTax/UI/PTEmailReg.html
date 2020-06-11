@@ -1,0 +1,83 @@
+﻿<style>
+
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('images/loader.gif') 50% 50% no-repeat #fff;
+	}
+</style>
+<style>
+	.card {
+		box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+	}
+
+	.card-body {
+		padding: 1.25rem 1.25rem 0.25rem 1.25rem !important;
+	}
+</style>
+<div class="page-content">
+	<div data-ng-show="preloader" class="loader"></div>
+	<!-- Main content -->
+	<div class="content-wrapper">
+		<!-- Content area -->
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row mb-5 justify-content-center">
+					<div class="col-sm-12 text-center mb-4">
+						<h1 style="text-align: center;">Profession Tax Email Registration</h1>
+					</div>
+					<div class="col-sm-6">
+						<div class="card">
+							<div class="card-body">
+								<!--Row 1-->
+								<div class="form-group row mb-3 justify-content-center">
+									<label class="col-md-4 text-right">Email id :</label>
+									<div class="col-md-6">
+										<input type="text" autocomplete="off" data-ng-model="Enteredemail" class="form-control" placeholder="Enter Your Email">
+									</div>
+								</div>
+								<div class="form-group row mb-3 justify-content-center">
+									<label class="col-md-4 text-right">Confirm Email id :</label>
+									<div class="col-md-6">
+										<input type="text" autocomplete="off" data-ng-model="Confirmemail" class="form-control" placeholder="Re-Enter Your Email">
+									</div>
+								</div>
+								<div class="form-group row mb-3 justify-content-center">
+									<label class="col-md-4 text-right">Mobile Number :</label>
+									<div class="col-md-6">
+										<input type="text" autocomplete="off" maxlength="10" data-ng-model="Enteredmobile" class="form-control" placeholder="Enter Mobile Number">
+									</div>
+								</div>
+								<div class="form-group row mb-3 justify-content-center">
+									<label class="col-md-4 text-right">Verification Code :</label>
+									<div class="col-md-6">
+										<label style="color:blue">19546</label>
+									</div>
+								</div>
+								<div class="form-group row mb-3 justify-content-center">
+									<label class="col-md-4 text-right">Enter Verification Code :</label>
+									<div class="col-md-6">
+										<input type="text" autocomplete="off" maxlength="5" data-ng-model="EnteredVcode" class="form-control" placeholder="Enter Verification Code">
+									</div>
+								</div>
+
+								<!--Row 2-->
+								<div style="margin-top:20px;text-align:center">
+									<button type="submit" data-ng-click="Submit();" class="btn btn-primary">Submit</button>
+									<button type="submit" data-ng-click="Login();" class="btn btn-primary">Login</button>
+								</div>
+								<label class="form-group row mb-3 mt-3 justify-content-center" style="color:red">For any queries please mail us to <b style="color:blue">&nbsp;APCT.HELPDESK@GMAIL.COM &nbsp;</b>!!</label>
+								<label class="form-group row mb-3 mt-3 justify-content-center" style="color:red">or call to 0866-2821173</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

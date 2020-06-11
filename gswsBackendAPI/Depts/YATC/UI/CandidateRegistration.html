@@ -1,0 +1,325 @@
+﻿<style type="text/css">
+
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+
+<h2 style="text-align:center;">Candidate Registration</h2>
+<div class="container-fluid " style="margin-bottom:10px !important;">
+
+    <div class="col-md-12" style="margin-bottom:10px !important;">
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-secondary text-white">
+                        CANDIDATE REGISTRATION
+                    </div>
+                    <div class="card-body">
+                        <div class="card mb-2 mt-2">
+                            <div class="card-header bg-secondary text-white">
+                                PERSONAL INFORMATION
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Aadhar No :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" uid-input-model="useraadhaar" mask-length="8" autocomplete="off" maxlength="12" class="form-control" placeholder="Enter Aadhaar No">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>First Name :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" data-ng-model="fname" class="form-control" placeholder="Enter First Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Last Name :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" data-ng-model="lname" class="form-control" placeholder="Enter First Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>DOB :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="date" data-ng-model="dob" class="form-control" placeholder="Enter DOB">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="col-lg-12 col-form-label"><b>Marital Status :<span style="color:red"> *</span></b></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="maritalstatus">
+                                                <option selected="selected" value="">-Select -</option>
+                                                <option value="M">Married</option>
+                                                <option value="u">Unmarried</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="col-lg-12 col-form-label"><b>Gender :<span style="color:red"> *</span></b></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="gender">
+                                                <option selected="selected" value="">-Select Gender-</option>
+                                                <option value="M">Male</option>
+                                                <option value="F">Female</option>
+                                                <option value="T">Transgender</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="col-lg-12 col-form-label"><b>Religion :<span style="color:red"> *</span></b></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="religion">
+                                                <option selected="selected" value="">-Select Religion-</option>
+                                                <option data-ng-repeat="dis in ReligionDD" value="{{dis.id}}">{{dis.value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="col-lg-12 col-form-label"><b>Category :<span style="color:red"> *</span></b></label>
+                                       
+                                        <div>
+                                            <select class="form-control" data-ng-model="category">
+                                                <option selected="selected" value="">-Select Category-</option>
+                                                <option data-ng-repeat="dis in CategoryDD" value="{{dis.id}}">{{dis.value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="col-lg-12 col-form-label"><b>Father Name :</b></label>
+                                        <div>
+                                            <input type="text" data-ng-model="fathername" class="form-control" placeholder="Enter Father Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="col-lg-12 col-form-label"><b>Family Annual Income :<span style="color:red"> *</span></b></label>
+                                        <div>
+                                            <input type="text" data-ng-model="anualincome" numbers-only class="form-control" placeholder="Enter Family Annual Income">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="col-lg-12 col-form-label"><b>Blood Group :</b></label>
+                                        <div>
+                                            <input type="text" data-ng-model="bloddgroup" class="form-control" placeholder="Enter Blood Group">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3" style="margin-top: 3%;">
+                                        Are you a resident of AP state?
+                                        <input type="checkbox" value="true" data-ng-model="isresident" />
+                                    </div>
+                                    <div class="col-lg-3" style="margin-top: 3%;">
+
+                                        <input type="checkbox" value="true" data-ng-model="isdisability" /> Disability
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-2 mt-2">
+                            <div class="card-header bg-secondary text-white">
+                                CONTACT DETAILS
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Email :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" data-ng-model="uemail" class="form-control" placeholder="Enter Email">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Contact No :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" data-ng-model="contactno" numbers-only maxlength="10" class="form-control" placeholder="Enter Contact No">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Alternate Number :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" data-ng-model="alterno" numbers-only maxlength="10" class="form-control" placeholder="Enter Alternate Number">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-2 mt-2">
+                            <div class="card-header bg-secondary text-white">
+                                ADDRESS FOR COMMUNICATION
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-12">
+                                        <input type="radio" value="true" data-ng-model="locality" ng-change="changelocality(true)" /> Rural
+                                        <input type="radio" value="false" data-ng-model="locality" ng-change="changelocality(false)"/> Urban
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-0">
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>State :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <div>
+                                                <select class="form-control" data-ng-model="state" ng-change="LoadDistricts();">
+                                                    <option selected="selected" value="">-Select State-</option>
+                                                    <option data-ng-repeat="dis in StateDD" value="{{dis.id}}">{{dis.value}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="col-lg-12 col-form-label"><b>District :<span style="color:red"> *</span></b></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="district" ng-change="changeDistrict();">
+                                                <option selected="selected" value="">-Select District-</option>
+                                                <option data-ng-repeat="dis in DistrictDD" value="{{dis.id}}">{{dis.value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="col-lg-12 col-form-label"><b>Constituency :<span style="color:red"> *</span></b></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="constituency">
+                                                <option selected="selected" value="">-Select Constituency-</option>
+                                                <option data-ng-repeat="dis in ConstituencyDD" value="{{dis.id}}">{{dis.value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3" ng-show="isrural">
+                                        <label class="col-lg-12 col-form-label"><b>Mandal :<span style="color:red"> *</span></b></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="mandal">
+                                                <option selected="selected" value="">-Select Mandal-</option>
+                                                <option data-ng-repeat="dis in MandalDD" value="{{dis.id}}">{{dis.value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3" ng-hide="isrural">
+                                        <label class="col-lg-12 col-form-label"><b>Municipality :<span style="color:red"> *</span></b></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="municipality">
+                                                <option selected="selected" value="">-Select Municipality-</option>
+                                                <option data-ng-repeat="dis in MunicipalityDD" value="{{dis.id}}">{{dis.value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3" ng-show="isrural">
+                                        <label class="col-lg-12 col-form-label"><b>Panchayat :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" data-ng-model="panchayat" class="form-control" placeholder="Enter Panchayat ">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-lg-3">
+                                        <label class="col-lg-12 col-form-label"><b>House Number :</b></label>
+                                        <div>
+                                            <input type="text" data-ng-model="housenumber" class="form-control" placeholder="Enter House Number">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3" ng-hide="isrural">
+                                        <label class="col-lg-12 col-form-label"><b>Ward Number :<span style="color:red"> *</span></b></label>
+                                        <div>
+                                            <input type="text" data-ng-model="wardnumber" class="form-control" placeholder="Enter Ward Number">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3" ng-show="isrural">
+                                        <label class="col-lg-12 col-form-label"><b>Village :<span style="color:red"> *</span></b></label>
+                                        <div>
+                                            <input type="text" data-ng-model="village" class="form-control" placeholder="Enter Village">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3" ng-hide="isrural">
+                                        <label class="col-lg-12 col-form-label"><b>Street :</b></label>
+                                        <div>
+                                            <input type="text" data-ng-model="street" class="form-control" placeholder="Enter Street">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Pincode :</b></label>
+                                        <div>
+                                            <input type="text" maxlength="6" numbers-only data-ng-model="pincode" class="form-control" placeholder="Enter Pincode">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-2 mt-2">
+                            <div class="card-header bg-secondary text-white">
+                                LOGIN CREDENTIALS
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+
+                                    <!--<div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>UserName :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" ng-bind="useraadhaar" disabled="disabled" class="form-control" placeholder="Enter UserName">
+                                        </div>
+                                    </div>-->
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Password :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="password" data-ng-model="upwd" class="form-control" placeholder="Enter Password">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Confirm Password :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="password" data-ng-model="urepwd" class="form-control" placeholder="Enter Re Enter Password">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--<div class="card mb-2 mt-2">
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-12">
+                                        <label style="color: red;">
+                                            Note:- By default registration will be Unemployed Youth, If user didn't choose anything below .
+                                        </label>
+                                        <br> <label style="font-weight: bold;">Are you</label>
+                                        <div>
+                                            <input type="radio" value="Y" data-ng-model="empradio" ng-change='changeEmptype(empradio)' />Unemployed
+                                            <input type="radio" value="N" data-ng-model="empradio" ng-change='changeEmptype(empradio)' />Student
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+
+                        <div class="mt-4 text-center">
+                            <button id="save_Data" ng-click="Register();" class="btn btn-aps btn-primary saveData text-white" > Register </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

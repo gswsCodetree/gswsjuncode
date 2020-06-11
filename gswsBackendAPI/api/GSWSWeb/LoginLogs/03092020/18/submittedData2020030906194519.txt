@@ -1,0 +1,1 @@
+{"Ftype":1,"FUsername":"user","Newpassword":"user123","Captcha":"62A195","ConfirmCaptch":"XrDcy7qpB5nEcyStOHBG494WWeJ4r5gX1wKAPM+H7cg="}

@@ -1,0 +1,164 @@
+﻿<!-- Page header  -->
+
+<style>
+	@media (min-width: 1200px) {
+		.page-header-content {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+	}
+
+</style>
+<div class="page-header page-header-dark cust-page-header " style="background: linear-gradient(45deg, #0D47A1, #4CAF50);">
+	<div class="page-header-content header-elements-md-inline py-1 pl-0">
+		<div class="page-title py-0 d-flex">
+			<img src="assets/images/ysr-jagan.png">
+			</div>
+
+		<div class="text-center pl-4">
+			<img src="assets/images/logo-te.png" class="w-50" />
+			</div>
+		<div class="header-elements d-md-block d-none">
+			<div class="profile-pic text-right">
+				<img src="assets/images/jagan-logo-te.png" style="width:100%">
+				</div>
+		</div>
+	</div>
+
+	<div class="navbar navbar-expand-md navbar-dark navbar-component bg-navbar-dark-custom m-0    border-0 shadow-0">
+		<div class="d-md-none w-100">
+			<button type="button" class="navbar-toggler d-flex align-items-center w-100 collapsed" data-toggle="collapse" data-target="#navbar-navigation" aria-expanded="false">
+				<i class="icon-menu7 mr-2"></i>
+				Menu
+			</button>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-navigation">
+			<ul class="navbar-nav navbar-nav-highlight">
+				<li class="nav-item dropdown">
+					<a style="cursor:pointer;" class="navbar-nav-link" data-toggle="dropdown">
+						<i class="mi-desktop-windows mr-1"></i> Report an Issue
+					</a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="#!/ReportIssue" target="_blank" class="dropdown-item">Software Issue</a>
+						<a href="#!/HardwareIssues" target="_blank" class="dropdown-item"> Hardware Issue</a>
+					</div>
+				</li>
+				
+				<li class="nav-item">
+					<a href="#!/ApplicationStatus" class="navbar-nav-link" target="_blank">
+						<i class="icon-cog3 mr-1"></i>Check Application Status
+					</a>
+				</li>
+			
+			</ul>
+			<ul class="navbar-nav navbar-nav-highlight ml-md-auto">
+				<!--<li class="nav-item dropdown mr-3">
+					<a href="#" class="navbar-nav-link dropdown-toggle caret-0 " data-toggle="dropdown" aria-expanded="false">
+						<i class="mi-notifications mi-1x mr-1" style="font-size: 20px;"></i>
+						<span class="badge bg-indigo-700">12</span>
+					</a>
+
+					<div class="dropdown-menu dropdown-menu-right dropdown-content wmin-md-350">
+
+
+						<div class="dropdown-content-body dropdown-scrollable">
+
+							<ul class="media-list">
+
+								<li class="media">
+
+									<div class="media-body">
+										<div class="media-title">
+											<a href="#">
+												<span class="font-weight-bold text-dark">22 December 2019</span>
+
+											</a>
+										</div>
+
+										<span class="text-muted">Hon’ble CM Sri YS Jagan Mohan Reddy Participated in Andhra University Alumni Conference program,along with Hon’ble Ministers and other Officials.</span>
+									</div>
+								</li>
+								<li class="media">
+									<div class="media-body">
+										<div class="media-title">
+											<a href="#">
+												<span class="font-weight-bold text-dark">22 December 2019</span>
+											</a>
+										</div>
+
+										<span class="text-muted">Hon’ble CM Sri YS Jagan Mohan Reddy launched YSR Law Nestham scheme, at Camp office Tadepalli.</span>
+									</div>
+								</li>
+								<li class="media">
+									<div class="media-body">
+										<div class="media-title">
+											<a href="#">
+												<span class="font-weight-bold text-dark">22 December 2019</span>
+											</a>
+										</div>
+
+										<span class="text-muted">Hon’ble CM Sri YS Jagan Mohan Reddy, held a review meeting with Higher Education Regulatory and Monitoring Commission, at Secretariat.</span>
+									</div>
+								</li>
+								<li class="media">
+									<div class="media-body">
+										<div class="media-title">
+											<a href="#">
+												<span class="font-weight-bold text-dark">22 December 2019</span>
+											</a>
+										</div>
+
+										<span class="text-muted">ఇకపై ప్రతి ఏటా జనవరిలో ఉద్యోగాల భర్తీకి నోటిఫికేషన్ జారీ చేస్తామన్నారు. రాబోయే రోజుల్లో వివిధ శాఖల్లో ఉన్న ప్రభుత్వ ఉద్యోగాల భర్తీ ప్రక్రియ చేపడతామని</span>
+									</div>
+								</li>
+
+							</ul>
+
+
+						</div>
+
+						<div class="dropdown-content-footer d-block text-center bg-info text-center">
+							<a href="#" class="text-white " data-toggle="modal" data-target="#notification">
+								Show More
+							</a>
+
+						</div>
+					</div>
+				</li>-->
+
+
+				<!--<li class="nav-item">
+					<a href="#!/MainDashboard" class="navbar-nav-link navbar-language mb-sm-0 mb-1">
+						<span><i class="mi-keyboard-arrow-left mr-1"> </i>BACK</span>
+					</a>
+
+				</li>-->
+				<li class="nav-item">
+					<a style="cursor:pointer;" class="navbar-nav-link navbar-logout" ng-click="GetLogout();"><i class="mi-power-settings-new mr-1 "></i>Logout</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+
+<!-- /page header -->
+<div class="page-content pt-0">
+	<div class="content-wrapper">
+		<div class="content">
+			<ui-view></ui-view>
+
+		</div>
+	</div>
+</div>
+<!-- /page header content --><!-- Footer -->
+<div class="navbar navbar-expand-lg navbar-light">
+	<div class="text-center d-lg-none w-100">
+		<span class="navbar-text">
+			© Copyright Govt of AP. All Rights Reserved
+		</span>
+	</div>
+
+</div>

@@ -1,0 +1,1960 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C30AF496-87E3-4A50-A592-2E1DF26CA1BC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>gswsBackendAPI</RootNamespace>
+    <AssemblyName>gswsBackendAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\..\gswsBackendAPI\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="CaptchaMvc, Version=2.5.0.0, Culture=neutral, PublicKeyToken=fe46ad421dd3b0e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\CaptchaMvc.Mvc5.1.5.0\lib\net45-full\CaptchaMvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\gswsBackendAPI\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\..\..\gswsBackendAPI\packages\Microsoft.ApplicationInsights.DependencyCollector.2.5.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.5.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="OracleConnect, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OracleConnect.1.0.3\lib\net45\OracleConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.5.1\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.5.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.5.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.5.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.5.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\GSWSWebController.cs" />
+    <Compile Include="Controllers\RevenueController.cs" />
+    <Compile Include="Depts\AgriCulture\Helper.cs" />
+    <Compile Include="Depts\AgriCulture\Models.cs" />
+    <Compile Include="Depts\AgriCulture\WebController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Depts\clusterHHGreaterMapping\Backend\HHGreaterMappingController.cs" />
+    <Compile Include="Depts\clusterHouseholdMapping\Backend\householdMappingController.cs" />
+    <Compile Include="Depts\CommercialTax\CommercialTaxController.cs" />
+    <Compile Include="Depts\CommercialTax\CommercialTaxHelper.cs" />
+    <Compile Include="Depts\CommercialTax\CommercialTaxModel.cs" />
+    <Compile Include="Depts\CommercialTax\CommercialTaxSPHelper.cs" />
+    <Compile Include="Depts\Education\EducationController.cs" />
+    <Compile Include="Depts\Education\EducationHelper.cs" />
+    <Compile Include="Depts\Education\EducationModel.cs" />
+    <Compile Include="Depts\Education\EducationSPHelper.cs" />
+    <Compile Include="Depts\Endowments\Backend\EndowmentsController.cs" />
+    <Compile Include="Depts\Endowments\Backend\EndowmentsHelper.cs" />
+    <Compile Include="Depts\Endowments\Backend\EndowmentsModel.cs" />
+    <Compile Include="Depts\Endowments\Backend\EndowmentsSPHelper.cs" />
+    <Compile Include="Depts\Energy\EnergyController.cs" />
+    <Compile Include="Depts\Energy\EnergyHelper.cs" />
+    <Compile Include="Depts\Energy\EnergyModel.cs" />
+    <Compile Include="Depts\Energy\EnergySPHelper.cs" />
+    <Compile Include="Depts\Fisheries\FisheriesController.cs" />
+    <Compile Include="Depts\Fisheries\FisheriesHelper.cs" />
+    <Compile Include="Depts\Fisheries\FisheriesModel.cs" />
+    <Compile Include="Depts\Fisheries\FisheriesSPHelper.cs" />
+    <Compile Include="Depts\Health\HealthController.cs" />
+    <Compile Include="Depts\Health\HealthHelper.cs" />
+    <Compile Include="Depts\Health\HealthModel.cs" />
+    <Compile Include="Depts\Health\HealthSPModel.cs" />
+    <Compile Include="Depts\Home\Backend\HomeWebController.cs" />
+    <Compile Include="Depts\Home\Backend\HomeWebLHMS.cs" />
+    <Compile Include="Depts\Housing\HousingController.cs" />
+    <Compile Include="Depts\Housing\HousingHelper.cs" />
+    <Compile Include="Depts\Housing\HousingModel.cs" />
+    <Compile Include="Depts\Housing\HousingSPHelper.cs" />
+    <Compile Include="Depts\Industries\IndustriesController.cs" />
+    <Compile Include="Depts\Industries\IndustriesHelper.cs" />
+    <Compile Include="Depts\Industries\IndustriesModel.cs" />
+    <Compile Include="Depts\Industries\IndustriesSPHelper.cs" />
+    <Compile Include="Depts\knowYourVolunteer\Backend\KYVController.cs" />
+    <Compile Include="Depts\Law\LawController.cs" />
+    <Compile Include="Depts\Law\LawHelper.cs" />
+    <Compile Include="Depts\Law\LawModel.cs" />
+    <Compile Include="Depts\Law\LawSPHelper.cs" />
+    <Compile Include="Depts\MAUD\MAUDController.cs" />
+    <Compile Include="Depts\MAUD\MAUDHelper.cs" />
+    <Compile Include="Depts\MAUD\MAUDModel.cs" />
+    <Compile Include="Depts\Minority\MinorityController.cs" />
+    <Compile Include="Depts\Minority\MinorityHelper.cs" />
+    <Compile Include="Depts\Minority\MinorityModel.cs" />
+    <Compile Include="Depts\paymentChallan\BackEnd\cfmsController.cs" />
+    <Compile Include="Depts\paymentChallan\BackEnd\cfmsModel.cs" />
+    <Compile Include="Depts\PensionVolunteerMapping\Backend\pensionersController.cs" />
+    <Compile Include="Depts\Pension\Backend\pensionDeptController.cs" />
+    <Compile Include="Depts\Pension\Backend\pensionDeptModel.cs" />
+    <Compile Include="Depts\PRRD\JobCardHelper.cs" />
+    <Compile Include="Depts\PRRD\JobCardModel.cs" />
+    <Compile Include="Depts\PRRD\PRRDController.cs" />
+    <Compile Include="Depts\PRRD\PRRDHelper.cs" />
+    <Compile Include="Depts\PRRD\PRRDModel.cs" />
+    <Compile Include="Depts\PRRD\PRRDSPHelper.cs" />
+    <Compile Include="Depts\RationVolunteermapping\Backend\dbRouter.cs" />
+    <Compile Include="Depts\RationVolunteermapping\Backend\RationVolunteerController.cs" />
+    <Compile Include="Depts\RationVolunteermapping\Backend\RationVolunteerHelper.cs" />
+    <Compile Include="Depts\RationVolunteermapping\Backend\RationVolunteerSPHelper.cs" />
+    <Compile Include="Depts\RationVolunteermapping\Backend\ResponseModel.cs" />
+    <Compile Include="Depts\RBKPayments\Backend\rbkPaymentsController.cs" />
+    <Compile Include="Depts\REVENUE\Backend\RevenueController.cs" />
+    <Compile Include="Depts\REVENUE\Backend\RevenueHelper.cs" />
+    <Compile Include="Depts\REVENUE\Backend\RevenueModel.cs" />
+    <Compile Include="Depts\REVENUE\Backend\RevenueSPHelper.cs" />
+    <Compile Include="Depts\riceCardsInchargeMapping\Backend\riceCardsInchargeMappingController.cs" />
+    <Compile Include="Depts\RTGS\Backend\RTGSController.cs" />
+    <Compile Include="Depts\RTGS\Backend\RTGSHelper.cs" />
+    <Compile Include="Depts\RTGS\Backend\RTGSModel.cs" />
+    <Compile Include="Depts\RTGS\Backend\RTGSSPHelper.cs" />
+    <Compile Include="Depts\seedsPayments\Backend\seedsPaymentController.cs" />
+    <Compile Include="Depts\SERP\Backend\SERPController.cs" />
+    <Compile Include="Depts\SERP\Backend\SERPHelper.cs" />
+    <Compile Include="Depts\SERP\Backend\SERPModel.cs" />
+    <Compile Include="Depts\SERP\Backend\SERPSPHelper.cs" />
+    <Compile Include="Depts\Services\ServicesController.cs" />
+    <Compile Include="Depts\Services\ServicesHelper.cs" />
+    <Compile Include="Depts\Services\ServicesModel.cs" />
+    <Compile Include="Depts\Services\ServicesSPHelper.cs" />
+    <Compile Include="Depts\SocialWelfare_Tribal\Helper.cs" />
+    <Compile Include="Depts\SocialWelfare_Tribal\Models.cs" />
+    <Compile Include="Depts\SocialWelfare_Tribal\SocialWelfare_TribalController.cs" />
+    <Compile Include="Depts\Transport_RandB\Helper.cs" />
+    <Compile Include="Depts\Transport_RandB\Model.cs" />
+    <Compile Include="Depts\Transport_RandB\Transport_RandBController.cs" />
+    <Compile Include="Depts\unMappedPensioners\Backend\unMappedPensionersController.cs" />
+    <Compile Include="Depts\unMappedRiceCards\Backend\unMappedRcController.cs" />
+    <Compile Include="Depts\Women_Children_Disabled_and_SeniorCitizen\Helper.cs" />
+    <Compile Include="Depts\Women_Children_Disabled_and_SeniorCitizen\Model.cs" />
+    <Compile Include="Depts\Women_Children_Disabled_and_SeniorCitizen\WomensController.cs" />
+    <Compile Include="Depts\YATC\YATCController.cs" />
+    <Compile Include="Depts\YATC\YATCHelper.cs" />
+    <Compile Include="Depts\YATC\YATCModel.cs" />
+    <Compile Include="Depts\YATC\YATCSPHelper.cs" />
+    <Compile Include="DL\CommonHel\captchahelper.cs" />
+    <Compile Include="DL\CommonHel\EncandDeccrossplarform.cs" />
+    <Compile Include="DL\CommonHel\EncryptDecrypt.cs" />
+    <Compile Include="DL\CommonHel\EncryptDecryptAlgoritham.cs" />
+    <Compile Include="DL\CommonHel\LoginHelper.cs" />
+    <Compile Include="DL\CommonHel\LoginModel.cs" />
+    <Compile Include="DL\CommonHel\LoginSPHelper.cs" />
+    <Compile Include="DL\CommonHel\LogModel.cs" />
+    <Compile Include="DL\CommonHel\Utils.cs" />
+    <Compile Include="DL\DataConnection\CommonSPHel.cs" />
+    <Compile Include="DL\DataConnection\ConnectionHelper.cs" />
+    <Compile Include="DL\DataConnection\encdecData.cs" />
+    <Compile Include="DL\DataConnection\Logdatafile.cs" />
+    <Compile Include="DL\MeesevaService\MeesevaCertificateModel.cs" />
+    <Compile Include="DL\MeesevaService\MeesevaHelper.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlHelper.cs" />
+    <Compile Include="Internal\Backend\InternalController.cs" />
+    <Compile Include="Internal\Backend\InternalHelper.cs" />
+    <Compile Include="Internal\Backend\InternalModel.cs" />
+    <Compile Include="Internal\Backend\InternalSPHelper.cs" />
+    <Compile Include="MeesevaService\Backend\EncryptMeeseva.cs" />
+    <Compile Include="MeesevaService\Backend\MeesevaModel.cs" />
+    <Compile Include="MeesevaService\Backend\MeesevaWebController.cs" />
+    <Compile Include="Payments\Backend\BCEngine.cs" />
+    <Compile Include="Payments\Backend\Decryption.cs" />
+    <Compile Include="Payments\Backend\Encryption.cs" />
+    <Compile Include="Payments\Backend\paymentController.cs" />
+    <Compile Include="Payments\Backend\paymentHelper.cs" />
+    <Compile Include="Payments\Backend\paymentModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="requestFilter.cs" />
+    <Compile Include="Support\ServerSideValidations.cs" />
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="transactionModule\transactionController.cs" />
+    <Compile Include="transactionModule\transactionHelper.cs" />
+    <Compile Include="transactionModule\transactionModel.cs" />
+    <Compile Include="UrlRedirection.aspx.cs">
+      <DependentUpon>UrlRedirection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UrlRedirection.aspx.designer.cs">
+      <DependentUpon>UrlRedirection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Animal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ClaimRegistration\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\EPantaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\HousesiteWebservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\MeesevaProductionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\MeesevaWebUAT\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\minorityservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\RaminfoprodServce\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\RamInfoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\RoadsComplaint_StatusCheck\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Sadarem\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SerpBima\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SMSService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Transport_ComplaintsStatusCheck\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\UatMeeseva\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\UATSMSService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\walletOnePaymentService\Reference.cs" />
+    <Compile Include="Web References\WebLand_Revenue\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WRServiceAadhaarOTP83\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="assets\css\ajax-loader.gif" />
+    <Content Include="assets\css\bootstrap.css" />
+    <Content Include="assets\css\bootstrap_limitless.css" />
+    <Content Include="assets\css\colors.css" />
+    <Content Include="assets\css\components.css" />
+    <Content Include="assets\css\extras\animate.min.css" />
+    <Content Include="assets\css\hover.css" />
+    <Content Include="assets\css\icons\icomoon\styles.css" />
+    <Content Include="assets\css\icons\material\fonts\material-icons.svg" />
+    <Content Include="assets\css\icons\material\icons.css" />
+    <Content Include="assets\css\layout.css" />
+    <Content Include="assets\css\slick-theme.css" />
+    <Content Include="assets\css\slick.css" />
+    <Content Include="assets\css\style-te.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\style123.css" />
+    <Content Include="assets\flaticon\flaticon.css" />
+    <Content Include="assets\flaticon\Flaticon.eot" />
+    <Content Include="assets\flaticon\flaticon.html" />
+    <Content Include="assets\flaticon\Flaticon.svg" />
+    <Content Include="assets\flaticon\Flaticon.ttf" />
+    <Content Include="assets\flaticon\Flaticon.woff" />
+    <Content Include="assets\flaticon\Flaticon.woff2" />
+    <Content Include="assets\flaticon\_flaticon.scss" />
+    <Content Include="assets\images\ap-logo.png" />
+    <Content Include="assets\images\ap-logo1.png" />
+    <Content Include="assets\images\audioimages\Jaganna Chedodu_Rajakulu.jpg" />
+    <Content Include="assets\images\audioimages\Jaganna Tailors.jpg" />
+    <Content Include="assets\images\audioimages\Nai Brahmanulu-02.jpg" />
+    <Content Include="assets\images\audioimages\Nethanna Nestham-04.jpg" />
+    <Content Include="assets\images\audioimages\YSR Vahana Mithra.jpg" />
+    <Content Include="assets\images\bg.jpg" />
+    <Content Include="assets\images\bg.png" />
+    <Content Include="assets\images\brands\adwords.png" />
+    <Content Include="assets\images\brands\amazon.png" />
+    <Content Include="assets\images\brands\bing.png" />
+    <Content Include="assets\images\brands\dribbble.png" />
+    <Content Include="assets\images\brands\facebook.png" />
+    <Content Include="assets\images\brands\spotify.png" />
+    <Content Include="assets\images\brands\tripadvisor.png" />
+    <Content Include="assets\images\brands\twitter.png" />
+    <Content Include="assets\images\brands\Untitled-1.png" />
+    <Content Include="assets\images\brands\youtube.png" />
+    <Content Include="assets\images\Certficate-border.png" />
+    <Content Include="assets\images\cm-pic.png" />
+    <Content Include="assets\images\diagram.svg" />
+    <Content Include="assets\images\dribbble.png" />
+    <Content Include="assets\images\favicon.png" />
+    <Content Include="assets\images\gov-ind.png" />
+    <Content Include="assets\images\grama-2.jfif" />
+    <Content Include="assets\images\grama-ward-logo.png" />
+    <Content Include="assets\images\grama-ward-sachivalayam-logo-300px.png" />
+    <Content Include="assets\images\grama1.jpeg" />
+    <Content Include="assets\images\gsLoader.gif" />
+    <Content Include="assets\images\gv-logo.png" />
+    <Content Include="assets\images\house.jpg" />
+    <Content Include="assets\images\icn\alcohol_ban_64.png" />
+    <Content Include="assets\images\icn\ammavodi_64.png" />
+    <Content Include="assets\images\icn\arogyasri_64.png" />
+    <Content Include="assets\images\icn\fee_reimbursement_64.png" />
+    <Content Include="assets\images\icn\jalayagnam_64.png" />
+    <Content Include="assets\images\icn\paydalandariki_illu_64.png" />
+    <Content Include="assets\images\icn\pension_64.png" />
+    <Content Include="assets\images\icn\ysr_asara_64.png" />
+    <Content Include="assets\images\icn\ysr_rythubharosa_64.png" />
+    <Content Include="assets\images\icon.png" />
+    <Content Include="assets\images\image.png" />
+    <Content Include="assets\images\jagan-logo-te.png" />
+    <Content Include="assets\images\jagan-logo.png" />
+    <Content Include="assets\images\jqueryui\animated-overlay.gif" />
+    <Content Include="assets\images\jqueryui\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="assets\images\jqueryui\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="assets\images\jqueryui\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="assets\images\jqueryui\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="assets\images\jqueryui\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="assets\images\jqueryui\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="assets\images\jqueryui\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="assets\images\jqueryui\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="assets\images\jqueryui\ui-icons_222222_256x240.png" />
+    <Content Include="assets\images\jqueryui\ui-icons_2e83ff_256x240.png" />
+    <Content Include="assets\images\jqueryui\ui-icons_454545_256x240.png" />
+    <Content Include="assets\images\jqueryui\ui-icons_888888_256x240.png" />
+    <Content Include="assets\images\jqueryui\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="assets\images\loader.gif" />
+    <Content Include="assets\images\login-bg.png" />
+    <Content Include="assets\images\login_cover.jpg" />
+    <Content Include="assets\images\logo-te.png" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\logo_dark.png" />
+    <Content Include="assets\images\logo_demo.png" />
+    <Content Include="assets\images\logo_icon_dark.png" />
+    <Content Include="assets\images\logo_icon_light.png" />
+    <Content Include="assets\images\logo_light.png" />
+    <Content Include="assets\images\middle logo.png" />
+    <Content Include="assets\images\navarathnalu\bg-1.png" />
+    <Content Include="assets\images\navarathnalu\bg-2.png" />
+    <Content Include="assets\images\navarathnalu\bg-3.png" />
+    <Content Include="assets\images\navarathnalu\bg-4.png" />
+    <Content Include="assets\images\navarathnalu\bg-5.png" />
+    <Content Include="assets\images\navarathnalu\bg-6.png" />
+    <Content Include="assets\images\navarathnalu\bg-7.png" />
+    <Content Include="assets\images\navarathnalu\bg-8.png" />
+    <Content Include="assets\images\navarathnalu\bg-9.png" />
+    <Content Include="assets\images\nethanna-nestam.jpg" />
+    <Content Include="assets\images\notification.jpg" />
+    <Content Include="assets\images\pension.jpg" />
+    <Content Include="assets\images\People.jpg" />
+    <Content Include="assets\images\pie-chart.png" />
+    <Content Include="assets\images\placeholders\cover.jpg" />
+    <Content Include="assets\images\placeholders\placeholder.jpg" />
+    <Content Include="assets\images\placeholders\user.png" />
+    <Content Include="assets\images\pnotify\danger.png" />
+    <Content Include="assets\images\pnotify\default.png" />
+    <Content Include="assets\images\pnotify\info.png" />
+    <Content Include="assets\images\pnotify\success.png" />
+    <Content Include="assets\images\pnotify\warning.png" />
+    <Content Include="assets\images\psloader.gif" />
+    <Content Include="assets\images\rythu.png" />
+    <Content Include="assets\images\signature.png" />
+    <Content Include="assets\images\spandana_logo.png" />
+    <Content Include="assets\images\ui\datepicker_trigger.png" />
+    <Content Include="assets\images\ui\map_marker.png" />
+    <Content Include="assets\images\walletone.jpeg" />
+    <Content Include="assets\images\windows.svg" />
+    <Content Include="assets\images\ysjagan.jfif" />
+    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\audio.min.js" />
+    <Content Include="assets\js\bootstrap.bundle.min.js" />
+    <Content Include="assets\js\custom.js" />
+    <Content Include="assets\js\form_checkboxes_radios.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\ripple.min.js" />
+    <Content Include="assets\js\slick.min.js" />
+    <Content Include="assets\plugins\components_buttons.js" />
+    <Content Include="assets\plugins\ladda.min.js" />
+    <Content Include="assets\plugins\spin.min.js" />
+    <Content Include="assets\plugins\switch.min.js" />
+    <Content Include="assets\plugins\switchery.min.js" />
+    <Content Include="assets\plugins\uniform.min.js" />
+    <Content Include="assets\css\printcss.css" />
+    <Content Include="assets\webfonts\slick.eot" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\fontawesome.css" />
+    <Content Include="css\hover.css" />
+    <Content Include="css\style.css" />
+    <Content Include="Depts\AgriCulture\UI\config\FMMasters.js" />
+    <Content Include="Depts\AgriCulture\UI\Controllers\EligibleBenificiaries.js" />
+    <Content Include="Depts\AgriCulture\UI\Controllers\FMRegistration.js" />
+    <Content Include="Depts\AgriCulture\UI\Controllers\FMStatus.js" />
+    <Content Include="Depts\AgriCulture\UI\Controllers\GetVAAdetails.js" />
+    <Content Include="Depts\AgriCulture\UI\Controllers\SeedEligibility.js" />
+    <Content Include="Depts\AgriCulture\UI\Controllers\VillageProfile.js" />
+    <Content Include="Depts\AgriCulture\UI\FMRegistration.html" />
+    <Content Include="Depts\AgriCulture\UI\FMStatus.html" />
+    <Content Include="Depts\AgriCulture\UI\GetBenificiaryDetails.html" />
+    <Content Include="Depts\AgriCulture\UI\GetVAADetails.html" />
+    <Content Include="Depts\AgriCulture\UI\RythuBharosaVerification.html" />
+    <Content Include="Depts\AgriCulture\UI\SeedEligibilityCheck.html" />
+    <Content Include="Depts\AgriCulture\UI\VillageProfile.html" />
+    <Content Include="Depts\clusterHHGreaterMapping\UI\home.html" />
+    <Content Include="Depts\clusterHHGreaterMapping\UI\JS\householdConfig.js" />
+    <Content Include="Depts\clusterHHGreaterMapping\UI\JS\householdMappingController.js" />
+    <Content Include="Depts\clusterHouseholdMapping\UI\home.html" />
+    <Content Include="Depts\clusterHouseholdMapping\UI\JS\householdConfig.js" />
+    <Content Include="Depts\clusterHouseholdMapping\UI\JS\householdMappingController.js" />
+    <Content Include="Depts\CommercialTax\UI\Config\CTRoutes.js" />
+    <Content Include="Depts\CommercialTax\UI\Config\CTServices.js" />
+    <Content Include="Depts\CommercialTax\UI\Controllers\CommercialMaster.js" />
+    <Content Include="Depts\CommercialTax\UI\Controllers\PTEmailRegControllers.js" />
+    <Content Include="Depts\CommercialTax\UI\Controllers\PTLoginController.js" />
+    <Content Include="Depts\CommercialTax\UI\Controllers\PTRCController.js" />
+    <Content Include="Depts\CommercialTax\UI\Controllers\PTRegEditControllers.js" />
+    <Content Include="Depts\CommercialTax\UI\Controllers\PTRegistrationControllers.js" />
+    <Content Include="Depts\CommercialTax\UI\Controllers\PTReturnsController.js" />
+    <Content Include="Depts\CommercialTax\UI\Controllers\PTStatusCheckController.js" />
+    <Content Include="Depts\CommercialTax\UI\PTEmailReg.html" />
+    <Content Include="Depts\CommercialTax\UI\PTLogin.html" />
+    <Content Include="Depts\CommercialTax\UI\PTNewRegistartion.html" />
+    <Content Include="Depts\CommercialTax\UI\PTRC.html" />
+    <Content Include="Depts\CommercialTax\UI\PTRegEdit.html" />
+    <Content Include="Depts\CommercialTax\UI\PTReturns.html" />
+    <Content Include="Depts\CommercialTax\UI\PTStatusCheck.html" />
+    <Content Include="Depts\Education\UI\AmmavodiStatus.html" />
+    <Content Include="Depts\Education\UI\config\EducationRoutes.js" />
+    <Content Include="Depts\Education\UI\config\EducationServices.js" />
+    <Content Include="Depts\Education\UI\Controllers\AmmavodiContoller.js" />
+    <Content Include="Depts\Education\UI\Controllers\EducationController.js" />
+    <Content Include="Depts\Education\UI\Home.html" />
+    <Content Include="Depts\Endowments\UI\ABWCStatus.html" />
+    <Content Include="Depts\Endowments\UI\Config\EndowmentsRoutes.js" />
+    <Content Include="Depts\Endowments\UI\Config\EndowmentsServices.js" />
+    <Content Include="Depts\Endowments\UI\Controllers\ABWCStatusController.js" />
+    <Content Include="Depts\Endowments\UI\Controllers\HomeController.js" />
+    <Content Include="Depts\Endowments\UI\Home.html" />
+    <Content Include="Depts\Energy\UI\APEPDCLServiceHistory.html" />
+    <Content Include="Depts\Energy\UI\APEPDCLServiceStatus.html" />
+    <Content Include="Depts\Energy\UI\APSPDCLServiceHistory.html" />
+    <Content Include="Depts\Energy\UI\APSPDCLServiceStatus.html" />
+    <Content Include="Depts\Energy\UI\config\EnergyRoutes.js" />
+    <Content Include="Depts\Energy\UI\config\EnergyServices.js" />
+    <Content Include="Depts\Energy\UI\Controllers\APEPDCLServiceHistoryController.js" />
+    <Content Include="Depts\Energy\UI\Controllers\APEPDCLServiceStatusController.js" />
+    <Content Include="Depts\Energy\UI\Controllers\APSPDCLServiceHistoryController.js" />
+    <Content Include="Depts\Energy\UI\Controllers\APSPDCLServiceStatusController.js" />
+    <Content Include="Depts\Fisheries\UI\config\FisheriesRoutes.js" />
+    <Content Include="Depts\Fisheries\UI\config\FisheriesServices.js" />
+    <Content Include="Depts\Fisheries\UI\Controllers\FisheriesAppStatus.js" />
+    <Content Include="Depts\Fisheries\UI\Controllers\LLCSAppStatus.js" />
+    <Content Include="Depts\Fisheries\UI\Controllers\RIDSAppStatus.js" />
+    <Content Include="Depts\Fisheries\UI\FApplicationStatus.html" />
+    <Content Include="Depts\Fisheries\UI\LLCSAppStatus.html" />
+    <Content Include="Depts\Fisheries\UI\RIDSAppStatus.html" />
+    <Content Include="Depts\Health\UI\ArogyaRakshaStatus.html" />
+    <Content Include="Depts\Health\UI\config\HealthRoutes.js" />
+    <Content Include="Depts\Health\UI\config\HealthServices.js" />
+    <Content Include="Depts\Health\UI\Controllers\ArogyaRakshaController.js" />
+    <Content Include="Depts\Health\UI\Controllers\SadaremCertificate.js" />
+    <Content Include="Depts\Health\UI\Controllers\YSRKantiVeluguController.js" />
+    <Content Include="Depts\Health\UI\SadaremCertificate.html" />
+    <Content Include="Depts\Health\UI\YSRKantiVelugu.html" />
+    <Content Include="Depts\Home\UI\ArrestParticularsReport.html" />
+    <Content Include="Depts\Home\UI\config\HomeMasters.js" />
+    <Content Include="Depts\Home\UI\config\homeRoutes.js" />
+    <Content Include="Depts\Home\UI\config\HomeServices.js" />
+    <Content Include="Depts\Home\UI\Controllers\ArrestParticulars.js" />
+    <Content Include="Depts\Home\UI\Controllers\CrimePetition.js" />
+    <Content Include="Depts\Home\UI\Controllers\Echallan.js" />
+    <Content Include="Depts\Home\UI\Controllers\homeController.js" />
+    <Content Include="Depts\Home\UI\Controllers\KnowCaseStatus.js" />
+    <Content Include="Depts\Home\UI\Controllers\LHMS.js" />
+    <Content Include="Depts\Home\UI\Controllers\Missed_Kidnapped_persons.js" />
+    <Content Include="Depts\Home\UI\Controllers\PetitionCheck.js" />
+    <Content Include="Depts\Home\UI\Controllers\Recover_VehicleSearch.js" />
+    <Content Include="Depts\Home\UI\Controllers\UnknownBodies.js" />
+    <Content Include="Depts\Home\UI\Controllers\ViewFIR.js" />
+    <Content Include="Depts\Home\UI\Controllers\WantedCriminals.js" />
+    <Content Include="Depts\Home\UI\CrimePetition.html" />
+    <Content Include="Depts\Home\UI\EchallanStatus.html" />
+    <Content Include="Depts\Home\UI\Home.html" />
+    <Content Include="Depts\Home\UI\KnowCaseStatus.html" />
+    <Content Include="Depts\Home\UI\LHMS.html" />
+    <Content Include="Depts\Home\UI\Missed_Kidnapped_Persons.html" />
+    <Content Include="Depts\Home\UI\PetitionStatusCheck.html" />
+    <Content Include="Depts\Home\UI\Recover_VehicleSearch.html" />
+    <Content Include="Depts\Home\UI\Unknowndeadbodies.html" />
+    <Content Include="Depts\Home\UI\ViewFIR.html" />
+    <Content Include="Depts\Home\UI\WantedCriminals.html" />
+    <Content Include="Depts\Housing\UI\config\HousingRoutes.js" />
+    <Content Include="Depts\Housing\UI\config\HousingServices.js" />
+    <Content Include="Depts\Housing\UI\config\HSitesMasters.js" />
+    <Content Include="Depts\Housing\UI\Controllers\HousingAppStatus.js" />
+    <Content Include="Depts\Housing\UI\Controllers\HSitesAppReg.js" />
+    <Content Include="Depts\Housing\UI\Controllers\HSitesAppStatus.js" />
+    <Content Include="Depts\Housing\UI\HousingAppStatus.html" />
+    <Content Include="Depts\Housing\UI\HSitesAppReg.html" />
+    <Content Include="Depts\Housing\UI\HSitesAppStatus.html" />
+    <Content Include="Depts\Industries\UI\config\IndustriesRoutes.js" />
+    <Content Include="Depts\Industries\UI\config\IndustriesServices.js" />
+    <Content Include="Depts\Industries\UI\Controllers\YSRNavodayamOTRRegController.js" />
+    <Content Include="Depts\Industries\UI\YSRNavodayamOTRReg.html" />
+    <Content Include="Depts\knowYourVolunteer\UI\home.html" />
+    <Content Include="Depts\knowYourVolunteer\UI\JS\app.js" />
+    <Content Include="Depts\Law\UI\config\LawRoutes.js" />
+    <Content Include="Depts\Law\UI\config\LawServices.js" />
+    <Content Include="Depts\Law\UI\Controllers\LawNestamStatus.js" />
+    <Content Include="Depts\Law\UI\LawNestamStatus.html" />
+    <Content Include="Depts\MAUD\UI\Application_Check.html" />
+    <Content Include="Depts\MAUD\UI\config\Maud_Route.js" />
+    <Content Include="Depts\MAUD\UI\config\MAUD_Services.js" />
+    <Content Include="Depts\MAUD\UI\Controllers\MAUD_App_Check.js" />
+    <Content Include="Depts\MAUD\UI\MAUDPage.html" />
+    <Content Include="Depts\Minority\UI\config\MinorityRoutes.js" />
+    <Content Include="Depts\Minority\UI\config\MinorityServices.js" />
+    <Content Include="Depts\Minority\UI\Controllers\ImamAndMouzansDetails.js" />
+    <Content Include="Depts\Minority\UI\Controllers\WomenDivorcedStatus.js" />
+    <Content Include="Depts\Minority\UI\Home.html" />
+    <Content Include="Depts\Minority\UI\ImamAndMouzansData.html" />
+    <Content Include="Depts\Minority\UI\test.html" />
+    <Content Include="Depts\Minority\UI\WomenDivorcedStatus.html" />
+    <Content Include="Depts\paymentChallan\UI\JS\serviceRequestsConfig.js" />
+    <Content Include="Depts\paymentChallan\UI\JS\serviceRequestsController.js" />
+    <Content Include="Depts\paymentChallan\UI\serviceRequests.html" />
+    <Content Include="Depts\PensionVolunteerMapping\UI\home.html" />
+    <Content Include="Depts\PensionVolunteerMapping\UI\JS\pensionConfig.js" />
+    <Content Include="Depts\PensionVolunteerMapping\UI\JS\PensionVolunteerMappingController.js" />
+    <Content Include="Depts\Pension\UI\JS\imageUpload.js" />
+    <Content Include="Depts\Pension\UI\JS\pensionDeptConfig.js" />
+    <Content Include="Depts\Pension\UI\JS\pensionDeptController.js" />
+    <Content Include="Depts\Pension\UI\JS\pensionGrevinanceList.js" />
+    <Content Include="Depts\Pension\UI\JS\pensionWEAVerification.js" />
+    <Content Include="Depts\Pension\UI\pensionGrevinanceList.html" />
+    <Content Include="Depts\Pension\UI\pensionNewApplication.html" />
+    <Content Include="Depts\Pension\UI\pensionWEAVerification.html" />
+    <Content Include="Depts\PRRD\UI\BirthDeathReg.html" />
+    <Content Include="Depts\PRRD\UI\BuildingPlanApplicationStatus.html" />
+    <Content Include="Depts\PRRD\UI\config\PRRDRoutes.js" />
+    <Content Include="Depts\PRRD\UI\config\PRRDServices.js" />
+    <Content Include="Depts\PRRD\UI\config\REVENUERoutes.js" />
+    <Content Include="Depts\PRRD\UI\config\REVENUEServices.js" />
+    <Content Include="Depts\PRRD\UI\ConfirmDemand.html" />
+    <Content Include="Depts\PRRD\UI\controller\BirthDeathReg.js" />
+    <Content Include="Depts\PRRD\UI\controller\BuildingPlanApplicationStatus.js" />
+    <Content Include="Depts\PRRD\UI\controller\ConfirmDemand.js" />
+    <Content Include="Depts\PRRD\UI\controller\DemandCapture.js" />
+    <Content Include="Depts\PRRD\UI\controller\FarmerData.js" />
+    <Content Include="Depts\PRRD\UI\controller\JobCardDetails.js" />
+    <Content Include="Depts\PRRD\UI\controller\JobCardPayment.js" />
+    <Content Include="Depts\PRRD\UI\controller\JobCardReg.js" />
+    <Content Include="Depts\PRRD\UI\controller\KnowYourVolunteer.js" />
+    <Content Include="Depts\PRRD\UI\controller\LayoutPlanApplicationStatus.js" />
+    <Content Include="Depts\PRRD\UI\controller\LayoutPlanInformation.js" />
+    <Content Include="Depts\PRRD\UI\controller\MarriageApplication.js" />
+    <Content Include="Depts\PRRD\UI\controller\NOCApplication.js" />
+    <Content Include="Depts\PRRD\UI\controller\SecToVolunteerMap.js" />
+    <Content Include="Depts\PRRD\UI\controller\TaxAppStatus.js" />
+    <Content Include="Depts\PRRD\UI\controller\TaxSearch.js" />
+    <Content Include="Depts\PRRD\UI\controller\TransportDrinkingWater.js" />
+    <Content Include="Depts\PRRD\UI\controller\VolunteerMapping.js" />
+    <Content Include="Depts\PRRD\UI\DemandCapture.html" />
+    <Content Include="Depts\PRRD\UI\FarmerData.html" />
+    <Content Include="Depts\PRRD\UI\JobCardDetails.html" />
+    <Content Include="Depts\PRRD\UI\JobCardPaymentDetails.html" />
+    <Content Include="Depts\PRRD\UI\JobCardReg.html" />
+    <Content Include="Depts\PRRD\UI\KnowYourVolunteer.html" />
+    <Content Include="Depts\PRRD\UI\LayoutPlanApplicationStatus.html" />
+    <Content Include="Depts\PRRD\UI\LayoutPlanInformation.html" />
+    <Content Include="Depts\PRRD\UI\MarriageApplication.html" />
+    <Content Include="Depts\PRRD\UI\MutationStatus.html" />
+    <Content Include="Depts\PRRD\UI\NOCApplication.html" />
+    <Content Include="Depts\PRRD\UI\SecToVolunteerMap.html" />
+    <Content Include="Depts\PRRD\UI\TaxAppSearch.html" />
+    <Content Include="Depts\PRRD\UI\TaxAppStatus.html" />
+    <Content Include="Depts\PRRD\UI\TransportDrinkingWater.html" />
+    <Content Include="Depts\PRRD\UI\VolunteerMapping.html" />
+    <Content Include="Depts\RationVolunteermapping\UI\Config\RationVolunteerRoute.js" />
+    <Content Include="Depts\RationVolunteermapping\UI\Config\RationVolunteerServices.js" />
+    <Content Include="Depts\RationVolunteermapping\UI\Controller\RationVolunteerjsnew.js" />
+    <Content Include="Depts\RationVolunteermapping\UI\RationVolunteer.html" />
+    <Content Include="Depts\RBKPayments\UI\JS\RBKChallanPrint.js" />
+    <Content Include="Depts\RBKPayments\UI\JS\rbkPaymentRespController.js" />
+    <Content Include="Depts\RBKPayments\UI\JS\rbkPaymentsConfig.js" />
+    <Content Include="Depts\RBKPayments\UI\JS\rbkPaymentsController.js" />
+    <Content Include="Depts\RBKPayments\UI\JS\rbkPaymentStatusController.js" />
+    <Content Include="Depts\RBKPayments\UI\RBKChallanPrint.html" />
+    <Content Include="Depts\RBKPayments\UI\rbkPaymentResp.html" />
+    <Content Include="Depts\RBKPayments\UI\rbkPayments.html" />
+    <Content Include="Depts\RBKPayments\UI\rbkPaymentStatus.html" />
+    <Content Include="Depts\REVENUE\UI\Config\REVENUERoutes.js" />
+    <Content Include="Depts\REVENUE\UI\Config\REVENUEServices.js" />
+    <Content Include="Depts\REVENUE\UI\Controllers\Excise_appStatusCheck.js" />
+    <Content Include="Depts\REVENUE\UI\Controllers\Excise_ComplaintStatuscheck.js" />
+    <Content Include="Depts\REVENUE\UI\Controllers\RationReg.js" />
+    <Content Include="Depts\REVENUE\UI\Controllers\RationStatusController.js" />
+    <Content Include="Depts\REVENUE\UI\Controllers\Revenue_ExciseComplaints.js" />
+    <Content Include="Depts\REVENUE\UI\Excise_applicationStatusCheck.html" />
+    <Content Include="Depts\REVENUE\UI\RationReg.html" />
+    <Content Include="Depts\REVENUE\UI\RationStatus.html" />
+    <Content Include="Depts\REVENUE\UI\RevenueJs\IncomeCertificate.js" />
+    <Content Include="Depts\REVENUE\UI\Revenue_Proh_ExciseComplaints.html" />
+    <Content Include="Depts\riceCardsInchargeMapping\UI\JS\riceCardsInchargeMappingConfig.js" />
+    <Content Include="Depts\riceCardsInchargeMapping\UI\JS\riceCardsInchargeMappingController.js" />
+    <Content Include="Depts\riceCardsInchargeMapping\UI\riceCardsInchargeMapping.html" />
+    <Content Include="Depts\RTGS\UI\Config\RTGSRoutes.js" />
+    <Content Include="Depts\RTGS\UI\Config\RTGSServices.js" />
+    <Content Include="Depts\RTGS\UI\Controllers\HomeController.js" />
+    <Content Include="Depts\RTGS\UI\Controllers\PSSStatusCotroller.js" />
+    <Content Include="Depts\RTGS\UI\Controllers\PSSUNSurveyController.js" />
+    <Content Include="Depts\RTGS\UI\Home.html" />
+    <Content Include="Depts\RTGS\UI\PSSStatus.html" />
+    <Content Include="Depts\RTGS\UI\PSSUnSurveyRequest.html" />
+    <Content Include="Depts\seedsPayments\UI\JS\PaymentChallan.js" />
+    <Content Include="Depts\seedsPayments\UI\JS\RBKPaymentChallan.js" />
+    <Content Include="Depts\seedsPayments\UI\JS\RBKPaymentgeneration.js" />
+    <Content Include="Depts\seedsPayments\UI\JS\SeedsChalanGeneration.js" />
+    <Content Include="Depts\seedsPayments\UI\JS\SeedsChallanPrint.js" />
+    <Content Include="Depts\seedsPayments\UI\JS\seedsPaymentRespController.js" />
+    <Content Include="Depts\seedsPayments\UI\JS\seedsPaymentsConfig.js" />
+    <Content Include="Depts\seedsPayments\UI\JS\seedsPaymentsController.js" />
+    <Content Include="Depts\seedsPayments\UI\JS\seedsPaymentStatusController.js" />
+    <Content Include="Depts\seedsPayments\UI\PaymentChallan.html" />
+    <Content Include="Depts\seedsPayments\UI\RBKPaymentChallan.html" />
+    <Content Include="Depts\seedsPayments\UI\RBKPaymentGeneration.html" />
+    <Content Include="Depts\seedsPayments\UI\SeedsChalanGeneration.html" />
+    <Content Include="Depts\seedsPayments\UI\SeedsChallanPrint.html" />
+    <Content Include="Depts\seedsPayments\UI\seedsPaymentResp.html" />
+    <Content Include="Depts\seedsPayments\UI\seedsPayments.html" />
+    <Content Include="Depts\seedsPayments\UI\seedsPaymentStatus.html" />
+    <Content Include="Depts\SERP\UI\BLSVerification.html" />
+    <Content Include="Depts\SERP\UI\Config\SERPRoutes.js" />
+    <Content Include="Depts\SERP\UI\Config\SERPServices.js" />
+    <Content Include="Depts\SERP\UI\Controllers\BLSVerificationController.js" />
+    <Content Include="Depts\SERP\UI\Controllers\HomeController.js" />
+    <Content Include="Depts\SERP\UI\Controllers\PensionApplication.js" />
+    <Content Include="Depts\SERP\UI\Controllers\PensionAppStatus.js" />
+    <Content Include="Depts\SERP\UI\Controllers\PensionStatusController.js" />
+    <Content Include="Depts\SERP\UI\Controllers\SerpBimaController.js" />
+    <Content Include="Depts\SERP\UI\Controllers\SerpBimaRegsitrationController.js" />
+    <Content Include="Depts\SERP\UI\Controllers\SRSVerificationController.js" />
+    <Content Include="Depts\SERP\UI\Home.html" />
+    <Content Include="Depts\SERP\UI\PensionApplication.html" />
+    <Content Include="Depts\SERP\UI\PensionAppStatus.html" />
+    <Content Include="Depts\SERP\UI\PensionMaster.txt" />
+    <Content Include="Depts\SERP\UI\PensionStatus.html" />
+    <Content Include="Depts\SERP\UI\SerpBima.html" />
+    <Content Include="Depts\SERP\UI\SerpBimaRegsitration.html" />
+    <Content Include="Depts\SERP\UI\SRSVerification.html" />
+    <Content Include="Depts\SERP\UI\VLRSVerification.html" />
+    <Content Include="Depts\SERP\UI\YSRAsaraSVer.html" />
+    <Content Include="Depts\Services\UI\ArogyasreeAppStatus.html" />
+    <Content Include="Depts\Services\UI\AssetTracking.html" />
+    <Content Include="Depts\Services\UI\config\ServicesRoutes.js" />
+    <Content Include="Depts\Services\UI\config\SevicesServices.js" />
+    <Content Include="Depts\Services\UI\Controllers\ArogyasreeAppStatus.js" />
+    <Content Include="Depts\Services\UI\Controllers\AssetTracking.js" />
+    <Content Include="Depts\Services\UI\Controllers\Certificate_Controller.js" />
+    <Content Include="Depts\Services\UI\Controllers\HardwareIssues.js" />
+    <Content Include="Depts\Services\UI\Controllers\JVDAppStatus.js" />
+    <Content Include="Depts\Services\UI\Controllers\KapuNestamAppStatus.js" />
+    <Content Include="Depts\Services\UI\Controllers\LaborAppStatus.js" />
+    <Content Include="Depts\Services\UI\Controllers\MUIDAppStatus.js" />
+    <Content Include="Depts\Services\UI\Controllers\Navasakam.js" />
+    <Content Include="Depts\Services\UI\Controllers\NayeeBrahminsAppStatus.js" />
+    <Content Include="Depts\Services\UI\Controllers\NPCIController.js" />
+    <Content Include="Depts\Services\UI\Controllers\PastorsAppStatus.js" />
+    <Content Include="Depts\Services\UI\Controllers\RajakasAppStatus.js" />
+    <Content Include="Depts\Services\UI\Controllers\TailorsAppStatus.js" />
+    <Content Include="Depts\Services\UI\Controllers\TextileController.js" />
+    <Content Include="Depts\Services\UI\HardwareIssues.html" />
+    <Content Include="Depts\Services\UI\JVDAppStatus.html" />
+    <Content Include="Depts\Services\UI\KapuNestamAppStatus.html" />
+    <Content Include="Depts\Services\UI\LaborAppStatus.html" />
+    <Content Include="Depts\Services\UI\MUIDAppStatus.html" />
+    <Content Include="Depts\Services\UI\Navasakam.html" />
+    <Content Include="Depts\Services\UI\NayeeBrahminsAppStatus.html" />
+    <Content Include="Depts\Services\UI\NPCIStatus.html" />
+    <Content Include="Depts\Services\UI\PastorsAppStatus.html" />
+    <Content Include="Depts\Services\UI\PelliKaanuka_Certificates_Download.html" />
+    <Content Include="Depts\Services\UI\RajakasAppStatus.html" />
+    <Content Include="Depts\Services\UI\TailorsAppStatus.html" />
+    <Content Include="Depts\Services\UI\Textile.html" />
+    <Content Include="Depts\SocialWelfare_Tribal\UI\config\Certificates_Download.js" />
+    <Content Include="Depts\SocialWelfare_Tribal\UI\config\Cert_Down_Route.js" />
+    <Content Include="Depts\SocialWelfare_Tribal\UI\config\Common_Validations.js" />
+    <Content Include="Depts\SocialWelfare_Tribal\UI\config\SocialWelfareServices.js" />
+    <Content Include="Depts\SocialWelfare_Tribal\UI\config\URL_Master.js" />
+    <Content Include="Depts\SocialWelfare_Tribal\UI\Controllers\Certificate_Controller.js" />
+    <Content Include="Depts\SocialWelfare_Tribal\UI\Controllers\Education_Scholarships_check.js" />
+    <Content Include="Depts\SocialWelfare_Tribal\UI\Controllers\Status_Check.js" />
+    <Content Include="Depts\SocialWelfare_Tribal\UI\Controllers\YPK_Mrg_Cert_Download.js" />
+    <Content Include="Depts\SocialWelfare_Tribal\UI\Education_Overseas_App_Check.html" />
+    <Content Include="Depts\SocialWelfare_Tribal\UI\Mydetails.html" />
+    <Content Include="Depts\SocialWelfare_Tribal\UI\PellikaanukaMrgCertDownload.html" />
+    <Content Include="Depts\SocialWelfare_Tribal\UI\PelliKaanuka_Certificates_Download.html" />
+    <Content Include="Depts\SocialWelfare_Tribal\UI\PelliKaanuka_Statuscheck.html" />
+    <Content Include="Depts\Transport_RandB\UI\Config\TransportRoutes.js" />
+    <Content Include="Depts\Transport_RandB\UI\Config\TransportServices.js" />
+    <Content Include="Depts\Transport_RandB\UI\Controllers\LLRAppStatus.js" />
+    <Content Include="Depts\Transport_RandB\UI\Controllers\RandB_ComplaintappSearch.js" />
+    <Content Include="Depts\Transport_RandB\UI\Controllers\RTARegAppStatus.js" />
+    <Content Include="Depts\Transport_RandB\UI\Controllers\VahanaMitraRegStatus.js" />
+    <Content Include="Depts\Transport_RandB\UI\LLRAppStatus.html" />
+    <Content Include="Depts\Transport_RandB\UI\RandB_ComplaintStatusCheck.html" />
+    <Content Include="Depts\Transport_RandB\UI\RTARegAppStatus.html" />
+    <Content Include="Depts\Transport_RandB\UI\VahanaMitraRegStatus.html" />
+    <Content Include="Depts\unMappedPensioners\UI\home.html" />
+    <Content Include="Depts\unMappedPensioners\UI\JS\unMappedPensionersConfig.js" />
+    <Content Include="Depts\unMappedPensioners\UI\JS\unMappedPensionersController.js" />
+    <Content Include="Depts\unMappedRiceCards\UI\home.html" />
+    <Content Include="Depts\unMappedRiceCards\UI\JS\unMappedRcConfig.js" />
+    <Content Include="Depts\unMappedRiceCards\UI\JS\unMappedRcController.js" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\images\21.png" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\images\22.png" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\images\3.png" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\images\4.png" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\images\5.png" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\images\6.png" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\images\7.png" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\images\8.png" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\images\9.png" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\images\dummy.png" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\UI\Config\Women_Route.js" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\UI\Config\Women_services.js" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\UI\Controllers\APDASCAC_Regform.js" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\UI\Controllers\Motorized3Wheelers.js" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\UI\Controllers\WCDWAppStatus.js" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\UI\Motorized_3_Wheelers.html" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\UI\RegistrationForm.html" />
+    <Content Include="Depts\Women_Children_Disabled_and_SeniorCitizen\UI\WCDWAppStatus.html" />
+    <Content Include="Depts\YATC\UI\CandidateRegistration.html" />
+    <Content Include="Depts\YATC\UI\CanLogin.html" />
+    <Content Include="Depts\YATC\UI\config\YATCRoutes.js" />
+    <Content Include="Depts\YATC\UI\config\YATCServices.js" />
+    <Content Include="Depts\YATC\UI\Controllers\CandidateRegController.js" />
+    <Content Include="Depts\YATC\UI\Controllers\CanLoginController.js" />
+    <Content Include="Depts\YATC\UI\Controllers\ShowAllJobsController.js" />
+    <Content Include="Depts\YATC\UI\Controllers\StatusCheckController.js" />
+    <Content Include="Depts\YATC\UI\Controllers\UpCommingBatchesController.js" />
+    <Content Include="Depts\YATC\UI\ShowAllJobs.html" />
+    <Content Include="Depts\YATC\UI\SkillStatusCheck.html" />
+    <Content Include="Depts\YATC\UI\UpCommingBatches.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="font\flaticon.css" />
+    <Content Include="font\flaticon.html" />
+    <Content Include="font\Flaticon.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="images\captcha.gif" />
+    <Content Include="images\cm.png" />
+    <Content Include="images\loader.gif" />
+    <Content Include="images\meeseva.png" />
+    <Content Include="images\spandana.png" />
+    <Content Include="images\ysr-jagan.png" />
+    <Content Include="image\ap-logo.png" />
+    <Content Include="image\favicon.png" />
+    <Content Include="image\header2-bg.png" />
+    <Content Include="image\jagan-logo.png" />
+    <Content Include="image\nava-spin.png" />
+    <Content Include="index.html" />
+    <Content Include="Internal\UI\Config\InternalRoutes.js" />
+    <Content Include="Internal\UI\Config\InternalServices.js" />
+    <Content Include="Internal\UI\Controllers\Feedback.js" />
+    <Content Include="Internal\UI\Controllers\HardwareIssueClosing.js" />
+    <Content Include="Internal\UI\Controllers\InternalController.js" />
+    <Content Include="Internal\UI\Controllers\IssueClosing.js" />
+    <Content Include="Internal\UI\Controllers\issueTrackingReport.js" />
+    <Content Include="Internal\UI\Controllers\SecretriatMasterjs.js" />
+    <Content Include="Internal\UI\Controllers\UpdateURL.js" />
+    <Content Include="Internal\UI\Controllers\URLUpdation.js" />
+    <Content Include="Internal\UI\Feedback.html" />
+    <Content Include="Internal\UI\HardwareIssueClosing.html" />
+    <Content Include="Internal\UI\Internal.html" />
+    <Content Include="Internal\UI\IssueClosing.html" />
+    <Content Include="Internal\UI\issueTrackingReport.html" />
+    <Content Include="Internal\UI\SecretariatMaster.html" />
+    <Content Include="Internal\UI\UpdateURL.html" />
+    <Content Include="Internal\UI\URLUpdation.html" />
+    <Content Include="js\aos.js" />
+    <Content Include="js\bootstrap-multiselect.css" />
+    <Content Include="js\bootstrap-multiselect.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\Datatables\jquery.dataTables.css" />
+    <Content Include="js\Datatables\jquery.dataTables.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\JS_Aadhar_Verifivation.js" />
+    <Content Include="js\popper.min.js" />
+    <Content Include="JS_Modules\config.js" />
+    <Content Include="JS_Modules\Libraries\angular-datatables.css" />
+    <Content Include="JS_Modules\Libraries\angular-datatables.min.js" />
+    <Content Include="JS_Modules\Libraries\angular.filter.min.js" />
+    <Content Include="JS_Modules\Libraries\angular.min.js" />
+    <Content Include="JS_Modules\Libraries\angular.ui.route.min.js" />
+    <Content Include="JS_Modules\Libraries\angular.upload.js" />
+    <Content Include="JS_Modules\Libraries\check_list.js" />
+    <Content Include="JS_Modules\Libraries\clipboard.min.js" />
+    <Content Include="JS_Modules\Libraries\DataTables\angular-datatables.bootstrap.js" />
+    <Content Include="JS_Modules\Libraries\DataTables\angular-datatables.directive.js" />
+    <Content Include="JS_Modules\Libraries\DataTables\angular-datatables.factory.js" />
+    <Content Include="JS_Modules\Libraries\DataTables\angular-datatables.js" />
+    <Content Include="JS_Modules\Libraries\InputMasking.js" />
+    <Content Include="JS_Modules\Libraries\JQuery_Datatable.js" />
+    <Content Include="JS_Modules\Libraries\moment.js" />
+    <Content Include="JS_Modules\Libraries\network.js" />
+    <Content Include="JS_Modules\Libraries\polyfill.js" />
+    <Content Include="JS_Modules\Libraries\SecureSpace.min.js" />
+    <Content Include="JS_Modules\Libraries\session.min.js" />
+    <Content Include="JS_Modules\Libraries\sha256.js" />
+    <Content Include="JS_Modules\Libraries\simple_network.js" />
+    <Content Include="JS_Modules\Libraries\sweet-alert.css" />
+    <Content Include="JS_Modules\Libraries\SweetAlert2.js" />
+    <Content Include="JS_Modules\Libraries\sweety.js" />
+    <Content Include="JS_Modules\Libraries\toaster.min.css" />
+    <Content Include="JS_Modules\Libraries\toaster.min.js" />
+    <Content Include="JS_Modules\Libraries\UID_MASKING_ORIGINAL.js" />
+    <Content Include="Landing\assets\css\animate.css" />
+    <Content Include="Landing\assets\css\aos.css" />
+    <Content Include="Landing\assets\css\bootstrap.min.css" />
+    <Content Include="Landing\assets\css\flaticon\flaticon.css" />
+    <Content Include="Landing\assets\css\flaticon\Flaticon.svg" />
+    <Content Include="Landing\assets\css\font-awesome.min.css" />
+    <Content Include="Landing\assets\css\jquery-ui.css" />
+    <Content Include="Landing\assets\css\nav-menu.css" />
+    <Content Include="Landing\assets\css\owl.carousel.min.css" />
+    <Content Include="Landing\assets\css\owl.theme.default.min.css" />
+    <Content Include="Landing\assets\css\slicknav.min.css" />
+    <Content Include="Landing\assets\css\style-2.css" />
+    <Content Include="Landing\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Landing\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Landing\assets\img\bg\about-sachivalayam-1.png" />
+    <Content Include="Landing\assets\img\bg\about-sachivalayam-2.png" />
+    <Content Include="Landing\assets\img\bg\about-shape-6.png" />
+    <Content Include="Landing\assets\img\bg\bg-0.png" />
+    <Content Include="Landing\assets\img\bg\bg-1.png" />
+    <Content Include="Landing\assets\img\bg\bg-2.png" />
+    <Content Include="Landing\assets\img\bg\bg-3.png" />
+    <Content Include="Landing\assets\img\bg\bg-4.png" />
+    <Content Include="Landing\assets\img\bg\bg-5.png" />
+    <Content Include="Landing\assets\img\bg\bg-6.png" />
+    <Content Include="Landing\assets\img\bg\bg-7.png" />
+    <Content Include="Landing\assets\img\bg\bg-8.png" />
+    <Content Include="Landing\assets\img\bg\bg-9.png" />
+    <Content Include="Landing\assets\img\bg\footer-bg.jpg" />
+    <Content Include="Landing\assets\img\bg\fun-fact-1.jpg" />
+    <Content Include="Landing\assets\img\bg\hero-7.png" />
+    <Content Include="Landing\assets\img\bg\hero-bg-1.jpg" />
+    <Content Include="Landing\assets\img\bg\hero3_1-shape-bg.png" />
+    <Content Include="Landing\assets\img\bg\sachivalayam-office line.png" />
+    <Content Include="Landing\assets\img\bg\section-img-bg-2-copy.png" />
+    <Content Include="Landing\assets\img\Cm-banner.png" />
+    <Content Include="Landing\assets\img\favicon.png" />
+    <Content Include="Landing\assets\img\Grama - Ward Sachivalayam Logo.png" />
+    <Content Include="Landing\assets\img\jagan-logo-te.png" />
+    <Content Include="Landing\assets\img\logo-1.png" />
+    <Content Include="Landing\assets\img\navaratnaalu_logo_housing.png" />
+    <Content Include="Landing\assets\img\Navaratnalu-Video.mp4" />
+    <Content Include="Landing\assets\img\navaratnalu.png" />
+    <Content Include="Landing\assets\img\navaratnalu\alcohol-ban.png" />
+    <Content Include="Landing\assets\img\navaratnalu\alcohol_ban_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\ammavodi.png" />
+    <Content Include="Landing\assets\img\navaratnalu\ammavodi_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\arogyasri.png" />
+    <Content Include="Landing\assets\img\navaratnalu\arogyasri_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\Colors64\alcohol_ban_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\Colors64\ammavodi_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\Colors64\arogyasri_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\Colors64\fee_reimbursement_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\Colors64\jalayagnam_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\Colors64\paydalandariki_illu_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\Colors64\pension_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\Colors64\ysr_asara_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\Colors64\ysr_rythubharosa_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\fee-reimbursement.png" />
+    <Content Include="Landing\assets\img\navaratnalu\fee_reimbursement_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\jalayagnam.png" />
+    <Content Include="Landing\assets\img\navaratnalu\jalayagnam_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\paydalandariki-illu.png" />
+    <Content Include="Landing\assets\img\navaratnalu\paydalandariki_illu_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\pension.png" />
+    <Content Include="Landing\assets\img\navaratnalu\pension_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\ysr-asara.png" />
+    <Content Include="Landing\assets\img\navaratnalu\ysr-rythubharosa.png" />
+    <Content Include="Landing\assets\img\navaratnalu\ysr_asara_64.png" />
+    <Content Include="Landing\assets\img\navaratnalu\ysr_rythubharosa_64.png" />
+    <Content Include="Landing\assets\img\so-white.png" />
+    <Content Include="Landing\assets\js\aos.js" />
+    <Content Include="Landing\assets\js\bootstrap.min.js" />
+    <Content Include="Landing\assets\js\countdown.js" />
+    <Content Include="Landing\assets\js\jquery-3.2.0.min.js" />
+    <Content Include="Landing\assets\js\jquery-ui.js" />
+    <Content Include="Landing\assets\js\jquery.counterup.min.js" />
+    <Content Include="Landing\assets\js\jquery.min.js" />
+    <Content Include="Landing\assets\js\jquery.scrollUp.js" />
+    <Content Include="Landing\assets\js\jquery.slicknav.min.js" />
+    <Content Include="Landing\assets\js\jquery.waypoints.min.js" />
+    <Content Include="Landing\assets\js\owl.carousel.min.js" />
+    <Content Include="Landing\assets\js\theme.js" />
+    <Content Include="Landing\assets\LoginJs.js" />
+    <Content Include="Landing\contact-us.html" />
+    <Content Include="Landing\faq.html" />
+    <Content Include="Landing\index.html" />
+    <Content Include="Landing\Navarantanalu.js" />
+    <Content Include="Landing\navaratnalu.html" />
+    <Content Include="MasterTextFiles\agricultureservice.txt" />
+    <Content Include="MasterTextFiles\FMBlock.txt" />
+    <Content Include="MasterTextFiles\FMDistricts.txt" />
+    <Content Include="MasterTextFiles\FMSubDistricts.txt" />
+    <Content Include="MasterTextFiles\FMVillage.txt" />
+    <Content Include="MeesevaService\UI\config\Meesevaroute.js" />
+    <Content Include="MeesevaService\UI\config\meesevaservice.js" />
+    <Content Include="MeesevaService\UI\controller\MeesevaAppStatus.js" />
+    <Content Include="MeesevaService\UI\controller\MeesevaController.js" />
+    <Content Include="MeesevaService\UI\CorrectionAdangal.html" />
+    <Content Include="MeesevaService\UI\GswsMeesevaPage.html" />
+    <Content Include="MeesevaService\UI\MeesevaStatusCheck.html" />
+    <Content Include="Payments\UI\Config\paymentConfig.js" />
+    <Content Include="Payments\UI\Config\printThis.js" />
+    <Content Include="Payments\UI\Controllers\paymentController.js" />
+    <Content Include="Payments\UI\home.html" />
+    <Content Include="Payments\UI\payment-print.html" />
+    <Content Include="Reports\excel.js" />
+    <Content Include="Reports\js\alerts.js" />
+    <Content Include="Reports\js\bootstrap.bundle.min.js" />
+    <Content Include="Reports\js\calendar.js" />
+    <Content Include="Reports\js\carousel.js" />
+    <Content Include="Reports\js\chart-amcharts.js" />
+    <Content Include="Reports\js\chart-chartist.js" />
+    <Content Include="Reports\js\chart-datalables.js" />
+    <Content Include="Reports\js\chart-flot.js" />
+    <Content Include="Reports\js\chart-knob.js" />
+    <Content Include="Reports\js\Chart.bundle.min.js" />
+    <Content Include="Reports\js\Chart.min.js" />
+    <Content Include="Reports\js\chartjs-plugin-labels.js" />
+    <Content Include="Reports\js\charts.js" />
+    <Content Include="Reports\js\datatables.js" />
+    <Content Include="Reports\js\form-advanced.js" />
+    <Content Include="Reports\js\form-components.js" />
+    <Content Include="Reports\js\form-picker.js" />
+    <Content Include="Reports\js\forms.js" />
+    <Content Include="Reports\js\function.js" />
+    <Content Include="Reports\js\jquery-3.4.1.min.js" />
+    <Content Include="Reports\js\jquery.tablesorter.js" />
+    <Content Include="Reports\js\jquery.tablesorter.widgets.js" />
+    <Content Include="Reports\js\layouts.js" />
+    <Content Include="Reports\js\modernizr-2.8.3.min.js" />
+    <Content Include="Reports\js\range-slider.js" />
+    <Content Include="Reports\js\rating.js" />
+    <Content Include="Reports\js\script.js" />
+    <Content Include="Reports\js\session-time-out.js" />
+    <Content Include="Reports\js\tableHeadFixer.js" />
+    <Content Include="Reports\js\tables.js" />
+    <Content Include="Reports\js\taskboard.js" />
+    <Content Include="Reports\js\utils.js" />
+    <Content Include="Reports\js\widget-chart.js" />
+    <Content Include="Reports\js\widget-data.js" />
+    <Content Include="Reports\js\widget-statistic.js" />
+    <Content Include="Reports\js\widgets.js" />
+    <Content Include="Reports\select-search.js" />
+    <Content Include="test.aspx" />
+    <Content Include="UINEW\css\style-te.css" />
+    <Content Include="UINEW\css\style.css" />
+    <Content Include="UINEW\images\ap-logo.png" />
+    <Content Include="UINEW\images\cm.jpg" />
+    <Content Include="UINEW\images\default.png" />
+    <Content Include="UINEW\images\favicon.png" />
+    <Content Include="UINEW\images\favorite.png" />
+    <Content Include="UINEW\images\icons\agriculture.png" />
+    <Content Include="UINEW\images\icons\animal-husbandry.png" />
+    <Content Include="UINEW\images\icons\bcwelfare-tribal.png" />
+    <Content Include="UINEW\images\icons\education.png" />
+    <Content Include="UINEW\images\icons\energy.png" />
+    <Content Include="UINEW\images\icons\excise.png" />
+    <Content Include="UINEW\images\icons\finance.png" />
+    <Content Include="UINEW\images\icons\food-civil-supplies.png" />
+    <Content Include="UINEW\images\icons\health-medical.png" />
+    <Content Include="UINEW\images\icons\higher-edu.png" />
+    <Content Include="UINEW\images\icons\home.png" />
+    <Content Include="UINEW\images\icons\housing.png" />
+    <Content Include="UINEW\images\icons\industries.png" />
+    <Content Include="UINEW\images\icons\information-technology.png" />
+    <Content Include="UINEW\images\icons\labour-employment.png" />
+    <Content Include="UINEW\images\icons\public-enterprises.png" />
+    <Content Include="UINEW\images\icons\rain-shadow.png" />
+    <Content Include="UINEW\images\icons\registration-stamps.png" />
+    <Content Include="UINEW\images\icons\road-buildings.png" />
+    <Content Include="UINEW\images\icons\rural-development.png" />
+    <Content Include="UINEW\images\icons\science-tech.png" />
+    <Content Include="UINEW\images\icons\serp.png" />
+    <Content Include="UINEW\images\icons\skills-development.png" />
+    <Content Include="UINEW\images\icons\tourism-culture.png" />
+    <Content Include="UINEW\images\icons\urban-development.png" />
+    <Content Include="UINEW\images\icons\water-resource.png" />
+    <Content Include="UINEW\images\icons\women-children.png" />
+    <Content Include="UINEW\images\Navaratnalu\Amma-Vodi.jpg" />
+    <Content Include="UINEW\images\Navaratnalu\Arogyasri.jpg" />
+    <Content Include="UINEW\images\Navaratnalu\Ban-on-Alcohol.jpg" />
+    <Content Include="UINEW\images\Navaratnalu\Fee-Reimbursement.jpg" />
+    <Content Include="UINEW\images\Navaratnalu\Jalayagnam.jpg" />
+    <Content Include="UINEW\images\Navaratnalu\Paydalandariki-Illu.jpg" />
+    <Content Include="UINEW\images\Navaratnalu\Pensionla-Pempu.jpg" />
+    <Content Include="UINEW\images\Navaratnalu\ys-jagan-circle.png" />
+    <Content Include="UINEW\images\Navaratnalu\YSR-Asara.jpg" />
+    <Content Include="UINEW\images\Navaratnalu\ysr-icon.png" />
+    <Content Include="UINEW\images\Navaratnalu\YSR-Rythu-Bharosa.jpg" />
+    <Content Include="UINEW\images\pending.png" />
+    <Content Include="UINEW\images\registered.png" />
+    <Content Include="UINEW\images\rejected.png" />
+    <Content Include="UINEW\images\spandana.png" />
+    <Content Include="UINEW\images\success.png" />
+    <Content Include="UINEW\images\success2.png" />
+    <Content Include="UINEW\images\ys-jagan-mohanreddy.jpg" />
+    <Content Include="UINEW\index-telugu.html" />
+    <Content Include="UINEW\index.html" />
+    <Content Include="UINEW\indexmaster.js" />
+    <Content Include="UINEW\js\custom.js" />
+    <Content Include="UINEW\js\dashboard.js" />
+    <Content Include="UINEW\js\google-maps.js" />
+    <Content Include="UINEW\js\hoverable-collapse.js" />
+    <Content Include="UINEW\js\off-canvas.js" />
+    <Content Include="UINEW\js\settings.js" />
+    <Content Include="UINEW\js\template.js" />
+    <Content Include="UINEW\js\todolist.js" />
+    <Content Include="UINEW\js\tooltips.js" />
+    <Content Include="UINEW\lobi\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="UINEW\lobi\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="UINEW\lobi\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="UINEW\lobi\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="UINEW\lobi\bootstrap\dist\js\npm.js" />
+    <Content Include="UINEW\lobi\css\lobipanel.css" />
+    <Content Include="UINEW\lobi\demo\demo.css" />
+    <Content Include="UINEW\lobi\demo\documentation.css" />
+    <Content Include="UINEW\lobi\dist\css\lobipanel.css" />
+    <Content Include="UINEW\lobi\dist\css\lobipanel.min.css" />
+    <Content Include="UINEW\lobi\dist\js\lobipanel.js" />
+    <Content Include="UINEW\lobi\dist\js\lobipanel.min.js" />
+    <Content Include="UINEW\lobi\index.html" />
+    <Content Include="UINEW\lobi\js\lobipanel.js" />
+    <Content Include="UINEW\lobi\lib\font-awesome\css\font-awesome.css" />
+    <Content Include="UINEW\lobi\lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="UINEW\lobi\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="UINEW\lobi\lib\highlight\github.css" />
+    <Content Include="UINEW\lobi\lib\highlight\highlight.pack.js" />
+    <Content Include="UINEW\lobi\lib\images\ui-icons_444444_256x240.png" />
+    <Content Include="UINEW\lobi\lib\images\ui-icons_555555_256x240.png" />
+    <Content Include="UINEW\lobi\lib\images\ui-icons_777620_256x240.png" />
+    <Content Include="UINEW\lobi\lib\images\ui-icons_777777_256x240.png" />
+    <Content Include="UINEW\lobi\lib\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="UINEW\lobi\lib\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="UINEW\lobi\lib\jquery-ui.min.css" />
+    <Content Include="UINEW\lobi\lib\jquery-ui.min.js" />
+    <Content Include="UINEW\lobi\lib\jquery-ui.theme.min.css" />
+    <Content Include="UINEW\lobi\lib\jquery.1.11.min.js" />
+    <Content Include="UINEW\lobi\lib\jquery.ui.touch-punch.js" />
+    <Content Include="UINEW\lobi\lib\jquery.ui.touch-punch.min.js" />
+    <Content Include="UINEW\vendors\chart.js\Chart.min.js" />
+    <Content Include="UINEW\vendors\css\vendor.bundle.base.css" />
+    <Content Include="UINEW\vendors\js\vendor.bundle.base.js" />
+    <Content Include="UINEW\vendors\mdi\css\materialdesignicons.min.css" />
+    <Content Include="UINEW\vendors\mdi\fonts\materialdesignicons-webfont.svg" />
+    <Content Include="UI\404.html" />
+    <Content Include="UI\500.html" />
+    <Content Include="UI\Affidavit.html" />
+    <Content Include="UI\AffidavitJS.js" />
+    <Content Include="UI\ApplicationStatus.html" />
+    <Content Include="UI\ApplicationStatus.js" />
+    <Content Include="UI\AudioPage.html" />
+    <Content Include="UI\birth-registration.html" />
+    <Content Include="UI\CommonHeader.html" />
+    <Content Include="UI\CumilativeDashboard.html" />
+    <Content Include="UI\CumilativeDashboard.js" />
+    <Content Include="UI\dashboard-page.html" />
+    <Content Include="UI\dashboard.html" />
+    <Content Include="UI\DashboardController.js" />
+    <Content Include="UI\DistrictLogin.html" />
+    <Content Include="UI\DistrictLoginController.js" />
+    <Content Include="UI\ForgotPassword.html" />
+    <Content Include="UI\ForgotPassword.js" />
+    <Content Include="UI\GVDashboard.js" />
+    <Content Include="UI\Headerfoter.html" />
+    <Content Include="UI\InchargeChange.html" />
+    <Content Include="UI\InchargeChange.js" />
+    <Content Include="UI\Login.html" />
+    <Content Include="UI\LoginService.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\Flaticon.eot" />
+    <Content Include="font\Flaticon.ttf" />
+    <Content Include="font\Flaticon.woff" />
+    <Content Include="font\Flaticon.woff2" />
+    <Content Include="font\_flaticon.scss" />
+    <Content Include="fonts\digital-7.ttf" />
+    <Content Include="assets\css\fonts\slick.eot" />
+    <Content Include="assets\css\fonts\slick.ttf" />
+    <Content Include="assets\css\fonts\slick.woff" />
+    <Content Include="assets\css\icons\icomoon\fonts\icomoon.eot" />
+    <Content Include="assets\css\icons\icomoon\fonts\icomoon.ttf" />
+    <Content Include="assets\css\icons\icomoon\fonts\icomoon.woff" />
+    <Content Include="assets\webfonts\ramabhadra.ttf" />
+    <Content Include="assets\css\fonts\digital-7.ttf" />
+    <Content Include="assets\webfonts\AteryaBold.ttf" />
+    <Content Include="assets\webfonts\DhurjatiRegular.ttf" />
+    <Content Include="assets\webfonts\digital-7.ttf" />
+    <Content Include="assets\webfonts\Mallanna-Regular.ttf" />
+    <Content Include="assets\webfonts\NTR-Regular.ttf" />
+    <Content Include="assets\webfonts\Rubik-Black.ttf" />
+    <Content Include="assets\webfonts\Rubik-Bold.ttf" />
+    <Content Include="assets\webfonts\Rubik-Light.ttf" />
+    <Content Include="assets\webfonts\Rubik-Medium.ttf" />
+    <Content Include="assets\webfonts\Rubik-Regular.ttf" />
+    <Content Include="assets\webfonts\slick.ttf" />
+    <Content Include="assets\webfonts\slick.woff" />
+    <Content Include="assets\css\icons\material\fonts\material-icons.ttf" />
+    <Content Include="assets\css\icons\material\fonts\material-icons.woff" />
+    <Content Include="Landing\assets\css\flaticon\Flaticon.eot" />
+    <Content Include="Landing\assets\css\flaticon\Flaticon.ttf" />
+    <Content Include="Landing\assets\css\flaticon\Flaticon.woff" />
+    <Content Include="Landing\assets\css\flaticon\Flaticon.woff2" />
+    <Content Include="Landing\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Landing\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Landing\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Landing\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Landing\assets\fonts\FontAwesome.otf" />
+    <Content Include="Landing\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Landing\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Landing\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Landing\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Landing\assets\fonts\MyriadPro-Regular.woff" />
+    <Content Include="Landing\assets\ysrcp_manifesto_Details.pdf" />
+    <Content Include="Depts\Services\Downloads\Desktop_Service_Centers_List.pdf" />
+    <Content Include="Depts\Services\Downloads\Desktop_SLA.pdf" />
+    <Content Include="Depts\Services\Downloads\FPS_User_manual.pdf" />
+    <Content Include="Depts\Services\Downloads\Laminator_machine_User_manual.pdf" />
+    <Content Include="Depts\Services\Downloads\M200_USer_Manual.pdf" />
+    <Content Include="Depts\Services\Downloads\Mobile_Service_Centers_List.pdf" />
+    <Content Include="Depts\Services\Downloads\Mobile_SLA.pdf" />
+    <Content Include="Depts\Services\Downloads\Printer_Service_Centers_List.pdf" />
+    <Content Include="Depts\Services\Downloads\Printer_SLA.pdf" />
+    <Content Include="Depts\Services\Downloads\Startek_Installation_for_Windows_USer_manual.pdf" />
+    <Content Include="Depts\Services\Downloads\UPS_FAQs.pdf" />
+    <Content Include="Depts\Services\Downloads\UPS_SLA.pdf" />
+    <Content Include="Depts\Services\Downloads\UPS_User_Manual.pdf" />
+    <Content Include="Landing\assets\fonts\Mandali-Regular.ttf" />
+    <Content Include="Landing\assets\fonts\Sree-Krushnadevaraya.ttf" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Depts\AgriCulture\UI\config\agricultureRoutes.js" />
+    <Content Include="Depts\AgriCulture\UI\Controllers\mainController.js" />
+    <Content Include="Depts\AgriCulture\UI\Home.html" />
+    <Content Include="Depts\AgriCulture\UI\Main.html" />
+    <Content Include="Depts\AgriCulture\UI\config\agricultureServices.js" />
+    <Content Include="UI\loginController.js" />
+    <Content Include="UI\MailIdMobile.js" />
+    <Content Include="UI\MailMobileUpdate.html" />
+    <Content Include="UI\Main.html" />
+    <Content Include="UI\MainController.js" />
+    <Content Include="UI\MainDashboard.html" />
+    <Content Include="UI\meesava-print.html" />
+    <Content Include="UI\PhysicalForms.html" />
+    <Content Include="UI\PhysicalForms.js" />
+    <Content Include="UI\PrintReceipt.js" />
+    <Content Include="UI\ProfileUpdate.html" />
+    <Content Include="UI\ProfileUpdate.js" />
+    <Content Include="UI\PublicHeader.html" />
+    <Content Include="UI\PublicheaderCTRL.js" />
+    <Content Include="UI\PublicLogin.html" />
+    <Content Include="UI\PublicLogin.js" />
+    <Content Include="UI\ReceivedController.js" />
+    <Content Include="UI\ReceivedData.html" />
+    <Content Include="UI\SecretariatDashBoard.html" />
+    <Content Include="UI\SecretariatDashBoard.js" />
+    <Content Include="UI\SecretariatForm.html" />
+    <Content Include="UI\SecretariatForm.js" />
+    <Content Include="UI\service-wise-sla.html" />
+    <Content Include="UI\Spandanagrievance.html" />
+    <Content Include="UI\SpandanaGrievance.js" />
+    <Content Include="UI\TeluguDashboard.html" />
+    <Content Include="UI\Teluguheader.html" />
+    <Content Include="UI\TransactionResponse.html" />
+    <Content Include="UI\TransRespController.js" />
+    <Content Include="UI\ui.js" />
+    <Content Include="UI\ulbtelugu.js" />
+    <Content Include="UI\upward-downward.html" />
+    <Content Include="UrlRedirection.aspx" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="UINEW\fonts\Roboto\Roboto-Bold.ttf" />
+    <Content Include="UINEW\fonts\Roboto\Roboto-Bold.woff" />
+    <Content Include="UINEW\fonts\Roboto\Roboto-Bold.woff2" />
+    <Content Include="UINEW\fonts\Roboto\Roboto-Medium.eot" />
+    <Content Include="UINEW\fonts\Roboto\Roboto-Medium.ttf" />
+    <Content Include="UINEW\fonts\Roboto\Roboto-Medium.woff" />
+    <Content Include="UINEW\fonts\Roboto\Roboto-Medium.woff2" />
+    <Content Include="UINEW\fonts\Roboto\Roboto-Regular.ttf" />
+    <Content Include="UINEW\fonts\Roboto\Roboto-Regular.woff" />
+    <Content Include="UINEW\fonts\Roboto\Roboto-Regular.woff2" />
+    <Content Include="UINEW\images\logo.psd" />
+    <Content Include="UINEW\images\Navaratnalu\navaratnalu-icons.psd" />
+    <Content Include="UINEW\images\Navaratnalu\ys-jagan-circle.psd" />
+    <Content Include="UINEW\lobi\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="UINEW\lobi\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="UINEW\lobi\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="UINEW\lobi\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="UINEW\lobi\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="UINEW\lobi\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="UINEW\lobi\lib\font-awesome\css\font-awesome.css.map" />
+    <Content Include="UINEW\lobi\lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="UINEW\lobi\lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="UINEW\lobi\lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="UINEW\lobi\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="UINEW\lobi\lib\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="UINEW\vendors\mdi\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="UINEW\vendors\mdi\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="UINEW\vendors\mdi\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="UINEW\vendors\mdi\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="Views\Home\Main.cshtml" />
+    <Content Include="Views\Shared\_MainLayoutPage.cshtml" />
+    <Content Include="Views\Revenue\IncomeCertificate.cshtml" />
+    <Content Include="Views\Shared\_RevenueMasterLayout.cshtml" />
+    <Content Include="Views\Home\Navarantanalu.cshtml" />
+    <None Include="Web References\Animal\AHAServices.wsdl" />
+    <Content Include="Web References\Animal\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\ClaimRegistration\Claimregistration.wsdl" />
+    <Content Include="UI\TestMainController.js" />
+    <None Include="Web References\Animal\AHAServices.disco" />
+    <None Include="Web References\ClaimRegistration\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\EPantaService\kharif2019ServiceDetails.wsdl" />
+    <Content Include="Web References\EPantaService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\HousesiteWebservice\API.wsdl" />
+    <None Include="Web References\HousesiteWebservice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\MeesevaProductionService\meesevawebservice.wsdl" />
+    <None Include="Web References\MeesevaProductionService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\MeesevaWebUAT\meesevawebservice.wsdl" />
+    <None Include="Web References\ClaimRegistration\Claimregistration.disco" />
+    <None Include="Web References\MeesevaWebUAT\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\minorityservice\minorityservice.disco" />
+    <Content Include="UI\TestMain.html" />
+    <None Include="Web References\HousesiteWebservice\API.disco" />
+    <Content Include="Web References\RamInfoService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\RaminfoprodServce\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\RaminfoprodServce\ServicesRWMS.wsdl" />
+    <Content Include="Web References\RaminfoprodServce\TopupResBean.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\RaminfoprodServce\TransResBean.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\RaminfoprodServce\WalletResBean.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\RamInfoService\ServicesRWMS.wsdl" />
+    <Content Include="Web References\RamInfoService\TopupResBean.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\RamInfoService\TransResBean.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\RamInfoService\WalletResBean.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\RoadsComplaint_StatusCheck\ComplaintsSearchService.disco" />
+    <None Include="Web References\MeesevaProductionService\meesevawebservice.disco" />
+    <Content Include="Web References\SerpBima\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\RoadsComplaint_StatusCheck\ComplaintsSearchService.wsdl" />
+    <Content Include="Web References\RoadsComplaint_StatusCheck\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\Sadarem\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\Sadarem\ValidSadaremid.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\Sadarem\ValidSadaremidService.wsdl" />
+    <None Include="Web References\SerpBima\vvclaimstatus.disco" />
+    <None Include="Web References\Transport_ComplaintsStatusCheck\ComplaintsSearchService.disco" />
+    <Content Include="Web References\UATSMSService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\UATSMSService\SMSService.disco" />
+    <Content Include="Web References\WRServiceAadhaarOTP83\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\walletOnePaymentService\Reference.map" />
+    <None Include="Web References\Transport_ComplaintsStatusCheck\ComplaintsSearchService.wsdl" />
+    <None Include="Web References\Transport_ComplaintsStatusCheck\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\UATSMSService\SMSService.wsdl" />
+    <None Include="Web References\walletOnePaymentService\ServicesRWMS.wsdl" />
+    <Content Include="Web References\walletOnePaymentService\TopupResBean.datasource" />
+    <Content Include="Web References\walletOnePaymentService\TransResBean.datasource" />
+    <Content Include="Web References\walletOnePaymentService\WalletResBean.datasource" />
+    <None Include="Web References\WRServiceAadhaarOTP83\WREKYCOTP.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="webfonts\fa-brands-400.svg" />
+    <Content Include="webfonts\fa-regular-400.svg" />
+    <Content Include="webfonts\fa-solid-900.svg" />
+    <Content Include="webfonts\ramabhadra.ttf" />
+    <Content Include="webfonts\fa-brands-400.eot" />
+    <Content Include="webfonts\fa-brands-400.ttf" />
+    <Content Include="webfonts\fa-brands-400.woff" />
+    <Content Include="webfonts\fa-brands-400.woff2" />
+    <Content Include="webfonts\fa-regular-400.eot" />
+    <Content Include="webfonts\fa-regular-400.ttf" />
+    <Content Include="webfonts\fa-regular-400.woff" />
+    <Content Include="webfonts\fa-regular-400.woff2" />
+    <Content Include="webfonts\fa-solid-900.eot" />
+    <Content Include="webfonts\fa-solid-900.ttf" />
+    <Content Include="webfonts\fa-solid-900.woff" />
+    <Content Include="webfonts\fa-solid-900.woff2" />
+    <Content Include="webfonts\Rubik-Black.ttf" />
+    <Content Include="webfonts\Rubik-Bold.ttf" />
+    <Content Include="webfonts\Rubik-Light.ttf" />
+    <Content Include="webfonts\Rubik-Medium.ttf" />
+    <Content Include="webfonts\Rubik-Regular.ttf" />
+    <None Include="Web References\minorityservice\minorityservice.wsdl" />
+    <Content Include="Web References\minorityservice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\SerpBima\vvclaimstatus.wsdl" />
+    <Content Include="Web References\SMSService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\SMSService\SMSService.wsdl" />
+    <None Include="Web References\UatMeeseva\MeesevaMobileWebservice.wsdl" />
+    <Content Include="Web References\UatMeeseva\Output.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\UatMeeseva\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="webfonts\menaka.ttf" />
+    <Content Include="Web References\WebLand_Revenue\dispute.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebLand_Revenue\Khatha_No_str.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebLand_Revenue\MandalNames.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebLand_Revenue\OldPHN.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebLand_Revenue\pahani.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebLand_Revenue\pahaniByBaseSurveyNumber.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebLand_Revenue\Pattadar.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebLand_Revenue\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\WebLand_Revenue\ROR_Str.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebLand_Revenue\StatsStr.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebLand_Revenue\Survey_No_str.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebLand_Revenue\TestStr.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebLand_Revenue\VillageNames.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\WebLand_Revenue\VillageNames1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\WebLand_Revenue\wspahani.wsdl" />
+    <None Include="Web References\WRServiceAadhaarOTP83\WREKYCOTP.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="capth\" />
+    <Folder Include="Depts\CommercialTax\Backend\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://103.14.188.80:8080/RWMService/services/ServicesRWMS%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\RamInfoService\</RelPath>
+      <UpdateFromURL>http://103.14.188.80:8080/RWMService/services/ServicesRWMS%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_RamInfoService_ServicesRWMS</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\EPantaService\</RelPath>
+      <UpdateFromURL>http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_EPantaService_getVillageData</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://125.21.84.205:8080/RWMService/services/ServicesRWMS%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\RaminfoprodServce\</RelPath>
+      <UpdateFromURL>http://125.21.84.205:8080/RWMService/services/ServicesRWMS%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_RaminfoprodServce_ServicesRWMS</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://bima.ap.gov.in/services/Claimregistration.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ClaimRegistration\</RelPath>
+      <UpdateFromURL>http://bima.ap.gov.in/services/Claimregistration.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_ClaimRegistration_ClaimRegistration</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://navaratnalu-housesites.ap.gov.in/WebService/API.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\HousesiteWebservice\</RelPath>
+      <UpdateFromURL>http://navaratnalu-housesites.ap.gov.in/WebService/API.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_HousesiteWebservice_API</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://push83.sps.ap.gov.in/WEBEKYCOTP/WREKYCOTP.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WRServiceAadhaarOTP83\</RelPath>
+      <UpdateFromURL>http://push83.sps.ap.gov.in/WEBEKYCOTP/WREKYCOTP.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_WRServiceAadhaarOTP83_WREKYCOTP</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://pushpm86.sps.ap.gov.in/EDACSMS/SMSService.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SMSService\</RelPath>
+      <UpdateFromURL>http://pushpm86.sps.ap.gov.in/EDACSMS/SMSService.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_SMSService_SMSService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://uat.gramawardsachivalayam.ap.gov.in/SMSAPP/SMSService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\UATSMSService\</RelPath>
+      <UpdateFromURL>http://uat.gramawardsachivalayam.ap.gov.in/SMSAPP/SMSService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_UATSMSService_SMSService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://uat.meeseva.gov.in/MeesevaMobileWebService/MeesevaMobileWebservice.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\UatMeeseva\</RelPath>
+      <UpdateFromURL>http://uat.meeseva.gov.in/MeesevaMobileWebService/MeesevaMobileWebservice.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_UatMeeseva_MeesevaMobileWebservice</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://uat.meeseva.gov.in/meesevawebservice/meesevawebservice.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\MeesevaWebUAT\</RelPath>
+      <UpdateFromURL>http://uat.meeseva.gov.in/meesevawebservice/meesevawebservice.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_MeesevaWebUAT_MeeSevaWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://uatwebland.ap.gov.in/wspahani.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebLand_Revenue\</RelPath>
+      <UpdateFromURL>http://uatwebland.ap.gov.in/wspahani.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_WebLand_Revenue_WSPahani</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://www.bima.ap.gov.in/services/vvclaimstatus.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SerpBima\</RelPath>
+      <UpdateFromURL>http://www.bima.ap.gov.in/services/vvclaimstatus.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_SerpBima_vvclaimstatus</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://apdept.meeseva.gov.in/meesevawebservice/meesevawebservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\MeesevaProductionService\</RelPath>
+      <UpdateFromURL>https://apdept.meeseva.gov.in/meesevawebservice/meesevawebservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_MeesevaProductionService_MeeSevaWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://aprdc.ap.gov.in/ComplaintsSearchService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Transport_ComplaintsStatusCheck\</RelPath>
+      <UpdateFromURL>https://aprdc.ap.gov.in/ComplaintsSearchService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_Transport_ComplaintsStatusCheck_ComplaintsSearchService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://apwaqf.aponline.gov.in/minorityservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\minorityservice\</RelPath>
+      <UpdateFromURL>https://apwaqf.aponline.gov.in/minorityservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_minorityservice_MinorityService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://sadarem.ap.gov.in/Sadaremwebservice/ValidSadaremid%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Sadarem\</RelPath>
+      <UpdateFromURL>https://sadarem.ap.gov.in/Sadaremwebservice/ValidSadaremid%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_Sadarem_ValidSadaremidService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://tptuat.aponline.gov.in/AHAService/AHAServices.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Animal\</RelPath>
+      <UpdateFromURL>https://tptuat.aponline.gov.in/AHAService/AHAServices.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_Animal_AHAServices</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://tptuat.aponline.gov.in/APRDC/ComplaintsSearchService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\RoadsComplaint_StatusCheck\</RelPath>
+      <UpdateFromURL>https://tptuat.aponline.gov.in/APRDC/ComplaintsSearchService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>gswsBackendAPI_RoadsComplaint_StatusCheck_ComplaintsSearchService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3831</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3831/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

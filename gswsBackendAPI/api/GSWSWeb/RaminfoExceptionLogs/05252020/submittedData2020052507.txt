@@ -1,0 +1,1 @@
+250520195508PM:Error From GetWalletAmount:Unable to connect to the remote server

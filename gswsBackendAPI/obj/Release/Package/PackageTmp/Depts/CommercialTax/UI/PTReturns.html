@@ -1,0 +1,209 @@
+﻿<style type="text/css">
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>Proffession Tax Returns</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-3 col-form-label text-right">TIN Number</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" alpha-numerics maxlength="25" data-ng-model="entertin" autocomplete="off" placeholder="Enter TIN Number" class="form-control" />
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button type="button" data-ng-click="GetDetails();" class="btn btn-primary">Get Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-sm-12 mt-2 mb-3" ng-show="dttable">
+                        <table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+                            <tr dt-rows><td>PTIN</td><td>{{prof_tin}}</td><td>Name</td><td>{{enterprise_name}}</td></tr>
+                            <tr dt-rows><td>Circle</td><td>{{circlename}}</td><td>Division</td><td>{{division}}</td></tr>
+                            <tr dt-rows><td>Tax Period</td><td>{{tax_period_type}}</td><td>Profession Type</td><td>{{profession_type}}</td></tr>
+                            <tr dt-rows>
+                                <td>Tax Period</td>
+                                <td colspan="3">
+                                    <select class="form-control" data-ng-model="seltaxperiod" style="width:300px;">
+                                        <option selected="selected" value="">-Select-</option>
+                                        <option data-ng-repeat="pan in TaxPeriodDD" value="{{pan.tax_periodid}}">{{pan.tax_periodname}}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <div class="col-sm-12 mt-5" data-ng-show="divmonth">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-group row mb-3">
+                                        <div class="col-md-3">
+                                            <label class="col-form-label"><b>Pay Range :</b></label>
+                                            <div>
+                                                <select class="form-control" data-ng-model="selpayrange" data-ng-change="CalPayble();">
+                                                    <option selected="selected" value="">-Select-</option>
+                                                    <option data-ng-repeat="pan in PayRangeDD" value="{{pan.slab_code}}">{{pan.slab}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="col-form-label"><b>Tax Rate :</b></label>
+                                            <div>
+                                                <label class="col-form-label"><b>{{ptaxrate}}</b></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="col-form-label"><b>No of Employess :</b></label>
+                                            <div>
+                                                <input type="text" numbers-only maxlength="15" data-ng-model="EnterEmployees" data-ng-blur="CalPayble()" class="form-control" placeholder="Enter">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="col-form-label"><b>Tax Payble :</b></label>
+                                            <div>
+                                                <label class="col-form-label"><b>{{ptaxpayble}}</b></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="button" style="margin-top:30px;" data-ng-click="AddPay();" class="btn btn-primary">Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 mt-5" data-ng-hide="divmonth">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-group row mb-3">
+                                        <label class="col-form-label col-md-2"><b>Profession :</b></label>
+                                        <div class="col-md-2">
+                                            <select class="form-control " data-ng-model="selprofession" ng-change="GetRate();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="pan in ProfessionDD" value="{{pan.profession_type_code}}">{{pan.profession_type_name}}</option>
+                                            </select>
+                                        </div>
+
+                                        <label class="col-form-label col-md-2"><b>Tax Payble :</b></label>
+
+                                        <div class="col-md-2">
+                                            <label class="col-form-label"><b>{{profession_type_rate}}</b></label>
+                                        </div>
+
+                                        <div class="col-md-1">
+                                            <button type="button" data-ng-click="AddProfession();" class="btn btn-primary">Insert</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div ng-show="divrettbl">
+                            <div data-ng-show="divmonth">
+                                <div class="col-sm-12 mt-2 mb-3">
+                                    <table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+                                        <thead>
+                                            <tr class="bg-dark" style="color:white !important;">
+                                                <th>S.No</th>
+                                                <th>Pay Range</th>
+                                                <th>Tax Rate</th>
+                                                <th>No of Employees</th>
+                                                <th>Tax Payble</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr dt-rows ng-repeat="stu in TaxMTable |  filter : SearchText">
+                                                <td>{{$index + 1}}</td>
+                                                <td>{{stu.slab}}</td>
+                                                <td>{{stu.slab_taxrate}}</td>
+                                                <td>{{stu.nof_employees}}</td>
+                                                <td>{{stu.tot_payable}}</td>
+
+                                                <td>
+                                                    <button type="button" data-ng-click="removeMPay($index)" class="btn btn-primary">Delete</button>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="3" class="text-right">Total</td>
+                                                <td colspan="3"><b>{{TotalMTax}}</b></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div style="margin-top:20px;text-align:center">
+                                    <button type="button" data-ng-click="SubmitMDetails();" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+
+                            <div data-ng-hide="divmonth">
+                                <div class="col-sm-12 mt-2 mb-3">
+                                    <table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+                                        <thead>
+                                            <tr class="bg-dark" style="color:white !important;">
+                                                <th>S.No</th>
+                                                <th>Profession</th>
+                                                <th>Tax Payble</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr dt-rows ng-repeat="stu in TaxYTable |  filter : SearchText">
+                                                <td>{{$index + 1}}</td>
+                                                <td>{{stu.profession_type_name}}</td>
+                                                <td>{{stu.profession_tax_rate}}</td>
+                                                <td>
+                                                    <button type="button" data-ng-click="removeYPay($index)" class="btn btn-primary">Delete</button>
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="3" class="text-right">Total</td>
+                                                <td colspan="3"><b>{{TotalYTax}}</b></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div style="margin-top:20px;text-align:center">
+                                    <button type="button" data-ng-click="SubmitYDetails();" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

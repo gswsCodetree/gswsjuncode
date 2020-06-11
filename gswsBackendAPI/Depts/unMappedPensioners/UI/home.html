@@ -1,0 +1,140 @@
+﻿<style>
+    .modal-xl {
+        max-width: 1000px !important;
+    }
+</style>
+
+<div class="row" style="padding:20px;">
+    <div class="col-md-12" align="center">
+        <h2>Un-Mapped Pensioner To Cluster Mapping</h2>
+
+
+        <div class="row" ng-show="!Loader">
+
+            <div class="col-md-3" align="left">
+                <label for="Clusters">Clusters<span style="color:red">*</span></label>
+                <select id="Clusters" class="form-control" ng-model="cluster_id" ng-change="ddClusterChange();">
+                    <option value="">-- SELECT CLUSTER --</option>
+                    <option ng-repeat="obj in clusters" value="{{obj.CLUSTER_ID}}">{{obj.CLUSTER_NAME}} </option>
+                </select>
+            </div>
+
+            <div class="col-md-3" align="left">
+                <label for="pensioners">Pensioners<span style="color:red">*</span></label>
+                <select id="pensioners" class="form-control" ng-model="pensionerUid" ng-change="ddPensionerChange();">
+                    <option value="">-- SELECT PENSIONER --</option>
+                    <option ng-repeat="obj in pensioners" value="{{obj.UID_NO}}">
+                        {{obj.CITIZEN_FULLNAME}} 
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-3" ng-show="submission" style="padding-top:28px;" align="left">
+<button type="button" class="btn btn-primary" ng-click="btnSubmit();" >Assign Cluster</button>
+            </div>
+        </div>
+
+        <div class="row" ng-show="Loader" style="padding-top:30px;">
+            <div class="col-md-12" align="center">
+                <h4>Loading...</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="pensionerMappingModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Pensioner Addition</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8 col-8">
+                        <input type="text" class="form-control" placeholder="Enter Pensioner ID" ng-model="pensionId" />
+                    </div>
+                    <div class="col-md-4 col-4">
+                        <button type="button" class="btn btn-success" ng-click="btnSearchPensioner();">SEARCH</button>
+                    </div>
+                </div>
+                <div class="row" style="padding:25px;" ng-show="pensionModel">
+                    <div class="col-md-12">
+                        <table>
+                            <tr>
+                                <td><h5>PENSIONER ID     </h5></td>
+                                <td><h5 style="color:green;">{{pensioner.PENSIONID}}</h5></td>
+                            </tr>
+                            <tr>
+                                <td><h5>PENSIONER NAME   </h5></td>
+                                <td><h5 style="color:green;">{{pensioner.PENSIONER_NAME}}</h5></td>
+                            </tr>
+                            <tr>
+                                <td><h5>RELATION NAME    </h5></td>
+                                <td><h5 style="color:green;">{{pensioner.RELATION_NAME}}</h5></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="row" style="padding:15px;" align="center" ng-show="pensionModel">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-success" ng-click="btnAssignPensioner();">ASSIGN</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="pensionerListModal" role="dialog">
+    <div class="modal-dialog modal-xl">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Pensioners List</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 col-12 table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="bg-success-600 text-white">
+                                <tr>
+                                    <th>S.No.</th>
+                                    <th>Cluster Name</th>
+                                    <th>Volunteer Name</th>
+                                    <th>Pension ID</th>
+                                    <th>Pensioner Name</th>
+                                    <th>C/O</th>
+                                    <!--<td>--</td>-->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="obj in pensionersList">
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{obj.CLUSTER_NAME}}</td>
+                                    <td>{{obj.VV_NAME}}</td>
+                                    <td>{{obj.PENSIONID}}</td>
+                                    <td>{{obj.PENSIONER_NAME}}</td>
+                                    <td>{{obj.RELATION_NAME}}</td>
+                                    <!--<td>
+                                        <button type="button" class="btn btn-danger" ng-click="btnUnAssign(obj.PENSIONID,obj.SEC_ID);">UNASSIGN</button>
+                                    </td>-->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

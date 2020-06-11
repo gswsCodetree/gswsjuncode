@@ -1,0 +1,71 @@
+﻿
+<style>
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('../assets/images/loader.gif') 50% 50% no-repeat #fff;
+	}
+</style>
+<div class="container">
+	<div class="loader" ng-show="Preloader"></div>
+	<section class="scheme">
+		<div class="col-md-12" align="center" style="margin-top:10px">
+			<h3><b style="border-bottom:5px solid black">{{P_Head}} APPLICATION STATUS</b></h3>
+		</div>
+		<!--<div class="col-md-12" align="center" style="margin-top:10px">
+			<a href="#!/Main"><span class="fa fa-home"></span></a>
+		</div>-->
+		<div class="col-md-12" style="margin-top:40px">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-3">
+					<b>Enter Applicant Aadhaar Number</b>
+					<input type="text" maxlength="12" chars="0-9\\" ng-model="txtcertid" placeholder="Enter Aadhaar Number" class="form-control" />
+				</div>
+				<div class="col-md-3">
+					<b>Select Acadamic Year</b>
+					<select class="form-control" ng-model="ddlacdyear">
+						<option value="">Select Acadamic Year</option>
+						<option ng-repeat="x in AcadamicyearsList" value="{{x.Fny_ID}}">{{x.Fny}}</option>
+					</select>
+				</div>
+				<div class="col-md-3" style="margin-top:22px">
+					<button class="btn btn-primary" id="btnGetReport" ng-click="getdetails()">Get Details</button>
+					<button class="btn btn-danger" id="btnreset" ng-click="Refresh()">Reset</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12" style="margin-top:30px" ng-show="detailsshow">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<table class="table table-bordered">
+						<tr>
+							<td colspan="2" align="center" style="color:White;background-color:cornflowerblue;font-weight:bold">DETAILS</td>
+						</tr>
+						<tr>
+							<td><b>Status</b></td>
+							<td>{{trackingstatus}}</td>
+						</tr>
+						<tr>
+							<td><b>Department</b></td>
+							<td>{{department}}</td>
+						</tr>
+						<tr>
+							<td><b>Beneficiary ID</b></td>
+							<td>{{benfificiaryId}}</td>
+						<tr>
+							<td><b>Beneficiary Name</b></td>
+							<td>{{benfificiaryName}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

@@ -1,0 +1,1021 @@
+﻿
+
+<style>
+	th, td {
+		vertical-align: middle !important;
+	}
+
+	.spanone {
+		vertical-align: middle !important;
+		text-align: center;
+	}
+
+	th {
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 500;
+	}
+
+	td {
+		width: 100%;
+	}
+
+	.heading {
+		background: rgb(49, 90, 153)
+	}
+
+	table {
+		width: 100%;
+	}
+
+	thead tr th:first-child,
+	tbody tr td:first-child {
+		width: 3em;
+		min-width: 3em;
+		max-width: 3em;
+		word-break: break-all;
+	}
+
+	input[type=file] {
+		background-color: rgb(49, 90, 153);
+		color: #fff;
+	}
+</style>
+
+<script type="text/javascript">
+	function movetoNext(current, next) {
+		if (current.value.length >= current.maxLength) {
+			if (next == "fourth") {
+				var aadhaar = $("#first").val() + $("#second").val() + $("#third").val();
+				if (aadhaar.length < 12) {
+					swal('info', "UID must be 12 digits!", 'info');
+					swal('info', "UID must be 12 digits!", 'info');
+					return false;
+				}
+				var val = validateVerhoeff(aadhaar);
+				if (!val) {
+					swal('info', 'Please Enter Valid Aadhaar Number', 'info');
+					$("#first").val(""); $("#second").val(""); $("#third").val("");
+					return;
+				}
+			}
+			else {
+				document.getElementById(next).focus();
+			}
+		}
+	}
+
+	// Valid Alpha Numerics only when Keying
+	function IsAlphaNumeric(e, t) {
+		try {
+			if (window.event) {
+				var charCode = window.event.keyCode;
+			}
+			else if (e) {
+				var charCode = e.which;
+			}
+			else { return true; }
+			if ((charCode == 32) || (charCode >= 96 && charCode <= 105) || (charCode >= 48 && charCode <= 57) || (charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123)) {
+				return true;
+			}
+			else {
+				swal("Info", "Enter only Alphabates and Numbers", "info");
+				return false;
+			}
+		}
+		catch (err) {
+			alert(err.Description);
+		}
+	}
+
+	// Valid Alphabates only when Keying
+	function onlyAlphabets(e, t) {
+		try {
+			if (window.event) {
+				var charCode = window.event.keyCode;
+			}
+			else if (e) {
+				var charCode = e.which;
+			}
+			else { return true; }
+			if ((charCode == 32) || (charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123)) {
+				return true;
+			}
+			else {
+				swal("Info", "Enter only Alphabates", "info");
+				return false;
+			}
+		}
+		catch (err) {
+			alert(err.Description);
+		}
+	}
+
+	// Age validation between 18 and 99
+	function IsValidAge() {
+		var age
+		age = document.getElementById("txtAge").value;
+		if (isNaN(age) || age <= 18 || age >= 99) {
+			swal("Info", "Age value should be between 18 and 99", "info");
+			$("#txtAge").val("");
+		}
+	}
+
+	// Valid Bank Account Numbers based on Bank Name
+	function ValidBankAccountNumbers() {
+		debugger;
+		var bankname = document.getElementById("banknamedropdown").value;
+		if (bankname == "CENTRAL BANK OF INDIA" || bankname == "INDIAN BANK") {
+			$("#txtBankAccountNumber").attr("maxlength", 10);
+		}
+		else if (bankname == "DECCAN GRAMEENA BANK" || bankname == "STATE BANK OF INDIA" || bankname == "STATE BANK OF HYDERABAD" || bankname == "ALLAHABAD BANK" || bankname == "STATE BANK OF MYSORE" || bankname == "STATE BANK OF TRAVANCORE" || bankname == "BANK OF MAHARASHTRA") {
+			$("#txtBankAccountNumber").attr("maxlength", 11);
+		}
+		else if (bankname == "ICICI BANK LIMITED" || bankname == "ICICI BANK LTD" || bankname == "INDUSIND BANK" || bankname == "INDUSIND BANK LTD" || bankname == "INDUSIND BANK LTD." || bankname == "ING VYSYA BANK" || bankname == "ING VYSYA BANK LTD" || bankname == "DENA BANK") {
+			$("#txtBankAccountNumber").attr("maxlength", 12);
+		}
+		else if (bankname == "UNITED BANK OF INDIA" || bankname == "CANARA BANK" || bankname == "YES BANK" || bankname == "YES BANK LTD") {
+			$("#txtBankAccountNumber").attr("maxlength", 13);
+		}
+		else if (bankname == "ANDHRA PRAGATHI GRAMEENA BANK" || bankname == "ANDHRA_PRAGATHI_GRAMEENA_BANK" || bankname == "BANK OF BARODA" || bankname == "HDFC BANK" || bankname == "HDFC BANK LTD" || bankname == "HDFC BANK LTD." || bankname == "ORIENTAL BANK OF COMMERCE" || bankname == "CATHOLIC SYRIAN BANK LTD." || bankname == "UCO BANK" || bankname == "SYNDICATE BANK") {
+			$("#txtBankAccountNumber").attr("maxlength", 14);
+		}
+		else if (bankname == "CORPORATION BANK" || bankname == "ANDHRA BANK" || bankname == "ANDHRABANK" || bankname == "ANDRA BANK" || bankname == "INDIAN OVERSEAS BANK" || bankname == "VIJAYA BANK" || bankname == "A.P STATE CO-OPERATIVE BANK LTD" || bankname == "ANDHRA PRADESH STATE COOP BANK LTD" || bankname == "ANDHRAPRADESH STATE COOPBANK LTD" || bankname == "AP STATE CO-OPERATIVE BANK LTD" || bankname == "THE A.P STATE COOP BANK LIMITED" || bankname == "THE A.P STATE COOP BANK LTD" || bankname == "THE ANDHRA PRADESH STATE COOPERATIVE BANK LIMITED" || bankname == "BANK OF INDIA" || bankname == "AXIS BANK" || bankname == "AXIS BANK LTD") {
+			$("#txtBankAccountNumber").attr("maxlength", 15);
+		}
+		else if (bankname == "IDBI BANK" || bankname == "IDBI BANK LTD" || bankname == "IDBI LTD." || bankname == "KARUR VYSYA BANK" || bankname == "KARUR VYSYA BANK LTD" || bankname == "LAXMI VILAS BANK" || bankname == "THE LAKSHMI VILAS BANK LTD" || bankname == "PUNJAB NATIONAL BANK" || bankname == "SOUTH INDIAN BANK") {
+			$("#txtBankAccountNumber").attr("maxlength", 16);
+		}
+		else {
+			$("#txtBankAccountNumber").attr("maxlength", 16);
+		}
+	}
+
+	// Valid Minimum length
+	function ValidMinimumLength() {
+		var bankname = document.getElementById("banknamedropdown").value;
+		var bankaccno = $("#txtBankAccountNumber").val();
+		console.log(bankaccno.length);
+		if (bankname == "CENTRAL BANK OF INDIA") {
+			if ($("#txtBankAccountNumber").length != 10) {
+				swal("Info", "Please enter valid Bank Account number", "info");
+				$("#txtBankAccountNumber").val("");
+				return false;
+			}
+		}
+		else if (bankname == "ALLAHABAD BANK" || bankname == "STATE BANK OF MYSORE" || bankname == "STATE BANK OF TRAVANCORE" || bankname == "BANK OF MAHARASHTRA") {
+			if (bankaccno.length != 11) {
+				swal("Info", "Please enter valid Bank Account number", "info");
+				$("#txtBankAccountNumber").val("");
+				return false;
+			}
+		}
+		else if (bankname == "ICICI BANK LIMITED" || bankname == "ICICI BANK LTD" || bankname == "INDUSIND BANK" || bankname == "INDUSIND BANK LTD" || bankname == "INDUSIND BANK LTD." || bankname == "ING VYSYA BANK" || bankname == "ING VYSYA BANK LTD" || bankname == "DENA BANK") {
+			if (bankaccno.length != 12) {
+				swal("Info", "Please enter valid Bank Account number", "info");
+				$("#txtBankAccountNumber").val("");
+				return false;
+			}
+		}
+		else if (bankname == "UNITED BANK OF INDIA" || bankname == "CANARA BANK" || bankname == "YES BANK" || bankname == "YES BANK LTD") {
+			if (bankaccno.length != 13) {
+				swal("Info", "Please enter valid Bank Account number", "info");
+				$("#txtBankAccountNumber").val("");
+				return false;
+			}
+		}
+		else if (bankname == "BANK OF BARODA" || bankname == "HDFC BANK" || bankname == "HDFC BANK LTD" || bankname == "HDFC BANK LTD." || bankname == "ORIENTAL BANK OF COMMERCE" || bankname == "CATHOLIC SYRIAN BANK LTD." || bankname == "UCO BANK" || bankname == "SYNDICATE BANK") {
+			if (bankaccno.length != 14) {
+				swal("Info", "Please enter valid Bank Account number", "info");
+				$("#txtBankAccountNumber").val("");
+				return false;
+			}
+		}
+		else if (bankname == "ANDHRA BANK" || bankname == "ANDHRABANK" || bankname == "ANDRA BANK" || bankname == "INDIAN OVERSEAS BANK" || bankname == "VIJAYA BANK" || bankname == "A.P STATE CO-OPERATIVE BANK LTD" || bankname == "ANDHRA PRADESH STATE COOP BANK LTD" || bankname == "ANDHRAPRADESH STATE COOPBANK LTD" || bankname == "AP STATE CO-OPERATIVE BANK LTD" || bankname == "THE A.P STATE COOP BANK LIMITED" || bankname == "THE A.P STATE COOP BANK LTD" || bankname == "THE ANDHRA PRADESH STATE COOPERATIVE BANK LIMITED" || bankname == "BANK OF INDIA") {
+			if (bankaccno.length != 15) {
+				swal("Info", "Please enter valid Bank Account number", "info");
+				$("#txtBankAccountNumber").val("");
+				return false;
+			}
+		}
+		else if (bankname == "IDBI BANK" || bankname == "IDBI BANK LTD" || bankname == "IDBI LTD." || bankname == "KARUR VYSYA BANK" || bankname == "KARUR VYSYA BANK LTD" || bankname == "LAXMI VILAS BANK" || bankname == "THE LAKSHMI VILAS BANK LTD" || bankname == "PUNJAB NATIONAL BANK" || bankname == "SOUTH INDIAN BANK") {
+			if (bankaccno.length != 16) {
+				swal("Info", "Please enter valid Bank Account number", "info");
+				$("#txtBankAccountNumber").val("");
+				return false;
+			}
+		}
+		else if (bankname == "INDIAN BANK") {
+			if (bankaccno.length != 9 && bankaccno.length != 10) {
+				swal("Info", "Please enter valid Bank Account number", "info");
+				$("#txtBankAccountNumber").val("");
+				return false;
+			}
+		}
+		else if (bankname == "ANDHRA PRAGATHI GRAMEENA BANK" || bankname == "ANDHRA_PRAGATHI_GRAMEENA_BANK") {
+			if (bankaccno.length != 11 && bankaccno.length != 14) {
+				swal("Info", "Please enter valid Bank Account number", "info");
+				$("#txtBankAccountNumber").val("");
+				return false;
+			}
+		}
+		else if (bankname == "CORPORATION BANK") {
+			if (bankaccno.length != 10 && bankaccno.length != 15) {
+				swal("Info", "Please enter valid Bank Account number", "info");
+				$("#txtBankAccountNumber").val("");
+				return false;
+			}
+		}
+		else if (bankname == "DECCAN GRAMEENA BANK") {
+			if (bankaccno.length != 10 && bankaccno.length != 11) {
+				swal("Info", "Please enter valid Bank Account number", "info");
+				$("#txtBankAccountNumber").val("");
+				return false;
+			}
+		}
+		else if (bankname == "STATE BANK OF INDIA") {
+			var str = $("#txtBankAccountNumber").val();
+			var reg = new RegExp("^([1-3][0-9]{10,10})\s*$");
+			if (!reg.test(str) || bankaccno.length != 11) {
+				swal("Info", "Please enter valid Bank Account number", "info");
+				$("#txtBankAccountNumber").val("");
+				return false;
+			}
+		}
+		else if (bankname == "STATE BANK OF HYDERABAD") {
+			var str = $("#txtBankAccountNumber").val();
+			var reg = new RegExp("^([5-6][0-9]{10,10})\s*$");
+			if (!reg.test(str) || bankaccno.length != 11) {
+				swal("Info", "Please enter valid Bank Account number", "info");
+				$("#txtBankAccountNumber").val("");
+				return false;
+			}
+		}
+		else if (bankname == "AXIS BANK" || bankname == "AXIS BANK LTD") {
+			var str = $("#txtBankAccountNumber").val();
+			var reg = new RegExp("^([9][0-9]{14,14})\s*$");
+			if (!reg.test(str) || bankaccno.length != 15) {
+				swal("Info", "Please enter valid Bank Account number", "info");
+				$("#txtBankAccountNumber").val("");
+				return false;
+			}
+		}
+	}
+
+	function myFunction() {
+		var x = document.getElementById("myFile");
+		x.disabled = true;
+	}
+	function change(arr) {
+		var el = document.getElementById('sel');
+		el.options.length = 0;
+		for (var i = 0; i < arr.length; i++) {
+			el.options[el.options.length] = new Option(arr[i], arr[i]);
+		}
+	}
+</script>
+
+<div class="page-content">
+	<div data-ng-show="preloader" class="loader"></div>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-9">
+					<h4 style="text-align: center !important;">Jobcard Registration</h4>
+				</div>
+				<div class="col-md-3 text-md-center">
+					<button class="btn btn-primary btn-sm" data-ng-click="clicked()" value="submit">Back To Details</button>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+
+					<div class="col-md-12" ng-show="IsGridPS" style="display:none;">
+						<div class="row">
+							<div class="table-responsive">
+								<table class="table table-responsive table-bordered table-striped">
+									<thead class="heading">
+										<tr>
+											<th>#</th>
+											<th>Name</th>
+											<th>Relationship</th>
+											<th>Gender</th>
+											<th>Age</th>
+											<th>Account No</th>
+											<th>Bank name</th>
+											<th>SHG Name</th>
+											<th>SHG Id</th>
+											<th>MPHSSID</th>
+											<th>Voter ID</th>
+											<th>Disabled</th>
+											<th>Pension Number</th>
+											<th>SmartCard No</th>
+											<th>Paying Agency Type:</th>
+											<th>HIV Affected</th>
+											<th>UID</th>
+											<th>Mobile No</th>
+											<th>Bank Pass Book Name</th>
+											<th>BankAccount No</th>
+											<th>IFSc Code</th>
+											<th>Action</th>
+											<th ng-show="IsCheck">Remove</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="singlejobcard in addmultiplejobcard">
+											<td><label>{{$index + 1}}</label></td>
+											<td><label>{{singlejobcard.MEMBER_NAME}}</label></td>
+											<td><label>{{singlejobcard.RELATION_HOF}}</label></td>
+											<td><label>{{singlejobcard.GENDER}}</label></td>
+											<td><label>{{singlejobcard.AGE}}</label></td>
+											<td><label>{{singlejobcard.BANK_ACC_NO}}</label></td>
+											<td><label>{{singlejobcard.PAYING_AGENCY_NAME}}</label></td>
+											<td><label>{{singlejobcard.SHG_NAME}}</label></td>
+											<td><label>{{singlejobcard.SHG_ID}}</label></td>
+											<td><label>{{singlejobcard.MPHSS_ID}}</label></td>
+											<td><label>{{singlejobcard.VOTER_ID}}</label></td>
+											<td><label>{{singlejobcard.DISABLED}}</label></td>
+											<td><label>{{singlejobcard.PENSION_NUMBER}}</label></td>
+											<td><label>{{singlejobcard.SMARTCARD_NUMBER}}</label></td>
+											<td><label>{{singlejobcard.PAYING_AGENCY_TYPE}}</label></td>
+											<td><label>{{singlejobcard.HIV}}</label></td>
+											<td><label>{{singlejobcard.UID_NO}}</label></td>
+											<td><label>{{singlejobcard.MOBILE_NO}}</label></td>
+											<td><label>{{singlejobcard.BANK_ACC_NAME}}</label></td>
+											<td><label>{{singlejobcard.BANK_ACC_NO}}</label></td>
+											<td><label>{{singlejobcard.IFSC_CODE}}</label></td>
+											<td>
+												<a href="" ng-show="IsView" ng-click="clickedview($index)">View</a>
+												<a href="" ng-show="IsEdit" ng-click="clickedEdit($index)">Edit</a>
+											</td>
+											<td ng-show="IsCheck" align="center">
+												<input type="checkbox" ng-model="singlejobcard.Remove" />
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<div id="dvReadonly">
+						<div class="card card-body">
+							<div class="row form-inline">
+								<div class="col-md-4">
+									<div class="form-group">
+										<label class="mr-1">State:</label>
+										<b> Andhra Pradesh</b>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label class="mr-1">District:</label>
+										<b> {{districtname}} </b>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label class="mr-1">Mandal:</label>
+										<b> {{mandalname}}</b>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card card-body">
+							<div class="row align-items-center">
+								<div class="col-sm-6">
+									<div class="form-row form-group align-items-center">
+										<label class="col-sm-4 mb-0">Grama Panchayat <sup class="text-danger">*</sup>:</label>
+										<div class="col-sm-8">
+											<select class="form-control" ng-model="panchayatcode" ng-change="GetHabitationload();">
+												<option value="">Select Village</option>
+												<option ng-repeat="obj in panchayatlist" value="{{obj.PANCHAYAT_ID}}">{{obj.PANCHAYAT_NAME}}</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6">
+									<div class="form-row form-group align-items-center">
+										<label class="col-sm-4 mb-0">Habitation <sup class="text-danger">*</sup>:</label>
+										<div class="col-sm-8">
+											<select class="form-control" ng-model="habitation">
+												<option value="">Select Habitation</option>
+												<option ng-repeat="obj in habitationlist" value="{{obj.HABITATION_ID}}">{{obj.HABITATION_NAME}}</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6">
+									<div class="form-row form-group align-items-center">
+										<label class="col-sm-4 mb-0">Date of Registration :</label>
+										<div class="col-sm-8">
+											<input type="date" class="form-control" ng-model="registrationdate" disabled="disabled">
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6">
+									<div class="form-row form-group align-items-center">
+										<label class="col-sm-4 mb-0">Application Number <sup class="text-danger">*</sup> :</label>
+										<div class="col-sm-8">
+											<input class="form-control" numbers-only ng-model="applicationnumber" maxlength="7">
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6">
+									<div class="form-row form-group align-items-center">
+										<label class="col-sm-4 mb-0">Panchayat Secretary <sup class="text-danger">*</sup>:</label>
+										<div class="col-sm-8">
+											<input class="form-control" ng-model="panchayatsecretary">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header p-1">
+								<h4>HouseHold Details</h4>
+							</div>
+							<div class="card-body">
+								<div class="row align-items-center">
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Caste <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<select class="form-control" ng-model="ngcast">
+													<option value="">Select Caste</option>
+													<option>SC</option>
+													<option>ST</option>
+													<option>BC</option>
+													<option>OTHERS</option>
+													<option>MINORITIES</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-4 mb-0">Address(English) <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-8">
+												<textarea class="form-control" rows="3" onkeypress="return IsAlphaNumeric(event);" ng-model="EnglishAddress"></textarea>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Address(English to Telugu Converter) <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<textarea class="form-control" rows="3" ng-blur="TranslateTelugu('address')" ng-model="EnglishTypingAddress"></textarea>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<div class="col-sm-6 ml-auto">
+												<textarea class="form-control" rows="3" ng-model="Teluguddress" readonly></textarea>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Ration Card No :</label>
+											<div class="col-sm-6">
+												<input class="form-control text-uppercase" ng-blur="RationValidation()" ng-model="RationcardNumber" maxlength="15">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">BPL No :</label>
+											<div class="col-sm-6">
+												<input class="form-control" numbers-only ng-model="BplNo" maxlength="10">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Land Owner (Patta Land) <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6 d-flex align-items-center">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-model="chkLandowner" name="radioLandOwner" ng-change="EnableDisableLandAcres()" type="radio" id="radio1" value="yes">
+													<label class="form-check-label" for="radio1">Yes</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-model="chkLandowner" name="radioLandOwner" ng-change="EnableDisableLandAcres()" type="radio" id="radio2" value="no">
+													<label class="form-check-label" for="radio2">No</label>
+												</div>
+												<input class="form-control w-25 mr-1" ng-disabled="Acresdisabled" ng-model="Acres"><label class="mb-0">(Acres)</label>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Khatha No :</label>
+											<div class="col-sm-6">
+												<input class="form-control" id="txtKhathaNo" maxlength="12" numbers-only ng-disabled="Acresdisabled" ng-model="KathaNo">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Assigned Lands/Land Reforms Beneficiary <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6 align-items-center">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-model="chkAssignedLands" name="radioReforms" type="radio" id="radio1" value="yes">
+													<label class="form-check-label" for="radio1">Yes</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-model="chkAssignedLands" name="radioReforms" type="radio" id="radio2" value="no">
+													<label class="form-check-label" for="radio2">No</label>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">IAY Beneficiary? <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6 align-items-center">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" name="radioIAY" ng-model="chkIAYBeneficiary" type="radio" id="radio1" value="yes">
+													<label class="form-check-label" for="radio1">Yes</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" name="radioIAY" ng-model="chkIAYBeneficiary" type="radio" id="radio2" value="no">
+													<label class="form-check-label" for="radio2">No</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<p class="text-primary font-weight-bold mb-0 p-1" style="border: 1px solid #ddd;">RationCard Format: First three characters should be WAP/AAP/YAP/PAP/RAP/TAP, next six characters should be digits, next two characters may be digits or letters, next 4 characters must be digits. Letters Should be in CAPITAL </p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header p-1">
+								<h4>Member Details</h4>
+							</div>
+							<div class="card-body">
+								<div class="row align-items-center">
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Name(English) <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<input class="form-control" ng-model="Name" onkeypress="return onlyAlphabets(event,this);">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Surname(English) <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<input class="form-control" ng-model="SurName">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Name(English to Telugu Converter) <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<input class="form-control" id="txtEnglish" ng-blur="TranslateTelugu('name')" ng-model="EnglishInputName"><br>
+												<input class="form-control" id="txtHindi" ng-model="TranslateTeluguName" readonly>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Surname(English to Telugu Converter) <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<input class="form-control" ng-blur="TranslateTelugu('surname')" ng-model="TeluguSurName"><br>
+												<input class="form-control" ng-model="TranslateTeluguNameSurname" readonly>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Head of the family? <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-model="HeadofFamily" name="radioHeadFamily" type="radio" id="radio1" value="yes" ng-click="yesheadoffamily()">
+													<label class="form-check-label" for="radio1">Yes</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" name="radioHeadFamily" type="radio" id="radio2" value="no" ng-model="HeadofFamily"
+														   ng-click="noheadoffamily()">
+													<label class="form-check-label" for="radio2">No</label>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Relationship with the Head of the family <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<select class="form-control" ng-model="RelationwithHeadofFamily">
+													<option value="">-Select Relation-</option>
+													<option data-ng-repeat="dis in relationwithfamilyheadlist" value="{{dis.name}}">{{dis.name}}</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Gender <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<select class="form-control" ng-change="changeSHG()" ng-model="Gender">
+													<option value="">Select Gender</option>
+													<option value="Male">Male</option>
+													<option value="Female">Female</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Age(as on date of registration) <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<input class="form-control" maxlength="2" id="txtAge" onblur="IsValidAge();" numbers-only ng-model="age">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Disabled? <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-change="EnableDisablePension();" ng-model="Disabled" name="radioDisabled" type="radio" id="radio1" value="yes">
+													<label class="form-check-label" for="radio1">Yes</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-change="EnableDisablePension();" ng-model="Disabled" name="radioDisabled" type="radio" id="radio2" value="no">
+													<label class="form-check-label" for="radio2">No</label>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Pension Number :</label>
+											<div class="col-sm-6">
+												<input class="form-control" id="txtPensionNumber" maxlength="15" ng-model="PensionNumber" placeholder="Enter Pension Number" ng-disabled="Pensiondisabled">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">HIV-Affected? <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-model="HIVAffected" name="radioHIV" type="radio" id="radio1" value="yes">
+													<label class="form-check-label" for="radio1">Yes</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-model="HIVAffected" name="radioHIV" type="radio" id="radio2" value="no">
+													<label class="form-check-label" for="radio2">No</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Member of SHG? <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-change="EnableDisableSHGDetails()" ng-disabled="MemberDisabled" ng-model="MemberofSHG" name="radioSHG" type="radio" id="radio1" value="yes">
+													<label class="form-check-label" for="radio1">Yes</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-change="EnableDisableSHGDetails()" ng-model="MemberofSHG" name="radioSHG" type="radio" id="radio2" value="no">
+													<label class="form-check-label" for="radio2">No</label>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">SHG ID:</label>
+											<div class="col-sm-6">
+												<input class="form-control" ng-disabled="SHGDisabled" maxlength="15" numbers-only ng-model="SHGID">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">SHG Name:</label>
+											<div class="col-sm-6">
+												<input class="form-control" id="txtSHGName" ng-disabled="SHGDisabled" ng-model="SHGName">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">MPHSS ID :</label>
+											<div class="col-sm-6">
+												<input class="form-control" maxlength="10" disabled ng-model="MPHSSID">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Do you have Permanently Jobcard id? <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-model="PermanentlyJobcardid" disabled name="radioPerJobcard" type="radio" id="radio1" value="yes">
+													<label class="form-check-label" for="radio1">Yes</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-model="PermanentlyJobcardid" disabled name="radioPerJobcard" type="radio" id="radio2" value="no">
+													<label class="form-check-label" for="radio2">No</label>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Type of Paying Agency <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<select class="form-control" ng-model="TypeofPayingAgency">
+													<option value="">Select Type of Paying Agency</option>
+													<option>BANK-CBS</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Paying Agency Name <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<select class="form-control" id="banknamedropdown" ng-model="bankname" ng-change="GetBranchload();" onblur="ValidBankAccountNumbers();">
+													<option value="">Select Agency Name</option>
+													<option ng-repeat="obj in banklist" value="{{obj.BANK_NAME}}">{{obj.BANK_NAME}}</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Branch Name <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<select class="form-control" ng-model="branchname" ng-change="GetIFSCCodeload();">
+													<option value="">Select Branch Name</option>
+													<option ng-repeat="obj in bankbranchlist" value="{{obj.BRANCH_NAME}}">{{obj.BRANCH_NAME}}</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">IFSC Code <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<input class="form-control" value="{{obj.IFSC_CODE}}" ng-model="IfscCode" ng-blur="GetBankNameandBranchload()">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Name as per Bank Passbook <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<input class="form-control" ng-model="NameasperBankPassbook" onkeypress="return onlyAlphabets(event,this);">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Bank Account Number <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6">
+												<!--<input class="form-control" id="txtBankAccountNumber" numbers-only ng-model="BankAccountNumber" maxlength="16">-->
+												<input class="form-control" id="txtBankAccountNumber" onblur="ValidMinimumLength();" numbers-only ng-model="BankAccountNumber">
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-row form-group mb-0 align-items-center">
+											<label class="col-sm-6 mb-0">UID <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6 d-md-flex">
+												<input type="text" id="first" numbers-only class="form-control" size="4" ng-disabled="UIddisabled" ng-model="uid1" onkeyup="movetoNext(this, 'second')" maxlength="4" autofocus style="text-align: center;" /><span class="spanone">-</span>
+												<input type="text" id="second" numbers-only class="form-control" size="4" ng-disabled="UIddisabled" ng-model="uid2" onkeyup="movetoNext(this, 'third')" maxlength="4" style="text-align:center" /><span class="spanone">-</span>
+												<input type="text" id="third" numbers-only class="form-control" size="4" ng-disabled="UIddisabled" ng-model="uid3" ng-blur="TestAadar()" min="4" onkeyup="movetoNext(this, 'fourth')" maxlength="4" style="text-align: center;" />
+
+											</div>
+										</div>
+										<p class="text-right font-weight-bold text-primary">NOTE: UID, Mobile No once entered cannot be modified</p>
+									</div>
+
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0"> Voter Id :</label>
+											<div class="col-sm-6">
+												<input class="form-control" ng-model="VoterID" maxlength="15">
+
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center" ng-show="IsUpload">
+											<label class="col-sm-6 mb-0">Upload Bank Passbook <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-3">
+												<!--<input type="file" id="myFile" class="form-control" onchange="CheckFileType('passbook');" style="border: none;">-->
+												<input type="file" ng-model="pimage" class="form-control" required data-ak-file-model="userfilename1.attachment" />
+											</div>
+											<div class="col-sm-3">
+												<!--<input type="file" id="myFile" class="form-control" onchange="CheckFileType('passbook');" style="border: none;">-->
+												<input type="button" class="btn btn-success" value="Upload" ng-click="uploadfile(userfilename1,uid1+'_'+uid2 +'_'+ uid3,'passbook',pimage);" />
+											</div>
+										</div>
+										<div class="form-row form-group align-items-center" ng-show="IsDownload">
+											<label class="col-sm-6 mb-0">Download Bank Passbook <sup class="text-danger">*</sup>:</label>
+											<a href="{{passbookpath}}" id="Passbook" ng-model="passbook" target="_blank">Download</a>
+										</div>
+										<div class="form-row form-group align-items-center" ng-show="IsFile">
+											<label class="col-sm-6 mb-0">Download Bank Passbook :</label>
+											<span>No file uploded</span>
+										</div>
+									</div>
+
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center" ng-show="IsUpload">
+											<label class="col-sm-6 mb-0">Upload Aadhar <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-3">
+												<input type="file" ng-model="paadhaar" class="form-control" data-ak-file-model="userfilename2.attachment" />
+											</div>
+											<div class="col-sm-3">
+												<input type="button" class="btn btn-success" value="Upload" ng-click="uploadfile(userfilename2,uid1+'_'+uid2 +'_'+ uid3,'uid',paadhaar);" />
+											</div>
+										</div>
+										<div class="form-row form-group align-items-center" ng-show="IsDownload">
+											<label class="col-sm-6 mb-0">Download Aadhar :</label>
+											<a href="{{uidpath}}" target="_blank">Download</a>
+										</div>
+										<div class="form-row form-group align-items-center" ng-show="IsFile">
+											<label class="col-sm-6 mb-0">Download Aadhar :</label>
+											<span>No file uploded</span>
+										</div>
+									</div>
+
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center" ng-show="IsUpload">
+											<label class="col-sm-6 mb-0">Upload F1 <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-3">
+												<input type="file" ng-model="pp1" class="form-control" data-ak-file-model="userfilename3.attachment" />
+
+											</div>
+											<div class="col-sm-3">
+												<input type="button" class="btn btn-success" value="Upload" ng-click="uploadfile(userfilename3,uid1+'_'+uid2 +'_'+ uid3,'f1',pp1);" />
+											</div>
+										</div>
+										<div class="form-row form-group align-items-center" ng-show="IsDownload">
+											<label class="col-sm-6 mb-0">Download F1 :</label>
+											<a href="{{f1path}}" target="_blank">Download</a>
+										</div>
+										<div class="form-row form-group align-items-center" ng-show="IsFile">
+											<label class="col-sm-6 mb-0">Download F1 :</label>
+											<span>No file uploded</span>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-row form-group align-items-center">
+											<label class="col-sm-6 mb-0">Mobile No <sup class="text-danger">*</sup>:</label>
+											<div class="col-sm-6 d-flex">
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-model="chkMobileNo" ng-change="EnableDisableMobileNo()" name="radioMobile" type="radio" id="radio1" value="yes" checked>
+													<label class="form-check-label" for="radio1">Yes</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input class="form-check-input mt-0" ng-model="chkMobileNo" ng-change="EnableDisableMobileNo()" name="radioMobile" type="radio" id="radio2" value="no">
+													<label class="form-check-label" for="radio2">No</label>
+												</div>
+												<input class="form-control" numbers-only id="txtMobileNo" ng-disabled="Mobiledisabled" ng-model="MobileNo" maxlength="10">
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-8">
+										<label class="mb-0 text-danger font-weight-bold">NOTE: Please select on Wageseeker to view Account Number Details</label>
+									</div>
+									<div class="col-sm-4 text-right">
+										<button class="btn btn-primary btn-sm" ng-show="IsAddRemove" ng-click="addRow()">Add</button>
+										<button class="btn btn-danger btn-sm" ng-show="IsAddRemove" ng-click="removeRow()">Remove</button>
+										<button class="btn btn-secondary btn-sm" ng-show="IsUpdate" ng-click="update()">Update</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12" ng-show="IsGrid">
+				<div class="row">
+					<div class="table-responsive">
+						<table class="table table-responsive table-bordered table-striped">
+							<thead class="heading">
+								<tr>
+									<th>#</th>
+									<th>Name</th>
+									<th>Relationship</th>
+									<th>Gender</th>
+									<th>Age</th>
+									<th>Account No</th>
+									<th>Bank name</th>
+									<th>SHG Name</th>
+									<th>SHG Id</th>
+									<th>MPHSSID</th>
+									<th>Voter ID</th>
+									<th>Disabled</th>
+									<th>Pension Number</th>
+									<th>SmartCard No</th>
+									<th>Paying Agency Type:</th>
+									<th>HIV Affected</th>
+									<th>UID</th>
+									<th>Mobile No</th>
+									<th>Bank Pass Book Name</th>
+									<th>BankAccount No</th>
+									<th>IFSc Code</th>
+									<th>Action</th>
+									<th ng-show="IsCheck">Remove</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="singlejobcard in addmultiplejobcard">
+									<td><label>{{$index + 1}}</label></td>
+									<td><label>{{singlejobcard.MEMBER_NAME}}</label></td>
+									<td><label>{{singlejobcard.RELATION_HOF}}</label></td>
+									<td><label>{{singlejobcard.GENDER}}</label></td>
+									<td><label>{{singlejobcard.AGE}}</label></td>
+									<td><label>{{singlejobcard.BANK_ACC_NO}}</label></td>
+									<td><label>{{singlejobcard.PAYING_AGENCY_NAME}}</label></td>
+									<td><label>{{singlejobcard.SHG_NAME}}</label></td>
+									<td><label>{{singlejobcard.SHG_ID}}</label></td>
+									<td><label>{{singlejobcard.MPHSS_ID}}</label></td>
+									<td><label>{{singlejobcard.VOTER_ID}}</label></td>
+									<td><label>{{singlejobcard.DISABLED}}</label></td>
+									<td><label>{{singlejobcard.PENSION_NUMBER}}</label></td>
+									<td><label>{{singlejobcard.SMARTCARD_NUMBER}}</label></td>
+									<td><label>{{singlejobcard.PAYING_AGENCY_TYPE}}</label></td>
+									<td><label>{{singlejobcard.HIV}}</label></td>
+									<td><label>{{singlejobcard.UID_NO}}</label></td>
+									<td><label>{{singlejobcard.MOBILE_NO}}</label></td>
+									<td><label>{{singlejobcard.BANK_ACC_NAME}}</label></td>
+									<td><label>{{singlejobcard.BANK_ACC_NO}}</label></td>
+									<td><label>{{singlejobcard.IFSC_CODE}}</label></td>
+									<td>
+										<a href="" ng-show="IsView" ng-click="clickedview($index)">View</a>
+										<a href="" ng-show="IsEdit" ng-click="clickedEdit($index)">Edit</a>
+									</td>
+									<td ng-show="IsCheck" align="center">
+										<input type="checkbox" ng-model="singlejobcard.Remove" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 text-right">
+				<button class="btn btn-primary btn-sm" ng-click="saveJobcard()" ng-show="IsAddRemove">Save</button>
+				<button class="btn btn-primary btn-sm" ng-show="IsApprove" ng-click="sendAPI()">Approve</button>
+				<button class="btn btn-danger btn-sm" ng-show="IsReject" ng-click="RejectJobcard()">Reject</button>
+				<button class="btn btn-primary btn-sm" ng-click="updateJobcard()" ng-show="IsUpdate">Update Details</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,266 @@
+﻿<style>
+    .Pageactive, .page-link:hover {
+        z-index: 2;
+        color: #fff;
+        text-decoration: none;
+        background-color: #06b1b1;
+        border-color: #ddd;
+    }
+
+    .modal-xl {
+        max-width: 1000px !important;
+    }
+</style>
+
+<div class="row" style="padding:100px;">
+    <div class="col-md-12" align="center">
+        <h2>Rice Cards To Cluster Mapping</h2>
+
+        <div class="row">
+            <div class="col-md-12" align="right">
+                <button type="button" class="btn btn-success" ng-click="btnAddRiceCard();">Add Rice Card</button>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-3" align="left">
+                <label for="volunteer">Clusters<span style="color:red">*</span></label>
+                <select id="volunteer" class="form-control" ng-model="cluster_id" ng-change="ddClusterChange();">
+                    <option value="">-- SELECT CLUSTER --</option>
+                    <option ng-repeat="obj in clusters" value="{{obj}}">{{obj.CLUSTE}} <span style="color:green">( {{obj.SACHIVALAYAM_NAME}} )</span> </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top:20px;" ng-show="tableData">
+
+            <div class="col-md-3">
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12 col-12 col-sm-12 col-xl-12 table-responsive">
+                        <h5>VOLUNTEER NAME : <span style="color:green"> {{cluster_data.VOLUNTEER_NAME}} </span> </h5>
+                    </div>
+                    <div class="col-md-12 col-12 col-sm-12 col-xl-12 table-responsive">
+                        <h5>VOLUNTEER MOBILE NUMBER : <span style="color:green"> {{cluster_data.VOLUNTEER_MOBILE}} </span> </h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <label for="person">Search by Person Name</label>
+                <input type="text" id="person" class="form-control" placeholder="Enter Name" ng-change="searchChange(rationer_name);" ng-model="rationer_name" />
+            </div>
+
+
+
+            <div class="col-md-12 col-12 col-sm-12 col-xl-12 table-responsive">
+                <table class="table table-bordered " id="tblItems">
+                    <thead class="bg-success text-white">
+                        <tr>
+                            <td>S.No.</td>
+                            <td>Rice card Id</td>
+                            <td>Person Name</td>
+                            <td>Mobile Number</td>
+                            <td>Gender</td>
+                            <td>Relationship</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody ng-show="rationers != ''" ng-repeat="obj in filteredItems | limitTo : 50">
+                        <tr>
+                            <td rowspan="{{obj.memberDatas.length+1}}">{{ ( (curPage -1) * itemsPerPage ) +  ($index + 1)}}</td>
+                            <td rowspan="{{obj.memberDatas.length+1}}">{{obj.EXISTING_RC_NUMBER}}</td>
+                        </tr>
+                        <tr ng-repeat="mem in obj.memberDatas">
+                            <td>{{mem.MEMBER_NAME_EN}}</td>
+                            <td>{{mem.MOBILE_NUMBER}}</td>
+                            <td>{{mem.GT_GENDER}}</td>
+                            <td>{{mem.RS_NAME_EN}}</td>
+                            <td rowspan="{{obj.memberDatas.length+1}}" ng-show="$index < 1">
+                                <input type="checkbox" id="check" checklist-model="user.data" checklist-value="obj" />
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody ng-show="rationers == ''">
+                        <tr>
+                            <td colspan="7" align="center">
+                                No Data Available
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-12 col-12 col-sm-12 col-xl-12" style="padding-top:20px;" ng-show="user.data.length > 0">
+                <button type="button" class="btn btn-success" ng-click="btnPreview();">Preview</button>
+            </div>
+
+
+            <div class="col-md-12 justify-content-end mt-2">
+                <nav aria-label="...">
+                    <ul class="pagination float-right">
+                        <li class="page-item ">
+                            <a href="Javascript:" class="page-link" ng-click="Previousepage()">Previous</a>
+                        </li>
+                        <li class="page-item" ng-repeat="page in paginationPages">
+                            <a class="page-link" ng-class="page==curPage ? 'Pageactive':''" href="Javascript:" ng-click="Selectedindex(page)">{{page}}</a>
+                        </li>
+
+                        <li class="page-item ">
+                            <a class="page-link" href="Javascript:" ng-click="nextpage()">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+        </div>
+
+        <div class="row" ng-show="Loader" style="padding-top:30px;">
+            <div class="col-md-12" align="center">
+                <h4>Loading...</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="rationerListModal" role="dialog">
+    <div class="modal-dialog modal-xl">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Rice Cards List</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 col-12 table-responsive">
+                        <table class="table table-bordered " id="tblItems">
+                            <thead class="bg-success text-white">
+                                <tr>
+                                    <td>S.No.</td>
+                                    <td>Rice card Id</td>
+                                    <td>Person Name</td>
+                                    <td>Mobile Number</td>
+                                    <td>Gender</td>
+                                    <td>Relationship</td>
+                                </tr>
+                            </thead>
+                            <tbody ng-show="rationers != ''" ng-repeat="obj in user.data">
+                                <tr>
+                                    <td rowspan="{{obj.memberDatas.length+1}}">{{ ( (curPage -1) * itemsPerPage ) +  ($index + 1)}}</td>
+                                    <td rowspan="{{obj.memberDatas.length+1}}">{{obj.EXISTING_RC_NUMBER}}</td>
+                                </tr>
+                                <tr ng-repeat="mem in obj.memberDatas">
+                                    <td>{{mem.MEMBER_NAME_EN}}</td>
+                                    <td>{{mem.MOBILE_NUMBER}}</td>
+                                    <td>{{mem.GT_GENDER}}</td>
+                                    <td>{{mem.RS_NAME_EN}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-md-12 col-12 col-sm-12 col-xl-12" style="padding-top:20px;">
+                        <div class="row">
+
+                            <div class="col-md-3" align="left">
+                                <label for="action">Action<span style="color:red">*</span></label>
+                                <select id="action" class="form-control" ng-change="ddActionChange();" ng-model="actionId">
+                                    <option value="">-- SELECT ACTION --</option>
+                                    <option value="1">Assign to Cluster</option>
+                                    <option value="2">Rice card doesn't belongs to this Secretariat</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3" align="left" ng-show="gswsDropdown">
+                                <label for="action">Secretariats<span style="color:red">*</span></label>
+                                <select id="action" class="form-control" ng-model="newSecId" ng-change="ddnewSecIdChange();">
+                                    <option value="">-- SELECT SECRETARIAT --</option>
+                                    <option value="{{obj.SECRETARIAT_CODE}}" ng-repeat="obj in secList">{{obj.SECRETARIAT_NAME}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-12 col-sm-12 col-xl-12" style="padding-top:20px;" ng-show="checkBoxFlag">
+                        <input type="checkbox" ng-model="confirmCheckBox" />I have verified and confirming the above selected rice cards.
+                    </div>
+
+                    <div class="col-md-12 col-12 col-sm-12 col-xl-12" style="padding-top:20px;" ng-show="confirmCheckBox" align="center">
+                        <button type="button" class="btn btn-success" ng-click="btnSubmit();">Submit</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="addRiceCardModal" role="dialog">
+    <div class="modal-dialog modal-xl">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Rice Cards List</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 col-12 col-sm-12 col-xl-12" align="center">
+                        <div class="row">
+                            <div class="col-md-3 col-3 col-sm-3 col-xl-3" align="left">
+                                <select id="volunteer" class="form-control" ng-model="cluster_id" ng-change="ddClusterChange();">
+                                    <option value="">-- SELECT CLUSTER --</option>
+                                    <option ng-repeat="obj in clusters" value="{{obj}}">{{obj.CLUSTE}} <span style="color:green">( {{obj.SACHIVALAYAM_NAME}} )</span> </option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 col-6 col-sm-6 col-xl-6" align="right">
+                                <input type="text" ng-model="riceCardId" class="form-control" placeholder="Enter Rice card Number" maxlength="20" />
+                            </div>
+                            <div class="col-md-3 col-3 col-sm-3 col-xl-3" align="left">
+                                <button type="button" class="btn btn-primary" ng-click="btnSearchRiceCard();">SEARCH</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-12 col-sm-12 col-xl-12 table-responsive" style="padding-top:20px;" ng-show="riceCardDetails != ''" align="center">
+                        <table class="table table-bordered">
+                            <thead class="bg-primary">
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Member Name</th>
+                                    <th>Relation</th>
+                                    <th>Date Of Birth</th>
+                                    <th>Mobile Number</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="obj in riceCardDetails">
+                                    <th>{{$index + 1}}</th>
+                                    <th>{{obj.MEMBER_NAME_EN}}</th>
+                                    <th>{{obj.RS_NAME_EN}}</th>
+                                    <th>{{obj.DOB_DT | date}}</th>
+                                    <th>{{obj.MOBILENO}}</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="button" class="btn btn-success" style="padding-top:10px;" ng-click="btnSubmitRiceCard();">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

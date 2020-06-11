@@ -1,0 +1,6 @@
+110620173506PM:Error From GetRegReceivedDashboardCount:ORA-01722: invalid number
+ORA-06512: at "TEST_GSWS.GSWS_SP_REGI_RECI_PROC", line 18
+ORA-06512: at line 1
+110620174155PM:Error From GetRegReceivedDashboardCount:ORA-01722: invalid number
+ORA-06512: at "TEST_GSWS.GSWS_SP_REGI_RECI_PROC", line 18
+ORA-06512: at line 1

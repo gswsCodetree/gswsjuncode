@@ -1,0 +1,309 @@
+﻿<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<style>
+
+	@import url('https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap');
+
+	.audio-card {
+		box-shadow: 0 1px 15px #808080;
+	}
+
+	.ad-title,
+	.ad-subtitle {
+		font-family: 'Ramabhadra', sans-serif;
+	}
+
+	.ad-subtitle {
+		font-size: 14px;
+	}
+
+	.audio-player {
+		line-height: unset !important;
+		position: unset !important;
+		overflow: hidden;
+		height: auto !important;
+		width: 70%;
+		background: #f4f4f4;
+	}
+
+		.audio-player .player-bar {
+			position: absolute !important;
+			overflow: hidden;
+			height: 5px;
+			margin-top: -50px !important;
+			background-color: #fff;
+			width: 95% !important;
+		}
+
+		.audio-player .play-pause-btn {
+			float: left;
+			margin: 0 !important;
+		}
+
+			.audio-player .play-pause-btn .play-pause-icon {
+				position: relative;
+				display: block;
+				width: 90px !important;
+				height: 40px !important;
+				border: unset !important;
+				border-radius: unset !important;
+				background-color: #0bb01d !important;
+			}
+
+				.audio-player .play-pause-btn .play-pause-icon:after {
+					font-family: FontAwesome;
+					content: "\f04b" !important;
+					display: inline-block !important;
+					padding-right: 3px !important;
+					vertical-align: middle !important;
+					font-weight: 900 !important;
+					color: #fff;
+					background-image: unset !important;
+					top: 45% !important;
+				}
+
+		.audio-player.player-playing .play-pause-icon:after {
+			font-family: FontAwesome;
+			content: "\f04c" !important;
+			display: inline-block !important;
+			padding-right: 3px !important;
+			vertical-align: middle !important;
+			font-weight: 900 !important;
+			color: #fff;
+			background-image: unset !important;
+		}
+
+		.audio-player .player-time {
+			margin: 11px 0 !important;
+			font-weight: bold;
+			width: 70px !important;
+			text-align: center !important;
+		}
+
+		.audio-player .player-time-current::after {
+			content: '/';
+			position: absolute;
+			left: 50%;
+		}
+
+		.audio-player .player-time-duration {
+			margin: 11px 0 !important;
+			font-weight: bold;
+			width: 70px !important;
+			text-align: center !important;
+		}
+
+	@media screen and (max-width: 991px) {
+		.audio-player {
+			width: 100%;
+		}
+
+			.audio-player .player-time {
+				width: 50px !important;
+			}
+
+			.audio-player .play-pause-btn .play-pause-icon {
+				width: 70px !important
+			}
+
+			.audio-player .player-time-current::after {
+				left: 60%;
+			}
+	}
+</style>
+<script src="assets/js/audio.min.js"></script>
+<script>
+	$('audio').initAudioPlayer();
+
+</script>
+
+<div class="page-header page-header-dark cust-page-header" style="background: linear-gradient(45deg, #0D47A1, #4CAF50);">
+
+	<div class="page-header-content header-elements-md-inline">
+		<div class="page-title py-1 d-flex">
+			<img src="assets/images/ap-logo.png" class="logo1" width="70px" height="70px" />
+			<h2>Grama-Ward Sachivalayam </h2>
+		</div>
+		<div class="header-elements d-md-block d-none">
+			<div class="profile-pic text-right">
+				<img src="assets/images/jagan-logo.png" class="w-75" />
+				<img src="assets/images/ap-logo.png" width="70px" />
+			</div>
+		</div>
+	</div>
+
+	
+
+</div>
+
+
+<!-- /page header -->
+<div class="page-content pt-0">
+	<div class="content-wrapper">
+		<div class="content">
+
+			<div class="container mt-4">
+				<div class="row">
+
+					<div class="col-md-4">
+						<div class="card audio-card">
+							<div class="card-body p-0">
+								<img src="assets/images/audioimages/Nethanna Nestham-04.jpg" style="width: 100%">
+
+							</div>
+							<div class="card-footer py-1">
+								<div class="row justify-content-center align-items-center mb-1">
+									<h5 class="mb-1 font-weight-bold">వై.ఎస్.ఆర్ నేతన్న నేస్తం</h5>
+								</div>
+								<div class="row justify-content-between align-items-center mb-1">
+									<audio controls>
+										<source src="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/downloads/YSR_NethannaNestham_%20Guidelines_Final.mp3" type="audio/mpeg">
+									</audio>
+									<a href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/downloads/YSR_NethannaNestham_%20Guidelines_Final.mp3" class="btn btn-dark" download>Download</a>
+								</div>
+								<div class="row">
+									<div class="col-md-12 p-0">
+										<h5 class="ad-title mb-0">వై.ఎస్.ఆర్ నేతన్న నేస్తం </h5>
+									</div>
+									<div class="col-md-12 p-0">
+										<p class="ad-subtitle mb-0">
+											వై.ఎస్.ఆర్ నేతన్న నేస్తం-రెండవ విడత దరఖాస్తుల పరిశీలనకు మార్గదర్శకాలు
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-md-4">
+						<div class="card audio-card">
+							<div class="card-body p-0">
+								<img src="../assets/images/audioimages/YSR Vahana Mithra.jpg" style="width: 100%">
+							</div>
+							<div class="card-footer py-1">
+								<div class="row justify-content-center align-items-center mb-1">
+									<h5 class="mb-1 font-weight-bold">వై.యస్.ఆర్. వాహన మిత్ర </h5>
+								</div>
+								<div class="row justify-content-between align-items-center mb-1">
+									<audio controls>
+										<source src="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/downloads/YSRVAHANAMITHRA.mp3" type="audio/mpeg">
+									</audio>
+									<a href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/downloads/YSRVAHANAMITHRA.mp3" class="btn btn-dark" download>Download</a>
+								</div>
+								<div class="row">
+									<div class="col-md-12 p-0">
+										<h5 class="ad-title mb-0">వై.యస్.ఆర్. వాహన మిత్ర </h5>
+									</div>
+									<div class="col-md-12 p-0">
+										<p class="ad-subtitle mb-0">
+											వై.యస్.ఆర్. వాహన మిత్ర   రెండవ విడత దరఖాస్తుల పరిశీలనకు మార్గదర్శకాలు
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="card audio-card">
+							<div class="card-body p-0">
+								<img src="../assets/images/audioimages/Jaganna Tailors.jpg" style="width: 100%">
+
+							</div>
+							<div class="card-footer py-1">
+								<div class="row justify-content-center align-items-center mb-1">
+									<h5 class="mb-1 font-weight-bold">జగనన్న చేదోడు - టైలర్లు</h5>
+								</div>
+								<div class="row justify-content-between align-items-center mb-1">
+									<audio controls>
+										<source src="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/downloads/JAGANANNA_CHEDODU_TAILORS.mp3" type="audio/mpeg">
+									</audio>
+									<a href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/downloads/JAGANANNA_CHEDODU_TAILORS.mp3" class="btn btn-dark" download>Download</a>
+								</div>
+								<div class="row">
+									<div class="col-md-12 p-0">
+										<h5 class="ad-title mb-0">జగనన్న చేదోడు - టైలర్లు </h5>
+									</div>
+									<div class="col-md-12 p-0">
+										<p class="ad-subtitle mb-0">
+											జగనన్న చేదోడు - టైలర్లు ” – సర్వే చేసిన లబ్దిదారుల జాబితాను పునఃపరిశీలన చేసి సరిచేయుటకు మార్గదర్శకాలు
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-md-4">
+						<div class="card audio-card">
+							<div class="card-body p-0">
+								<img src="../assets/images/audioimages/Nai Brahmanulu-02.jpg" style="width: 100%">
+							</div>
+							<div class="card-footer py-1">
+								<div class="row justify-content-center align-items-center mb-1">
+									<h5 class="mb-1 font-weight-bold">జగనన్న చేదోడు - నాయీ-బ్రాహ్మణులు</h5>
+								</div>
+								<div class="row justify-content-between align-items-center mb-1">
+									<audio controls>
+										<source src="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/downloads/JAGANANNACHEDODU-NAYEEBRAHMIN.mp3" type="audio/mpeg">
+									</audio>
+									<a href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/downloads/JAGANANNACHEDODU-NAYEEBRAHMIN.mp3" class="btn btn-dark" download>Download</a>
+								</div>
+								<div class="row">
+									<div class="col-md-12 p-0">
+										<h5 class="ad-title mb-0">జగనన్న చేదోడు - నాయీ-బ్రాహ్మణులు</h5>
+									</div>
+									<div class="col-md-12 p-0">
+										<p class="ad-subtitle mb-0">
+											జగనన్న చేదోడు - నాయీ-బ్రాహ్మణులు” – సర్వే చేసిన లబ్దిదారుల జాబితాను పునఃపరిశీలన చేసి సరిచేయుటకు మార్గదర్శకాలు
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="card audio-card">
+							<div class="card-body p-0">
+								<img src="../assets/images/audioimages/Jaganna Chedodu_Rajakulu.jpg" style="width: 100%">
+							</div>
+							<div class="card-footer py-1">
+								<div class="row justify-content-center align-items-center mb-1">
+									<h5 class="mb-1 font-weight-bold">జగనన్న చేదోడు – రజకులు</h5>
+								</div>
+								<div class="row justify-content-between align-items-center mb-1">
+									<audio controls>
+										<source src="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/downloads/JaganannaChedodu_Rajakulu.mp3" type="audio/mpeg">
+									</audio>
+									<a href="http://uat.gramawardsachivalayam.ap.gov.in/GSWSUAT/downloads/JaganannaChedodu_Rajakulu.mp3" class="btn btn-dark" download>Download</a>
+								</div>
+								<div class="row">
+									<div class="col-md-12 p-0">
+										<h5 class="ad-title mb-0">జగనన్న చేదోడు – రజకులు</h5>
+									</div>
+									<div class="col-md-12 p-0">
+										<p class="ad-subtitle mb-0">
+											జగనన్న చేదోడు – రజకులు ” – సర్వే చేసిన లబ్దిదారుల జాబితాను పునఃపరిశీలన చేసి సరిచేయుటకు మార్గదర్శకాలు
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- /page header content --><!-- Footer -->
+<div class="navbar navbar-expand-lg navbar-light">
+	<div class="text-center d-lg-none w-100">
+		<span class="navbar-text">
+			© Copyright Govt of AP. All Rights Reserved
+		</span>
+	</div>
+
+</div>

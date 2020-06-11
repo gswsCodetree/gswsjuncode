@@ -1,0 +1,81 @@
+﻿<style type="text/css">
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('assets/images/loader.gif') 50% 50% no-repeat #ffffffb8;
+    }
+</style>
+
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>Meeseva Application Status</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-4 col-form-label text-right">Enter Application Number</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" data-ng-model="appno" alpha-numerics maxlength="25" autocomplete="off" placeholder="Enter Application Number" class="form-control" />
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <button type="button" ng-click="GetStatus();" class="btn btn-primary">Get Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mt-2 " ng-show="dttable">
+                        <table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+                            <thead>
+                                <tr class="bg-dark text-white text-center" style="white-space:nowrap;">
+                                    <th colspan="4" class="text-center">Application Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><b>Applicant Name</b></td>
+                                    <td>{{APPLICANTNAME}}</td>
+                                    <td><b>Registred Date</b></td>
+                                    <td>{{REGISTRED_DATE}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Service Name</b></td>
+                                    <td colspan="3">{{SERVICE_NAME}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Secretariat Name</b></td>
+                                    <td>{{SECRETARIAT_NAME}}</td>
+                                    <td><b>Mandal Name</b></td>
+                                    <td>{{MANDAL_NAME}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>District Name</b></td>
+                                    <td colspan="3">{{DISTRICT_NAME}}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Status</b></td>
+                                    <td colspan="3">{{STATUS_MSG}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

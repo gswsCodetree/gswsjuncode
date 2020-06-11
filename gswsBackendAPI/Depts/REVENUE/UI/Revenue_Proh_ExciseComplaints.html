@@ -1,0 +1,153 @@
+﻿<style>
+
+
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('../images/loader.gif') 50% 50% no-repeat #fff;
+	}
+
+	legend {
+		background: #004085;
+		padding: 4px 22px;
+		border-radius: 3px;
+		color: white;
+		font-size: 16px;
+	}
+
+	fieldset {
+		border: 2px solid gray !important;
+		border-radius: 3px;
+		padding: 30px !important;
+	}
+
+	.w-72 {
+		width: 72% !important;
+	}
+
+	.card {
+		box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+	}
+</style>
+<div class="page-content">
+	<div data-ng-show="preloader" class="loader"></div>
+	<!-- Main content -->
+	<div class="content-wrapper">
+		<!-- Content area -->
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row mb-5 justify-content-center">
+
+					<div class="col-sm-12">
+						<div class="card">
+							<div class="card-body pb-5">
+								<div class="col-sm-12 text-center mb-4">
+									<h1 style="text-align: center;">Prohibition and Excise - Register Your Complaint</h1>
+								</div>
+								<!--Step 1 Starting-->
+								<div>
+									<!--Main Fieldset-->
+									<fieldset>
+										<legend class="w-auto">
+											PUBLIC COMPLAINT FORM
+										</legend>
+										<div class="table-responsive">
+											<table class="table table-bordered table-hover">
+												<tr style="background-color:#0c7846;color:#FFFFFF;">
+													<td colspan="2">PERSONAL DETAILS</td>
+												</tr>
+												<tr>
+													<td><label>Name/పేరు</label></td>
+													<td style="width:50%"><input type="text" ng-model="txtname" style="text-transform:uppercase" maxlength="45" class="form-control" /></td>
+												</tr>
+												<tr>
+													<td><label><span style="font-weight:bold;color:red">*</span> Phone /ఫోన్ #</label></td>
+													<td><input type="text" chars="0-9\\" class="form-control" ng-model="txtmobnum" maxlength="10" /></td>
+												</tr>
+												<tr>
+													<td><label>Aadhaar/ఆదార్ #</label></td>
+													<td><input type="text" chars="0-9\\" class="form-control" ng-model="txtaadhaar" maxlength="12" /></td>
+												</tr>
+												<tr style="background-color:#0c7846;color:#FFFFFF;">
+													<td colspan="2">COMPLAINT DETAILS</td>
+												</tr>
+												<tr>
+													<td><label><span style="font-weight:bold;color:red">*</span> District/జిల్లా</label></td>
+													<td>
+														<select class="form-control" ng-model="distdata" ng-change="LoadMandals(distdata)">
+															<option value="">Select District</option>
+															<option ng-repeat="x in Districtslist" value="{{x.revenueCode}}">{{x.revenueName}}</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td><label><span style="font-weight:bold;color:red">*</span> Mandal/మండలం</label></td>
+													<td>
+														<select class="form-control" ng-model="mandaldata" ng-change="LoadVillages(mandaldata)">
+															<option value="">Select Mandal</option>
+															<option ng-repeat="x in Mandalslist" value="{{x.mandalCode}}">{{x.mandalName}}</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td><label><span style="font-weight:bold;color:red">*</span> Village/గ్రామం</label></td>
+													<td>
+														<select class="form-control" ng-model="villagedata">
+															<option value="">Select Village</option>
+															<option ng-repeat="x in Villageslist" value="{{x.villageCode}}">{{x.villageName}}</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td><label><span style="font-weight:bold;color:red">*</span> Complaint details/ఫిర్యాదు వివరములు</label></td>
+													<td><textarea type="text" class="form-control" ng-model="txtcomplaintdetails" maxlength="1500" /></td>
+												</tr>
+												<tr>
+													<td colspan="2">
+														<table id="attachmentTable" class="data-table"
+															   cellspacing="0" cellpadding="0" border="0" width="100%">
+															<tr style="background-color:#0c7846;color:#FFFFFF;">
+																<td colspan="4" align="left">
+																	Attachments/అనుబంధ వివరములు
+
+																	<a href="javascript:void(0);"
+																	   onclick="addAttachmentRowForPublicForm();" id="attachementId">
+																		+ Add Attachment
+																	</a>
+																</td>
+															</tr>
+															<tr class="attachmentStyle" id="fileAttachments[0][0]">
+																<td colspan="2">
+																	<input name="fileAttachments[0]"
+																		   type="file" id="fileAttachments0" onchange="encodeImagetoBase64(this,0)">
+																	<input type="hidden" id="hidden0">&nbsp;&nbsp; <a href="javascript:void(0);" style="text-decoration: none;"
+																   onclick="deleteAttachmentRowPublicForm('fileAttachments[0]');">
+																		<font color="gray">-Delete Attachment</font>
+																	</a>
+																</td>
+																<td colspan="2"><input id="attachmentComments[0]" name="attachmentComments[0]" type="text" /></td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</fieldset>
+									<div class="mt-3 text-right">
+										<button type="submit" id="btnsaveinfo" data-ng-click="SaveInfo();" class="btn btn-primary">Submit</button>
+										<button type="submit" data-ng-click="Reset();" class="btn btn-primary">Reset</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

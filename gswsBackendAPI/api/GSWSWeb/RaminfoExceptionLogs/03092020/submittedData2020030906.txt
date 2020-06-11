@@ -1,0 +1,4 @@
+090320180543PM:Error From GetWalletAmount:Unable to connect to the remote server
+090320181125PM:Error From GetWalletAmount:Unable to connect to the remote server
+090320181843PM:Error From GetWalletAmount:Unable to connect to the remote server
+090320182020PM:Error From GetWalletAmount:Unable to connect to the remote server

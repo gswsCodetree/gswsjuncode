@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:ax21="http://beans.rwms.org/xsd" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://service.rwms.org" xmlns:ns1="http://org.apache.axis2/xsd" targetNamespace="http://service.rwms.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+		Please Type your service description here
+	</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema xmlns:ax22="http://beans.rwms.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.rwms.org">
+      <xs:import namespace="http://beans.rwms.org/xsd" />
+      <xs:element name="ServicesRWMSException">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ServicesRWMSException" nillable="true" type="ns:Exception" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="RWMSTopup">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="topupReqBean" nillable="true" type="ax22:TopupReqBean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RWMSTopupResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax22:TopupResBean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RWMSDisplayWallet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="walletReqBean" nillable="true" type="ax22:WalletReqBean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RWMSDisplayWalletResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax22:WalletResBean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RWMSConfirmPayment">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="transReqBean" nillable="true" type="ax22:TransReqBean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RWMSConfirmPaymentResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="return" nillable="true" type="ax22:TransResBean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://beans.rwms.org/xsd">
+      <xs:complexType name="TopupReqBean">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="amount" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="details" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="marchantId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="referanceNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strDistCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strGWSCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strPassWord" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strPayMode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strUserId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="transDate" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TopupResBean">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WalletReqBean">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="distCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strGWSCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strPassWord" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strUserId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="WalletResBean">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="topupAmount" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TransReqBean">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="strAgType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strConsName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strConsNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strDateTime" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strDeptCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strDeptRcptDt" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strDeptRcptNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strDistCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strFStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strGWSCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strPassWord" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strPayMode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strServCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strStaffCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strTotAmt" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strTranDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strTransSt" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strUserChrgs" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strUserId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TransResBean">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="strTransNo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="RWMSTopupRequest">
+    <wsdl:part name="parameters" element="ns:RWMSTopup" />
+  </wsdl:message>
+  <wsdl:message name="RWMSTopupResponse">
+    <wsdl:part name="parameters" element="ns:RWMSTopupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ServicesRWMSException">
+    <wsdl:part name="parameters" element="ns:ServicesRWMSException" />
+  </wsdl:message>
+  <wsdl:message name="RWMSConfirmPaymentRequest">
+    <wsdl:part name="parameters" element="ns:RWMSConfirmPayment" />
+  </wsdl:message>
+  <wsdl:message name="RWMSConfirmPaymentResponse">
+    <wsdl:part name="parameters" element="ns:RWMSConfirmPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="RWMSDisplayWalletRequest">
+    <wsdl:part name="parameters" element="ns:RWMSDisplayWallet" />
+  </wsdl:message>
+  <wsdl:message name="RWMSDisplayWalletResponse">
+    <wsdl:part name="parameters" element="ns:RWMSDisplayWalletResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicesRWMSPortType">
+    <wsdl:operation name="RWMSTopup">
+      <wsdl:input wsaw:Action="urn:RWMSTopup" message="ns:RWMSTopupRequest" />
+      <wsdl:output wsaw:Action="urn:RWMSTopupResponse" message="ns:RWMSTopupResponse" />
+      <wsdl:fault wsaw:Action="urn:RWMSTopupServicesRWMSException" name="ServicesRWMSException" message="ns:ServicesRWMSException" />
+    </wsdl:operation>
+    <wsdl:operation name="RWMSConfirmPayment">
+      <wsdl:input wsaw:Action="urn:RWMSConfirmPayment" message="ns:RWMSConfirmPaymentRequest" />
+      <wsdl:output wsaw:Action="urn:RWMSConfirmPaymentResponse" message="ns:RWMSConfirmPaymentResponse" />
+      <wsdl:fault wsaw:Action="urn:RWMSConfirmPaymentServicesRWMSException" name="ServicesRWMSException" message="ns:ServicesRWMSException" />
+    </wsdl:operation>
+    <wsdl:operation name="RWMSDisplayWallet">
+      <wsdl:input wsaw:Action="urn:RWMSDisplayWallet" message="ns:RWMSDisplayWalletRequest" />
+      <wsdl:output wsaw:Action="urn:RWMSDisplayWalletResponse" message="ns:RWMSDisplayWalletResponse" />
+      <wsdl:fault wsaw:Action="urn:RWMSDisplayWalletServicesRWMSException" name="ServicesRWMSException" message="ns:ServicesRWMSException" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicesRWMSSoap11Binding" type="ns:ServicesRWMSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RWMSTopup">
+      <soap:operation soapAction="urn:RWMSTopup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicesRWMSException">
+        <soap:fault use="literal" name="ServicesRWMSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RWMSConfirmPayment">
+      <soap:operation soapAction="urn:RWMSConfirmPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicesRWMSException">
+        <soap:fault use="literal" name="ServicesRWMSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RWMSDisplayWallet">
+      <soap:operation soapAction="urn:RWMSDisplayWallet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicesRWMSException">
+        <soap:fault use="literal" name="ServicesRWMSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicesRWMSSoap12Binding" type="ns:ServicesRWMSPortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RWMSTopup">
+      <soap12:operation soapAction="urn:RWMSTopup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicesRWMSException">
+        <soap12:fault use="literal" name="ServicesRWMSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RWMSConfirmPayment">
+      <soap12:operation soapAction="urn:RWMSConfirmPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicesRWMSException">
+        <soap12:fault use="literal" name="ServicesRWMSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RWMSDisplayWallet">
+      <soap12:operation soapAction="urn:RWMSDisplayWallet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServicesRWMSException">
+        <soap12:fault use="literal" name="ServicesRWMSException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicesRWMSHttpBinding" type="ns:ServicesRWMSPortType">
+    <http:binding verb="POST" />
+    <wsdl:operation name="RWMSTopup">
+      <http:operation location="RWMSTopup" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+      <wsdl:fault name="ServicesRWMSException" />
+    </wsdl:operation>
+    <wsdl:operation name="RWMSConfirmPayment">
+      <http:operation location="RWMSConfirmPayment" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+      <wsdl:fault name="ServicesRWMSException" />
+    </wsdl:operation>
+    <wsdl:operation name="RWMSDisplayWallet">
+      <http:operation location="RWMSDisplayWallet" />
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml" />
+      </wsdl:output>
+      <wsdl:fault name="ServicesRWMSException" />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicesRWMS">
+    <wsdl:port name="ServicesRWMSHttpSoap11Endpoint" binding="ns:ServicesRWMSSoap11Binding">
+      <soap:address location="http://103.14.188.80:8080/RWMService/services/ServicesRWMS.ServicesRWMSHttpSoap11Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="ServicesRWMSHttpSoap12Endpoint" binding="ns:ServicesRWMSSoap12Binding">
+      <soap12:address location="http://103.14.188.80:8080/RWMService/services/ServicesRWMS.ServicesRWMSHttpSoap12Endpoint/" />
+    </wsdl:port>
+    <wsdl:port name="ServicesRWMSHttpEndpoint" binding="ns:ServicesRWMSHttpBinding">
+      <http:address location="http://103.14.188.80:8080/RWMService/services/ServicesRWMS.ServicesRWMSHttpEndpoint/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,234 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/juery-ui.1.12.1.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-multiselect.css" rel="stylesheet" />
+<style>
+    .mandatory {
+        color: crimson;
+    }
+
+    #content {
+        padding: 70px 20px;
+    }
+</style>
+<div id="content">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label">Employee ID <span class="mandatory">*</span></label>
+                <input type="text" id="textemployeeid" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label">Employee Name <span class="mandatory">*</span></label>
+                <input type="text" id="textemployeename" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label">EmailId <span class="mandatory">*</span></label>
+                <input type="text" id="textemailid" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label">Contact Number <span class="mandatory">*</span></label>
+                <input type="text" id="textcontactnumber" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label">Department <span class="mandatory">*</span></label>
+                <select id="selectdepartment" class="form-control">
+                    <option value="0">Select Department</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label">Employee Type <span class="mandatory">*</span></label>
+                <div>
+                    <label class="radio-inline"><input type="radio" id="radiobillable" name="optradio">Billable</label>
+                    <label class="radio-inline"><input type="radio" id="radiononbillable" name="optradio">Non Billable</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label">Billable <span class="mandatory">*</span></label>
+                <select id="selectbillable" class="form-control">
+                    <option value="0">Select Billable</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label">Non Billable <span class="mandatory">*</span></label>
+                <select id="selectnonbillable" class="form-control">
+                    <option value="0">Select Non Billable</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="control-label">Permissions/Responsibilities <span class="mandatory">*</span></label>
+                <select id="selectnonbillable" class="form-control" multiple>
+                    <option value="0">Select Permission</option>
+                    <option value="0">Permission 1</option>
+                    <option value="0">Permission 2</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="pull-right">
+                <a href="javascript:void(0)" class="btn btn-success" id="asaveemployee"><i class="fa fa-save "></i> Save</a>
+                <a href="javascript:void(0)" class="btn btn-default" id="aresetemployee"><i class="fa fa-times "></i> Reset</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-offset-1 col-lg-5 col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group">
+            <div class="row" style="margin-top:10px;">
+                <label class="control-label">Write the logic to get the sum of the below statement <span class="mandatory">*</span></label>
+            </div>
+            <div class="row" style="margin-top:10px;">
+                <label>(k)<sup>3</sup> + (k + 2)<sup>3</sup> + (k + 4)<sup>3</sup> + (k + 6)<sup>3</sup> + ... + (n)<sup>3</sup> = ?</label>
+            </div>
+            <div class="row" style="margin-top:10px;">
+                <label class="control-label" style="width:5%;float:left"> k = </label>
+                <input type="text" id="textstarting" style="width:20%;float:left" class="form-control" />
+                <label class="control-label" style="width:5%;float:left; margin-left:5%"> n = </label>
+                <input type="text" id="textending" style="width:20%;float:left" class="form-control" />
+                <a href="javascript:void(0)" style="width:10%;float:left; margin-left:5%" class="btn btn-danger" id="acalculate">=</a>
+            </div>
+            <div class="row" style="margin-top:10px;">
+                <label>Example : If k = 2 and n = 10 then the formula is <br />(2)<sup>3</sup> + (4)<sup>3</sup> + (6)<sup>3</sup> + (8)<sup>3</sup> + (10)<sup>3</sup> = <span class="mandatory">1800</span></label>
+            </div>
+            <div class="row" style="margin-top:10px;">
+                <span><b>Criteria</b> : After entering the values of '<b>k</b>' and '<b>n</b>' value in the textboxes then click on the '<b>=</b>' button, then call C# method to calculate the answer. After getting the answer just display the answer value to below label. </span>
+            </div>
+            <div class="row" style="margin-top:10px;">
+                <label>Ans is : <span class="mandatory" id="spananswerclac">1800</span></label>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
+        <div class="row">
+            <table id="tableemployees" class="table table-responsive table-condensed table-bordered">
+                <tr>
+                    <th>
+                        Employee ID
+                    </th>
+                    <th>
+                        Employee Name
+                    </th>
+                    <th>
+                        EmailId
+                    </th>
+                    <th>
+                        Contact Number
+                    </th>
+                    <th>
+                        Department
+                    </th>
+                    <th>
+                        Employee Type
+                    </th>
+                    <th>
+                        Permissions
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td>
+                            CV101
+                        </td>
+                        <td>
+                            Suman Naidu
+                        </td>
+                        <td>
+                            suman@corevance.com
+                        </td>
+                        <td>
+                            9898989898
+                        </td>
+                        <td>
+                            Production
+                        </td>
+                        <td>
+                            Consultant
+                        </td>
+                        <td>
+                            Planning, Development, Deployment
+                        </td>
+                        <td>
+                            <a id="aeditemployee" class="btn btn-primary" href="javascript:void(0)">Edit</a>
+                            <a id="aeditemployee" class="btn btn-danger" href="javascript:void(0)">Delete</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            CV102
+                        </td>
+                        <td>
+                            Ravi Kumar
+                        </td>
+                        <td>
+                            ravi@corevance.com
+                        </td>
+                        <td>
+                            9898989897
+                        </td>
+                        <td>
+                            Accounting and Finance
+                        </td>
+                        <td>
+                            Account Manager
+                        </td>
+                        <td>
+                            Accounting, Quality Control
+                        </td>
+                        <td>
+                            <a id="aeditemployee" class="btn btn-primary" href="javascript:void(0)">Edit</a>
+                            <a id="aeditemployee" class="btn btn-danger" href="javascript:void(0)">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-2.1.1.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.3.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/bootstrap-multiselect.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#selectnonbillable').multiselect();
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:56215/api/test/getcountries",
+            dataType: "json",
+            success: function (data) {
+                if (data != null) {
+                    alert(data.length);
+                }
+            },
+            error: function (xhr) {
+                alert(xhr.responseText);
+            }
+        });
+    });
+</script>

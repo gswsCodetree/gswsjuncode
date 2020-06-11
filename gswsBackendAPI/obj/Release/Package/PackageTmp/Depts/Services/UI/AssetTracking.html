@@ -1,0 +1,1100 @@
+﻿<style>
+	body {
+		font-size: 16px;
+		font-family: 'MontserratAlternates-Medium';
+	}
+
+	legend {
+		background: #004085;
+		padding: 4px 22px;
+		border-radius: 3px;
+		color: white;
+		font-size: 16px;
+	}
+
+	fieldset {
+		border: 2px solid gray !important;
+		border-radius: 3px;
+		padding: 30px !important;
+	}
+
+	.dropdown-toggle-cusotm::after {
+		font-family: "icomoon";
+		display: inline-block;
+		border: 0;
+		vertical-align: middle;
+		font-size: 0.875rem;
+		margin-left: 0.46875rem;
+		line-height: 1;
+		position: relative;
+		content: '\ede6';
+		display: block;
+		position: absolute;
+		top: 50%;
+		right: 10px !important;
+		transform: translateY(-50%);
+	}
+</style>
+<div class="container">
+
+	<div class="row mt-3">
+		<div class="col-sm-12">
+			<div class="row">
+				<div class="col-sm-7 text-right">
+					<h1><b>Hardware</b></h1>
+				</div>
+				<div class="col-sm-5 text-right">
+					<div class="dropdown">
+						<button type="button" class="btn bg-indigo-800 dropdown-toggle dropdown-toggle-cusotm float-right px-4 " data-toggle="dropdown" aria-expanded="false">
+							<i class="mi-cloud-download mr-1"></i> Downloads
+						</button>
+						<div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(951px, 38px, 0px);">
+							<a class="dropdown-item" href="Depts/Services/Downloads/MIMOVILESERVICECENTERSLIST.pdf" target="_blank">MI Service Centers List</a>
+							<a class="dropdown-item" href="../Downloads/MIMOBILESAFTEYINFORMATION.pdf" download>MI Mobile Saftey Information</a>
+							<a class="dropdown-item" href="../Downloads/MIMOBILEUSERMANUAL.pdf" download>MI Phone User Manual</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!--<label>Enter Secratariat Name</label>
+	<input type="text" name="country" id="country" ng-model="country" ng-keyup="complete(country)" class="form-control" />
+	<ul class="list-group" ng-model="hidethis" ng-hide="hidethis">
+		<li class="list-group-item" ng-repeat="countrydata in filterCountry" ng-click="fillTextbox(countrydata.SECRETARIAT_CODE)">{{countrydata.SECRETARIAT_NAME}}</li>
+	</ul>-->
+
+
+	<div class="row mt-3 mb-2">
+		<div class="col-sm-3 offset-sm-2">
+
+			<label class="form-control-label">District</label>
+			<select class="form-control" data-ng-model="seldistrict" ng-change="LoadMadals();">
+				<option selected="selected" value="">-Select-</option>
+				<option data-ng-repeat="dis in DistricsDD" value="{{dis.LGD_DIST_CODE}}">{{dis.DISTRICT_NAME}}</option>
+			</select>
+
+		</div>
+
+		<div class="col-sm-3">
+
+
+			<label class="form-control-label">Mandal</label>
+			<select class="form-control" data-ng-model="selmandal" ng-change="LoadVillages();">
+				<option selected="selected" value="">-Select-</option>
+				<option data-ng-repeat="dis in MandalsDD" value="{{dis.LGD_MANDAL_CODE}}">{{dis.MANDAL_NAME}}</option>
+			</select>
+
+		</div>
+
+		<div class="col-sm-3">
+
+
+			<label class="form-control-label">Secretariat</label>
+			<select class="form-control" data-ng-model="selVillage" ng-change="LoadSeccdata();">
+				<option selected="selected" value="">-Select-</option>
+				<option data-ng-repeat="dis in VillagesDD" value="{{dis.SECRETARIAT_CODE}}">{{dis.SECRETARIAT_NAME}}</option>
+			</select>
+
+		</div>
+
+
+	</div>
+
+	<div ng-show="data_level == 2">
+		<div class="row mt-4">
+			<div class="col-12 table-responsive">
+				<table class="table table-bordered">
+					<thead class="bg-dark text-white">
+						<tr>
+							<th>Inserted By</th>
+							<th>Inserted On</th>
+							<th>System No.</th>
+							<th>Batch No.</th>
+							<th>Model No.</th>
+							<th>MAC Address</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="sec in seccDetails">
+							<td>{{sec.UPDATED_BY}}</td>
+							<td>{{sec.INSERTED_DATE}}</td>
+							<td>{{sec.SYS_NO}}</td>
+							<td>{{sec.BATCHNO}}</td>
+							<td>{{sec.MODELNO}}</td>
+							<td>{{sec.MACADDRESS}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+
+	<div>
+		<div ng-show="data_level == 1">
+			<fieldset>
+				<legend class="w-auto">
+					SYSTYEM 1
+				</legend>
+				<!--SYSTYEM 1-->
+				<div class="row">
+					<div class="col-sm-12">
+
+						<!-- Card -->
+						<div class="card">
+
+							<div class="card-body">
+
+								<!--CPU-->
+								<div class="row">
+
+									<div class="col-md-4">
+										<label class="form-control-label">CPU Serial No.</label>
+										<input type="text" ng-model="cpuserialno" class="form-control mb-4">
+									</div>
+
+									<div class="col-md-4">
+										<p> CPU connected or not</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="cpucon1change();" ng-model="cpucon1" value="0" class="custom-control-input" id="defaultInline1">
+											<label class="custom-control-label" for="defaultInline1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="cpucon1change();" ng-model="cpucon1" value="1" class="custom-control-input" id="defaultInline2">
+											<label class="custom-control-label" for="defaultInline2">No</label>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<p>CPU Working Conditon</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="cpuwor1change();" ng-model="cpuwok1" value="0" class="custom-control-input" id="defaultInline3">
+											<label class="custom-control-label" for="defaultInline3">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="cpuwor1change();" ng-model="cpuwok1" value="1" class="custom-control-input" id="defaultInline4">
+											<label class="custom-control-label" for="defaultInline4">No</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-sm-4">
+
+									</div>
+									<div class="col-sm-4" ng-show="divcpuconrem1">
+										<label class="form-control-label">CPU Connection Remarks</label>
+										<input type="text" ng-model="cpuconrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divcpuconrem1">
+									</div>
+									<div class="col-sm-4" ng-show="divcpuworkrem1">
+										<label class="form-control-label">CPU Working Condition Remarks</label>
+										<input type="text" ng-model="cpuworkrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divcpuworkrem1">
+									</div>
+								</div>
+
+
+								<!--Monitor-->
+								<div class="row">
+
+									<div class="col-md-4">
+										<label class="form-control-label">Monitor Serial No.</label>
+										<input type="text" ng-model="monitorserialno" class="form-control mb-4">
+									</div>
+
+									<div class="col-md-4">
+										<p> Monitor connected or not</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="monitorcon1change();" ng-model="monitorcon1" value="0" class="custom-control-input" id="monconfor1">
+											<label class="custom-control-label" for="monconfor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="monitorcon1change();" ng-model="monitorcon1" value="1" class="custom-control-input" id="monconfor2">
+											<label class="custom-control-label" for="monconfor2">No</label>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<p>Monitor Working Conditon</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="monitorwor1change();" ng-model="monitorwok1" value="0" class="custom-control-input" id="monwor1">
+											<label class="custom-control-label" for="monwor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="monitorwor1change();" ng-model="monitorwok1" value="1" class="custom-control-input" id="monwor2">
+											<label class="custom-control-label" for="monwor2">No</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-sm-4">
+
+									</div>
+									<div class="col-sm-4" ng-show="divmonitorconrem1">
+										<label class="form-control-label">Monitor Connection Remarks</label>
+										<input type="text" ng-model="monitorconrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divmonitorconrem1">
+									</div>
+									<div class="col-sm-4" ng-show="divmmonitorworkrem1">
+										<label class="form-control-label">Monitor Working Condition Remarks</label>
+										<input type="text" ng-model="monitorworkrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divmmonitorworkrem1">
+									</div>
+								</div>
+
+
+								<!--Keyboard-->
+								<div class="row">
+
+									<div class="col-md-4">
+										<label class="form-control-label">Keyboard Serial No.</label>
+										<input type="text" ng-model="Keyboardserialno" class="form-control mb-4">
+									</div>
+
+									<div class="col-md-4">
+										<p> Keyboard connected or not</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Keyboardcon1change();" ng-model="Keyboardcon1" value="0" class="custom-control-input" id="Keyboardconfor1">
+											<label class="custom-control-label" for="Keyboardconfor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Keyboardcon1change();" ng-model="Keyboardcon1" value="1" class="custom-control-input" id="Keyboardconfor2">
+											<label class="custom-control-label" for="Keyboardconfor2">No</label>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<p>Keyboard Working Conditon</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Keyboardwor1change();" ng-model="Keyboardwok1" value="0" class="custom-control-input" id="Keyboardwor1">
+											<label class="custom-control-label" for="Keyboardwor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Keyboardwor1change();" ng-model="Keyboardwok1" value="1" class="custom-control-input" id="Keyboardwor2">
+											<label class="custom-control-label" for="Keyboardwor2">No</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-sm-4">
+
+									</div>
+									<div class="col-sm-4" ng-show="divKeyboardconrem1">
+										<label class="form-control-label">Keyboard Connection Remarks</label>
+										<input type="text" ng-model="Keyboardconrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divKeyboardconrem1">
+									</div>
+									<div class="col-sm-4" ng-show="divKeyboardworkrem1">
+										<label class="form-control-label">Keyboard Working Condition Remarks</label>
+										<input type="text" ng-model="Keyboardworkrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divKeyboardworkrem1">
+									</div>
+								</div>
+
+
+								<!--mouse-->
+								<div class="row">
+
+									<div class="col-md-4">
+										<label class="form-control-label">Mouse Serial No.</label>
+										<input type="text" ng-model="mouseserialno" class="form-control mb-4">
+									</div>
+
+									<div class="col-md-4">
+										<p> Mouse connected or not</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="mousecon1change();" ng-model="mousecon1" value="0" class="custom-control-input" id="mouseconfor1">
+											<label class="custom-control-label" for="mouseconfor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="mousecon1change();" ng-model="mousecon1" value="1" class="custom-control-input" id="mouseconfor2">
+											<label class="custom-control-label" for="mouseconfor2">No</label>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<p>Mouse Working Conditon</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="mousewor1change();" ng-model="mousewok1" value="0" class="custom-control-input" id="mousewor1">
+											<label class="custom-control-label" for="mousewor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="mousewor1change();" ng-model="mousewok1" value="1" class="custom-control-input" id="mousewor2">
+											<label class="custom-control-label" for="mousewor2">No</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-sm-4">
+
+									</div>
+									<div class="col-sm-4" ng-show="divmouseconrem1">
+										<label class="form-control-label">Mouse Connection Remarks</label>
+										<input type="text" ng-model="mouseconrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divmouseconrem1">
+									</div>
+									<div class="col-sm-4" ng-show="divmouseworkrem1">
+										<label class="form-control-label">Mouse Working Condition Remarks</label>
+										<input type="text" ng-model="mouseworkrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divmouseworkrem1">
+									</div>
+								</div>
+
+
+
+								<!--BATTERIES-->
+								<div class="row">
+
+									<div class="col-md-4">
+										<label class="form-control-label">Battery Serial No.</label>
+										<input type="text" ng-model="Batteryserialno" class="form-control mb-4">
+									</div>
+
+									<div class="col-md-4">
+										<p> Battery connected or not</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Batterycon1change();" ng-model="Batterycon1" value="0" class="custom-control-input" id="Batteryconfor1">
+											<label class="custom-control-label" for="Batteryconfor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Batterycon1change();" ng-model="Batterycon1" value="1" class="custom-control-input" id="Batteryconfor2">
+											<label class="custom-control-label" for="Batteryconfor2">No</label>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<p>Battery Working Conditon</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Batterywor1change();" ng-model="Batterywok1" value="0" class="custom-control-input" id="Batterywor1">
+											<label class="custom-control-label" for="Batterywor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Batterywor1change();" ng-model="Batterywok1" value="1" class="custom-control-input" id="Batterywor2">
+											<label class="custom-control-label" for="Batterywor2">No</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-sm-4">
+
+									</div>
+									<div class="col-sm-4" ng-show="divBatteryconrem1">
+										<label class="form-control-label">Battery Connection Remarks</label>
+										<input type="text" ng-model="Batteryconrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divBatteryconrem1">
+									</div>
+									<div class="col-sm-4" ng-show="divBatteryworkrem1">
+										<label class="form-control-label">Battery Working Condition Remarks</label>
+										<input type="text" ng-model="Batteryworkrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divBatteryworkrem1">
+									</div>
+								</div>
+
+
+
+								<!--MAC MODEL and BATCH NO.-->
+								<div class="row">
+									<div class="col-sm-4">
+										<label class="form-control-label">MAC Address</label>
+										<input type="text" ng-model="macaddress1" class="form-control mb-4">
+
+									</div>
+									<div class="col-sm-4">
+										<label class="form-control-label">Model No</label>
+										<input type="text" ng-model="modelno1" class="form-control mb-4">
+
+									</div>
+									<div class="col-sm-4">
+										<label class="form-control-label">Batch No</label>
+										<input type="text" ng-model="batchno1" class="form-control mb-4">
+
+									</div>
+								</div>
+							</div>
+							<!-- Card -->
+
+						</div>
+					</div>
+				</div>
+				<div class="text-right">
+					<button type="button" ng-click="nexprev(3);" class="btn bg-indigo-800">Next<i class="mi-arrow-forward ml-1"></i></button>
+				</div>
+			</fieldset>
+		</div>
+		<!--SYSTEM 2-->
+		<div ng-show="data_level == 3">
+			<fieldset>
+				<legend class="w-auto">
+					SYSTYEM 2
+				</legend>
+				<div class="row">
+					<div class="col-sm-12">
+
+						<!-- Card -->
+						<div class="card">
+
+							<div class="card-body">
+
+								<!--CPU-->
+								<div class="row">
+
+									<div class="col-md-4">
+										<label class="form-control-label">CPU Serial No.</label>
+										<input type="text" ng-model="cpuserialno2" class="form-control mb-4">
+									</div>
+
+									<div class="col-md-4">
+										<p> CPU connected or not</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="cpucon2change();" ng-model="cpucon2" value="0" class="custom-control-input" id="cpuconfor2">
+											<label class="custom-control-label" for="cpuconfor2">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="cpucon2change();" ng-model="cpucon2" value="1" class="custom-control-input" id="cpuconfor3">
+											<label class="custom-control-label" for="cpuconfor3">No</label>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<p>CPU Working Conditon</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="cpuwor2change();" ng-model="cpuwok2" value="0" class="custom-control-input" id="cpuworfor2">
+											<label class="custom-control-label" for="cpuworfor2">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="cpuwor2change();" ng-model="cpuwok2" value="1" class="custom-control-input" id="cpuworfor3">
+											<label class="custom-control-label" for="cpuworfor3">No</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-sm-4">
+
+									</div>
+									<div class="col-sm-4" ng-show="divcpuconrem2">
+										<label class="form-control-label">CPU Connection Remarks</label>
+										<input type="text" ng-model="cpuconrem2" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divcpuconrem2">
+									</div>
+									<div class="col-sm-4" ng-show="divcpuworkrem2">
+										<label class="form-control-label">CPU Working Condition Remarks</label>
+										<input type="text" ng-model="cpuworkrem2" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divcpuworkrem2">
+									</div>
+								</div>
+
+
+								<!--Monitor-->
+								<div class="row">
+
+									<div class="col-md-4">
+										<label class="form-control-label">Monitor Serial No.</label>
+										<input type="text" ng-model="monitorserialno2" class="form-control mb-4">
+									</div>
+
+									<div class="col-md-4">
+										<p> Monitor connected or not</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="monitorcon2change();" ng-model="monitorcon2" value="0" class="custom-control-input" id="monconfor3">
+											<label class="custom-control-label" for="monconfor3">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="monitorcon2change();" ng-model="monitorcon2" value="1" class="custom-control-input" id="monconfor4">
+											<label class="custom-control-label" for="monconfor4">No</label>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<p>Monitor Working Conditon</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="monitorwor2change();" ng-model="monitorwok2" value="0" class="custom-control-input" id="monwor3">
+											<label class="custom-control-label" for="monwor3">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="monitorwor2change();" ng-model="monitorwok2" value="1" class="custom-control-input" id="monwor4">
+											<label class="custom-control-label" for="monwor4">No</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-sm-4">
+
+									</div>
+									<div class="col-sm-4" ng-show="divmonitorconrem2">
+										<label class="form-control-label">Monitor Connection Remarks</label>
+										<input type="text" ng-model="monitorconrem2" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divmonitorconrem2">
+									</div>
+									<div class="col-sm-4" ng-show="divmmonitorworkrem2">
+										<label class="form-control-label">Monitor Working Condition Remarks</label>
+										<input type="text" ng-model="monitorworkrem2" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divmmonitorworkrem2">
+									</div>
+								</div>
+
+
+								<!--Keyboard-->
+								<div class="row">
+
+									<div class="col-md-4">
+										<label class="form-control-label">Keyboard Serial No.</label>
+										<input type="text" ng-model="Keyboardserialno2" class="form-control mb-4">
+									</div>
+
+									<div class="col-md-4">
+										<p> Keyboard connected or not</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Keyboardcon2change();" ng-model="Keyboardcon2" value="0" class="custom-control-input" id="Keyboardconfor3">
+											<label class="custom-control-label" for="Keyboardconfor3">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Keyboardcon2change();" ng-model="Keyboardcon2" value="1" class="custom-control-input" id="Keyboardconfor4">
+											<label class="custom-control-label" for="Keyboardconfor4">No</label>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<p>Keyboard Working Conditon</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Keyboardwor2change();" ng-model="Keyboardwok2" value="0" class="custom-control-input" id="Keyboardwor3">
+											<label class="custom-control-label" for="Keyboardwor3">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Keyboardwor2change();" ng-model="Keyboardwok2" value="1" class="custom-control-input" id="Keyboardwor4">
+											<label class="custom-control-label" for="Keyboardwor4">No</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-sm-4">
+
+									</div>
+									<div class="col-sm-4" ng-show="divKeyboardconrem2">
+										<label class="form-control-label">Keyboard Connection Remarks</label>
+										<input type="text" ng-model="Keyboardconrem2" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divKeyboardconrem2">
+									</div>
+									<div class="col-sm-4" ng-show="divKeyboardworkrem2">
+										<label class="form-control-label">Keyboard Working Condition Remarks</label>
+										<input type="text" ng-model="Keyboardworkrem2" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divKeyboardworkrem2">
+									</div>
+								</div>
+
+
+								<!--mouse-->
+								<div class="row">
+
+									<div class="col-md-4">
+										<label class="form-control-label">Mouse Serial No.</label>
+										<input type="text" ng-model="mouseserialno2" class="form-control mb-4">
+									</div>
+
+									<div class="col-md-4">
+										<p> Mouse connected or not</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="mousecon2change();" ng-model="mousecon2" value="0" class="custom-control-input" id="mouseconfor3">
+											<label class="custom-control-label" for="mouseconfor3">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="mousecon2change();" ng-model="mousecon2" value="1" class="custom-control-input" id="mouseconfor4">
+											<label class="custom-control-label" for="mouseconfor4">No</label>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<p>Mouse Working Conditon</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="mousewor2change();" ng-model="mousewok2" value="0" class="custom-control-input" id="mousewor3">
+											<label class="custom-control-label" for="mousewor3">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="mousewor2change();" ng-model="mousewok2" value="1" class="custom-control-input" id="mousewor4">
+											<label class="custom-control-label" for="mousewor4">No</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-sm-4">
+
+									</div>
+									<div class="col-sm-4" ng-show="divmouseconrem2">
+										<label class="form-control-label">Mouse Connection Remarks</label>
+										<input type="text" ng-model="mouseconrem2" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divmouseconrem2">
+									</div>
+									<div class="col-sm-4" ng-show="divmouseworkrem2">
+										<label class="form-control-label">Mouse Working Condition Remarks</label>
+										<input type="text" ng-model="mouseworkrem2" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divmouseworkrem2">
+									</div>
+								</div>
+
+
+								<!--Batteries-->
+								<div class="row">
+
+									<div class="col-md-4">
+										<label class="form-control-label">Battery Serial No.</label>
+										<input type="text" ng-model="Batteryserialno2" class="form-control mb-4">
+									</div>
+
+									<div class="col-md-4">
+										<p> Battery connected or not</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Batterycon2change();" ng-model="Batterycon2" value="0" class="custom-control-input" id="Batteryconfor3">
+											<label class="custom-control-label" for="Batteryconfor3">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Batterycon2change();" ng-model="Batterycon2" value="1" class="custom-control-input" id="Batteryconfor4">
+											<label class="custom-control-label" for="Batteryconfor4">No</label>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<p>Battery Working Conditon</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Batterywor2change();" ng-model="Batterywok2" value="0" class="custom-control-input" id="Batterywor3">
+											<label class="custom-control-label" for="Batterywor3">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Batterywor2change();" ng-model="Batterywok2" value="1" class="custom-control-input" id="Batterywor4">
+											<label class="custom-control-label" for="Batterywor4">No</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-sm-4">
+
+									</div>
+									<div class="col-sm-4" ng-show="divBatteryconrem2">
+										<label class="form-control-label">Battery Connection Remarks</label>
+										<input type="text" ng-model="Batteryconrem2" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divBatteryconrem2">
+									</div>
+									<div class="col-sm-4" ng-show="divBatteryworkrem2">
+										<label class="form-control-label">Battery Working Condition Remarks</label>
+										<input type="text" ng-model="Batteryworkrem2" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divBatteryworkrem2">
+									</div>
+								</div>
+
+
+								<!--MAC MODEL and BATCH NO.-->
+								<div class="row">
+									<div class="col-sm-4">
+										<label class="form-control-label">MAC Address</label>
+										<input type="text" ng-model="macaddress2" class="form-control mb-4">
+
+									</div>
+									<div class="col-sm-4">
+										<label class="form-control-label">Model No</label>
+										<input type="text" ng-model="modelno2" class="form-control mb-4">
+
+									</div>
+									<div class="col-sm-4">
+										<label class="form-control-label">Batch No</label>
+										<input type="text" ng-model="batchno2" class="form-control mb-4">
+
+									</div>
+								</div>
+							</div>
+							<!-- Card -->
+
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+
+					<!--Previous-->
+					<div class="col-sm-10 text-right">
+						<button type="button" ng-click="nexprev(1);" class="btn bg-danger-800"><i class="mi-arrow-back mr-1"></i>Previous</button>
+					</div>
+					<!--Next-->
+					<div class="col-sm-2 text-right">
+						<button type="button" ng-click="nexprev(4);" class="btn bg-indigo-800">Next<i class="mi-arrow-forward ml-1"></i></button>
+					</div>
+				</div>
+			</fieldset>
+
+		</div>
+
+		<!--3RD LEVEL-->
+		<div ng-show="data_level == 4">
+			<fieldset>
+				<legend class="w-auto">
+					OTHERS
+				</legend>
+				<div class="row">
+					<div class="col-sm-12">
+
+						<!-- Card -->
+						<div class="card">
+
+							<div class="card-body">
+
+								<!--Printer-->
+								<div class="row">
+
+									<div class="col-md-4">
+										<label class="form-control-label">Printer Serial No.</label>
+										<input type="text" ng-model="Printerserialno" class="form-control mb-4">
+									</div>
+
+									<div class="col-md-4">
+										<p> Printer connected or not</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Printercon1change();" ng-model="Printercon1" value="0" class="custom-control-input" id="Printerconfor1">
+											<label class="custom-control-label" for="Printerconfor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Printercon1change();" ng-model="Printercon1" value="1" class="custom-control-input" id="Printerconfor2">
+											<label class="custom-control-label" for="Printerconfor2">No</label>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<p>Printer Working Conditon</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Printerwor1change();" ng-model="Printerwok1" value="0" class="custom-control-input" id="Printerwor1">
+											<label class="custom-control-label" for="Printerwor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Printerwor1change();" ng-model="Printerwok1" value="1" class="custom-control-input" id="Printerwor2">
+											<label class="custom-control-label" for="Printerwor2">No</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-sm-4">
+
+									</div>
+									<div class="col-sm-4" ng-show="divPrinterconrem1">
+										<label class="form-control-label">Printer Connection Remarks</label>
+										<input type="text" ng-model="Printerconrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divPrinterconrem1">
+									</div>
+									<div class="col-sm-4" ng-show="divPrinterworkrem1">
+										<label class="form-control-label">Printer Working Condition Remarks</label>
+										<input type="text" ng-model="Printerworkrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divPrinterworkrem1">
+									</div>
+								</div>
+
+
+								<!--LAMINATOR-->
+								<div class="row">
+
+									<div class="col-md-4">
+										<label class="form-control-label">Laminator Serial No.</label>
+										<input type="text" ng-model="Laminatorserialno" class="form-control mb-4">
+									</div>
+
+									<div class="col-md-4">
+										<p> Laminator connected or not</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Laminatorcon1change();" ng-model="Laminatorcon1" value="0" class="custom-control-input" id="Laminatorconfor1">
+											<label class="custom-control-label" for="Laminatorconfor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Laminatorcon1change();" ng-model="Laminatorcon1" value="1" class="custom-control-input" id="Laminatorconfor2">
+											<label class="custom-control-label" for="Laminatorconfor2">No</label>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<p>Laminator Working Conditon</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Laminatorwor1change();" ng-model="Laminatorwok1" value="0" class="custom-control-input" id="Laminatorwor1">
+											<label class="custom-control-label" for="Laminatorwor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Laminatorwor1change();" ng-model="Laminatorwok1" value="1" class="custom-control-input" id="Laminatorwor2">
+											<label class="custom-control-label" for="Laminatorwor2">No</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-sm-4">
+
+									</div>
+									<div class="col-sm-4" ng-show="divLaminatorconrem1">
+										<label class="form-control-label">Laminator Connection Remarks</label>
+										<input type="text" ng-model="Laminatorconrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divLaminatorconrem1">
+									</div>
+									<div class="col-sm-4" ng-show="divLaminatorworkrem1">
+										<label class="form-control-label">Laminator Working Condition Remarks</label>
+										<input type="text" ng-model="Laminatorworkrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divLaminatorworkrem1">
+									</div>
+								</div>
+
+
+								<!--INVERTOR-->
+								<div class="row">
+
+									<div class="col-md-4">
+										<label class="form-control-label">Invertor Serial No.</label>
+										<input type="text" ng-model="Invertorserialno" class="form-control mb-4">
+									</div>
+
+									<div class="col-md-4">
+										<p> Invertor connected or not</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Invertorcon1change();" ng-model="Invertorcon1" value="0" class="custom-control-input" id="Invertorconfor1">
+											<label class="custom-control-label" for="Invertorconfor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Invertorcon1change();" ng-model="Invertorcon1" value="1" class="custom-control-input" id="Invertorconfor2">
+											<label class="custom-control-label" for="Invertorconfor2">No</label>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<p>Invertor Working Conditon</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Invertorwor1change();" ng-model="Invertorwok1" value="0" class="custom-control-input" id="Invertorwor1">
+											<label class="custom-control-label" for="Invertorwor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Invertorwor1change();" ng-model="Invertorwok1" value="1" class="custom-control-input" id="Invertorwor2">
+											<label class="custom-control-label" for="Invertorwor2">No</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-sm-4">
+
+									</div>
+									<div class="col-sm-4" ng-show="divInvertorconrem1">
+										<label class="form-control-label">Invertor Connection Remarks</label>
+										<input type="text" ng-model="Invertorconrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divInvertorconrem1">
+									</div>
+									<div class="col-sm-4" ng-show="divInvertorworkrem1">
+										<label class="form-control-label">Invertor Working Condition Remarks</label>
+										<input type="text" ng-model="Invertorworkrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divInvertorworkrem1">
+									</div>
+								</div>
+
+
+								<!--BIOMETRIC DEVICE-->
+								<div class="row">
+
+									<div class="col-md-4">
+										<label class="form-control-label">Biometric Serial No.</label>
+										<input type="text" ng-model="Biometricserialno" class="form-control mb-4">
+									</div>
+
+									<div class="col-md-4">
+										<p> Biometric connected or not</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Biometriccon1change();" ng-model="Biometriccon1" value="0" class="custom-control-input" id="Biometricconfor1">
+											<label class="custom-control-label" for="Biometricconfor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Biometriccon1change();" ng-model="Biometriccon1" value="1" class="custom-control-input" id="Biometricconfor2">
+											<label class="custom-control-label" for="Biometricconfor2">No</label>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<p>Biometric Working Conditon</p>
+
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Biometricwor1change();" ng-model="Biometricwok1" value="0" class="custom-control-input" id="Biometricwor1">
+											<label class="custom-control-label" for="Biometricwor1">Yes</label>
+										</div>
+
+										<!-- Default inline 2-->
+										<div class="custom-control custom-radio custom-control-inline">
+											<input type="radio" ng-change="Biometricwor1change();" ng-model="Biometricwok1" value="1" class="custom-control-input" id="Biometricwor2">
+											<label class="custom-control-label" for="Biometricwor2">No</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-sm-4">
+
+									</div>
+									<div class="col-sm-4" ng-show="divBiometricconrem1">
+										<label class="form-control-label">Biometric Connection Remarks</label>
+										<input type="text" ng-model="Biometricconrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divBiometricconrem1">
+									</div>
+									<div class="col-sm-4" ng-show="divBiometricworkrem1">
+										<label class="form-control-label">Biometric Working Condition Remarks</label>
+										<input type="text" ng-model="Biometricworkrem1" class="form-control mb-4">
+									</div>
+									<div class="col-sm-4" ng-hide="divBiometricworkrem1">
+									</div>
+								</div>
+
+							</div>
+							<!-- Card -->
+
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<!--SUBMIT-->
+					<div class="col-sm-7 text-right" ng-show="data_level == 4">
+						<button type="button" ng-click="save();" class="btn bg-success-800">Submit</button>
+					</div>
+					<!--Previous-->
+					<div class="col-sm-5 text-right">
+						<button type="button" ng-click="nexprev(3);" class="btn bg-danger-800"><i class="mi-arrow-back mr-1"></i>Previous</button>
+					</div>
+				</div>
+			</fieldset>
+
+		</div>
+
+
+
+	</div>
+
+</div>

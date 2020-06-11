@@ -1,0 +1,72 @@
+﻿<style>
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('../assets/images/loader.gif') 50% 50% no-repeat #fff;
+	}
+</style>
+
+<div class="container">
+	<div class="loader" ng-show="Preloader"></div>
+	<div class="col-md-12" align="center">
+		<h3><b style="border-bottom:5px solid black">Petition Status Check</b></h3>
+	</div>
+	<div>
+		<div class="col-md-12" style="margin-top:50px">
+			<!--<button ng-click="Download('')" class="btn btn-primary">Test</button>-->
+			<div class="row">
+				<div class="col-md-2"><b style="font-size:small">Enter Petition ID <span style="color:red">*</span></b></div>
+				<div class="col-md-3">	<input type="text" alpha-numerics maxlength="25" ng-model="txtpetitionid" placeholder="Enter Registration Number" class="form-control" /></div>
+				<div class="col-md-2"><b style="font-size:small">Enter Petitioner Name <span style="color:red">*</span></b></div>
+				<div class="col-md-3">	<input type="text" alpha-numerics maxlength="50" ng-model="txtPetname" placeholder="Enter Registration Number" class="form-control" /></div>
+			</div>
+			<div class="col-md-12" align="center">
+				<div class="col-md-3" style="margin-top:22px">
+					<button class="btn btn-primary" id="btnGetReport" ng-click="getdetails()">Search</button>
+					<button class="btn btn-danger" id="btnreset" ng-click="Refresh()">Refresh</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12" style="margin-top:30px" ng-show="detailsshow">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-responsive panel">
+						<table class="table table-bordered">
+							<thead>
+								<tr style="background-color:lightslategrey;color:white;font-weight:bold">
+									<td>Petition ID</td>
+									<td>Petitioner Name</td>
+									<td>Police Station</td>
+									<td>Petition Date</td>
+									<td>Petition Subject</td>
+									<td>Service Type</td>
+									<td>Mobile</td>
+									<td>Status</td>
+									<!--<td>Action</td>-->
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>{{RData.petitionId}}</td>
+									<td>{{RData.petitionerName}}</td>
+									<td>{{RData.psName}}</td>
+									<td>{{RData.petitionDate}}</td>
+									<td>{{RData.petitionSubject}}</td>
+									<td>{{RData.petitionServiceType}}</td>
+									<td>{{RData.petitionerMobile}}</td>
+									<td>{{RData.petitionStatus}}</td>
+									<!--<td><button class="btn btn-success" ng-click="Download(RData.petitionId)">View/Print</button> </td>-->
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

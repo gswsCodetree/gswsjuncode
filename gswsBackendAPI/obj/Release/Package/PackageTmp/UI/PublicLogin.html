@@ -1,0 +1,61 @@
+﻿<div class="loader" ng-show="preloader"></div>
+<div class="container">
+	<div class="row mt-3">
+		<div class="col-sm-12 mb-3 text-center">
+			<h2 class="title-header">Public Login</h2>
+		</div>
+	</div>
+
+	<div class="row" ng-show="div==1">
+		<div class="col-sm-8 offset-2 mb-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="row m-3">
+								<div class="col-sm-12 ">
+									<div class="form-group form-row ">
+										<label class="col-form-label col-sm-3 text-right">Aadhaar : </label>
+										<div class="col-sm-5">
+											<input type="text" uid-input-model="enteredaadhaarno" mask-length="8" maxlength="12" class="form-control" placeholder="Enter Aadhaar No">
+										</div>
+										<div class="col-sm-3 ">
+											<button class="btn btn-primary btn-block" ng-click="sendotp();">Send</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row" ng-show="div==2">
+		<div class="col-sm-8 offset-2 mb-3">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="row m-3">
+								<div class=" col-sm-12 ">
+									<div class="form-group form-row ">
+										<label class="col-form-label col-sm-3 text-right">Enter OTP : </label>
+										<div class="col-sm-5 ">
+											<input type="text" maxlength="6" placeholder="Enter OTP Sent to Your Mobile No." class="form-control" ng-model="entredotp">
+										</div>
+										<div class="col-sm-3 ">
+											<button class="btn btn-primary btn-block" ng-click="verifyotp();">Verify OTP</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

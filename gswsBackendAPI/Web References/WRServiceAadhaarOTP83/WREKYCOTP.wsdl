@@ -1,0 +1,1170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="intiate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strOTP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Aadhaarno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="intiateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intiateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="intiateold">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strOTP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Aadhaarno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="intiateoldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intiateoldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="intiateNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strOTP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Aadhaarno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Agencycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="intiateNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="intiateNewResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OtpVerify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strOTP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Aadhaarno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Agencycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OtpVerifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OtpVerifyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OtpVerifyyuva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strOTP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Aadhaarno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Agencycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OtpVerifyyuvaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OtpVerifyyuvaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOTP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UIDNUM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOTPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendOTPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOTPyuva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UIDNUM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOTPyuvaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendOTPyuvaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YUVSendOTP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UIDNUM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YUVSendOTPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YUVSendOTPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YuvaOtpVerify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strOTP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Aadhaarno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Agencycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YuvaOtpVerifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YuvaOtpVerifyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YUVSendAuth">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UIDNUM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YUVSendAuthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YUVSendAuthResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YuvaOtpVerifyAuth">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strOTP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Aadhaarno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Agencycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YuvaOtpVerifyAuthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YuvaOtpVerifyAuthResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YUVSendOTP174">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UIDNUM" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YUVSendOTP174Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YUVSendOTP174Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YuvaOtpVerify174">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strOTP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Aadhaarno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Agencycode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AgencyName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YuvaOtpVerify174Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YuvaOtpVerify174Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="intiateSoapIn">
+    <wsdl:part name="parameters" element="tns:intiate" />
+  </wsdl:message>
+  <wsdl:message name="intiateSoapOut">
+    <wsdl:part name="parameters" element="tns:intiateResponse" />
+  </wsdl:message>
+  <wsdl:message name="intiateoldSoapIn">
+    <wsdl:part name="parameters" element="tns:intiateold" />
+  </wsdl:message>
+  <wsdl:message name="intiateoldSoapOut">
+    <wsdl:part name="parameters" element="tns:intiateoldResponse" />
+  </wsdl:message>
+  <wsdl:message name="intiateNewSoapIn">
+    <wsdl:part name="parameters" element="tns:intiateNew" />
+  </wsdl:message>
+  <wsdl:message name="intiateNewSoapOut">
+    <wsdl:part name="parameters" element="tns:intiateNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="OtpVerifySoapIn">
+    <wsdl:part name="parameters" element="tns:OtpVerify" />
+  </wsdl:message>
+  <wsdl:message name="OtpVerifySoapOut">
+    <wsdl:part name="parameters" element="tns:OtpVerifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="OtpVerifyyuvaSoapIn">
+    <wsdl:part name="parameters" element="tns:OtpVerifyyuva" />
+  </wsdl:message>
+  <wsdl:message name="OtpVerifyyuvaSoapOut">
+    <wsdl:part name="parameters" element="tns:OtpVerifyyuvaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPSoapIn">
+    <wsdl:part name="parameters" element="tns:SendOTP" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPSoapOut">
+    <wsdl:part name="parameters" element="tns:SendOTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPyuvaSoapIn">
+    <wsdl:part name="parameters" element="tns:SendOTPyuva" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPyuvaSoapOut">
+    <wsdl:part name="parameters" element="tns:SendOTPyuvaResponse" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendOTPSoapIn">
+    <wsdl:part name="parameters" element="tns:YUVSendOTP" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendOTPSoapOut">
+    <wsdl:part name="parameters" element="tns:YUVSendOTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerifySoapIn">
+    <wsdl:part name="parameters" element="tns:YuvaOtpVerify" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerifySoapOut">
+    <wsdl:part name="parameters" element="tns:YuvaOtpVerifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendAuthSoapIn">
+    <wsdl:part name="parameters" element="tns:YUVSendAuth" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendAuthSoapOut">
+    <wsdl:part name="parameters" element="tns:YUVSendAuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerifyAuthSoapIn">
+    <wsdl:part name="parameters" element="tns:YuvaOtpVerifyAuth" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerifyAuthSoapOut">
+    <wsdl:part name="parameters" element="tns:YuvaOtpVerifyAuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendOTP174SoapIn">
+    <wsdl:part name="parameters" element="tns:YUVSendOTP174" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendOTP174SoapOut">
+    <wsdl:part name="parameters" element="tns:YUVSendOTP174Response" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerify174SoapIn">
+    <wsdl:part name="parameters" element="tns:YuvaOtpVerify174" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerify174SoapOut">
+    <wsdl:part name="parameters" element="tns:YuvaOtpVerify174Response" />
+  </wsdl:message>
+  <wsdl:message name="intiateHttpGetIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="intiateHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="intiateoldHttpGetIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="intiateoldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="intiateNewHttpGetIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+    <wsdl:part name="Agencycode" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="intiateNewHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="OtpVerifyHttpGetIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+    <wsdl:part name="Agencycode" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OtpVerifyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="OtpVerifyyuvaHttpGetIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+    <wsdl:part name="Agencycode" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OtpVerifyyuvaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPHttpGetIn">
+    <wsdl:part name="UIDNUM" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+    <wsdl:part name="AgencyCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPyuvaHttpGetIn">
+    <wsdl:part name="UIDNUM" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+    <wsdl:part name="AgencyCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPyuvaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendOTPHttpGetIn">
+    <wsdl:part name="UIDNUM" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+    <wsdl:part name="AgencyCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendOTPHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerifyHttpGetIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+    <wsdl:part name="Agencycode" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerifyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendAuthHttpGetIn">
+    <wsdl:part name="UIDNUM" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+    <wsdl:part name="AgencyCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendAuthHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerifyAuthHttpGetIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+    <wsdl:part name="Agencycode" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerifyAuthHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendOTP174HttpGetIn">
+    <wsdl:part name="UIDNUM" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+    <wsdl:part name="AgencyCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendOTP174HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerify174HttpGetIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+    <wsdl:part name="Agencycode" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerify174HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="intiateHttpPostIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="intiateHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="intiateoldHttpPostIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="intiateoldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="intiateNewHttpPostIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+    <wsdl:part name="Agencycode" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="intiateNewHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="OtpVerifyHttpPostIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+    <wsdl:part name="Agencycode" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OtpVerifyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="OtpVerifyyuvaHttpPostIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+    <wsdl:part name="Agencycode" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OtpVerifyyuvaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPHttpPostIn">
+    <wsdl:part name="UIDNUM" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+    <wsdl:part name="AgencyCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPyuvaHttpPostIn">
+    <wsdl:part name="UIDNUM" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+    <wsdl:part name="AgencyCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPyuvaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendOTPHttpPostIn">
+    <wsdl:part name="UIDNUM" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+    <wsdl:part name="AgencyCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendOTPHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerifyHttpPostIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+    <wsdl:part name="Agencycode" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerifyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendAuthHttpPostIn">
+    <wsdl:part name="UIDNUM" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+    <wsdl:part name="AgencyCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendAuthHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerifyAuthHttpPostIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+    <wsdl:part name="Agencycode" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerifyAuthHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendOTP174HttpPostIn">
+    <wsdl:part name="UIDNUM" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+    <wsdl:part name="AgencyCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YUVSendOTP174HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerify174HttpPostIn">
+    <wsdl:part name="strOTP" type="s:string" />
+    <wsdl:part name="Aadhaarno" type="s:string" />
+    <wsdl:part name="Agencycode" type="s:string" />
+    <wsdl:part name="AgencyName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YuvaOtpVerify174HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="WREKYCOTPSoap">
+    <wsdl:operation name="intiate">
+      <wsdl:input message="tns:intiateSoapIn" />
+      <wsdl:output message="tns:intiateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="intiateold">
+      <wsdl:input message="tns:intiateoldSoapIn" />
+      <wsdl:output message="tns:intiateoldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="intiateNew">
+      <wsdl:input message="tns:intiateNewSoapIn" />
+      <wsdl:output message="tns:intiateNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OtpVerify">
+      <wsdl:input message="tns:OtpVerifySoapIn" />
+      <wsdl:output message="tns:OtpVerifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OtpVerifyyuva">
+      <wsdl:input message="tns:OtpVerifyyuvaSoapIn" />
+      <wsdl:output message="tns:OtpVerifyyuvaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOTP">
+      <wsdl:input message="tns:SendOTPSoapIn" />
+      <wsdl:output message="tns:SendOTPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOTPyuva">
+      <wsdl:input message="tns:SendOTPyuvaSoapIn" />
+      <wsdl:output message="tns:SendOTPyuvaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendOTP">
+      <wsdl:input message="tns:YUVSendOTPSoapIn" />
+      <wsdl:output message="tns:YUVSendOTPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerify">
+      <wsdl:input message="tns:YuvaOtpVerifySoapIn" />
+      <wsdl:output message="tns:YuvaOtpVerifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendAuth">
+      <wsdl:input message="tns:YUVSendAuthSoapIn" />
+      <wsdl:output message="tns:YUVSendAuthSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerifyAuth">
+      <wsdl:input message="tns:YuvaOtpVerifyAuthSoapIn" />
+      <wsdl:output message="tns:YuvaOtpVerifyAuthSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendOTP174">
+      <wsdl:input message="tns:YUVSendOTP174SoapIn" />
+      <wsdl:output message="tns:YUVSendOTP174SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerify174">
+      <wsdl:input message="tns:YuvaOtpVerify174SoapIn" />
+      <wsdl:output message="tns:YuvaOtpVerify174SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WREKYCOTPHttpGet">
+    <wsdl:operation name="intiate">
+      <wsdl:input message="tns:intiateHttpGetIn" />
+      <wsdl:output message="tns:intiateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="intiateold">
+      <wsdl:input message="tns:intiateoldHttpGetIn" />
+      <wsdl:output message="tns:intiateoldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="intiateNew">
+      <wsdl:input message="tns:intiateNewHttpGetIn" />
+      <wsdl:output message="tns:intiateNewHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OtpVerify">
+      <wsdl:input message="tns:OtpVerifyHttpGetIn" />
+      <wsdl:output message="tns:OtpVerifyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OtpVerifyyuva">
+      <wsdl:input message="tns:OtpVerifyyuvaHttpGetIn" />
+      <wsdl:output message="tns:OtpVerifyyuvaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOTP">
+      <wsdl:input message="tns:SendOTPHttpGetIn" />
+      <wsdl:output message="tns:SendOTPHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOTPyuva">
+      <wsdl:input message="tns:SendOTPyuvaHttpGetIn" />
+      <wsdl:output message="tns:SendOTPyuvaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendOTP">
+      <wsdl:input message="tns:YUVSendOTPHttpGetIn" />
+      <wsdl:output message="tns:YUVSendOTPHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerify">
+      <wsdl:input message="tns:YuvaOtpVerifyHttpGetIn" />
+      <wsdl:output message="tns:YuvaOtpVerifyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendAuth">
+      <wsdl:input message="tns:YUVSendAuthHttpGetIn" />
+      <wsdl:output message="tns:YUVSendAuthHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerifyAuth">
+      <wsdl:input message="tns:YuvaOtpVerifyAuthHttpGetIn" />
+      <wsdl:output message="tns:YuvaOtpVerifyAuthHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendOTP174">
+      <wsdl:input message="tns:YUVSendOTP174HttpGetIn" />
+      <wsdl:output message="tns:YUVSendOTP174HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerify174">
+      <wsdl:input message="tns:YuvaOtpVerify174HttpGetIn" />
+      <wsdl:output message="tns:YuvaOtpVerify174HttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WREKYCOTPHttpPost">
+    <wsdl:operation name="intiate">
+      <wsdl:input message="tns:intiateHttpPostIn" />
+      <wsdl:output message="tns:intiateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="intiateold">
+      <wsdl:input message="tns:intiateoldHttpPostIn" />
+      <wsdl:output message="tns:intiateoldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="intiateNew">
+      <wsdl:input message="tns:intiateNewHttpPostIn" />
+      <wsdl:output message="tns:intiateNewHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OtpVerify">
+      <wsdl:input message="tns:OtpVerifyHttpPostIn" />
+      <wsdl:output message="tns:OtpVerifyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OtpVerifyyuva">
+      <wsdl:input message="tns:OtpVerifyyuvaHttpPostIn" />
+      <wsdl:output message="tns:OtpVerifyyuvaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOTP">
+      <wsdl:input message="tns:SendOTPHttpPostIn" />
+      <wsdl:output message="tns:SendOTPHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOTPyuva">
+      <wsdl:input message="tns:SendOTPyuvaHttpPostIn" />
+      <wsdl:output message="tns:SendOTPyuvaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendOTP">
+      <wsdl:input message="tns:YUVSendOTPHttpPostIn" />
+      <wsdl:output message="tns:YUVSendOTPHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerify">
+      <wsdl:input message="tns:YuvaOtpVerifyHttpPostIn" />
+      <wsdl:output message="tns:YuvaOtpVerifyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendAuth">
+      <wsdl:input message="tns:YUVSendAuthHttpPostIn" />
+      <wsdl:output message="tns:YUVSendAuthHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerifyAuth">
+      <wsdl:input message="tns:YuvaOtpVerifyAuthHttpPostIn" />
+      <wsdl:output message="tns:YuvaOtpVerifyAuthHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendOTP174">
+      <wsdl:input message="tns:YUVSendOTP174HttpPostIn" />
+      <wsdl:output message="tns:YUVSendOTP174HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerify174">
+      <wsdl:input message="tns:YuvaOtpVerify174HttpPostIn" />
+      <wsdl:output message="tns:YuvaOtpVerify174HttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WREKYCOTPSoap" type="tns:WREKYCOTPSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="intiate">
+      <soap:operation soapAction="http://tempuri.org/intiate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="intiateold">
+      <soap:operation soapAction="http://tempuri.org/intiateold" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="intiateNew">
+      <soap:operation soapAction="http://tempuri.org/intiateNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OtpVerify">
+      <soap:operation soapAction="http://tempuri.org/OtpVerify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OtpVerifyyuva">
+      <soap:operation soapAction="http://tempuri.org/OtpVerifyyuva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOTP">
+      <soap:operation soapAction="http://tempuri.org/SendOTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOTPyuva">
+      <soap:operation soapAction="http://tempuri.org/SendOTPyuva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendOTP">
+      <soap:operation soapAction="http://tempuri.org/YUVSendOTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerify">
+      <soap:operation soapAction="http://tempuri.org/YuvaOtpVerify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendAuth">
+      <soap:operation soapAction="http://tempuri.org/YUVSendAuth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerifyAuth">
+      <soap:operation soapAction="http://tempuri.org/YuvaOtpVerifyAuth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendOTP174">
+      <soap:operation soapAction="http://tempuri.org/YUVSendOTP174" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerify174">
+      <soap:operation soapAction="http://tempuri.org/YuvaOtpVerify174" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WREKYCOTPSoap12" type="tns:WREKYCOTPSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="intiate">
+      <soap12:operation soapAction="http://tempuri.org/intiate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="intiateold">
+      <soap12:operation soapAction="http://tempuri.org/intiateold" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="intiateNew">
+      <soap12:operation soapAction="http://tempuri.org/intiateNew" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OtpVerify">
+      <soap12:operation soapAction="http://tempuri.org/OtpVerify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OtpVerifyyuva">
+      <soap12:operation soapAction="http://tempuri.org/OtpVerifyyuva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOTP">
+      <soap12:operation soapAction="http://tempuri.org/SendOTP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOTPyuva">
+      <soap12:operation soapAction="http://tempuri.org/SendOTPyuva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendOTP">
+      <soap12:operation soapAction="http://tempuri.org/YUVSendOTP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerify">
+      <soap12:operation soapAction="http://tempuri.org/YuvaOtpVerify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendAuth">
+      <soap12:operation soapAction="http://tempuri.org/YUVSendAuth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerifyAuth">
+      <soap12:operation soapAction="http://tempuri.org/YuvaOtpVerifyAuth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendOTP174">
+      <soap12:operation soapAction="http://tempuri.org/YUVSendOTP174" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerify174">
+      <soap12:operation soapAction="http://tempuri.org/YuvaOtpVerify174" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WREKYCOTPHttpGet" type="tns:WREKYCOTPHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="intiate">
+      <http:operation location="/intiate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="intiateold">
+      <http:operation location="/intiateold" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="intiateNew">
+      <http:operation location="/intiateNew" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OtpVerify">
+      <http:operation location="/OtpVerify" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OtpVerifyyuva">
+      <http:operation location="/OtpVerifyyuva" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOTP">
+      <http:operation location="/SendOTP" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOTPyuva">
+      <http:operation location="/SendOTPyuva" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendOTP">
+      <http:operation location="/YUVSendOTP" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerify">
+      <http:operation location="/YuvaOtpVerify" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendAuth">
+      <http:operation location="/YUVSendAuth" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerifyAuth">
+      <http:operation location="/YuvaOtpVerifyAuth" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendOTP174">
+      <http:operation location="/YUVSendOTP174" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerify174">
+      <http:operation location="/YuvaOtpVerify174" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WREKYCOTPHttpPost" type="tns:WREKYCOTPHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="intiate">
+      <http:operation location="/intiate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="intiateold">
+      <http:operation location="/intiateold" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="intiateNew">
+      <http:operation location="/intiateNew" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OtpVerify">
+      <http:operation location="/OtpVerify" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OtpVerifyyuva">
+      <http:operation location="/OtpVerifyyuva" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOTP">
+      <http:operation location="/SendOTP" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOTPyuva">
+      <http:operation location="/SendOTPyuva" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendOTP">
+      <http:operation location="/YUVSendOTP" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerify">
+      <http:operation location="/YuvaOtpVerify" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendAuth">
+      <http:operation location="/YUVSendAuth" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerifyAuth">
+      <http:operation location="/YuvaOtpVerifyAuth" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YUVSendOTP174">
+      <http:operation location="/YUVSendOTP174" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YuvaOtpVerify174">
+      <http:operation location="/YuvaOtpVerify174" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WREKYCOTP">
+    <wsdl:port name="WREKYCOTPSoap" binding="tns:WREKYCOTPSoap">
+      <soap:address location="http://push83.sps.ap.gov.in/WEBEKYCOTP/WREKYCOTP.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WREKYCOTPSoap12" binding="tns:WREKYCOTPSoap12">
+      <soap12:address location="http://push83.sps.ap.gov.in/WEBEKYCOTP/WREKYCOTP.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WREKYCOTPHttpGet" binding="tns:WREKYCOTPHttpGet">
+      <http:address location="http://push83.sps.ap.gov.in/WEBEKYCOTP/WREKYCOTP.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WREKYCOTPHttpPost" binding="tns:WREKYCOTPHttpPost">
+      <http:address location="http://push83.sps.ap.gov.in/WEBEKYCOTP/WREKYCOTP.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

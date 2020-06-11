@@ -1,0 +1,1 @@
+270520070836AM:{"GSWSCODE":"11090984","OPERATORID":"user","APPLICATIONNO":"test/rbk/001/20-21/000013","CONSUMERNAME":"raghu pulla","serviceAmt":115,"GSWSREFNO":"20200727070742222","rbkName":"lingala","hubName":"gudiwada123"}

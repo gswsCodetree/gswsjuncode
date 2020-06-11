@@ -1,0 +1,191 @@
+﻿<style type="text/css">
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('../images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>Former Mechanization Application Registration</h1>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>District Name :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selDistrict" data-ng-change="ChangeDistrict();">
+                                                <option selected="selected" value="">-Select -</option>
+                                                <option data-ng-repeat="dis in FMDistrictsDD" value="{{dis.DistrictCode}}">{{dis.DistrictName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Sub District Name :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selSubDistrict" data-ng-change="ChangeSubDistrict();">
+                                                <option selected="selected" value="">-Select -</option>
+                                                <option data-ng-repeat="dis in FMSubDistrictsDD" value="{{dis.SubDistrictCode}}">{{dis.SubDistrictName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Block Name :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selBlock">
+                                                <option selected="selected" value="">-Select -</option>
+                                                <option data-ng-repeat="dis in FMBlocksDD" value="{{dis.BlockCode}}">{{dis.BlockName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Village Name :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selVillage">
+                                                <option selected="selected" value="">-Select -</option>
+                                                <option data-ng-repeat="dis in FMVillagesDD" value="{{dis.RevenueVillagecode}}">{{dis.RevenueVillageName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Name (As Per Aadhaar Card):</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" data-ng-model="FMName" class="form-control" placeholder="Enter Name">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Father/Husband Name :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" data-ng-model="FMFName" class="form-control" placeholder="Enter Father/Husband Name">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Date of Birth(DD-MM-YYYY) :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="date" data-ng-model="FMDOB" class="form-control" placeholder="Enter Date of Birth">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Gender :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selGender">
+                                                <option selected="selected" value="">-Select -</option>
+                                                <option value="M">Male</option>
+                                                <option value="F">Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Category :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selCategory">
+                                                <option selected="selected" value="">-Select -</option>
+                                                <option value="5">General</option>
+                                                <option value="6">OBC</option>
+                                                <option value="7">SC</option>
+                                                <option value="6">OBC</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Farmer Type:</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selFType">
+                                                <option selected="selected" value="">-Select -</option>
+                                                <option value="1">Small (Land Between 1-2 HA)</option>
+                                                <option value="2">Marginal (Land Below 1 HA)</option>
+                                                <option value="3">Large (Land Above 2 HA)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Aadhaar NO :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" uid-input-model="FMAadhaar" mask-length="8" maxlength="12" class="form-control" placeholder="Enter Aadhaar No">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Mobile NO :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" numbers-only maxlength="10" data-ng-model="FMMobile" class="form-control" placeholder="Enter Mobile No">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Phone NO :</b></label>
+                                        <div>
+                                            <input type="text" data-ng-model="FMPhone" class="form-control" placeholder="Enter Phone No">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Email :</b></label>
+                                        <div>
+                                            <input type="text" data-ng-model="FMEmail" class="form-control" placeholder="Enter Email Address">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-lg-12 col-form-label"><b>Address :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <textarea type="text" data-ng-model="FMAddress" class="form-control" placeholder="Enter Address" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>PIN  :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" numbers-only maxlength="6" data-ng-model="FMPin" class="form-control" placeholder="Enter PIN No">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>PAN NO :</b></label>
+                                        <div>
+                                            <input type="text" data-ng-model="FMPAN" class="form-control" placeholder="Enter PAN No">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div style="margin-top:20px;text-align:center">
+                                    <button type="button" data-ng-click="Register();" class="btn btn-primary">Register</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

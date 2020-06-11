@@ -1,0 +1,10 @@
+080620171833PM:Error From gsws_dashboard_landing_sp:ORA-12545: Network Transport: Unable to resolve connect hostname
+080620171907PM:Error From gsws_dashboard_landing_sp:ORA-12545: Network Transport: Unable to resolve connect hostname
+080620173046PM:Error From gsws_dashboard_landing_sp:ORA-12545: Network Transport: Unable to resolve connect hostname
+080620173202PM:Error From gsws_dashboard_landing_sp:ORA-12545: Network Transport: Unable to resolve connect hostname
+080620174749PM:Error From gsws_dashboard_landing_sp:ORA-12545: Network Transport: Unable to resolve connect hostname
+080620174912PM:Error From gsws_dashboard_landing_sp:ORA-12545: Network Transport: Unable to resolve connect hostname
+080620175102PM:Error From gsws_dashboard_landing_sp:ORA-12545: Network Transport: Unable to resolve connect hostname
+080620175132PM:Error From gsws_dashboard_landing_sp:ORA-12545: Network Transport: Unable to resolve connect hostname
+080620175413PM:Error From gsws_dashboard_landing_sp:ORA-12545: Network Transport: Unable to resolve connect hostname
+080620175510PM:Error From gsws_dashboard_landing_sp:ORA-12545: Network Transport: Unable to resolve connect hostname

@@ -1,0 +1,117 @@
+﻿<style>
+	th, td {
+		vertical-align: middle !important;
+	}
+
+	th {
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 500;
+	}
+
+	td {
+		width: 100%;
+	}
+
+	.heading {
+		background: rgb(49, 90, 153)
+	}
+
+	table {
+		width: 100%;
+	}
+
+	thead tr th:first-child,
+	tbody tr td:first-child {
+		width: 3em;
+		min-width: 3em;
+		max-width: 3em;
+		word-break: break-all;
+	}
+</style>
+
+
+<div class="page-content">
+	<div data-ng-show="preloader" class="loader"></div>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h4 style="text-align: center !important;">Jobcard Details</h4>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-sm-12 text-right" ng-show="IsDisabled">
+						<button class="btn btn-primary btn-sm" data-ng-click="clicked('','New')" value="submit">New Job Card</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12">
+				<div class="row">
+					<div class="table-responsive">
+						<table class="table table-responsive table-bordered table-striped">
+							<thead class="heading">
+								<tr>
+									<th>#</th>
+									<th>Name</th>
+									<th>Relationship</th>
+									<th>Gender</th>
+									<th>Age</th>
+									<th>Account No</th>
+									<!--<th>Accounting Dept Name</th>-->
+									<!--<th>SHG Name</th>
+									<th>SHG Id</th>
+									<th>MPHSSID</th>-->
+									<th>Voter ID</th>
+									<!--<th>Disabled</th>
+									<th>SmartCard No</th>
+									<th>Paying Agency Type:</th>
+									<th>Pension Number</th>
+									<th>HIV Affected</th>-->
+									<th>UID</th>
+									<th>Mobile No</th>
+									<th>Bank Pass Book Number</th>
+									<th>Status</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="singlejobcard in getJobcarddetails">
+									<td><label>{{$index + 1}}</label></td>
+									<td><label>{{singlejobcard.MEMBER_NAME}}</label></td>
+									<td><label>{{singlejobcard.RELATION_HOF}}</label></td>
+									<td><label>{{singlejobcard.GENDER}}</label></td>
+									<td><label>{{singlejobcard.AGE}}</label></td>
+									<td><label>{{singlejobcard.BANK_ACC_NO}}</label></td>
+									<!--<td><label>null</label></td>-->
+									<!--<td><label>{{singlejobcard.SHG_NAME}}</label></td>
+									<td><label>{{singlejobcard.SHG_ID}}</label></td>
+									<td><label>{{singlejobcard.MPHSS_ID}}</label></td>-->
+									<td><label>{{singlejobcard.VOTER_ID}}</label></td>
+									<!--<td><label>{{singlejobcard.DISABLED}}</label></td>
+									<td><label>null</label></td>
+									<td><label>{{singlejobcard.TypeofPayingAgency}}</label></td>
+									<td><label>null</label></td>
+									<td><label>{{singlejobcard.HIV}}</label></td>-->
+									<td><label>{{singlejobcard.UID_NO}}</label></td>
+									<td><label>{{singlejobcard.MOBILE_NO}}</label></td>
+									<td><label>{{singlejobcard.BANK_ACC_NAME}}</label></td>
+									<td><label>{{singlejobcard.STATUS}}</label></td>
+									<td>
+										<a href="" ng-show="IsView" ng-click="clicked(singlejobcard.JC_ID,'View')">View</a>
+										<span ng-if="singlejobcard.STATUS == 'Rejected'">
+											<a href="" ng-show="IsDisabled" ng-click="clicked(singlejobcard.JC_ID,'Edit')">Edit</a>
+										</span>
+									</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

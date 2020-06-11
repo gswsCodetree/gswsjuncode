@@ -1,0 +1,66 @@
+﻿<!-- Page header  -->
+
+<style>
+	@media (min-width: 1200px) {
+		.page-header-content {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+	}
+</style>
+<div class="page-header page-header-dark cust-page-header " style="background: linear-gradient(45deg, #0D47A1, #4CAF50);">
+	<div class="page-header-content header-elements-md-inline py-1 pl-0">
+		<div class="page-title py-0 d-flex">
+			<img src="assets/images/ysr-jagan.png">
+		</div>
+
+		<div class="text-center pl-4">
+			<img src="assets/images/logo-te.png" class="w-50" />
+		</div>
+		<div class="header-elements d-md-block d-none">
+			<div class="profile-pic text-right">
+				<img src="assets/images/jagan-logo-te.png" style="width:100%">
+			</div>
+		</div>
+	</div>
+
+	<div class="navbar navbar-expand-md navbar-dark navbar-component bg-navbar-dark-custom m-0    border-0 shadow-0">
+		<div class="d-md-none w-100">
+			<button type="button" class="navbar-toggler d-flex align-items-center w-100 collapsed" data-toggle="collapse" data-target="#navbar-navigation" aria-expanded="false">
+				<i class="icon-menu7 mr-2"></i>
+				Menu
+			</button>
+		</div>
+
+		<div class="navbar-collapse collapse justify-content-end" id="navbar-navigation">
+			<button class="btn btn-danger" ng-click="GetLogout();"> <i class="mi-power-settings-new mr-1 "></i> Logout</button>
+			<!--<ul class="navbar-nav navbar-nav-highlight ml-md-auto">
+				
+				<li class="nav-item">
+					<a style="cursor:pointer;" class="navbar-nav-link navbar-logout" ng-click="GetLogout();"><i class="mi-power-settings-new mr-1 "></i>Logout</a>
+				</li>
+			</ul>-->
+		</div>
+	</div>
+
+</div>
+
+
+<!-- /page header -->
+<div class="page-content pt-0">
+	<div class="content-wrapper">
+		<div class="content">
+			<ui-view></ui-view>
+
+		</div>
+	</div>
+</div>
+<!-- /page header content --><!-- Footer -->
+<div class="navbar navbar-expand-lg navbar-light">
+	<div class="text-center d-lg-none w-100">
+		<span class="navbar-text">
+			© Copyright Govt of AP. All Rights Reserved
+		</span>
+	</div>
+
+</div>

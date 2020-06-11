@@ -1,0 +1,3 @@
+070520210746PM:Error From GetWalletAmount:Unable to connect to the remote server
+070520210922PM:Error From GetWalletAmount:Unable to connect to the remote server
+070520210953PM:Error From GetWalletAmount:Unable to connect to the remote server

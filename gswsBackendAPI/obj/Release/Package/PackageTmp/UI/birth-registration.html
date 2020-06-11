@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Birth & Death Registration</title>
+    <!-- Global stylesheets -->
+    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/custom_bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/layout.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Core JS files -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/ripple.min.js"></script>
+    <!-- /core JS files -->
+    <style>
+        body {
+            background: #01011c;
+        }
+		.birth-header {
+			background: #062541 url(assets/images/birth-header-bg.png) !important;
+		}
+
+        .birth-navbar-link .navbar-nav-link {
+            text-transform: capitalize;
+            padding: 0.3rem 0.7em;
+            font-size: 13px;
+            background: linear-gradient(0deg, #082d48, #00496c);
+            margin-right: 1px;
+            border-right: 1px solid gray
+        }
+
+        .birth-navbar-link .navbar-nav-link:after {
+            border-right: 1px solid white;
+        }
+
+        .name-bar {
+            background: white;
+            padding: 12px;
+        }
+
+        .name-bar p {
+            margin-bottom: 0px;
+            font-weight: bold;
+        }
+
+        .name-bar span {
+            color: #00a2b7;
+
+
+        }
+
+        .left-bx {
+            background: #E1F5FE;
+            padding: 15px;
+            height: 55vh;
+
+        }
+
+        .left-bx h3 {
+            color: white;
+            text-align: center;
+           background: linear-gradient(0deg, #082d48, #00496c);
+        }
+
+        .left-bx ul {
+            padding: 0px;
+        }
+
+        .left-bx ul li {
+            list-style-type: none;
+            border-bottom: 1px solid gray;
+            padding: 5px 6px;
+        }
+
+        .left-bx ul li:before {
+            content: '\e9c7';
+            font-family: icomoon !important;
+            margin-right: 7px;
+        }
+
+        .left-bx ul li a {
+            color: #263238;
+        }
+
+        .middle-bx {
+            background: #eaeaea;
+            padding: 15px;
+            height: 49vh;
+        }
+
+        .middle-bx p {
+            background: #E1F5FE;
+        }
+
+        .right-box {
+            background: #E1F5FE;
+            padding: 15px;
+            height: 55vh;
+        }
+
+        .marq-box h4 {
+            background: #EEEEEE;
+            padding: 8px 12px 0px;
+            font-size: 14px;
+            vertical-align: middle;
+
+        }
+
+        .birth-footer {
+            background: #031d34;
+            color: #EEEEEE;
+            padding: 16px 0px;
+            border-bottom: 10px solid #315166;
+        }
+
+        .birth-footer p {
+            margin-bottom: 0px;
+        }
+
+        .middle-logo {
+            filter: grayscale(1);
+            opacity: 0.1;
+            position: relative;
+            top: 40%;
+            left: 40%;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="page-header birth-header page-header-dark" style="      background: #062541;  border-top: 10px solid #03A9F4;">
+
+
+        <!-- Page header content -->
+        <div class="page-header-content header-elements-md-inline px-4">
+            <div class="page-title d-flex p-0">
+                <img src="assets/images/ind-logo.png" class="w-50">
+
+            </div>
+
+
+        </div>
+        <!-- /page header content -->
+
+
+        <!-- Secondary navbar -->
+        <div class="navbar navbar-expand-md navbar-dark border-top-0 px-4" style="background: #011e30; padding-top: 40px;">
+            <div class="d-md-none w-100">
+                <button type="button" class="navbar-toggler d-flex align-items-center w-100" data-toggle="collapse" data-target="#navbar-navigation">
+                    <i class="icon-menu-open mr-2"></i>
+                    Main navigation
+                </button>
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbar-navigation">
+                <ul class="navbar-nav navbar-nav-highlight birth-navbar-link  ml-md-auto">
+                    <li class="nav-item"><a href="#" class="navbar-nav-link ">Home</a> </li>
+
+                    <li class="nav-item"><a href="#" class="navbar-nav-link ">Institutional Events</a> </li>
+                    <li class="nav-item"><a href="#" class="navbar-nav-link ">Export For UIDAI</a> </li>
+                    <li class="nav-item"><a href="#" class="navbar-nav-link ">Master</a> </li>
+                    <li class="nav-item"><a href="#" class="navbar-nav-link ">User Management</a> </li>
+                    <li class="nav-item"><a href="#" class="navbar-nav-link ">Payments</a> </li>
+                    <li class="nav-item"><a href="#" class="navbar-nav-link ">Birth</a> </li>
+                    <li class="nav-item"><a href="#" class="navbar-nav-link ">Death</a> </li>
+                    <li class="nav-item"><a href="#" class="navbar-nav-link ">Still Birth</a> </li>
+                    <li class="nav-item"><a href="#" class="navbar-nav-link ">Reports</a> </li>
+                    <li class="nav-item"><a href="#" class="navbar-nav-link ">Logout</a> </li>
+
+                </ul>
+
+
+            </div>
+        </div>
+        <!-- /secondary navbar -->
+
+
+
+    </div>
+    <!-- Page content -->
+    <section class="name-bar">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p> <span>Wednesday, March 30, 2016 12:01:13 IST</span></p>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <p><span> Welcome :</span> Brijesh Kumar :JH - (Registrar)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="page-content pt-3">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content">
+
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="left-bx">
+                                <h3>Quick Launch</h3>
+                                <ul>
+                                    <li><a href="#">Search Birth Registration</a></li>
+                                    <li><a href="#">Search Death Registration</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+
+                                <div class="col-sm-12 marq-box">
+                                    <h4>
+                                        <marquee>No Current News </marquee>
+                                    </h4>
+                                </div>
+                            </div>
+
+                            <div class="middle-bx">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <img src="assets/images/middle%20logo.png" class="middle-logo" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="right-box text-center">
+                                <button class="btn btn-primary">Registration Summary</button>
+                                <p class="mt-5"> <a href="#" style=" color: red;">(Please Click Above for Summary)</a> </p>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+
+
+            </div>
+            <!-- /content area -->
+        </div>
+        <!-- /main content -->
+
+    </div>
+    <footer class="birth-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center mb-0">
+                    <p>The Registrar General & Census Comissioner, India &copy; 2019 </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /page content -->
+</body>
+
+</html>

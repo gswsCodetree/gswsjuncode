@@ -1,0 +1,63 @@
+﻿
+
+<div class="container-fluid">
+	
+	
+	<div class="card" style="margin-top:20px">
+		<div class="card-header" align="center">
+			<h3><b style="border-bottom:5px solid black">Check Echallan Status</b></h3>
+		</div>
+		<div class="card-body">
+
+			<div class="col-md-12" style="margin-top:50px">
+				<div class="row">
+					<div class="col-md-6">
+						<input type="text" alpha-numerics class="form-control" ng-model="VehicleNumber" maxlength="15" placeholder="Enter Vehicle Number" />
+					</div>
+					<div class="col-md-2"></div>
+					<div class="col-md-4">
+						<input type="button" class="btn btn-success" value="Submit" ng-click="GetDetails();" />
+					</div>
+				</div>
+				<div class="row mt-3" ng-show="EchallanList.length>0">
+					<div class="table-responsive">
+						<table class="table table-condensed table-bordered">
+							<thead>
+								<tr style="background-color:#27727f">
+									<th>Sno</th>
+									<th>Challan Number</th>
+									<th>RC Number</th>
+									<th>Created Date</th>
+									<th>Location</th>
+									<th>Date Of Offence</th>
+									<th>Toatal Amount</th>
+									<th>Status</th>
+									<th>Violation Name</th>
+									<th>section</th>
+									<th>Due Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="obj in EchallanList">
+									<td>{{$index+1}}</td>
+									<td>{{obj.challan_no}}</td>
+									<td>{{obj.rcNumber}}</td>
+									<td>{{obj.createdDate}}</td>
+									<td>{{obj.location}}</td>
+									<td>{{obj.dateOfOffence}}</td>
+									<td>{{obj.totalAmount}}</td>
+									<td>Un Paid</td>
+
+									<td>{{obj.violationname}}</td>
+									<td>{{obj.section}}</td>
+									<td>{{obj.dueDate}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>

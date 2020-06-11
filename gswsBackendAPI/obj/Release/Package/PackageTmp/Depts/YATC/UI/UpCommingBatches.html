@@ -1,0 +1,126 @@
+﻿<style type="text/css">
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="col-md-12 bg-light py-3">
+                    <div class="row justify-content-between">
+                        <div class="col-md-3">
+                            <h3>Skill Development </h3>
+                        </div>
+                        <div class="col-md-6" style="float:right;">
+                            <a style="cursor:pointer;" data-ng-click="GoTO('jobs');" class="btn btn-outline-success mr-2">Upcomming Jobs</a>
+                            <a style="cursor:pointer;" data-ng-click="GoTO('batches');" class="btn btn-outline-primary mr-2">Upcomming Batches</a>
+                            <a style="cursor:pointer;" data-ng-click="GoTO('status');" class="btn btn-outline-secondary mr-2">Job/Batch Status Check</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>Upcomming Batches</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-3 col-form-label text-right">District</label>
+                                    <div class="col-lg-3">
+                                        <select class="form-control" data-ng-model="district">
+                                            <option selected="selected" value="">-Select District-</option>
+                                            <option data-ng-repeat="dis in DistrictDD" value="{{dis.value}}">{{dis.value}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <button type="button" ng-click="GetBatches();" class="btn btn-primary">Get Batches</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 mt-2 " ng-show="dttable">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        <!--<h4 class="mt-0 header-title mb-4 text-center">Data View</h4>-->
+                                        <div class="row mt-2 mb-2">
+                                            <div class="col-md-3">
+                                                <input type="search" class="form-control form-control-sm" placeholder="Search.." data-ng-model="SearchText" aria-controls="">
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive headertable">
+                                            <table class="table bg-white table-bordered table-striped" datatable="ng">
+                                                <thead>
+                                                    <tr class="bg-dark" style="color:white !important;">
+                                                        <th>S.No</th>
+                                                        <th>Batch Name</th>
+                                                        <th>Contact Name</th>
+                                                        <th>Contact Email</th>
+                                                        <th>Contact No</th>
+                                                        <th>Scheme</th>
+                                                        <th>Batch Start Date</th>
+                                                        <th>Batch Start Time</th>
+                                                        <th>Batch End Date</th>
+                                                        <th>Program</th>
+                                                        <th>District</th>
+                                                        <th>TC Name</th>
+                                                        <th>Sector Job Role</th>
+                                                        <th>Sector</th>
+                                                        <th>Address</th>
+                                                        <th>Name</th>
+                                                        <th>Mandal/Muncipality</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr dt-rows ng-repeat="batch in BatchesDetails |  filter : SearchText">
+                                                        <td>{{$index + 1}}</td>
+                                                        <td>{{batch.batchName}}</td>
+                                                        <td>{{batch.tcSpocname}}</td>
+                                                        <td>{{batch.tcSpocEmail}}</td>
+                                                        <td>{{batch.tcSpocContactNo}}</td>
+                                                        <td>{{batch.scheme}}</td>
+                                                        <td>{{batch.batchStartDate}}</td>
+                                                        <td>{{batch.starttime}}</td>
+                                                        <td>{{batch.batchEndDate}}</td>
+                                                        <!--<td>{{batch.schemeId}}</td>-->
+                                                        <td>{{batch.program}}</td>
+                                                        <td>{{batch.tcDistrict}}</td>
+                                                        <td>{{batch.tcName}}</td>
+                                                        <td>{{batch.sectorJobRole}}</td>
+                                                        <td>{{batch.sector}}</td>
+                                                        <td>{{batch.tcAddress}}</td>
+                                                        <td>{{batch.tpName}}</td>
+                                                        <td>{{batch.mandalormuncipality}}</td>
+                                                        <td><button type="button" value="{{batch.batchId}}" ng-click='ApplyBatch(this)' ; class="btn btn-block btn-primary">Apply</button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

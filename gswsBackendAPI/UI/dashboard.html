@@ -1,0 +1,205 @@
+﻿
+    <!-- /theme JS files -->
+    <style>
+        /* Grama Volunteer */
+		.grama-volunteer .card {
+			text-align: center;
+			-webkit-transition: 0.5s;
+			transition: 0.5s;
+			min-height:175px;
+		}
+        .grama-volunteer .card:hover {
+            -webkit-transform: translateY(-5px);
+            transform: translateY(-5px);
+            cursor: pointer;
+        }
+        .grama-volunteer .card i {
+            margin-bottom: 5px;
+        }
+        .grama-volunteer .card h5 {
+            margin-bottom: 5px;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+        .grama-volunteer .card h1 {
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-family: 'digital-clock-font';
+            font-size: 34px;
+            line-height: 34px;
+			letter-spacing:4px;
+        }
+        .grama-volunteer .card p {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+    </style>
+
+
+  
+    <div class="page-content container-fluid">
+        <!-- Main content -->
+        <div class="content-wrapper">
+            <!-- Content area -->
+            <div class="content">
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center text-dark mb-3">Grama Volunteer</h1>
+                        <div class="row grama-volunteer"  id="counter-stats">
+
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3">
+                                <div class="card bg-indigo-600">
+                                    <div class="card-body">
+                                        <i class="icon-pencil5 icon-2x"></i>
+                                        <h5>Total Volunteer Registered</h5>
+                                        <div class="row d-flex justify-content-around">
+                                            <div class="col-md-6"><p>Phase I</p><h1 class="counting" ng-bind="totvregph1"></h1></div>
+                                            <div class="col-md-6"><p>Phase II</p><h1 class="counting" ng-bind="totvregph2"></h1></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3">
+                                <div class="card bg-teal-600">
+                                    <div class="card-body">
+                                        <i class="icon-briefcase icon-2x"></i>
+                                        <h5>Total Volunteer Selected</h5>
+                                        <div class="row d-flex justify-content-around">
+                                            <div class="col-md-6"><p>Phase I</p><h1 class="counting" ng-bind="totvsph1"></h1></div>
+                                            <div class="col-md-6"><p>Phase II</p><h1 class="counting" ng-bind="totvsph2"></h1></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3">
+                                <div class="card bg-success-400">
+                                    <div class="card-body">
+                                        <i class="icon-tree7 icon-2x"></i>
+                                        <h5>Total Cluster</h5>
+                                        <h1 class="counting" ng-bind="totcluster"></h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3">
+                                <div class="card bg-info-700">
+                                    <div class="card-body">
+                                        <i class="icon-home5 icon-2x"></i>
+                                        <h5>Total Household Map to Cluster</h5>
+                                        <h1 class="counting" ng-bind="tothhtocluster"></h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3">
+                                <div class="card bg-green-700">
+                                    <div class="card-body">
+                                        <i class="icon-users4 icon-2x"></i>
+                                        <h5>Total Member Map to Cluster</h5>
+                                        <h1 class="counting" ng-bind="totmemtocluster"></h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3">
+                                <div class="card bg-danger-400">
+                                    <div class="card-body">
+                                        <i class="icon-home5 icon-2x"></i>
+                                        <h5>Total Household Not Map to Cluster</h5>
+                                        <h1 class="counting" ng-bind="tothhNmcluster"></h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3">
+                                <div class="card bg-purple-600">
+                                    <div class="card-body">
+                                        <i class="icon-user-check icon-2x"></i>
+                                        <h5>Volunteer Map to Cluster</h5>
+                                        <h1 class="counting" ng-bind="totvtocluster"></h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3">
+                                <div class="card bg-danger-400">
+                                    <div class="card-body">
+                                        <i class="icon-user-minus icon-2x"></i>
+                                        <h5>Volunteer Not Map to Cluster</h5>
+                                        <h1 class="counting" ng-bind="Totvnmtocluster"></h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-bordered table-striped">
+                            <thead class="bg-primary">
+								<tr>
+									<th>SNo.</th>
+									<th>District Name</th>
+									<th>Total Register Users PH1</th>
+									<th>Total Selected Volunters PH1</th>
+									<th>Total Register Users PH2</th>
+									<th>Total Selected Volunters PH2</th>
+									<th>Total Household's</th>
+									<th>Total Clusters</th>
+									<th>Total HH Mapped to Cluster</th>
+									<th>Total Memebers Mapped to Cluster</th>
+									<th>Total Not Mapped Clusters</th>
+									<th>Total HH Not Mapped to Cluster</th>
+
+								</tr>
+                            </thead>
+                            <tbody>
+								<tr ng-repeat="obj in DistDashlist">
+									<td>{{$index+1}}</td>
+									<td>{{obj.DISTRICT_NAME}}</td>
+									<td>{{obj.PH1_TOT_REGIS}}</td>
+									<td>{{obj.PH1_INTERVIEW_SELECTED}}</td>
+									<td>{{obj.PH2_TOT_REGIS}}</td>
+									<td>{{obj.PH2_INTERVIEW_SELECTED}}</td>
+									<td>{{obj.TOT_HH}}</td>
+									<td>{{obj.TOT_CLUSTERS}}</td>
+									<td>{{obj.HH_MAPPED}}</td>
+									<td>{{obj.MEMBERS_MAPP}}</td>
+									<td>{{obj.VV_MAPP_CLUS}}</td>
+									<td>{{obj.PENDING_HH}}</td>
+								</tr>
+                              
+                            </tbody>
+							<tfoot>
+								<tr>
+									<td>-</td>
+									<td>Total</td>
+									<td>{{ftotreguserph1}}</td>
+									<td>{{ftotreguserph2}}</td>
+									<td>{{ftotselctuserph1}}</td>
+									<td>{{ftotselctuserph2}}</td>
+									<td>{{ftothh}}</td>
+									<td>{{ftothhmapc}}</td>
+									<td>{{ftotmemmapc}}</td>
+									<td>{{ftotcluster}}</td>
+									<td>{{ftotncluster}}</td>
+									<td>{{ftotncluster}}</td>
+									<td>{{ftothhnotmapcluster}}</td>
+								</tr>
+							</tfoot>
+                        </table>
+                    </div>
+                </div>
+                <!-- /form layouts -->
+            </div>
+            <!-- /content area -->
+        </div>
+        <!-- /main content -->
+    </div>
+

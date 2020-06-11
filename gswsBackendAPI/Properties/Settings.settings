@@ -1,0 +1,63 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="gswsBackendAPI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="gswsBackendAPI_UatMeeseva_MeesevaMobileWebservice" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://uat.meeseva.gov.in/MeesevaMobileWebService/MeesevaMobileWebservice.asmx</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_minorityservice_MinorityService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://apwaqf.aponline.gov.in/minorityservice.asmx</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_MeesevaWebUAT_MeeSevaWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://uat.meeseva.gov.in/meesevawebservice/meesevawebservice.asmx</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_SerpBima_vvclaimstatus" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.bima.ap.gov.in/services/vvclaimstatus.asmx</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_ClaimRegistration_ClaimRegistration" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://bima.ap.gov.in/services/Claimregistration.asmx</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_SMSService_SMSService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://pushpm86.sps.ap.gov.in/EDACSMS/SMSService.asmx</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_RoadsComplaint_StatusCheck_ComplaintsSearchService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://tptuat.aponline.gov.in/APRDC/ComplaintsSearchService.asmx</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_WebLand_Revenue_WSPahani" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://uatwebland.ap.gov.in/wspahani.asmx</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_Sadarem_ValidSadaremidService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://sadarem.ap.gov.in:443/Sadaremwebservice/ValidSadaremid</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_EPantaService_getVillageData" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://103.210.75.132/AreaSownServiceDetails/kharif2019ServiceDetails.php</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_WRServiceAadhaarOTP83_WREKYCOTP" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://push83.sps.ap.gov.in/WEBEKYCOTP/WREKYCOTP.asmx</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_Animal_AHAServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://tptuat.aponline.gov.in/AHAService/AHAServices.asmx</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_walletOnePaymentService_ServicesRWMS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://103.14.188.80:8080/RWMService/services/ServicesRWMS.ServicesRWMSHttpSoap11Endpoint/</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_Transport_ComplaintsStatusCheck_ComplaintsSearchService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://aprdc.ap.gov.in/ComplaintsSearchService.asmx</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_MeesevaProductionService_MeeSevaWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://apdept.meeseva.gov.in/meesevawebservice/meesevawebservice.asmx</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_RamInfoService_ServicesRWMS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://103.14.188.80:8080/RWMService/services/ServicesRWMS.ServicesRWMSHttpSoap11Endpoint/</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_HousesiteWebservice_API" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://navaratnalu-housesites.ap.gov.in/WebService/API.asmx</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_RaminfoprodServce_ServicesRWMS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://125.21.84.205:8080/RWMService/services/ServicesRWMS.ServicesRWMSHttpSoap11Endpoint/</Value>
+    </Setting>
+    <Setting Name="gswsBackendAPI_UATSMSService_SMSService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://uat.gramawardsachivalayam.ap.gov.in/SMSAPP/SMSService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

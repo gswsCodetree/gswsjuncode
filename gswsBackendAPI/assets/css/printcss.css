@@ -1,0 +1,65 @@
+﻿
+body {
+	background: #fff;
+	color: #000 !important;
+}
+
+.bg-certificate {
+	background: #fff url('../images/Certficate-border.png');
+	background-size: 100% 100%;
+}
+
+#navbar-footer {
+	display: none !important;
+}
+
+
+
+.print-option {
+	/*            background: #E8F5E9;*/
+	padding: 0PX 0PX 25px;
+	position: relative;
+	z-index: 99;
+	border-bottom: 1.5px dashed gray;
+}
+
+.print-logo {
+	width: 16% !important;
+	position: absolute;
+	z-index: 0;
+	left: 40%;
+	opacity: 0.5;
+	top: 20%;
+}
+
+.left-print-data {
+	margin: 0px;
+	padding: 0px;
+	margin-left: 73px;
+}
+
+	.left-print-data li {
+		margin: 18px;
+		font-weight: bold;
+		list-style-type: none;
+		font-size: 15px;
+		clear: both;
+	}
+
+		.left-print-data li span {
+			float: RIGHT;
+			font-weight: normal;
+			width: 55% !important;
+			clear: both;
+		}
+
+
+/* proffession tax */
+
+.proffession-tax .col-form-label-lg {
+	font-size: 20px;
+}
+
+.proffession-tax p {
+	font-size: 20px;
+}

@@ -1,0 +1,313 @@
+﻿
+<link href="assets/css/printcss.css" rel="stylesheet" />
+<style>
+	@media print {
+		.cust-page-header {
+			display: none;
+		}
+
+		.left-print-data li {
+			margin: 10px;
+			font-size: 10px !important;
+		}
+
+		.paymentFailed {
+			display: none;
+		}
+	}
+
+	.left-print-data {
+		margin-left: 0 !important;
+	}
+</style>
+<style type="text/css">
+	legend {
+		background: #004085;
+		padding: 4px 22px;
+		border-radius: 3px;
+		color: white;
+		font-size: 18px;
+		font-weight: 500;
+	}
+
+	label {
+		font-weight: 500;
+		font-size: 18px;
+	}
+
+	fieldset {
+		border: 2px solid gray !important;
+		border-radius: 3px;
+		padding: 30px !important;
+	}
+
+	.card {
+		box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+	}
+
+	.button-color:hover {
+		border-radius: 12px;
+	}
+
+	.button-color {
+		border: none;
+		color: #fff;
+		padding: px 30px;
+		font-weight: 500;
+		vertical-align: top;
+		width: 100px;
+		font-size: 20px;
+		transition: .3s;
+		-webkit-transition: .3s;
+	}
+
+		.button-color:hover {
+			color: #fff;
+		}
+
+	@media screen and (max-width:661px) {
+		input[type="text"] {
+			width: 200px !important;
+		}
+	}
+
+	@media screen and (max-width:693px) {
+		input[type="text"] {
+			width: 200px !important;
+		}
+	}
+
+	@media screen and (max-width:561px) {
+		input[type="text"] {
+			width: 250px !important;
+		}
+
+		.button-color {
+			margin: 5px !important;
+			width: 100px;
+		}
+	}
+
+	@media screen and (max-width: 400px) {
+		input[type="text"] {
+			width: 230px !important;
+		}
+	}
+
+	@media screen and (max-width: 377px) {
+		input[type="text"] {
+			width: 200px !important;
+		}
+	}
+
+	@media screen and (max-width: 344px) {
+		input[type="text"] {
+			width: 150px !important;
+		}
+	}
+
+	input placeholder {
+		padding-left: 10px;
+	}
+
+	input[type="text"] {
+		height: 40px;
+		width: 300px;
+		border: 1px solid #ced4da;
+		border-radius: 5px;
+		padding-left: 10px;
+	}
+
+	input:focus {
+		color: #495057;
+		background-color: #fff;
+		border-color: #80bdff;
+		outline: 0;
+		box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+	}
+
+	.body-container-fluid {
+		padding-top: 10px;
+	}
+
+	.body-first-container {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+</style>
+
+<body>
+	<div class="container-fluid body-first-container">
+		<div class="row">
+			<div class="col-md-12">
+				<h4 style="text-align: center !important;">D-Krishi Subsidy Seeds Payment </h4>
+			</div>
+		</div>
+		<div class="col-sm-12 body-container-fluid">
+			<div class="card">
+				<div class="card-body pb-5">
+					<div class="row">
+					</div>
+					<fieldset>
+						<legend class="w-auto">
+							Payment Status
+						</legend>
+						<form>
+							<div class="row">
+								<div class="col-sm-12 row">
+									<div class="col-sm-6 form-group">
+										<label for="">Order ID :</label>
+										<input type="text" class="form-control" placeholder="Please Enter Order ID" ng-model="orderId" autocomplete="off" />
+									</div>
+									<div class="col-sm-4 form-group mt-3" >
+										<button type="submit" class="btn btn-success button-color" ng-click="orderDetails();">Check</button>
+										</div>
+									</div>
+								</div>
+						</form>
+					</fieldset>
+				</div>
+				<div class="container p-5" ng-show="orderFlag == '1' || orderFlag == '3'" align="center">
+					<fieldset>
+						<legend class="w-auto">
+							Order Details
+						</legend>
+						<center>
+							<div class="table-responsive">
+								<table class="table table-bordered" style="width:100%">
+									<tr>
+										<th>NAME : </th>
+										<td><b>{{orderDetailsData.farmerName}}</b></td>
+									</tr>
+									<tr>
+										<th>CROP NAME : </th>
+										<td>{{orderDetailsData.cropName}}</td>
+									</tr>
+									<tr>
+										<th>OTP ID : </th>
+										<td>{{orderDetailsData.otpid}}</td>
+									</tr>
+									<tr>
+										<th>QUANTITY IN BAGS : </th>
+										<td>{{orderDetailsData.qtyInBags}}</td>
+									</tr>
+									<tr>
+										<th>QUANTITY IN KGS : </th>
+										<td>{{orderDetailsData.qtyInKgs}}</td>
+									</tr>
+									<tr>
+										<th>SEED VERITY : </th>
+										<td>{{orderDetailsData.seedVariety}}</td>
+									</tr>
+									<tr>
+										<th>AMOUNT : </th>
+										<td><span class="text-success"><b>{{orderDetailsData.amountTobePaid}}</b></span></td>
+									</tr>
+
+								</table>
+							</div>
+
+							<div class="pt-3" ng-show="orderFlag == '1'" align="center">
+								<button type="button" class="btn btn-sm btn-primary" ng-if="orderDetailsData.status == '1'" ng-click="makePayment();">MAKE PAYMENT</button>
+								<h3 ng-if="orderDetailsData.status == '2'" class="text-success">Payment Already Done</h3>
+							</div>
+
+
+							<div class="pt-3" ng-show="orderFlag == '3'" align="center">
+								<h3 class="text-warning">Payment Can be done in the same secretariat where order initiated</h3>
+							</div>
+						</center>
+					</fieldset>
+				</div>
+
+				
+
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row" align="center" ng-show="loader" style="padding:20px;">
+		<div class="col-md-12">
+			<h1>Loading...</h1>
+		</div>
+	</div>
+
+	<div id="printdiv" ng-show="orderFlag == '2'">
+		<div class="container-fluid" style="margin-top: 10px !important; color:#000;">
+			<div class="row">
+				<div class="col-sm-3 mt-5 text-center">
+					<img src="assets/images/ap-logo.png" style="width: 33% !important; margin-top: 10px;" />
+				</div>
+				<div class="col-sm-6 text-center mt-5">
+					<h1 style="    font-size: 34px; font-family: Rubik-Medium; margin-bottom: 0px;">గ్రామ - వార్డు సచివాలయము</h1>
+					<h2>Government of Andhra Pradesh</h2>
+				</div>
+				<div class="col-sm-3 text-center mt-5">
+					<img src="assets/images/grama-ward-sachivalayam-logo-300px.png" style="    width: 33% !important;
+    margin-top: 10px;" />
+				</div>
+
+				<div class="col-sm-12 text-center">
+					<h2 style=" font-family: Rubik-Medium;font-size: 17px; margin-right: 56px;">
+						<span style=" color: #3F51B5;">Y</span>our <span style=" color: #3F51B5;">S</span>ervice <span style=" color: #3F51B5;">R</span>equest No : GSWS-{{orderDetailsData.gswsTxnId}}
+					</h2>
+				</div>
+			</div>
+
+			<div class="row print-option" ng-show="paymentFailed == '0'">
+				<div class="col-sm-12">
+					<div class="row mb-2">
+						<div class="col-sm-6">
+							<ul class="left-print-data">
+								<li>Service Name / సేవ పేరు<span>: &nbsp; {{paymentResponse.URL_DESCRIPTION}} / Dkrishi Subsidy Seed ఆర్డర్ చెల్లింపు  </span> </li>
+								<li> Payment Mode / చెల్లింపు మోడ్<span>: &nbsp; WALLET / వాలెట్ </span> </li>
+								<li> Date Of Payment / చెల్లింపు తేదీ<span>: &nbsp; {{paymentResponse.INSERTED_DATE}} </span> </li>
+								<li> PS Application No / GSWS లావాదేవీ ఐడి<span>: &nbsp; GSWS-{{orderDetailsData.gswsTxnId}} </span></li>
+								<li> Citizen Name / రైతు పేరు<span>: &nbsp; {{orderDetailsData.farmerName}} </span></li>
+								<li> District / జిల్లా పేరు<span>: &nbsp; {{DISTRICT_NAME}} </span> </li>
+								<li> Grama/Ward Name<span>: &nbsp; {{SECRETARIAT_NAME}} </span> </li>
+								<li> Delivered in <span>: &nbsp; {{paymentResponse.SLA}} </span></li>
+							</ul>
+						</div>
+						<div class="col-sm-6">
+							<ul class="left-print-data ml-0">
+								<li>Date<span>: &nbsp; {{paymentResponse.CUREENT_DATE}} </span> </li>
+								<li>Amount Paid (Rs.) /  చెల్లించిన మొత్తం<span>: &nbsp; {{paymentResponse.TOTAL_AMOUNT}} </span> </li>
+								<li>Agent Name / డిజిటల్ అసిస్టెంట్ పేరు<span>: &nbsp; {{username}} </span> </li>
+								<li>Seed Transaction ID / Seed ఆర్డర్ ఐడి<span>: &nbsp; {{orderDetailsData.otpid}} </span></li>
+								<li>Mandal / మండల పేరు<span>: &nbsp; {{MANDAL_NAME}} </span> </li>
+								<li> Secretariat Name / సచివాలయం పేరు<span>: &nbsp; {{SECRETARIAT_NAME}} </span></li>
+								<li> SEED VERAITY<span>: &nbsp; {{orderDetailsData.seedVariety}} </span></li>
+								<li> QUANTITY IN BAGS<span>: &nbsp; {{orderDetailsData.qtyInBags}} </span></li>
+								<li> QUANTITY IN KGS.<span>: &nbsp; {{orderDetailsData.qtyInKgs}} </span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="row mb-3 mx-5">
+						<div class="col-sm-8 text-center text-danger">
+							<b> అవినీతి పై ఫిర్యాదు చేయుట కొరకు టోల్ ఫ్రీ నెంబర్ : 14400 ను సంప్రదించండి</b>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row  paymentFailed" ng-show="paymentFailed == '1'">
+				<div class="col-sm-12 " align="center">
+					<h2 class="text-center">Payment Failed</h2>
+				</div>
+				<div class="col-sm-12 " align="center">
+					<button type="button" class="btn btn-sm btn-primary" ng-click="login();">Login</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container" ng-show="orderFlag == '2' && paymentFailed == '0'">
+		<div class="row">
+			<div class="col-sm-12">
+				<button class="btn btn-primary float-right btn-sm" ng-click="PrintReceipt();"><i class="icon-shredder mr-2"></i> Print</button>
+			</div>
+		</div>
+	</div>
+</body>

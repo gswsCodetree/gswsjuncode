@@ -1,0 +1,130 @@
+﻿<style type="text/css">
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+<!-- Page content -->
+<div class="page-content pt-0">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="col-md-12 bg-light py-3">
+                    <div class="row justify-content-between">
+                        <div class="col-md-3">
+                            <h3>Skill Development </h3>
+                        </div>
+                        <div class="col-md-6" style="float:right;">
+                            <a style="cursor:pointer;" data-ng-click="GoTO('jobs');" class="btn btn-outline-success mr-2">Upcomming Jobs</a>
+                            <a style="cursor:pointer;" data-ng-click="GoTO('batches');" class="btn btn-outline-primary mr-2">Upcomming Batches</a>
+                            <a style="cursor:pointer;" data-ng-click="GoTO('status');" class="btn btn-outline-secondary mr-2">Job/Batch Status Check</a>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-center mb-4">
+                            <h1>Upcomming All Jobs</h1>
+                        </div>
+                        <div class="col-sm-12 mt-2 " ng-show="dttable">
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="card m-b-30">
+                                        <div class="card-body">
+                                            <h4 class="mt-0 header-title mb-4 text-center">Data View</h4>
+                                            <div class="row mt-2 mb-2">
+                                                <div class="col-md-3">
+                                                    <input type="search" class="form-control form-control-sm" placeholder="Search.." data-ng-model="SearchText" aria-controls="">
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive headertable">
+                                                <table class="table bg-white table-bordered table-striped" datatable="ng">
+                                                    <thead>
+                                                        <tr class="bg-dark" style="color:white !important;">
+                                                            <th>S.No</th>
+                                                            <th>Job Mela Name</th>
+                                                            <th>Job Mela Description</th>
+                                                            <th>Job Mela Location</th>
+                                                            <th>Distict Name</th>
+                                                            <th>Drive Date</th>
+                                                            <th>Job Description</th>
+                                                            <th>Ornization Name</th>
+                                                            <th>Location</th>
+                                                            <th>Salary</th>
+                                                            <th>Action</th>
+                                                            <!--<th>S.No</th>
+                                                <th>Job Title</th>
+                                                <th>Job Role</th>
+                                                <th>Job Location</th>
+                                                <th>Quatification</th>
+                                                <th>Venue</th>
+                                                <th>No of Vacancies</th>
+                                                <th>Distict Name</th>
+                                                <th>Sector</th>
+                                                <th>Salary</th>
+                                                <th>Job Posted Data</th>
+                                                <th>Drive Date</th>
+                                                <th>Application Last Date</th>
+                                                <th>On Job Training</th>
+                                                <th>Job Type</th>
+                                                <th>Action</th>-->
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr dt-rows ng-repeat="job in JobDetails |  filter : SearchText">
+                                                            <td>{{$index + 1}}</td>
+                                                            <td>{{job.JobMelaname}}</td>
+                                                            <td>{{job.JobMeladescription}}</td>
+                                                            <td>{{job.JobMelalocation}}</td>
+                                                            <td>{{job.districtid}}</td>
+                                                            <td>{{job.drivedate}}</td>
+                                                            <td>{{job.jobdescription}}</td>
+                                                            <td>{{job.ornizationname}}</td>
+                                                            <td>{{job.location}}</td>
+                                                            <td>{{job.salary}}</td>
+
+                                                            <td><button type="button" value="{{job.JObid}}" ng-click='ApplyJob(this)' ; class="btn btn-block btn-primary">Apply</button></td>
+                                                        </tr>
+                                                        <!--<tr dt-rows ng-repeat="job in JobDetails |  filter : SearchText">
+                                                <td>{{$index + 1}}</td>
+                                                <td>{{job.job_title}}</td>
+                                                <td>{{job.jobrole}}</td>
+                                                <td>{{job.job_location}}</td>
+                                                <td>{{job.Qualification}}</td>
+                                                <td>{{job.Venue}}</td>
+                                                <td>{{job.Vacancies}}</td>
+                                                <td>{{job.district}}</td>
+                                                <td>{{job.sector}}</td>
+                                                <td>{{job.Salary}}</td>
+                                                <td>{{job.job_posted_date}}</td>
+                                                <td>{{job_drive_date}}</td>
+                                                <td>{{job.Application_Last_Date}}</td>
+                                                <td>{{job.On_job_training}}</td>
+                                                <td ng-if="job.job_type==1">Permanent</td>
+                                                <td ng-if="job.job_type==2">Temporary</td>
+
+                                                <td><button type="button" value="{{job.jobid}}" ng-click='ApplyJob(this)'; class="btn btn-block btn-primary">Apply</button></td>
+
+                                            </tr>-->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

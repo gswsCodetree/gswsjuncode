@@ -1,0 +1,2 @@
+250520213805PM:Error From GetWalletAmount:Unable to connect to the remote server
+250520214227PM:Error From GetWalletAmount:Unable to connect to the remote server

@@ -1,0 +1,72 @@
+﻿
+<div class="container">
+	<div class="scheme">
+		<div class="col-md-12" align="center">
+			<h3><b style="border-bottom:5px solid black">Get Village Agriculture Assistants</b></h3>
+		</div>
+		<div class="col-md-12" style="margin-top:20px">
+			<div>
+				<div class="row">
+					<div class="col-md-2">
+						<b>District <span style="color:red">*</span></b>
+						<select class="form-control" ng-model="distcode">
+							<option value="">Select</option>
+							<option ng-repeat="obj in distlist| orderBy : 'LGD_DISTRICT_NAME'" value="{{obj.LGD_DISTRICT_CODE}}">{{obj.LGD_DISTRICT_NAME}}</option>
+						</select>
+					</div>
+					<div class="col-md-2">
+						<b>Rural/Urban <span style="color:red">*</span></b>
+						<select class="form-control" ng-model="ruflag" ng-change="GetMandals()">
+							<option value="">Select</option>
+							<option value="R">Rural</option>
+							<option value="U">Urban</option>
+						</select>
+					</div>
+					<div class="col-md-2">
+						<b>Mandal <span style="color:red">*</span></b>
+						<select class="form-control" ng-model="mcode" ng-change="GetVillages()">
+							<option value="">Select</option>
+							<option ng-repeat="obj in mandallist| orderBy : 'LGD_MANDAL_NAME'" value="{{obj.LGD_MANDAL_CODE}}">{{obj.LGD_MANDAL_NAME}}</option>
+						</select>
+					</div>
+
+				</div>
+
+				<div class="col-md-12" style="margin-top:22px" align="center">
+					<button class="btn btn-primary" id="btnGetReport" ng-click="getdetails()">Get Details</button>
+					<button class="btn btn-danger" id="btnreset" ng-click="Refresh()">Reset</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-12" style="margin-top:10px" ng-show="divdetails">
+			<div class="row">
+				<div class="col-md-12 table-responsive">
+					<table class="table table-bordered" style="margin-top:10px;">
+						<thead style="font-weight:bold;background-color:darkgrey;color:white">
+							<tr>
+								<td>Sno</td>
+								<td>VAA Name</td>
+								<td>Mobile Number</td>
+								<td>Registration Date</td>
+								<td>Village</td>
+
+							</tr>
+						</thead>
+
+						<tr ng-repeat="res1 in Eligibilities_Seed">
+							<td>{{$index +1}}</td>
+							<td>{{res1.resourcepname}}</td>
+							<td>{{res1.mobileno}}</td>
+							<td>{{res1.regdate}}</td>
+							<td>{{res1.wvname}}</td>
+						</tr>
+
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

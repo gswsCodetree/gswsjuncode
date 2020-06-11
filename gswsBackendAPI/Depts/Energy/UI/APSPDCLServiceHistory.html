@@ -1,0 +1,73 @@
+﻿<style type="text/css">
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>APSPDCL Service History</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-3 col-form-label text-right">Service Reg. Number</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" alpha-numerics maxlength="25" ng-model="servicergno" placeholder="Service Reg Number" class="form-control">
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button type="button" ng-click="GetStatus();" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mt-2 " ng-show="dttable">
+                        <table class="table bg-white table-bordered table-striped table-hover datatable-show-all" style="table-layout:fixed;">
+                            <tbody>
+                                <tr><td>Service Name</td><td style="width:20px !important;"> : </td><td>{{SERVICE_NAME}}</td></tr>
+                                <tr><td>Service Message</td><td style="width:20px !important;"> : </td><td>{{STATUS_MSG}}</td></tr>
+                                <tr><td>Remarks</td><td style="width:20px !important;"> : </td><td>{{REMARKS}}</td></tr>
+                                <tr><td>Transaction Date</td><td style="width:20px !important;"> : </td><td>{{TRANS_DATE}}</td></tr>
+                            </tbody>
+                            <!--<thead>
+                                <tr class="bg-dark" style="color:white !important;">
+                                    <th>S.No</th>
+                                    <th>Service Name</th>
+                                    <th>Status Message</th>
+                                    <th>Remarks</th>
+                                    <th>Transaction Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dt-rows ng-repeat="stu in TranDetals">
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{stu.SERVICE_NAME}}</td>
+                                    <td>{{stu.STATUS_MSG}}</td>
+                                    <td>{{stu.REMARKS}}</td>
+                                    <td>{{stu.TRANS_DATE}}</td>
+                                </tr>
+                            </tbody>-->
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

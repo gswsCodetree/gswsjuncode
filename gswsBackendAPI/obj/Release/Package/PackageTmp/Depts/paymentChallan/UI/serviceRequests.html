@@ -1,0 +1,106 @@
+﻿
+<style>
+
+    body {
+        background: #fff !important;
+    }
+
+    .table thead th {
+        padding: 8px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .table tbody td {
+        padding: 5px;
+    }
+
+    .btn {
+        padding: 2px 8px;
+    }
+
+    .table tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .table tbody tr:nth-of-type(even) {
+        background-color: rgba(120, 120, 120, 0.12);
+    }
+
+    .table tr td p {
+        margin-bottom: 0;
+    }
+
+    .form-control {
+        height: 30px !important;
+        padding: 0;
+    }
+
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
+        display: none !important;
+    }
+</style>
+
+
+<div class="row " style="padding-top:20px;">
+    <div class="col-md-12">
+        <h3 class="text-center">Citizen Service Request Details</h3>
+        <div class="row">
+           <!--<div class="col-md-12">
+                <button type="button" class="btn btn-success btn-sm pull-right" ng-click="btnGenerateChallan();">GENERATE CHALLAN</button>
+                <button type="button" class="btn btn-info btn-sm pull-right" ng-click="btnPrintChallan();">PRINT CHALLAN</button>
+            </div>-->
+        </div>
+        <div class="row" align="center" style="padding:20px;" ng-show="!loader">
+            <div class="col-md-12 table-responsive">
+                <table class="table table-bordered">
+                    <thead class="bg-primary">
+                        <tr align="center">
+                            <th>S.No.</th>
+                            <th>CITIZEN NAME</th>
+                            <th>AMOUNT</th>
+                            <th>SERVICE CHARGE</th>
+                            <th>TOTAL AMOUNT</th>
+                            <th>PAYMENT DATE</th>
+                        </tr>
+                    </thead>
+                    <tbody align="center" ng-show="!loader && serviceRequestsDetails != ''">
+                        <tr align="center" ng-repeat="obj in serviceRequestsDetails">
+                            <td>{{$index + 1}}</td>
+                            <td>{{obj.CITIZEN_NAME}}</td>
+                            <td>{{obj.AMOUNT}}</td>
+                            <td>{{obj.SERVICE_CHARGE}}</td>
+                            <td>{{obj.TOTAL_AMOUNT}}</td>
+                            <td>{{obj.INSERTED_DATE}}</td>
+                        </tr>
+					<tfoot>
+						<tr>
+							<td>-</td>
+							<td>Total</td>
+							<td>{{totamount}}</td>
+							<td>{{totservice}}</td>
+							<td>{{totamountval}}</td>
+						</tr>
+					</tfoot>
+                    <tbody align="center" ng-show="!loader && serviceRequestsDetails == ''">
+                        <tr>
+                            <td colspan="7">
+                                <h5 class="text-center">No Data Available</h5>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="row" align="center" ng-show="loader" style="padding:20px;">
+            <div class="col-md-12">
+                <h1>Loading...</h1>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

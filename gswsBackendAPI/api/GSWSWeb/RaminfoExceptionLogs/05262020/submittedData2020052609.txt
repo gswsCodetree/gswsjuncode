@@ -1,0 +1,4 @@
+260520212051PM:Error From GetWalletAmount:Unable to connect to the remote server
+260520212840PM:Error From GetWalletAmount:Unable to connect to the remote server
+260520213608PM:Error From GetWalletAmount:Unable to connect to the remote server
+260520213953PM:Error From GetWalletAmount:Unable to connect to the remote server

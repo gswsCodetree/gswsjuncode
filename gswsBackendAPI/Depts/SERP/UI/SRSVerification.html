@@ -1,0 +1,152 @@
+﻿<style>
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('../images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1 style="text-align: center;">Streenidhi/Unnathi Loan Request</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-3">
+                                        <label class="col-lg-6 col-form-label"><b>District :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="seldistrict" data-ng-change="LoadMadals();">
+                                                <option selected="selected" value="">-Select-</option>
+
+                                                <option data-ng-repeat="dis in DistricsDD" value="{{dis.DISTRICT_ID}}">{{dis.DISTRICT_NAME}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Mandal :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selmandal" data-ng-change="LoadVillageOrg();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="man in MandalsDD" value="{{man.MANDAL_ID}}">{{man.MANDAL_NAME}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Village Organization :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selvillorg" data-ng-change="LoadHelpGroups()">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="vil in VillageOrgDD" value="{{vil.VO_ID}}">{{vil.VO_NAME}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Self Help Groups :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selselfhelp" data-ng-change="LoadMembers();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="vil in SelfHelpDD" value="{{vil.SHG_ID}}">{{vil.SHG_NAME}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Members :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selmembers" data-ng-change="ChangeMember();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="vil in MembersDD" value="{{vil.Member_ID}}">{{vil.Member_Name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Project Category :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selprocat" data-ng-change="LoadMajorAct();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="vil in ProCatDD" value="{{vil.id}}">{{vil.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-3" style="margin-top:2.5%;">
+                                        <button type="button" data-ng-click="GetStatus();" class="btn btn-primary">Get Eligible Status</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     
+                    <div class="col-sm-12 mt-2" data-ng-show="divtable">
+                        <label>Status : </label> <label style="font-weight:bold;">{{eligible}}</label> 
+                    </div>
+
+                    <div class="col-sm-12 mt-2" data-ng-show="divreg">
+                        <h2 style="text-align: center;">Loan Request</h2>
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Major Activity :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selmajoract" data-ng-change="LoadMinorAct();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="vil in MajorActDD" value="{{vil.NAME}}">{{vil.NAME}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Minor Activity :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <select class="form-control" data-ng-model="selminoract" data-ng-change="">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="vil in MinorActDD" value="{{vil.ID}}">{{vil.NAME}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Loan Amount :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" only-digits  data-ng-model="loanamount" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="col-lg-12 col-form-label"><b>Mobile Number :</b><span style="color:red"> *</span></label>
+                                        <div>
+                                            <input type="text" numbers-only data-ng-model="mobileno" maxlength="10" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3" style="margin-top:2.5%;">
+                                        <button type="button" data-ng-click="LoanRequest();" class="btn btn-primary">Loan Request</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

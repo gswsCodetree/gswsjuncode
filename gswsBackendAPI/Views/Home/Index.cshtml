@@ -1,0 +1,473 @@
+﻿<!DOCTYPE html>
+<html ng-app="GSWS">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="assets/images/favicon.png" type="image/vnd.microsoft.icon">
+	<title>Grama-Ward Sachivalayam</title>
+	<meta name="keywords" content="GSWS,Grama ward sachivalayam,Sachivalayam ap,Grama sachivalayam ap,Ward sachivalayam ap" />
+	<meta name="description" content="GRAMAWARD SACHIVALAYAM AP" />
+	<!-- Global stylesheets -->
+
+
+	<link href="~/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="~/assets/css/icons/material/icons.css" rel="stylesheet" type="text/css">
+	<link href="~/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="~/assets/css/bootstrap_limitless.css" rel="stylesheet" type="text/css">
+	<link href="~/assets/css/layout.css" rel="stylesheet" type="text/css">
+	<link href="~/assets/css/components.css" rel="stylesheet" type="text/css">
+	<link href="~/assets/css/colors.css" rel="stylesheet" type="text/css">
+	<link href="~/assets/css/slick.css" rel="stylesheet" />
+	<link href="~/assets/css/slick-theme.css" rel="stylesheet" />
+	<link href="assets/flaticon/flaticon.css" rel="stylesheet" type="text/css">
+	<link href="~/assets/css/hover.css" rel="stylesheet" type="text/css">
+	<link href="~/assets/css/style.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+	<!-- Core JS files -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/ripple.min.js"></script>
+	<script src="assets/plugins/uniform.min.js"></script>
+	<script src="assets/plugins/switch.min.js"></script>
+
+	<script src="~/assets/plugins/spin.min.js"></script>
+	<script src="~/assets/plugins/ladda.min.js"></script>
+	<script src="~/assets/plugins/components_buttons.js"></script>
+	<script src="~/JS_Modules/Libraries/moment.js"></script>
+
+	<!-- /core JS files -->
+	<!-- Theme JS files -->
+	<!-- /theme JS files -->
+
+
+	<script type="text/javascript" language="javascript">
+		function DisableBackButton() {
+			window.history.forward(1)
+		}
+		DisableBackButton();
+		window.onload = DisableBackButton;
+		window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
+		window.onunload = function () { void (0) }
+	</script>
+	<script type="text/javascript">
+
+
+		window.addEventListener('storage', function (event) {
+			if (event.key == 'logout-event') {
+				this.sessionStorage.clear();
+				window.location = "../GSWS/#!/Login";
+				//window.location.href = "../PSTESTAPP/Home/Main";
+			}
+		});
+
+		/* Block current page on button click */
+		$(window).on("load", function () {
+			$(".loader").fadeOut("3000");
+		});
+
+	</script>
+	<style>
+		.mainpage {
+			display: contents;
+		}
+	</style>
+	<script>
+
+		//setInterval(function () {
+		//	sessionStorage.setItem('SEC_KEY', Date.now());
+		//	$('#forgeryToken').load(location.href + ' #forgeryToken>*', '');
+		//}, 10000);
+
+
+	</script>
+</head>
+
+
+
+<body>
+	<div class="loader"></div>
+
+	<div id="forgeryToken">
+		@Html.AntiForgeryToken()
+	</div>
+	<button onclick="topFunction()" id="myBtn" title="Go to top"><i class="icon-arrow-up16"></i> </button>
+
+	<ui-view class="mainpage"></ui-view>
+
+
+
+
+	<!--Angular Core Modules-->
+
+	<script src="~/JS_Modules/Libraries/angular.min.js"></script>
+	<script src="~/JS_Modules/config.js"></script>
+
+	<!--Aadhaar Verhoeff-->
+	<script src="~/Depts/SocialWelfare_Tribal/UI/config/Common_Validations.js"></script>
+	<script src="~/js/JS_Aadhar_Verifivation.js"></script>
+
+	<link href="~/JS_Modules/Libraries/sweet-alert.css" rel="stylesheet" />
+	<script src="~/JS_Modules/Libraries/SweetAlert2.js"></script>
+
+
+	<!--Libraries-->
+	<script src="~/JS_Modules/Libraries/angular.ui.route.min.js"></script>
+	<script src="~/JS_Modules/Libraries/angular.filter.min.js"></script>
+	<script src="~/JS_Modules/Libraries/angular.upload.js"></script>
+	<script src="~/JS_Modules/Libraries/network.js"></script>
+	<script src="~/JS_Modules/Libraries/InputMasking.js"></script>
+	<script src="~/JS_Modules/Libraries/sha256.js"></script>
+
+	<!--Data Tables-->
+	<script src="~/JS_Modules/Libraries/DataTables/angular-datatables.bootstrap.js"></script>
+	<script src="~/JS_Modules/Libraries/DataTables/angular-datatables.directive.js"></script>
+	<script src="~/JS_Modules/Libraries/DataTables/angular-datatables.factory.js"></script>
+	<script src="~/JS_Modules/Libraries/DataTables/angular-datatables.js"></script>
+	<link href="~/js/Datatables/jquery.dataTables.css" rel="stylesheet" />
+	<script src="~/js/Datatables/jquery.dataTables.js"></script>
+
+
+	<!--Others-->
+	<script src="~/UI/loginController.js"></script>
+	<script src="~/UI/LoginService.js"></script>
+
+	<script src="~/UI/MainController.js"></script>
+	<script src="~/UI/ulbtelugu.js"></script>
+
+	<script src="~/UI/DashboardController.js"></script>
+
+	<script src="~/UI/ui.js"></script>
+	<script src="~/UI/PublicheaderCTRL.js"></script>
+	<script src="~/UI/TransRespController.js"></script>
+	<script src="~/UI/ReceivedController.js"></script>
+	<script src="~/UI/ApplicationStatus.js"></script>
+	<script src="~/UI/DistrictLoginController.js"></script>
+	<script src="~/UI/ProfileUpdate.js"></script>
+
+	<script src="~/UI/ForgotPassword.js"></script>
+	<script src="~/UI/PublicLogin.js"></script>
+	<script src="~/UI/CumilativeDashboard.js"></script>
+	<script src="~/UI/PhysicalForms.js"></script>
+	<script src="~/UI/SpandanaGrievance.js"></script>
+	<script src="~/UI/InchargeChange.js"></script>
+	<script src="~/UI/PrintReceipt.js"></script>
+	<script src="~/UI/AffidavitJS.js"></script>
+	<script src="~/UI/SecretariatForm.js"></script>
+	<script src="~/UI/MailIdMobile.js"></script>
+	<script src="~/UI/SecretariatDashBoard.js"></script>
+
+
+	<!-- Social Welfare and Tribal Dept -->
+	<script src="~/Depts/SocialWelfare_Tribal/UI/config/Cert_Down_Route.js"></script>
+	<script src="~/Depts/SocialWelfare_Tribal/UI/config/SocialWelfareServices.js"></script>
+	<script src="~/Depts/SocialWelfare_Tribal/UI/Controllers/YPK_Mrg_Cert_Download.js"></script>
+	<script src="~/Depts/SocialWelfare_Tribal/UI/Controllers/Status_Check.js"></script>
+	<script src="~/Depts/SocialWelfare_Tribal/UI/Controllers/Education_Scholarships_check.js"></script>
+
+
+
+	<!--Endowments Dept-->
+	<script src="Depts/Endowments/UI/Config/EndowmentsServices.js"></script>
+	<script src="Depts/Endowments/UI/config/EndowmentsRoutes.js"></script>
+	<script src="Depts/Endowments/UI/Controllers/HomeController.js"></script>
+	<script src="Depts/Endowments/UI/Controllers/ABWCStatusController.js"></script>
+
+	<!--RTGS Dept-->
+	<script src="Depts/RTGS/UI/Config/RTGSServices.js"></script>
+	<script src="Depts/RTGS/UI/config/RTGSRoutes.js"></script>
+	<script src="Depts/RTGS/UI/Controllers/HomeController.js"></script>
+	<script src="Depts/RTGS/UI/Controllers/PSSStatusCotroller.js"></script>
+	<script src="~/Depts/RTGS/UI/Controllers/PSSUNSurveyController.js"></script>
+
+	<!--Education Dept-->
+	<script src="Depts/Education/UI/config/EducationServices.js"></script>
+	<script src="Depts/Education/UI/config/EducationRoutes.js"></script>
+	<script src="Depts/Education/UI/Controllers/AmmavodiContoller.js"></script>
+
+
+	<!--SERP Dept-->
+	<script src="Depts/SERP/UI/Config/SERPServices.js"></script>
+	<script src="Depts/SERP/UI/config/SERPRoutes.js"></script>
+	<script src="Depts/SERP/UI/Controllers/HomeController.js"></script>
+	<script src="Depts/SERP/UI/Controllers/PensionStatusController.js"></script>
+	<script src="~/Depts/SERP/UI/Controllers/SerpBimaController.js"></script>
+	<script src="~/Depts/SERP/UI/Controllers/SerpBimaRegsitrationController.js"></script>
+	<script src="Depts/SERP/UI/Controllers/BLSVerificationController.js"></script>
+	<script src="Depts/SERP/UI/Controllers/SRSVerificationController.js"></script>
+	<script src="~/Depts/SERP/UI/Controllers/PensionApplication.js"></script>
+	<script src="~/Depts/SERP/UI/Controllers/PensionAppStatus.js"></script>
+
+
+	<!--Health Dept-->
+	<script src="Depts/Health/UI/config/HealthServices.js"></script>
+	<script src="Depts/Health/UI/config/HealthRoutes.js"></script>
+	<script src="Depts/Health/UI/Controllers/ArogyaRakshaController.js"></script>
+	<script src="~/Depts/Health/UI/Controllers/SadaremCertificate.js"></script>
+	<script src="~/Depts/Health/UI/Controllers/YSRKantiVeluguController.js"></script>
+
+	<!--Services Dept-->
+	<script src="Depts/Services/UI/config/SevicesServices.js"></script>
+	<script src="Depts/Services/UI/config/ServicesRoutes.js"></script>
+	<script src="Depts/Services/UI/Controllers/NPCIController.js"></script>
+	<script src="Depts/Services/UI/Controllers/TextileController.js"></script>
+	<script src="Depts/Services/UI/Controllers/AssetTracking.js"></script>
+	<script src="Depts/Services/UI/Controllers/HardwareIssues.js"></script>
+	<script src="~/Depts/Services/UI/Controllers/Certificate_Controller.js"></script>
+	<script src="~/Depts/Services/UI/Controllers/RajakasAppStatus.js"></script>
+	<script src="~/Depts/Services/UI/Controllers/TailorsAppStatus.js"></script>
+	<script src="~/Depts/Services/UI/Controllers/NayeeBrahminsAppStatus.js"></script>
+	<script src="~/Depts/Services/UI/Controllers/PastorsAppStatus.js"></script>
+	<script src="~/Depts/Services/UI/Controllers/KapuNestamAppStatus.js"></script>
+	<script src="~/Depts/Services/UI/Controllers/Navasakam.js"></script>
+	<script src="~/Depts/Services/UI/Controllers/MUIDAppStatus.js"></script>
+	<script src="~/Depts/Services/UI/Controllers/ArogyasreeAppStatus.js"></script>
+	<script src="~/Depts/Services/UI/Controllers/LaborAppStatus.js"></script>
+	<script src="~/Depts/Services/UI/Controllers/JVDAppStatus.js"></script>
+	<script src="~/Depts/Services/UI/Controllers/MeesevaAppStatus.js"></script>
+
+	<!--REVENUE Dept-->
+	<script src="Depts/REVENUE/UI/Config/REVENUEServices.js"></script>
+	<script src="Depts/REVENUE/UI/config/REVENUERoutes.js"></script>
+	<script src="Depts/REVENUE/UI/Controllers/RationStatusController.js"></script>
+	<script src="~/Depts/REVENUE/UI/Controllers/RationReg.js"></script>
+	<script src="~/Depts/REVENUE/UI/Controllers/Revenue_ExciseComplaints.js"></script>
+	<script src="~/Depts/REVENUE/UI/Controllers/Excise_ComplaintStatuscheck.js"></script>
+	<!-- iNTERNAL  -->
+	<script src="~/Internal/UI/Config/InternalRoutes.js"></script>
+
+	<script src="~/Internal/UI/Config/InternalServices.js"></script>
+	<script src="~/Internal/UI/Controllers/InternalController.js"></script>
+	<script src="~/Internal/UI/Controllers/URLUpdation.js"></script>
+	<script src="~/Internal/UI/Controllers/UpdateURL.js"></script>
+	<script src="~/Internal/UI/Controllers/SecretriatMasterjs.js"></script>
+	<script src="~/Internal/UI/Controllers/Feedback.js"></script>
+	<script src="~/Internal/UI/Controllers/IssueClosing.js"></script>
+	<script src="~/Internal/UI/Controllers/HardwareIssueClosing.js"></script>
+	<!--MAUD Dept-->
+	<script src="~/Depts/MAUD/UI/config/Maud_Route.js"></script>
+	<script src="~/Depts/MAUD/UI/config/MAUD_Services.js"></script>
+	<script src="~/Depts/MAUD/UI/Controllers/MAUD_App_Check.js"></script>
+
+
+	<!--Minority Dept-->
+	<script src="~/Depts/Minority/UI/config/MinorityRoutes.js"></script>
+	<script src="~/Depts/Minority/UI/config/MinorityServices.js"></script>
+	<script src="~/Depts/Minority/UI/Controllers/WomenDivorcedStatus.js"></script>
+	<script src="~/Depts/Minority/UI/Controllers/ImamAndMouzansDetails.js"></script>
+
+	<!--meeseva Service-->
+	<script src="~/MeesevaService/UI/config/Meesevaroute.js"></script>
+	<script src="~/MeesevaService/UI/config/meesevaservice.js"></script>
+	<script src="~/MeesevaService/UI/controller/MeesevaController.js"></script>
+
+
+	<!--Transport and R&B Dept-->
+	<script src="~/Depts/Transport_RandB/UI/Config/TransportRoutes.js"></script>
+	<script src="~/Depts/Transport_RandB/UI/Config/TransportServices.js"></script>
+	<script src="~/Depts/Transport_RandB/UI/Controllers/RandB_ComplaintappSearch.js"></script>
+	<script src="~/Depts/Transport_RandB/UI/Controllers/RTARegAppStatus.js"></script>
+	<script src="~/Depts/Transport_RandB/UI/Controllers/VahanaMitraRegStatus.js"></script>
+	<script src="~/Depts/Transport_RandB/UI/Controllers/LLRAppStatus.js"></script>
+
+	<!--Womens Dept-->
+	<script src="~/Depts/Women_Children_Disabled_and_SeniorCitizen/UI/Config/Women_Route.js"></script>
+	<script src="~/Depts/Women_Children_Disabled_and_SeniorCitizen/UI/Config/Women_services.js"></script>
+	<script src="~/Depts/Women_Children_Disabled_and_SeniorCitizen/UI/Controllers/APDASCAC_Regform.js"></script>
+	<script src="~/Depts/Women_Children_Disabled_and_SeniorCitizen/UI/Controllers/Motorized3Wheelers.js"></script>
+	<script src="~/Depts/Women_Children_Disabled_and_SeniorCitizen/UI/Controllers/WCDWAppStatus.js"></script>
+
+	<!--Home Department-->
+	<script src="~/Depts/Home/UI/config/homeRoutes.js"></script>
+	<script src="~/Depts/Home/UI/config/HomeServices.js"></script>
+	<script src="~/Depts/Home/UI/Controllers/homeController.js"></script>
+	<script src="~/Depts/Home/UI/Controllers/Recover_VehicleSearch.js"></script>
+	<script src="~/Depts/Home/UI/Controllers/PetitionCheck.js"></script>
+	<script src="~/Depts/Home/UI/Controllers/KnowCaseStatus.js"></script>
+	<script src="~/Depts/Home/UI/Controllers/ViewFIR.js"></script>
+	<script src="~/Depts/Home/UI/Controllers/ArrestParticulars.js"></script>
+	<script src="~/Depts/Home/UI/Controllers/UnknownBodies.js"></script>
+	<script src="~/Depts/Home/UI/Controllers/Missed_Kidnapped_persons.js"></script>
+	<script src="~/Depts/Home/UI/Controllers/WantedCriminals.js"></script>
+	<script src="~/Depts/Home/UI/Controllers/Echallan.js"></script>
+	<script src="~/Depts/Home/UI/Controllers/LHMS.js"></script>
+	<script src="~/Depts/Home/UI/config/HomeMasters.js"></script>
+	<script src="~/Depts/Home/UI/Controllers/CrimePetition.js"></script>
+	<!-- Agriculture-->
+	<script src="~/Depts/AgriCulture/UI/config/agricultureRoutes.js"></script>
+	<script src="~/Depts/AgriCulture/UI/config/agricultureServices.js"></script>
+	<script src="~/Depts/AgriCulture/UI/Controllers/SeedEligibility.js"></script>
+	<script src="~/Depts/AgriCulture/UI/Controllers/EligibleBenificiaries.js"></script>
+	<script src="~/Depts/AgriCulture/UI/Controllers/GetVAAdetails.js"></script>
+	<script src="~/Depts/AgriCulture/UI/Controllers/VillageProfile.js"></script>
+
+	<script src="~/Depts/AgriCulture/UI/config/FMMasters.js"></script>
+	<script src="~/Depts/AgriCulture/UI/Controllers/FMRegistration.js"></script>
+	<script src="~/Depts/AgriCulture/UI/Controllers/FMStatus.js"></script>
+
+	<!--PRRD Dept-->
+	<script src="~/Depts/PRRD/UI/config/PRRDRoutes.js"></script>
+	<script src="~/Depts/PRRD/UI/config/PRRDServices.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/TaxSearch.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/JobCardPayment.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/FarmerData.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/DemandCapture.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/ConfirmDemand.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/BuildingPlanApplicationStatus.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/LayoutPlanApplicationStatus.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/LayoutPlanInformation.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/TransportDrinkingWater.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/MarriageApplication.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/NOCApplication.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/VolunteerMapping.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/KnowYourVolunteer.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/BirthDeathReg.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/TaxAppStatus.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/JobCardDetails.js"></script>
+	<script src="~/Depts/PRRD/UI/controller/JobCardReg.js"></script>
+	<!--YATC Dept-->
+	<script src="~/Depts/YATC/UI/config/YATCRoutes.js"></script>
+	<script src="~/Depts/YATC/UI/config/YATCServices.js"></script>
+	<script src="~/Depts/YATC/UI/Controllers/CandidateRegController.js"></script>
+	<script src="~/Depts/YATC/UI/Controllers/CanLoginController.js"></script>
+	<script src="~/Depts/YATC/UI/Controllers/ShowAllJobsController.js"></script>
+	<script src="~/Depts/YATC/UI/Controllers/UpCommingBatchesController.js"></script>
+	<script src="~/Depts/YATC/UI/Controllers/StatusCheckController.js"></script>
+
+	<!--Energy Dept-->
+	<script src="~/Depts/Energy/UI/config/EnergyRoutes.js"></script>
+	<script src="~/Depts/Energy/UI/config/EnergyServices.js"></script>
+	<script src="~/Depts/Energy/UI/Controllers/APSPDCLServiceStatusController.js"></script>
+	<script src="~/Depts/Energy/UI/Controllers/APSPDCLServiceHistoryController.js"></script>
+	<script src="~/Depts/Energy/UI/Controllers/APEPDCLServiceStatusController.js"></script>
+	<script src="~/Depts/Energy/UI/Controllers/APEPDCLServiceHistoryController.js"></script>
+
+	<!--Industries Dept-->
+	<script src="~/Depts/Industries/UI/config/IndustriesRoutes.js"></script>
+	<script src="~/Depts/Industries/UI/config/IndustriesServices.js"></script>
+	<script src="~/Depts/Industries/UI/Controllers/YSRNavodayamOTRRegController.js"></script>
+
+	<!--Commercial Tax Dept-->
+	<script src="Depts/CommercialTax/UI/config/CTServices.js"></script>
+	<script src="Depts/CommercialTax/UI/config/CTRoutes.js"></script>
+	<script src="~/Depts/CommercialTax/UI/Controllers/PTRegistrationControllers.js"></script>
+	<script src="~/Depts/CommercialTax/UI/Controllers/PTStatusCheckController.js"></script>
+	<script src="~/Depts/CommercialTax/UI/Controllers/PTRegEditControllers.js"></script>
+	<script src="~/Depts/CommercialTax/UI/Controllers/PTReturnsController.js"></script>
+	<script src="~/Depts/CommercialTax/UI/Controllers/PTRCController.js"></script>
+
+	<!--Housing Dept-->
+	<script src="~/Depts/Housing/UI/config/HousingRoutes.js"></script>
+	<script src="~/Depts/Housing/UI/config/HousingServices.js"></script>
+	<script src="~/Depts/Housing/UI/config/HSitesMasters.js"></script>
+	<script src="~/Depts/Housing/UI/Controllers/HousingAppStatus.js"></script>
+	<script src="~/Depts/Housing/UI/Controllers/HSitesAppReg.js"></script>
+	<script src="~/Depts/Housing/UI/Controllers/HSitesAppStatus.js"></script>
+
+	<!--Fisheres Dept-->
+	<script src="~/Depts/Fisheries/UI/config/FisheriesRoutes.js"></script>
+	<script src="~/Depts/Fisheries/UI/config/FisheriesServices.js"></script>
+	<script src="~/Depts/Fisheries/UI/Controllers/FisheriesAppStatus.js"></script>
+	<script src="~/Depts/Fisheries/UI/Controllers/RIDSAppStatus.js"></script>
+	<script src="~/Depts/Fisheries/UI/Controllers/LLCSAppStatus.js"></script>
+
+	<!--Law Dept-->
+	<script src="~/Depts/Law/UI/config/LawRoutes.js"></script>
+	<script src="~/Depts/Law/UI/config/LawServices.js"></script>
+	<script src="~/Depts/Law/UI/Controllers/LawNestamStatus.js"></script>
+
+
+	<!--Issue Tracking Report-->
+	<script src="~/Internal/UI/Controllers/issueTrackingReport.js"></script>
+
+	<!--Payment js-->
+	<script src="~/Payments/UI/Config/paymentConfig.js"></script>
+	<script src="~/Payments/UI/Controllers/paymentController.js"></script>
+
+
+	<!-- Pension Volunteer Mapping -->
+	<script src="~/Depts/PensionVolunteerMapping/UI/JS/pensionConfig.js"></script>
+	<script src="~/Depts/PensionVolunteerMapping/UI/JS/PensionVolunteerMappingController.js?v=1.1"></script>
+	<script src="~/JS_Modules/Libraries/check_list.js"></script>
+
+	<!-- Ration Cluster Mapping -->
+	<script src="~/Depts/RationVolunteermapping/UI/Config/RationVolunteerRoute.js"></script>
+
+	<script src="~/Depts/RationVolunteermapping/UI/Config/RationVolunteerServices.js"></script>
+	<script src="~/Depts/RationVolunteermapping/UI/Controller/RationVolunteerjsnew.js"></script>
+
+	<!--  Cluster to HH Mapping -->
+	<script src="~/Depts/clusterHouseholdMapping/UI/JS/householdConfig.js"></script>
+	<script src="~/Depts/clusterHouseholdMapping/UI/JS/householdMappingController.js"></script>
+	<script src="~/Depts/clusterHHGreaterMapping/UI/JS/householdConfig.js"></script>
+	<script src="~/Depts/clusterHHGreaterMapping/UI/JS/householdMappingController.js"></script>
+
+	<!--  unmapped Mapping -->
+	<script src="~/Depts/unMappedPensioners/UI/JS/unMappedPensionersConfig.js"></script>
+	<script src="~/Depts/unMappedPensioners/UI/JS/unMappedPensionersController.js"></script>
+	<!--  Rice card Incharge Mapping -->
+	<script src="~/Depts/riceCardsInchargeMapping/UI/JS/riceCardsInchargeMappingConfig.js"></script>
+	<script src="~/Depts/riceCardsInchargeMapping/UI/JS/riceCardsInchargeMappingController.js"></script>
+
+	<!--unmapped rice card-->
+	<script src="~/Depts/unMappedRiceCards/UI/JS/unMappedRcConfig.js"></script>
+	<script src="~/Depts/unMappedRiceCards/UI/JS/unMappedRcController.js"></script>
+
+	<!--RBk payment-->
+	<script src="~/Depts/RBKPayments/UI/JS/rbkPaymentsConfig.js"></script>
+	<script src="~/Depts/RBKPayments/UI/JS/rbkPaymentsController.js"></script>
+	<script src="~/Depts/RBKPayments/UI/JS/rbkPaymentRespController.js"></script>
+	<script src="~/Depts/RBKPayments/UI/JS/rbkPaymentStatusController.js"></script>
+	<script src="~/Depts/RBKPayments/UI/JS/RBKChallanPrint.js"></script>
+	<!--Seed payment-->
+	<script src="~/Depts/seedsPayments/UI/JS/seedsPaymentsConfig.js"></script>
+	<script src="~/Depts/seedsPayments/UI/JS/seedsPaymentsController.js"></script>
+	<script src="~/Depts/seedsPayments/UI/JS/seedsPaymentRespController.js"></script>
+	<script src="~/Depts/seedsPayments/UI/JS/seedsPaymentStatusController.js"></script>
+	<script src="~/Depts/seedsPayments/UI/JS/PaymentChallan.js"></script>
+	<script src="~/Depts/seedsPayments/UI/JS/SeedsChalanGeneration.js"></script>
+	<script src="~/Depts/seedsPayments/UI/JS/RBKPaymentChallan.js"></script>
+	<script src="~/Depts/seedsPayments/UI/JS/RBKPaymentgeneration.js"></script>
+	<script src="~/Depts/seedsPayments/UI/JS/SeedsChallanPrint.js"></script>
+
+	<script src="~/Depts/Pension/UI/JS/pensionDeptConfig.js"></script>
+	<script src="~/Depts/Pension/UI/JS/pensionDeptController.js"></script>
+	<script src="~/Depts/Pension/UI/JS/imageUpload.js"></script>
+	<script src="~/Depts/Pension/UI/JS/pensionGrevinanceList.js"></script>
+	<script src="~/Depts/Pension/UI/JS/pensionWEAVerification.js"></script>
+	<script src="~/Depts/knowYourVolunteer/UI/JS/app.js"></script>
+	<script src="~/Depts/paymentChallan/UI/JS/serviceRequestsConfig.js"></script>
+	<script src="~/Depts/paymentChallan/UI/JS/serviceRequestsController.js"></script>
+	<script>
+
+		/* Loader */
+		$(window).on("load", function () {
+			$(".loader").fadeOut("3000");
+		});
+
+		//Get the button
+		var mybutton = document.getElementById("myBtn");
+		window.onscroll = function () {
+			scrollFunction()
+		};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+
+	</script>
+
+</body>
+	</html>

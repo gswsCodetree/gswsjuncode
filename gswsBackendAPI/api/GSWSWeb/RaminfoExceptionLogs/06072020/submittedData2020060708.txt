@@ -1,0 +1,1 @@
+070620201214PM:Error From GetWalletAmount:Unable to connect to the remote server

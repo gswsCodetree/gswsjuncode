@@ -1,0 +1,1572 @@
+﻿<!--<link href="https://fonts.googleapis.com/css?family=Mandali&display=swap" rel="stylesheet">-->
+<style type="text/css">
+
+    .col-form-label {
+        font-weight: 600 !important;
+        font-family: 'Mandali', sans-serif !important;
+        font-size: 16px;
+    }
+
+        .col-form-label:after {
+            content: ':';
+        }
+
+    .api-page-title, legend {
+        font-family: 'Mandali', sans-serif !important;
+    }
+
+    .custom-control-label {
+        font-family: 'Mandali', sans-serif !important;
+        font-size: 16px;
+    }
+
+    .subtitle {
+        font-family: 'Mandali', sans-serif !important;
+        font-weight: 600;
+        text-decoration: underline;
+        color: #00BCD4;
+    }
+
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+
+    legend {
+        background: #004085;
+        padding: 4px 22px;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+    }
+
+    fieldset {
+        border: 2px solid gray !important;
+        border-radius: 3px;
+        padding: 30px !important;
+        margin-top: 5px;
+    }
+
+    .w-72 {
+        width: 72% !important;
+    }
+
+    .card {
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    }
+
+    .custom-radio .custom-control-label::before {
+        border: 1px solid #004085;
+        border-radius: 50%;
+    }
+
+    .custom-control-new::after {
+        border: 1px solid #004085;
+    }
+
+    .top-navigation .btn-rounded {
+        display: block;
+        clear: both;
+        margin: 0 auto;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        color: #fff !important;
+        font-weight: bold;
+        font-size: 16px;
+        text-align: center;
+        padding: 8px 5px;
+        background: #0d47a1;
+    }
+
+    .top-navigation .col-md-2 {
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif !important;
+    }
+
+        .top-navigation .col-md-2 span {
+            font-family: 'Mandali', sans-serif !important;
+        }
+
+        .top-navigation .col-md-2.right-tube::after {
+            content: '';
+            right: -100px;
+            position: absolute;
+            border-bottom: 5px solid grey;
+            width: 200px;
+            top: 17px;
+            border-radius: 5px;
+        }
+
+        .top-navigation .col-md-2.right-tube.active::after {
+            background: #004085;
+        }
+</style>
+<style type="text/css">
+
+    .progress-bar {
+        width: 100%;
+        overflow: visible;
+        white-space: nowrap;
+        background-color: transparent;
+    }
+
+    .progress-bar-container {
+        margin: 0 auto;
+        padding-top: 100px;
+        width: 80%;
+    }
+
+        .progress-bar-container .progress-bar {
+            position: relative;
+        }
+
+        .progress-bar-container .progress-bar__bar {
+            align-self: center;
+            background: #dfdfdf;
+            flex-grow: 1;
+            height: 5px;
+        }
+
+        .progress-bar-container .progress-bar__bar--completed {
+            background: #190a70;
+            background-color: #190a70;
+        }
+
+        .progress-bar-container .progress-bar__circles {
+            display: flex;
+        }
+
+        .progress-bar-container .progress-bar__circle {
+            background: grey;
+            border-radius: 50%;
+            border: 3px solid #dfdfdf;
+            color: black;
+            cursor: pointer;
+            height: 50px;
+            line-height: 48px;
+            position: relative;
+            text-align: center;
+            width: 50px;
+        }
+
+        .progress-bar-container .progress-bar__circle--completed {
+            background: #190a70;
+            border-color: #27bb95;
+            color: #ffffff;
+        }
+
+            .progress-bar-container .progress-bar__circle--completed .number {
+                color: #fff;
+                font-size: 1.8em;
+            }
+
+        .progress-bar-container .progress-bar__circle--selected {
+            border-color: #190a70;
+            color: #d84315;
+            background: #190a70;
+        }
+
+        .progress-bar-container .progress-bar__circle .number {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .progress-bar-container .progress-bar__circle__label {
+            top: 100%;
+            color: #b2b5ba;
+            font-weight: 600;
+            left: 50%;
+            margin-bottom: 4px;
+            margin-left: -50px;
+            position: absolute;
+            text-align: center;
+            width: 100px;
+        }
+
+    .vv-themenavtabs {
+        width: 100%;
+        float: left;
+        display: block;
+        list-style: none;
+        line-height: 14px
+    }
+
+        .vv-themenavtabs li {
+            float: left;
+            width: auto;
+            line-height: inherit;
+            list-style-type: none
+        }
+
+            .vv-themenavtabs li a {
+                padding: 20px;
+                color: #767676;
+                display: block;
+                font-size: 14px;
+                position: relative;
+                line-height: inherit
+            }
+
+            .vv-themenavtabs li:hover a {
+                color: #324b6e
+            }
+
+    .btn-blue {
+        color: white;
+        background-color: #094a82;
+        border-color: #094a82;
+    }
+
+    .vv-themenavtabs li a:after {
+        width: 0;
+        left: 0;
+        bottom: -1px;
+        content: '';
+        height: 2px;
+        position: absolute
+    }
+
+    .vv-themenavtabs li a.active:after, .vv-themenavtabs li:hover a:after {
+        width: 100%;
+        height: 3px;
+    }
+
+    .vv-themenavtabs li a.active {
+        /*color:#55acee;*/
+        color: #bd0b0b;
+        font-weight: bold
+    }
+
+    .vv-abouttab .vv-jobdetaildescription {
+        padding: 20px
+    }
+
+    .vv-tabcontent .vv-jobdetails .vv-jobdescription {
+        margin: 6px 0 22px
+    }
+
+    .vv-abouttab.vv-jobdetails .vv-title h2 {
+        margin: 0 0 9px
+    }
+
+    .vv-tabcontent .vv-jobdetails .vv-description p {
+        font-size: 14px;
+        margin: 0 0 27px;
+        line-height: 24px
+    }
+
+        .vv-tabcontent .vv-jobdetails .vv-description p:last-child {
+            margin: 0
+        }
+</style>
+
+<script type="text/javascript">
+    var FileUAM = ""; 
+    var filename1 = ""; 
+    function CheckFileType(fid) {
+
+        var ext = $('#' + fid).val().split('.').pop().toLowerCase();
+        if (ext == "pdf" || ext == "jpeg" || ext == "jpg" || ext == "png" ) {
+            var fn = $('#' + fid).val();
+            var startIndex = (fn.indexOf('\\') >= 0 ? fn.lastIndexOf('\\') : fn.lastIndexOf('/'));
+            var filename = fn.substring(startIndex);
+            if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+                filename = filename.substring(1);
+
+                if (fid == "Doc1Upl")
+                    filename1 = filename;
+
+                var filena = filename.split('.').slice(0, -1).join('.');
+                var dots = filena.split(".");
+                var str = filena;
+                if (/^[a-zA-Z0-9- ]*$/.test(str) == false || dots.length > 1) {
+                    swal("Info", 'Not Allowed Special Characters.', "info");
+                    $('#' + fid).val('');
+                }
+                else if ($('#' + fid).get(0).files[0].size > 2097152) {
+                    $('#' + fid).val('');
+                    swal('Info', 'File Size should be less than 2MB.', 'info'); $('#' + fid).focus();
+                }
+                else {
+                    encodeImageFileAsURL($('#' + fid).get(0), fid);
+
+                    swal("Info", "File Selected Successfully.", "info"); return;
+                }
+            }
+        }
+        else {
+            $('#' + fid).val('');
+            swal('Info', 'upload only jpeg/jpg/png/pdf format', 'info'); $('#' + fid).focus();
+        }
+    }
+
+    function encodeImageFileAsURL(element, sno) {
+        var file = element.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            var Result = reader.result;
+
+            // Split the base64 string in data and contentType
+            var block = Result.split(";");
+            // get the real base64 content of the file
+            var Base64Data = block[1].split(",")[1];// In this case "R0lGODlhPQBEAPeoAJosM...."
+
+            if (sno == "Doc1Upl")
+                FileUAM = Base64Data;
+
+        }
+        reader.readAsDataURL(file);
+    }
+
+</script>
+<section>
+    <div class="container-fluid">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <h2 class="api-page-title text-center">Crime Petition Registration Form</h2>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar">
+                                    <div class="vv-themenavtabs progress-bar__circles">
+                                        <a class="active" data-toggle="tab" data-ng-click="btn_get_tab(1);" data-ng-class="step_position == 1 ? 'active progress-bar__circle progress-bar__circle--selected' : 'progress-bar__circle progress-bar__circle'">
+                                            I
+                                        </a>
+                                        <div data-ng-class="step_position == 1 ?'progress-bar__bar progress-bar__bar':'progress-bar__bar progress-bar__bar--completed'"></div>
+                                        <a data-toggle="tab" data-ng-click="btn_get_tab(2);" data-ng-class="step_position == 2 ? 'active progress-bar__circle progress-bar__circle--selected' : 'progress-bar__circle progress-bar__circle'">II</a>
+                                        <div data-ng-class="(step_position == 2)||(step_position == 1) ?'progress-bar__bar progress-bar__bar':'progress-bar__bar progress-bar__bar--completed'"></div>
+                                        <a data-toggle="tab" data-ng-click="btn_get_tab(3);" data-ng-class="step_position == 3 ? 'active progress-bar__circle progress-bar__circle--selected' : 'progress-bar__circle progress-bar__circle'">III</a>
+                                        <div data-ng-class="(step_position == 3)||(step_position == 2)||(step_position == 1) ?'progress-bar__bar progress-bar__bar':'progress-bar__bar progress-bar__bar--completed'"></div>
+                                        <a data-toggle="tab" data-ng-click="btn_get_tab(4);" data-ng-class="step_position == 4 ? 'active progress-bar__circle progress-bar__circle--selected' : 'progress-bar__circle progress-bar__circle'">IV</a>
+                                        <div data-ng-class="(step_position == 4)||(step_position == 3)||(step_position == 2)||(step_position == 1) ?'progress-bar__bar progress-bar__bar':'progress-bar__bar progress-bar__bar--completed'"></div>
+                                        <a data-toggle="tab" data-ng-click="btn_get_tab(5);" data-ng-class="step_position == 5 ? 'active progress-bar__circle progress-bar__circle--selected' : 'progress-bar__circle progress-bar__circle'">V</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vv-tabcontent tab-content">
+                            <div data-ng-show="step_position == 1" data-ng-class="step_position == 1 ? 'active show' : ''">
+                                <fieldset>
+                                    <legend class="w-auto">
+                                        Personal Details
+                                    </legend>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Petition Date <span style="color:red"> *</span></label>
+                                            <input type="date" data-ng-model="PDate" class="form-control" data-date-format="DD MM YYYY">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Petition State <span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="PetState" ng-change="LoadDist();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in PetStateDD" value="{{dis.State_cd}}">{{dis.State}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Petition District <span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="selPetdistrict" ng-change="LoadPS();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in DistrictDD" value="{{dis.District_cd}}">{{dis.District}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Petition Police Station <span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="selPetPS">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="ps in PoliceStationDD" value="{{ps.Ps_cd}}">{{ps.PS}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Petition Subject <span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="Psubject">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="ps in PetitionSubDD" value="{{ps.Code}}">{{ps.Values}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Petition Description <span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" maxlength="100" placeholder="Petition Description" ng-model="PDesc" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">First Name <span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" placeholder="Name" alpha-only ng-model="Name" maxlength="30" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Middle Name </label>
+                                            <input type="text" class="form-control" placeholder="Middle Name" alpha-only ng-model="MiddleName" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Last Name </label>
+                                            <input type="text" class="form-control" placeholder="Last Name" alpha-only ng-model="LastName" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Gender <span style="color:red"> *</span></label>
+                                            <div>
+                                                <select class="form-control" data-ng-model="selgender">
+                                                    <option selected="selected" value="">-Select-</option>
+                                                    <option data-ng-repeat="dis in GenderDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Relation Name <span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" placeholder="Relative Name" maxlength="10" alpha-only ng-model="FHGName" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Relation Type <span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="RType">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in RelationDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Date of Birth <span style="color:red"> *</span></label>
+                                            <input type="date" class="form-control" ng-model="dob" data-date-format="DD MM YYYY" ng-change="getAge()" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Age </label>
+                                            <input type="text" class="form-control" disabled="disabled" numbers-only ng-model="age" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Education Qualification </label>
+                                            <select class="form-control" data-ng-model="Education1">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in EducationDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Other Education Qualification </label>
+                                            <input class="form-control" alpha-only placeholder="Other Education Qualification" maxlength="2" ng-model="Education2" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Occupation </label>
+                                            <select class="form-control" data-ng-model="occupation">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in OccupationDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> Other Occupation </label>
+                                            <input class="form-control" alpha-only placeholder="Occupation" maxlength="2" ng-model="OthOccupation" />
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Caste </label>
+                                            <select class="form-control" data-ng-model="caste" ng-change="LoadSubCaste();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in CasteDD" value="{{dis.Caste_tribe_cd}}">{{dis.Caste_tribe}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Sub Caste </label>
+                                            <select class="form-control" data-ng-model="Subcaste">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in SubCasteDD" value="{{dis.Sub_Caste_cd}}">{{dis.Sub_Caste}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Religion </label>
+                                            <select class="form-control" data-ng-model="Religion">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in ReligionDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Nationality </label>
+                                            <select class="form-control" data-ng-model="Nationality">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in NationalityDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4"></div>
+                                    </div>
+
+                                </fieldset>
+                                <fieldset>
+                                    <legend class="w-auto">
+                                        Contact Details
+                                    </legend>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Office Phone Number </label>
+                                            <input type="text" class="form-control" placeholder="Office Telephone No" numbers-only ng-model="OMobileNo" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Mobile Number <span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" placeholder="Mobile" numbers-only ng-model="MobileNo" maxlength="10" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Alternative Mobile Number </label>
+                                            <input type="text" class="form-control" placeholder="Alternate Mobile" numbers-only ng-model="AMobileNo" maxlength="10" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Fax No </label>
+                                            <input type="text" class="form-control" placeholder="Fax" data-ng-model="Faxno" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">E-mail ID </label>
+                                            <input type="text" class="form-control" placeholder="email" data-ng-model="EmailId" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Alternative E-mail ID </label>
+                                            <input type="text" class="form-control" placeholder="email" data-ng-model="AEmailId" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Applicant Full Name <span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" placeholder="Full Name" data-ng-model="ApFullName" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Applicant Alias Name </label>
+                                            <input type="text" class="form-control" placeholder="Alias Name" data-ng-model="ApAliasName" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Applicant Marital Status </label>
+                                            <select class="form-control" data-ng-model="MaritalStatus">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in MaritalDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-end">
+                                        <div class="col-md-5 text-right">
+                                            <a class="btn btn-success btn-lg" ng-click="Next1();">Next<i class="fa fa-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div data-ng-show="step_position == 2" data-ng-class="step_position == 2 ? 'active show' : ''">
+                                <fieldset>
+                                    <legend class="w-auto">
+                                        Address Details
+                                    </legend>
+                                    <h5>Present Address</h5>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">House Number <span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" maxlength="10" placeholder="Door No" ng-model="doorno" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Street/Road </label>
+                                            <input type="text" class="form-control" maxlength="30" placeholder="Street" ng-model="Street" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Locality </label>
+                                            <input type="text" class="form-control" maxlength="25" placeholder="Locality" ng-model="Locality" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">LandMark </label>
+                                            <input type="text" class="form-control" maxlength="25" placeholder="LandMark" ng-model="LandMark" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Ward/Colony <span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" maxlength="20" placeholder="Ward/Colony" ng-model="Ward" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Area/ Mandal <span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" maxlength="20" placeholder="Mandal" ng-model="Mandal" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Residence Type </label>
+                                            <select class="form-control" data-ng-model="SelResidenceType">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in ResidenceTypeDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Village </label>
+                                            <select class="form-control" data-ng-model="SelVillage">
+                                                <option selected="selected" value="">-Select-</</option>
+                                                <option data-ng-repeat="dis in VillageDD" value="{{dis.VILLAGE_CD}}">{{dis.VILLAGE}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Country <span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="selcountry">
+                                                le
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in CountryDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">State/UT <span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="selState" ng-change="LoadDist();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in StateDD" value="{{dis.State_cd}}">{{dis.State}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">District /Commissionerate <span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="seldistrict" ng-change="LoadPS();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in DistrictDD1" value="{{dis.District_cd}}">{{dis.District}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Police Station <span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="selPS">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="ps in PoliceStationDD1" value="{{ps.Ps_cd}}">{{ps.PS}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Pin Code</label>
+                                            <input type="text" class="form-control" placeholder="" maxlength="6" ng-model="Pincode" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Present Other Country </label>
+                                            <select class="form-control" data-ng-model="Pselcountry">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in CountryDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Present Other Address Line 1</label>
+                                            <input type="text" class="form-control" placeholder="Address Line 1" maxlength="30" ng-model="AddressL1" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Present Other Address Line 2</label>
+                                            <input type="text" class="form-control" placeholder="Address Line 2" maxlength="30" ng-model="AddressL2" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Present Other Address Line 3 </label>
+                                            <input type="text" class="form-control" placeholder="Address Line 3" maxlength="30" ng-model="AddressL3" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Present Other Pin Code</label>
+                                            <input type="text" class="form-control" placeholder="Pin Code" maxlength="6" ng-model="POPincode" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-6">
+                                            <label class="col-form-label">Is Permanent Address Same as Present Address <span style="color:red"> *</span></label>
+                                            <div>
+                                                <input type="radio" ng-model="ResDets" value="Y" ng-click="checkyes('1')" />Yes
+                                                <input type="radio" ng-model="ResDets" value="N" ng-click="checkyes('0')" />No
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5 ng-show="detstable=='0'">Permanent Address</h5><br />
+                                    <div class="form-group row justify-content-center" ng-show="detstable=='0'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent House Number <span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" maxlength="10" placeholder="Door No" ng-model="PTdoorno" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Street/Road </label>
+                                            <input type="text" class="form-control" maxlength="30" placeholder="Street" ng-model="PTStreet" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Locality </label>
+                                            <input type="text" class="form-control" maxlength="25" placeholder="Locality" ng-model="PTLocality" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center" ng-show="detstable=='0'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent LandMark </label>
+                                            <input type="text" class="form-control" maxlength="25" placeholder="LandMark" ng-model="PTLandMark" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Ward/Colony <span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" maxlength="20" placeholder="Ward/Colony" ng-model="PTWard" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Area/ Mandal <span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control" maxlength="20" placeholder="Mandal" ng-model="PTMandal" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center" ng-show="detstable=='0'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Residence Type </label>
+                                            <select class="form-control" data-ng-model="PTSelResidenceType">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in ResidenceTypeDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Village </label>
+                                            <select class="form-control" data-ng-model="PTSelVillage">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in VillageDD" value="{{dis.VILLAGE_CD}}">{{dis.VILLAGE}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Country <span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="PTselcountry">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in CountryDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center" ng-show="detstable=='0'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent State/UT <span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="PTselState" ng-change="LoadDist();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in StateDD" value="{{dis.State_cd}}">{{dis.State}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent District /Commissionerate <span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="PTseldistrict" ng-change="LoadPS();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in DistrictDD2" value="{{dis.District_cd}}">{{dis.District}}</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Police Station <span style="color:red"> *</span></label>
+                                            <select class="form-control" data-ng-model="PTselPS">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="ps in PoliceStationDD2" value="{{ps.Ps_cd}}">{{ps.PS}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center" ng-show="detstable=='0'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Pin Code</label>
+                                            <input type="text" class="form-control" placeholder="" maxlength="6" ng-model="PTPincode" />
+                                        </div>
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4"></div>
+                                    </div>
+                                    <div class="row justify-content-end">
+                                        <div class="col-md-5 text-right">
+                                            <a class="btn btn-info btn-lg" ng-click="Previous2();">Previous<i class="fa fa-arrow-right"></i></a>
+                                            <a class="btn btn-success btn-lg" ng-click="Next2();">Next<i class="fa fa-arrow-right"></i></a>
+
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div data-ng-show="step_position == 3" data-ng-class="step_position == 3 ? 'active show' : ''">
+                                <fieldset>
+                                    <legend class="w-auto">
+                                        Proof Details:
+                                    </legend>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">ID Proof Type </label>
+                                            <div>
+                                                <select class="form-control" data-ng-model="selIDProof">
+                                                    <option selected="selected" value="">-Select-</option>
+                                                    <option data-ng-repeat="dis in IDProofDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> ID Proof number </label>
+                                            <input type="text" class="form-control" placeholder="ID Proof number" maxlength="15" ng-model="IDProof" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> ID Proof Issue Date </label>
+                                            <input type="date" class="form-control" ng-model="IDIssueDate" data-date-format="DD MM YYYY" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">ID Proof Issue Place </label>
+                                            <input type="text" class="form-control" placeholder="ID Proof Issue Place" maxlength="15" ng-model="IDIssuePlace" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> ID Proof Issue Authority </label>
+                                            <input type="text" class="form-control" placeholder="ID Proof Issue Authority" maxlength="15" ng-model="IDIssueAuth" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> ID Proof Issue Authority Other </label>
+                                            <input type="text" class="form-control" ng-model="IDIssueOAuth" placeholder="ID Proof Issue Authority" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Address Proof Type </label>
+                                            <div>
+                                                <select class="form-control" data-ng-model="selAddrProof">
+                                                    <option selected="selected" value="">-Select-</option>
+                                                    <option data-ng-repeat="dis in AddrProofDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> Address Proof number </label>
+                                            <input type="text" class="form-control" placeholder="Address Proof number" maxlength="15" ng-model="AddrProof" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> Address Proof Issue Date </label>
+                                            <input type="date" class="form-control" ng-model="AddrIssueDate" data-date-format="DD MM YYYY" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Address Proof Issue Place </label>
+                                            <input type="text" class="form-control" placeholder="Address Proof Issue Place" maxlength="15" ng-model="AddrIssuePlace" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> Address Proof Issue Authority </label>
+                                            <input type="text" class="form-control" placeholder="Address Proof Issue Authority" maxlength="15" ng-model="AddrIssueAuth" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> Address Proof Issue Authority Other </label>
+                                            <input type="text" class="form-control" ng-model="AddrIssueOAuth" placeholder="Address Proof Issue Authority" />
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="row justify-content-end">
+                                        <div class="col-md-5 text-right">
+                                            <a class="btn btn-info btn-lg" ng-click="Previous3();">Previous<i class="fa fa-arrow-right"></i></a>
+                                            <a class="btn btn-success btn-lg" ng-click="Next3();">Next<i class="fa fa-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div data-ng-show="step_position == 4" data-ng-class="step_position == 4 ? 'active show' : ''">
+                                <fieldset>
+                                    <legend class="w-auto">
+                                        Respondent Details:
+                                    </legend>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-6">
+                                            <label class="col-form-label">Respondent Details Known? </label>
+                                            <div>
+                                                <input type="radio" ng-model="RespDetails" value="Y" ng-click="checkyesRD('1')" />Yes
+                                                <input type="radio" ng-model="RespDetails" value="N" ng-click="checkyesRD('0')" />No
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3" ng-show="RespondentKnown=='1'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">First Name </label>
+                                            <input type="text" class="form-control" placeholder="Name" alpha-only ng-model="RespName" maxlength="30" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Middle Name </label>
+                                            <input type="text" class="form-control" placeholder="Middle Name" alpha-only ng-model="RespMiddleName" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Last Name </label>
+                                            <input type="text" class="form-control" placeholder="Last Name" alpha-only ng-model="RespLastName" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3" ng-show="RespondentKnown=='1'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Gender </label>
+                                            <div>
+                                                <select class="form-control" data-ng-model="Respselgender">
+                                                    <option selected="selected" value="">-Select-</option>
+                                                    <option data-ng-repeat="dis in GenderDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Relative Name </label>
+                                            <input type="text" class="form-control" placeholder="Relative Name" maxlength="10" alpha-only ng-model="RespFHGName" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Relation Type </label>
+                                            <select class="form-control" data-ng-model="RespRType">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in RelationDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3" ng-show="RespondentKnown=='1'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Date of Birth </label>
+                                            <input type="date" class="form-control" ng-model="Respdob" data-date-format="DD MM YYYY" ng-change="getAge()" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Age </label>
+                                            <input type="text" class="form-control" disabled="disabled" numbers-only ng-model="Respage" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Education Qualification </label>
+                                            <select class="form-control" data-ng-model="RespEducation1">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in EducationDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3" ng-show="RespondentKnown=='1'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Other Education Qualification </label>
+                                            <input class="form-control" alpha-only placeholder="Other Education Qualification" maxlength="2" ng-model="RespEducation2" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Occupation </label>
+                                            <select class="form-control" data-ng-model="Respoccupation">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in OccupationDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> Other Occupation </label>
+                                            <input class="form-control" alpha-only placeholder="Occupation" maxlength="2" ng-model="RespOthOccupation" />
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3" ng-show="RespondentKnown=='1'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Caste </label>
+                                            <select class="form-control" data-ng-model="Respcaste" ng-change="LoadSubCaste();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in CasteDD" value="{{dis.Caste_tribe_cd}}">{{dis.Caste_tribe}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Sub Caste </label>
+                                            <select class="form-control" data-ng-model="RespSubcaste">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in SubCasteList" value="{{dis.Sub_Caste_cd}}">{{dis.Sub_Caste}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Religion </label>
+                                            <select class="form-control" data-ng-model="RespReligion">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in ReligionDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3" ng-show="RespondentKnown=='1'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Nationality </label>
+                                            <select class="form-control" data-ng-model="RespNationality">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in NationalityDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4"> </div>
+                                        <div class="col-md-4"></div>
+                                    </div>
+                                </fieldset>
+                                <fieldset ng-show="RespondentKnown=='1'">
+                                    <legend class="w-auto">
+                                        Respondent Contact Details
+                                    </legend>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Office Phone Number </label>
+                                            <input type="text" class="form-control" placeholder="Office Telephone No" numbers-only ng-model="RespOMobileNo" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Mobile Number </label>
+                                            <input type="text" class="form-control" placeholder="Mobile" numbers-only ng-model="RespMobileNo" maxlength="10" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Alternative Mobile Number </label>
+                                            <input type="text" class="form-control" placeholder="Alternate Mobile" numbers-only ng-model="RespAMobileNo" maxlength="10" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Fax No </label>
+                                            <input type="text" class="form-control" placeholder="Fax" data-ng-model="RespFaxno" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">E-mail ID </label>
+                                            <input type="text" class="form-control" placeholder="email" data-ng-model="RespEmailId" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Alternative E-mail ID </label>
+                                            <input type="text" class="form-control" placeholder="email" data-ng-model="RespAEmailId" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Respondent Full Name </label>
+                                            <input type="text" class="form-control" placeholder="Full Name" data-ng-model="RespApFullName" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Respondent Alias Name </label>
+                                            <input type="text" class="form-control" placeholder="Alias Name" data-ng-model="RespApAliasName" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Respondent Marital Status </label>
+                                            <select class="form-control" data-ng-model="RespMaritalStatus">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in MaritalDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset ng-show="RespondentKnown=='1'">
+                                    <legend class="w-auto">
+                                        Respondent  Address Details
+                                    </legend>
+                                    <h5>Present Address</h5>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">House Number </label>
+                                            <input type="text" class="form-control" maxlength="10" placeholder="Door No" ng-model="Respdoorno" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Street/Road </label>
+                                            <input type="text" class="form-control" maxlength="30" placeholder="Street" ng-model="RespStreet" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Locality </label>
+                                            <input type="text" class="form-control" maxlength="25" placeholder="Locality" ng-model="RespLocality" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">LandMark </label>
+                                            <input type="text" class="form-control" maxlength="25" placeholder="LandMark" ng-model="RespLandMark" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Ward/Colony </label>
+                                            <input type="text" class="form-control" maxlength="20" placeholder="Ward/Colony" ng-model="RespWard" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Area/ Mandal </label>
+                                            <input type="text" class="form-control" maxlength="20" placeholder="Mandal" ng-model="RespMandal" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Residence Type </label>
+                                            <select class="form-control" data-ng-model="RespSelResidenceType">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in ResidenceTypeDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Village </label>
+                                            <select class="form-control" data-ng-model="RespSelVillage">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in VillageDD" value="{{dis.VILLAGE_CD}}">{{dis.VILLAGE}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Country </label>
+                                            <select class="form-control" data-ng-model="Respselcountry">
+                                                le
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in CountryDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">State/UT </label>
+                                            <select class="form-control" data-ng-model="RespselState" ng-change="LoadDist();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in StateDD" value="{{dis.State_cd}}">{{dis.State}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">District /Commissionerate </label>
+                                            <select class="form-control" data-ng-model="Respseldistrict" ng-change="LoadPS();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in DistrictDD3" value="{{dis.District_cd}}">{{dis.District}}</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Police Station </label>
+                                            <select class="form-control" data-ng-model="RespselPS">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="ps in PoliceStationDD3" value="{{ps.Ps_cd}}">{{ps.PS}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Pin Code</label>
+                                            <input type="text" class="form-control" placeholder="" maxlength="6" ng-model="RespPincode" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Present Other Country </label>
+                                            <select class="form-control" data-ng-model="RespPselcountry">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in CountryDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Present Other Address Line 1</label>
+                                            <input type="text" class="form-control" placeholder="Address Line 1" maxlength="30" ng-model="RespAddressL1" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Present Other Address Line 2</label>
+                                            <input type="text" class="form-control" placeholder="Address Line 2" maxlength="30" ng-model="RespAddressL2" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Present Other Address Line 3 </label>
+                                            <input type="text" class="form-control" placeholder="Address Line 3" maxlength="30" ng-model="RespAddressL3" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Present Other Pin Code</label>
+                                            <input type="text" class="form-control" placeholder="Pin Code" maxlength="6" ng-model="RespPOPincode" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-6">
+                                            <label class="col-form-label">Is Permanent Address Same as Present Address </label>
+                                            <div>
+                                                <input type="radio" ng-model="RespDets" value="Y" ng-click="checkyesResp('1')" />Yes
+                                                <input type="radio" ng-model="RespDets" value="N" ng-click="checkyesResp('0')" />No
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5 ng-show="Respdetstable=='0'">Permanent Address</h5><br />
+                                    <div class="form-group row justify-content-center" ng-show="Respdetstable=='0'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent House Number </label>
+                                            <input type="text" class="form-control" maxlength="10" placeholder="Door No" ng-model="RespPTdoorno" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Street/Road </label>
+                                            <input type="text" class="form-control" maxlength="30" placeholder="Street" ng-model="RespPTStreet" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Locality </label>
+                                            <input type="text" class="form-control" maxlength="25" placeholder="Locality" ng-model="RespPTLocality" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center" ng-show="Respdetstable=='0'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent LandMark </label>
+                                            <input type="text" class="form-control" maxlength="25" placeholder="LandMark" ng-model="RespPTLandMark" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Ward/Colony </label>
+                                            <input type="text" class="form-control" maxlength="20" placeholder="Ward/Colony" ng-model="RespPTWard" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Area/ Mandal </label>
+                                            <input type="text" class="form-control" maxlength="20" placeholder="Mandal" ng-model="RespPTMandal" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center" ng-show="Respdetstable=='0'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Residence Type </label>
+                                            <select class="form-control" data-ng-model="RespPTSelResidenceType">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in ResidenceTypeDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Village </label>
+                                            <select class="form-control" data-ng-model="RespPTSelVillage">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in VillageDD" value="{{dis.VILLAGE_CD}}">{{dis.VILLAGE}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Country </label>
+                                            <select class="form-control" data-ng-model="RespPTselcountry">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in CountryDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center" ng-show="Respdetstable=='0'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent State/UT </label>
+                                            <select class="form-control" data-ng-model="RespPTselState" ng-change="LoadDist();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in StateDD" value="{{dis.State_cd}}">{{dis.State}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent District /Commissionerate </label>
+                                            <select class="form-control" data-ng-model="RespPTseldistrict" ng-change="LoadPS();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in DistrictDD4" value="{{dis.District_cd}}">{{dis.District}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> Police Station </label>
+                                            <select class="form-control" data-ng-model="RespPTselPS">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="ps in PoliceStationDD4" value="{{ps.Ps_cd}}">{{ps.PS}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center" ng-show="Respdetstable=='0'">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Permanent Pin Code</label>
+                                            <input type="text" class="form-control" placeholder="" maxlength="6" ng-model="RespPTPincode" />
+                                        </div>
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4"></div>
+                                    </div>
+                                </fieldset>
+                                <fieldset ng-show="RespondentKnown=='1'">
+                                    <legend class="w-auto">
+                                        Proof Details:
+                                    </legend>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">ID Proof Type </label>
+                                            <div>
+                                                <select class="form-control" data-ng-model="RespselIDProof">
+                                                    <option selected="selected" value="">-Select-</option>
+                                                    <option data-ng-repeat="dis in IDProofDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> ID Proof number </label>
+                                            <input type="text" class="form-control" placeholder="ID Proof number" maxlength="15" ng-model="RespIDProof" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> ID Proof Issue Date </label>
+                                            <input type="date" class="form-control" ng-model="RespIDIssueDate" data-date-format="DD MM YYYY" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">ID Proof Issue Place </label>
+                                            <input type="text" class="form-control" placeholder="ID Proof Issue Place" maxlength="15" ng-model="RespIDIssuePlace" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> ID Proof Issue Authority </label>
+                                            <input type="text" class="form-control" placeholder="ID Proof Issue Authority" maxlength="15" ng-model="RespIDIssueAuth" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> ID Proof Issue Authority Other </label>
+                                            <input type="text" class="form-control" ng-model="RespIDIssueOAuth" placeholder="ID Proof Issue Authority" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Address Proof Type </label>
+                                            <div>
+                                                <select class="form-control" data-ng-model="RespselAddrProof">
+                                                    <option selected="selected" value="">-Select-</option>
+                                                    <option data-ng-repeat="dis in AddrProofDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> Address Proof number </label>
+                                            <input type="text" class="form-control" placeholder="Address Proof number" maxlength="15" ng-model="RespAddrProof" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> Address Proof Issue Date </label>
+                                            <input type="date" class="form-control" ng-model="RespAddrIssueDate" data-date-format="DD MM YYYY" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label">Address Proof Issue Place </label>
+                                            <input type="text" class="form-control" placeholder="Address Proof Issue Place" maxlength="15" ng-model="RespAddrIssuePlace" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> Address Proof Issue Authority </label>
+                                            <input type="text" class="form-control" placeholder="Address Proof Issue Authority" maxlength="15" ng-model="RespAddrIssueAuth" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> Address Proof Issue Authority Other </label>
+                                            <input type="text" class="form-control" ng-model="RespAddrIssueOAuth" placeholder="Address Proof Issue Authority" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center">
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> District /Commissionerate </label>
+                                            <select class="form-control" data-ng-model="RespPetidist" ng-change="LoadPS();">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in DistrictDD5" value="{{dis.District_cd}}">{{dis.District}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="col-form-label"> Police Station </label>
+                                            <select class="form-control" data-ng-model="RespPetiPS">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="ps in PoliStatList" value="{{ps.Ps_cd}}">{{ps.PS}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="label"></label>
+                                            <input type="button" class="d-block btn btn-primary" data-ng-click="addRespondent();" value="ADD RESPONDENT" style="background: #004085;justify-content: center;" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered mb-3">
+                                                <thead class="text-white" style="text-align:center;background: #004085">
+                                                    <tr>
+                                                        <th>SNO</th>
+                                                        <th>First Name</th>
+                                                        <th>Middle Name</th>
+                                                        <th>Last Name</th>
+                                                        <th>Gender</th>
+                                                        <th>Relation Name</th>
+                                                        <th>Relation Type</th>
+                                                        <th>Dob</th>
+                                                        <th>Age</th>
+                                                        <th>Educational Qualification</th>
+                                                        <th>Other Educational Qualification</th>
+                                                        <th>Occupation</th>
+                                                        <th>Other Occupation</th>
+                                                        <th>Caste</th>
+                                                        <th>Sub Caste</th>
+                                                        <th>Religion</th>
+                                                        <th>Nationality</th>
+                                                        <th>Office Phone Number</th>
+                                                        <th>Mobile Number</th>
+                                                        <th>Alternative Mobile Number</th>
+                                                        <th>Fax No</th>
+                                                        <th>E-mail ID</th>
+                                                        <th>Alternative E-mail ID</th>
+                                                        <th>Respondent Full Name</th>
+                                                        <th>Respondent Alias Name</th>
+                                                        <th>Respondent Marital Status</th>
+                                                        <th>Present Address House Number</th>
+                                                        <th>Street/Road</th>
+                                                        <th>Locality</th>
+                                                        <th>LandMark</th>
+                                                        <th>Ward/Colony</th>
+                                                        <th>Area/ Mandal</th>
+                                                        <th>Residence Type</th>
+                                                        <th>Village</th>
+                                                        <th>Country</th>
+                                                        <th>State</th>
+                                                        <th>District</th>
+                                                        <th>Police Station</th>
+                                                        <th>Pin Code</th>
+                                                        <th>Present Other Country</th>
+                                                        <th>Present Other Address Line 1</th>
+                                                        <th>Present Other Address Line 2</th>
+                                                        <th>Present Other Address Line 3</th>
+                                                        <th>Present Other PinCode</th>
+                                                        <th>present address same as permanent address</th>
+                                                        <th>Permanent Address House Number</th>
+                                                        <th>Street/Road</th>
+                                                        <th>Locality</th>
+                                                        <th>LandMark</th>
+                                                        <th>Ward/Colony</th>
+                                                        <th>Area/ Mandal</th>
+                                                        <th>Residence Type</th>
+                                                        <th>Village</th>
+                                                        <th>Country</th>
+                                                        <th>State</th>
+                                                        <th>District</th>
+                                                        <th>Police Station</th>
+                                                        <th>Pin Code</th>
+                                                        <th>ID Proof Type</th>
+                                                        <th>ID Proof No</th>
+                                                        <th>ID Issue Date</th>
+                                                        <th>ID Issue Place</th>
+                                                        <th>Id Issue Authority</th>
+                                                        <th>Id Issue Authority Other</th>
+                                                        <th>Address Proof Type</th>
+                                                        <th>Address Proof No</th>
+                                                        <th>Address Issue Date</th>
+                                                        <th>Address Proof Issue Place</th>
+                                                        <th>Address Issue Authority</th>
+                                                        <th>Address Issue Authority Other</th>
+                                                        <th>District</th>
+                                                        <th>Police Station</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="text-align:center">
+                                                    <tr data-ng-repeat="par in RespondentTable">
+                                                        <td> {{$index + 1}} </td>
+                                                        <td> {{par.Respondent_first_name}} </td>
+                                                        <td>{{par.Respondent_middle_name}} </td>
+                                                        <td>{{par.Respondent_last_name}} </td>
+                                                        <td>  {{par.Respondent_gender_cd}} </td>
+                                                        <td>  {{par.Respondent_relation_name}} </td>
+                                                        <td>  {{par.Respondent_relation_type}} </td>
+                                                        <td>{{par.Respondent_date_of_birth}} </td>
+                                                        <td>  {{par.Respondent_age}} </td>
+                                                        <td>  {{par.Respondent_edu_qual_cd}} </td>
+                                                        <td>  {{par.Respondent_oth_edu_quali}} </td>
+                                                        <td>  {{par.Respondent_occupation_cd}} </td>
+                                                        <td>  {{par.Respondent_other_occupation_cd}} </td>
+                                                        <td>  {{par.Respondent_caste_tribe_cd}} </td>
+                                                        <td>  {{par.Respondent_sub_caste_cd}} </td>
+                                                        <td>  {{par.Respondent_religion_cd}} </td>
+                                                        <td>  {{par.Respondent_nationality_cd}} </td>
+                                                        <td> {{par.Respondent_telephone_off}} </td>
+                                                        <td> {{par.Respondent_mobile_number}} </td>
+                                                        <td> {{par.Respondent_telephone_residence}} </td>
+                                                        <td> {{par.Respondent_fax_no}} </td>
+                                                        <td>{{par.Respondent_email_id}} </td>
+                                                        <td>{{par.Respondent_alternative_email}} </td>
+                                                        <td>{{par.Respondent_full_name}} </td>
+                                                        <td>  {{par.Respondent_alias_name}} </td>
+                                                        <td>  {{par.Respondent_marital_status_cd}} </td>
+                                                        <td>  {{par.Respondent_presnt_house_no}} </td>
+                                                        <td>  {{par.Respondent_presnt_street_road_no}} </td>
+                                                        <td>  {{par.Respondent_presnt_locality}} </td>
+                                                        <td>  {{par.Respondent_presnt_landmark_milestone}} </td>
+                                                        <td>  {{par.Respondent_presnt_ward_colony}} </td>
+                                                        <td>  {{par.Respondent_presnt_area_mandal}} </td>
+                                                        <td>  {{par.Respondent_presnt_residence_type}} </td>
+                                                        <td>  {{par.Respondent_presnt_village}} </td>
+                                                        <td>  {{par.Respondent_presnt_country_cd}} </td>
+                                                        <td>  {{par.Respondent_presnt_state_cd}} </td>
+                                                        <td> {{par.Respondent_presnt_district_cd}} </td>
+                                                        <td> {{par.Respondent_presnt_ps_cd}} </td>
+                                                        <td> {{par.Respondent_presnt_pincode}} </td>
+                                                        <td> {{par.Respondent_present_other_country_cd}} </td>
+                                                        <td>{{par.Respondent_present_other_address_line_1}} </td>
+                                                        <td>{{par.Respondent_present_other_address_line_2}} </td>
+                                                        <td>{{par.Respondent_present_other_address_line_3}} </td>
+                                                        <td>  {{par.RRespondent_present_other_pincode}} </td>
+                                                        <td>  {{par.Respondent_is_permanant_addr_same}} </td>
+                                                        <td>  {{par.Respondent_permnt_house_no}} </td>
+                                                        <td>  {{par.Respondent_permnt_street_road_no}} </td>
+                                                        <td>  {{par.Respondent_permnt_locality}} </td>
+                                                        <td>  {{par.Respondent_permnt_landmark_milestone}} </td>
+                                                        <td>  {{par.Respondent_permnt_ward_colony}} </td>
+                                                        <td>  {{par.Respondent_permnt_area_mandal}} </td>
+                                                        <td>  {{par.Respondent_permnt_residence_type}} </td>
+                                                        <td>  {{par.Respondent_permnt_village}} </td>
+                                                        <td>  {{par.Respondent_permnt_country_cd}} </td>
+                                                        <td>  {{par.Respondent_permnt_state_cd}} </td>
+                                                        <td> {{par.Respondent_permnt_district_cd}} </td>
+                                                        <td> {{par.Respondent_permnt_ps_cd}} </td>
+                                                        <td> {{par.Respondent_permnt_pincode}} </td>
+                                                        <td> {{par.Respondent_id_proof_type_cd}} </td>
+                                                        <td>{{par.Respondent_id_id_no}} </td>
+                                                        <td> {{par.Respondent_id_issue_date}} </td>
+                                                        <td>{{par.Respondent_id_issue_place}} </td>
+                                                        <td>{{par.Respondent_id_issue_authority}} </td>
+                                                        <td>{{par.Respondent_id_issue_authority_other}} </td>
+                                                        <td>  {{par.Respondent_address_proof_type_cd}} </td>
+                                                        <td>  {{par.Respondent_addr_id_no}} </td>
+                                                        <td>  {{par.Respondent_addr_issue_date}} </td>
+                                                        <td>  {{par.Respondent_addr_issue_place}} </td>
+                                                        <td>  {{par.Respondent_addr_issue_authority}} </td>
+                                                        <td>  {{par.Respondent_addr_issue_authority_other}} </td>
+                                                        <td>  {{par.Respondent_pet_district_cd}} </td>
+                                                        <td>  {{par.Respondent_pet_ps_cd}} </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="row justify-content-end">
+                                    <div class="col-md-5 text-right">
+                                        <a class="btn btn-info btn-lg" ng-click="Previous4();">Previous<i class="fa fa-arrow-right"></i></a>
+                                        <a class="btn btn-success btn-lg" ng-click="Next4();">Next<i class="fa fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div data-ng-show="step_position == 5" data-ng-class="step_position == 5 ? 'active show' : ''">
+                                <fieldset>
+                                    <legend class="w-auto">
+                                        File Uploads
+                                    </legend>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-6">
+                                            <label class="col-form-label"> File Upload <span style="color:red"> *</span></label>
+                                            <input type="file" class="form-control" id="Doc1Upl" name="Doc1Upl" onchange="CheckFileType('Doc1Upl');" />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="col-form-label"><b> Document Description</b></label>
+                                            <input type="text" class="form-control" placeholder="" maxlength="100" ng-model="DocsDesc" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row justify-content-center mb-3">
+                                        <div class="col-md-6">
+                                            <label class="col-form-label"> File Type </label>
+                                            <select class="form-control" data-ng-model="FileType">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option value="5186">Documents</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="col-form-label"><b> File Sub Type</b></label>
+                                            <select class="form-control" data-ng-model="FileSubTy">
+                                                <option selected="selected" value="">-Select-</option>
+                                                <option data-ng-repeat="dis in FileSubDD" value="{{dis.Master_cd}}">{{dis.Master_Value}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row ">
+                                        <div class="col-md-4">
+                                            <label class="label"></label>
+                                            <input type="button" class="d-block btn btn-primary" data-ng-click="addFiles();" value="ADD FILES" style="background: #004085;justify-content: center;" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered mb-3">
+                                                <thead class="text-white" style="text-align:center;background: #004085">
+                                                    <tr>
+                                                        <th>SNO</th>
+                                                        <th>File Name</th>
+                                                        <th>Description</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="text-align:center">
+                                                    <tr data-ng-repeat="par in filesuplTable">
+                                                        <td> {{$index + 1}} </td>
+                                                        <td> {{par.File_Name}} </td>
+                                                        <td>{{par.file_Desc}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-end">
+                                        <div class="col-md-5 text-right">
+                                            <a class="btn btn-info btn-lg" ng-click="Previous5();">Previous<i class="fa fa-arrow-right"></i></a>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                            </div>
+                        </div>
+
+                            <div class="row justify-content-center mb-3" ng-show="finalsave">
+                                <div class="col-md-8 text-center">
+                                    <button type="submit" ng-click="save();" class="btn btn-info">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

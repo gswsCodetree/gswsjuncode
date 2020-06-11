@@ -1,0 +1,58 @@
+﻿<style type="text/css">
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>APEPDCL Service History</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-2 col-form-label text-right">Service Reg. Number</label>
+                                    <div class="col-lg-2">
+                                        <input type="text" alpha-numerics maxlength="25" ng-model="servicergno" placeholder="Service Reg Number" class="form-control">
+                                    </div>
+                                    <!--<label class="col-lg-2 col-form-label text-right">Mobile Number</label>
+                                    <div class="col-lg-2">
+                                        <input type="text" ng-model="mobileno" numbers-only maxlength="10" placeholder="Mobile Number" class="form-control">
+                                    </div>-->
+                                    <div class="col-lg-2">
+                                        <button type="button" ng-click="GetStatus();" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mt-2 " ng-show="dttable">
+                        <table class="table bg-white table-bordered table-striped table-hover datatable-show-all" style="table-layout:fixed;">
+                            <tbody>
+                                <tr><td>Status On</td><td style="width:20px !important;"> : </td><td>{{StatusOn}}</td></tr>
+                                <tr><td>Information To Consumer</td><td style="width:20px !important;"> : </td><td>{{CustInfo}}</td></tr>
+                                <tr><td>Pending Reason</td><td style="width:20px !important;"> : </td><td>{{PReason}}</td></tr>
+                                <tr><td>Status</td><td style="width:20px !important;"> : </td><td>{{Status}}</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

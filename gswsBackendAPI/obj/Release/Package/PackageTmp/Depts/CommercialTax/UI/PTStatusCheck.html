@@ -1,0 +1,116 @@
+﻿<style type="text/css">
+
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+<!-- Page content -->
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1>Proffession Tax Application Status</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="form-group row mb-3">
+                                    <div class="col-md-2" style="text-align: end;">
+                                        <label class="col-lg-12 col-form-label"><b>Search By :</b></label>
+                                    </div>
+                                    <div class="col-md-3" style="text-align:center;">
+                                        <input type="radio" value="option1" data-ng-model="inputradio" ng-change='changeOption(inputradio)' />Dates
+                                    </div>
+                                    <div class="col-md-3" style="text-align:center;">
+                                        <input type="radio" value="option2" data-ng-model="inputradio" ng-change='changeOption(inputradio)' />RNR
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="form-group row mb-0" ng-show="divdate">
+
+                                    <label class="col-lg-2 col-form-label"><b>From Date :</b><span style="color:red"> *</span></label>
+                                    <div class="col-lg-2">
+                                        <input type="date" data-ng-model="fromdate" class="form-control" />
+                                    </div>
+
+                                    <label class="col-lg-2 col-form-label"><b>To Date :</b><span style="color:red"> *</span></label>
+                                    <div class="col-lg-2">
+                                        <input type="date" data-ng-model="todate" class="form-control" />
+                                    </div>
+
+                                    <div class="col-lg-2" >
+                                        <button type="button" data-ng-click="GetStatus('1');" class="btn btn-primary">Get Status</button>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mb-0" ng-hide="divdate">
+                                    <label class="col-lg-3 col-form-label text-right">RNR Number</label>
+                                    <div class="col-lg-3">
+                                        <input type="text" alpha-numerics maxlength="25" data-ng-model="rnrno" autocomplete="off" placeholder="Enter RNR Number" class="form-control" />
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button type="button" data-ng-click="GetStatus('2');" class="btn btn-primary">Get Status</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 mt-2 " ng-show="dttable">
+                        <table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+                            <thead>
+                                <tr class="bg-dark" style="color:white !important;">
+                                    <th>S.No</th>
+                                    <th>Application Type</th>
+                                    <th>RNR Number</th>
+                                    <th>Profession TIN</th>
+                                    <th>Generation Date</th>
+                                    <th>Inserted Date</th>
+                                    <th>Updated Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dt-rows ng-repeat="stu in StaDetails |  filter : SearchText">
+                                    <td>{{$index + 1}}</td>
+                                    <td>{{stu.appln_type}}</td>
+                                    <td>{{stu.rnr}}</td>
+                                    <td>{{stu.prof_tin}}</td>
+                                    <td>{{stu.generation_date}}</td>
+                                    <td>{{stu.inserted_date}}</td>
+                                    <td>{{stu.updated_date}}</td>
+                                    <td ng-show="stu.alert_code == 'ARG001'">New Registration application for verification</td>
+                                    <td ng-show="stu.alert_code == 'ARG002'">Query raised on registration application</td>
+                                    <td ng-show="stu.alert_code == 'ARG003'">Approved New Registration Application</td>
+                                    <td ng-show="stu.alert_code == 'ARG004'">Reply received from Taxpayer</td>
+                                    <td ng-show="stu.alert_code == 'ARG005'">Rejection of Application</td>
+                                    <td ng-show="stu.alert_code == 'ARG006'">Registration Certificate Generated</td>
+                                    <td ng-show="stu.alert_code == 'ARG007'">Modification of Application</td>
+                                    <td ng-show="stu.alert_code == 'ARG008'">Return Filing Status</td>
+                                    <td ng-show="stu.alert_code == 'ARG002'">
+                                        <button type="button" data-ng-click="AppModify(stu.rnr);" class="btn btn-primary">Modify</button>
+                                    </td>
+                                    <!--<td ng-hide="stu.alert_code == 'ARG002'"></td>-->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

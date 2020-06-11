@@ -1,0 +1,100 @@
+﻿
+<div class="container" style="margin-top:10px">
+	<div class="col-md-12" align="center">
+		<h3><b style="border-bottom:5px solid black">MAUD APPLICATION SEARCH</b></h3>
+	</div>
+	<div class="col-md-12" style="margin-top:50px">
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-3">
+				<b>File No/Temp No</b>
+				<select class="form-control" ng-model="ddlfiletype">
+					<option value="">Select</option>
+					<option value="File No">File No</option>
+					<option value="Temp">Temp No</option>
+				</select>
+			</div>
+			<div class="col-md-4">
+				<b>Enter File No/Temp No</b>
+				<input type="text" alpha-numerics maxlength="25" ng-model="txtcertid" placeholder="Enter File No/Temp No" class="form-control" />
+			</div>
+			<div class="col-md-3" style="margin-top:22px">
+				<button class="btn btn-primary" id="btnGetReport" ng-click="getdetails()">Get Details</button>
+				<button class="btn btn-danger" id="btnreset" ng-click="Refresh()">Reset</button>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12" style="margin-top:30px" ng-show="detailsshow">
+		<div class="col-md-12" align="center">
+			<h5><b style="border-bottom:5px solid black">APPLICATION DETAILS</b></h5>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="table-responsive">
+					<table class="table table-bordered">
+						<tr>
+							<td><b>File No </b></td>
+							<td>{{resdata.FileNo}}</td>
+							<td><b>Temp No</b></td>
+							<td>{{resdata.FileNo}}</td>
+						</tr>
+						<tr>
+							<td><b>Case Type</b></td>
+							<td>{{resdata.CaseType}}</td>
+							<td><b>Permission Type</b></td>
+							<td>{{resdata.PermissionType}}</td>
+						</tr>
+						<tr>
+							<td><b>Proposal Status</b></td>
+							<td>{{resdata.ProposalStatus}}</td>
+							<td><b>Nature Of Site</b></td>
+							<td>{{resdata.NatureOfSite}}</td>
+						</tr>
+						<tr>
+							<td><b>Site Address</b></td>
+							<td colspan="3">{{resdata.SiteAddress}}</td>
+						</tr>
+						<tr>
+							<td><b>LTP Name</b></td>
+							<td>{{resdata.LTPName}}</td>
+							<td><b>LTP Mobile No</b></td>
+							<td>{{resdata.LTPMobileNo}}</td>
+						</tr>
+						<tr>
+							<td><b>LTP Email ID</b></td>
+							<td>{{resdata.LTPEmailID}}</td>
+							<td><b>Owner Name</b></td>
+							<td>{{resdata.OwnerName}}</td>
+						</tr>
+						<tr>
+							<td><b>Owner Address</b></td>
+							<td colspan="3">{{resdata.OwnerAddress}}</td>
+						</tr>
+						<tr>
+							<td><b>Owner Mobile No</b></td>
+							<td>{{resdata.OwnerMobileNo}}</td>
+							<td><b>Owner Email ID</b></td>
+							<td>{{resdata.OwnerEmailID}}</td>
+						</tr>
+						<tr>
+							<td><b>Scrutiny Report</b></td>
+							<td><a href="{{resdata.ScrutinyReport}}" target="_blank">Click here</a></td>
+							<td><b>Drawing Plan</b></td>
+							<td><a href="{{resdata.DrawingPlan}}" target="_blank">Click here</a></td>
+						</tr>
+						<tr>
+							<td><b>Proceeding Letter</b></td>
+							<td>{{resdata.ProceedingLetter}}</td>
+							<td><b>Occupancy Details</b></td>
+							<td>{{resdata.OccupancyDetails}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="margin-top:100px">
+		<br />
+	</div>
+</div>
+

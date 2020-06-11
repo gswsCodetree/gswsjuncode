@@ -1,0 +1,497 @@
+﻿<style>
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('../images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+
+<script type="text/javascript">
+    var timepicker = new TimePicker('Accidenttime', {
+        lang: 'en',
+        theme: 'dark'
+    });
+
+    timepicker.on('change', function (evt) {
+
+        var value = (evt.hour || '00') + ':' + (evt.minute || '00');
+        evt.element.value = value;
+
+    });
+
+</script>
+<script type="text/javascript">
+    var timepicker = new TimePicker('Incidenttime', {
+        lang: 'en',
+        theme: 'dark'
+    });
+    timepicker.on('change', function (evt) {
+
+        var value = (evt.hour || '00') + ':' + (evt.minute || '00');
+        evt.element.value = value;
+
+    });
+</script>
+
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 text-center mb-4">
+						<h3 class="api-page-title">BIMA CLAIM REGSITRATION</h3>
+</div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="col-md-12 row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Enter Uid: <span class="text-danger">*</span></label>
+                                            <input type="text" autocomplete="off" uid-input-model="claim_aadhaar" mask-length="8" class="form-control" maxlength="12" placeholder="Enter Aadhaar Number">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 ">
+                                        <div class="form-group">
+                                            <label>Select District : <span class="text-danger">*</span></label>
+                                            <select class="form-control" data-ng-model="selectdistrict" data-ng-change="districtchange();">
+                                                <option value="">-Select-</option>
+                                                <option data-ng-repeat="dis in ddlselectdistrict" value="{{dis.DISTRICT_ID}}">{{dis.DISTRICT_NAME}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Select Claim Type: <span class="text-danger">*</span></label>
+                                            <select class="form-control" data-ng-model="claimtype" data-ng-change="claimtypechange();">
+                                                <option value="">-Select-</option>
+                                                <option data-ng-repeat="claim in ddlClaimtypes" value="{{claim.Code}}">{{claim.Name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Select Cause: <span class="text-danger">*</span></label>
+                                            <select class="form-control" data-ng-model="cause">
+                                                <option value="">-Select-</option>
+                                                <option data-ng-repeat="cause in ddlcauses" value="{{cause.CauseID}}">{{cause.CauseName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Cause Reason: <span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="causereason" maxlength="250" name="degree-level" placeholder="Enter Cause" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4" >
+                                        <div class="form-group">
+                                            <label>Incident Date: <span class="text-danger">*</span></label>
+                                            <input type="date" data-date-format="MM/dd/yyyy" data-ng-model="Incidentdate" name="degree-level" class="form-control required" />
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 mt-4" >
+
+                                        <label>Incident Time: <span class="text-danger">*</span></label>
+                                        <div class="form-group row">
+                                            <div class="col-md-4">
+                                              <select class="form-control" data-ng-model="Incidentdayhh">
+                                                  <option value="HH">HH</option>
+                                                  <option value="00">00</option>
+                                                  <option value="01">01</option>
+                                                  <option value="02">02</option>
+                                                  <option value="03">03</option>
+                                                  <option value="04">04</option>
+                                                  <option value="05">05</option>
+                                                  <option value="06">06</option>
+                                                  <option value="07">07</option>
+                                                  <option value="08">08</option>
+                                                  <option value="09">09</option>
+                                                  <option value="10">10</option>
+                                                  <option value="11">11</option>
+                                                  <option value="12">12</option>
+                                              </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <select class="form-control" data-ng-model="Incidentdaymm">
+                                                    <option value="MM">MM</option>
+                                                    <option value="00">00</option>
+                                                    <option value="01">01</option>
+                                                    <option value="02">02</option>
+                                                    <option value="03">03</option>
+                                                    <option value="04">04</option>
+                                                    <option value="05">05</option>
+                                                    <option value="06">06</option>
+                                                    <option value="07">07</option>
+                                                    <option value="08">08</option>
+                                                    <option value="09">09</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                    <option value="15">15</option>
+                                                    <option value="16">16</option>
+                                                    <option value="17">17</option>
+                                                    <option value="18">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                    <option value="23">23</option>
+                                                    <option value="24">24</option>
+                                                    <option value="25">25</option>
+                                                    <option value="26">26</option>
+                                                    <option value="27">27</option>
+                                                    <option value="28">28</option>
+                                                    <option value="29">29</option>
+                                                    <option value="30">30</option>
+                                                    <option value="31">31</option>
+                                                    <option value="32">32</option>
+                                                    <option value="33">33</option>
+                                                    <option value="34">34</option>
+                                                    <option value="35">35</option>
+                                                    <option value="36">36</option>
+                                                    <option value="37">37</option>
+                                                    <option value="38">38</option>
+                                                    <option value="39">39</option>
+                                                    <option value="40">40</option>
+                                                    <option value="41">41</option>
+                                                    <option value="42">42</option>
+                                                    <option value="43">43</option>
+                                                    <option value="44">44</option>
+                                                    <option value="45">45</option>
+                                                    <option value="46">46</option>
+                                                    <option value="47">47</option>
+                                                    <option value="48">48</option>
+                                                    <option value="49">49</option>
+                                                    <option value="50">50</option>
+                                                    <option value="51">51</option>
+                                                    <option value="52">52</option>
+                                                    <option value="53">53</option>
+                                                    <option value="54">54</option>
+                                                    <option value="55">55</option>
+                                                    <option value="56">56</option>
+                                                    <option value="57">57</option>
+                                                    <option value="58">58</option>
+                                                    <option value="59">59</option>
+                                                    <option value="60">60</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                    <select class="form-control" data-ng-model="Incidentdayformat">
+                                                        <option value="AM">AM</option>
+                                                        <option value="PM">PM</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Incident Type: <span class="text-danger">*</span></label>
+                                            <select class="form-control" data-ng-model="Incidenttype">
+                                                <option value="">-Select-</option>
+                                                <option data-ng-repeat="it in ddlIncidenttypes" value="{{it.id}}">{{it.Name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 mt-4" data-ng-show="divaccidentdate">
+                                        <div class="form-group">
+                                            <label>Accident Date: <span class="text-danger">*</span></label>
+                                            <input type="date" data-date-format="MM/dd/yyyy" data-ng-model="Accidentdate" name="degree-level" class="form-control required" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 mt-4" data-ng-show="divaccidenttime">
+                                     
+                                            <label>Accident Time: <span class="text-danger">*</span></label>
+                                            <div class="form-group row">
+
+                                                <div class="col-md-4">
+                                                    <select class="form-control" data-ng-model="Accidentdayhh">
+                                                        <option value="HH">HH</option>
+                                                        <option value="00">00</option>
+                                                        <option value="01">01</option>
+                                                        <option value="02">02</option>
+                                                        <option value="03">03</option>
+                                                        <option value="04">04</option>
+                                                        <option value="05">05</option>
+                                                        <option value="06">06</option>
+                                                        <option value="07">07</option>
+                                                        <option value="08">08</option>
+                                                        <option value="09">09</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select class="form-control" data-ng-model="Accidentdaymm">
+                                                        <option value="MM">MM</option>
+                                                        <option value="00">00</option>
+                                                        <option value="01">01</option>
+                                                        <option value="02">02</option>
+                                                        <option value="03">03</option>
+                                                        <option value="04">04</option>
+                                                        <option value="05">05</option>
+                                                        <option value="06">06</option>
+                                                        <option value="07">07</option>
+                                                        <option value="08">08</option>
+                                                        <option value="09">09</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                        <option value="13">13</option>
+                                                        <option value="14">14</option>
+                                                        <option value="15">15</option>
+                                                        <option value="16">16</option>
+                                                        <option value="17">17</option>
+                                                        <option value="18">18</option>
+                                                        <option value="19">19</option>
+                                                        <option value="20">20</option>
+                                                        <option value="21">21</option>
+                                                        <option value="22">22</option>
+                                                        <option value="23">23</option>
+                                                        <option value="24">24</option>
+                                                        <option value="25">25</option>
+                                                        <option value="26">26</option>
+                                                        <option value="27">27</option>
+                                                        <option value="28">28</option>
+                                                        <option value="29">29</option>
+                                                        <option value="30">30</option>
+                                                        <option value="31">31</option>
+                                                        <option value="32">32</option>
+                                                        <option value="33">33</option>
+                                                        <option value="34">34</option>
+                                                        <option value="35">35</option>
+                                                        <option value="36">36</option>
+                                                        <option value="37">37</option>
+                                                        <option value="38">38</option>
+                                                        <option value="39">39</option>
+                                                        <option value="40">40</option>
+                                                        <option value="41">41</option>
+                                                        <option value="42">42</option>
+                                                        <option value="43">43</option>
+                                                        <option value="44">44</option>
+                                                        <option value="45">45</option>
+                                                        <option value="46">46</option>
+                                                        <option value="47">47</option>
+                                                        <option value="48">48</option>
+                                                        <option value="49">49</option>
+                                                        <option value="50">50</option>
+                                                        <option value="51">51</option>
+                                                        <option value="52">52</option>
+                                                        <option value="53">53</option>
+                                                        <option value="54">54</option>
+                                                        <option value="55">55</option>
+                                                        <option value="56">56</option>
+                                                        <option value="57">57</option>
+                                                        <option value="58">58</option>
+                                                        <option value="59">59</option>
+                                                        <option value="60">60</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select class="form-control" data-ng-model="Accidentdayformat">
+                                                        <option value="AM">AM</option>
+                                                        <option value="PM">PM</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                     
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Incident Place: <span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="Incidentplace" maxlength="250" name="degree-level" placeholder="Enter Incident Place" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4" data-ng-show="divaccidentplace">
+                                        <div class="form-group">
+                                            <label>Accident Place: <span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="Accidentplace" maxlength="250" name="degree-level" placeholder="Enter Accident Place" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Nominee Phone: <span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="NomPhone" maxlength="15" name="degree-level" placeholder="Enter Nominee Phone" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Nominee Name: <span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="NomName" maxlength="250" name="degree-level" placeholder="Enter Nominee Name" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Nominee Uid: <span class="text-danger">*</span></label>
+                                            <input type="text" autocomplete="off" uid-input-model="Nominee_aadhaar" mask-length="8" class="form-control" maxlength="12" placeholder="Enter Aadhaar Number">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Informed By: <span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="infoby" maxlength="50" name="degree-level" placeholder="Enter Informed By" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Informer Phone No: <span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="infoph" maxlength="15" name="degree-level" placeholder="Enter Inforer Phone No" class="form-control required" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Select Mandal/Municipality : </label>
+                                            <select class="form-control" data-ng-model="mandal" data-ng-change="changemandal();">
+                                                <option value="">-Select-</option>
+                                                <option data-ng-repeat="ma in ddlMandals" value="{{ma.MANDAL_NAME}}">{{ma.MANDAL_NAME}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Select GramaPanchayat : </label>
+                                            <select class="form-control" data-ng-model="grampanchayat">
+                                                <option value="">-Select-</option>
+                                                <option data-ng-repeat="gr in ddlgrampanchayt" value="{{gr.panname}}">{{gr.panname}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Village Name: </label>
+                                            <select class="form-control" data-ng-model="villagename">
+                                                <option value="">-Select-</option>
+                                                <option data-ng-repeat="vr in ddlvillages" value="{{vr.VILLAGE_NAME}}">{{vr.VILLAGE_NAME}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Street : <span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="street" maxlength="100" name="degree-level" placeholder="Enter Policy holder Street" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Ward : <span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="ward" maxlength="55" name="degree-level" placeholder="Enter Policy holder Ward" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Door No: <span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="doorno" maxlength="50" name="degree-level" placeholder="Enter Policy holder Door No" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Village volunteerID/ DigitalAsst ID:<span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="vdregid" maxlength="50" name="degree-level" placeholder="Enter Village volunteerID/ Digital AssistantID" class="form-control required" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Remarks :</label>
+                                            <input type="text" data-ng-model="remarks" maxlength="255" name="degree-level" placeholder="Enter Remarks" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Enrolment ID :</label>
+                                            <input type="text" data-ng-model="eid" maxlength="50" name="degree-level" placeholder="Enter Enrolment ID" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Policy Holder Pincode:</label>
+                                            <input type="text" data-ng-model="PHP" maxlength="15" name="degree-level" placeholder="Enter Policy Holder Pincode" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Nominee Enrolment ID:</label>
+                                            <input type="text" data-ng-model="neid" maxlength="50" name="degree-level" placeholder="Enter Nominee Enrolment ID" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Nominee pincode:</label>
+                                            <input type="text" data-ng-model="nomineepin" maxlength="15" name="degree-level" placeholder="Enter Nominee pincode" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Villagevolunteer/DigitalAsst Name:<span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="vvname" maxlength="150" name="degree-level" placeholder="Enter Name" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Villagevolunteer/DigitalAsst MobileNo:<span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="vvnumber" maxlength="15" name="degree-level" placeholder="Enter Mobile No" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Village secretariat Id:<span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="vvsid" maxlength="15" name="degree-level" placeholder="Enter Village secretariat Id" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Village secretariat Location:<span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="vvsloc" maxlength="180" name="degree-level" placeholder="Enter Village secretariat Location" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Village secretariat panchayat:<span class="text-danger">*</span></label>
+                                            <input type="text" data-ng-model="vvspanc" maxlength="180" name="degree-level" placeholder="Enter Village secretariat panchayat" class="form-control required" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <div class="form-group">
+                                            <label>Entry By: <span class="text-danger">*</span></label>
+                                            <select class="form-control" data-ng-model="entryby">
+                                                <option value="">-Select-</option>
+                                                <option data-ng-repeat="eb in ddlEntryby" value="{{eb.id}}">{{eb.Name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 text-center mt-4">
+                                        <button type="button" ng-click="Getsubmit();" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mb-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,3 @@
+260220111243AM:Error From GetWalletAmount:Unable to connect to the remote server
+260220112214AM:Error From GetWalletAmount:Unable to connect to the remote server
+260220114051AM:Error From GetWalletAmount:Unable to connect to the remote server

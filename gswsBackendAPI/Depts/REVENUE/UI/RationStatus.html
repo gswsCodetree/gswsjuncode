@@ -1,0 +1,113 @@
+﻿
+<style>
+	/*Loader*/
+	.loader {
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		background: url('images/loader.gif') 50% 50% no-repeat #fff;
+	}
+</style>
+
+<div class="page-content">
+	<div data-ng-show="preloader" class="loader"></div>
+	<!-- Main content -->
+	<div class="content-wrapper">
+
+		<!-- Content area -->
+		<div class="content">
+			<div class="container-fluid">
+				<div class="row">
+
+					<div class="col-sm-12 text-center mb-4">
+						<h1 style="text-align: center;">Rice Card Application Status </h1>
+					</div>
+					<div class="col-sm-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="form-group row mb-0" style="margin-left: 223px;">
+									<label class="col-lg-3 col-form-label text-right"><b>Document ID :</b></label>
+									<div class="col-lg-3">
+										<input type="text" alpha-numerics maxlength="25" autocomplete="off" data-ng-model="uid" class="form-control" placeholder="Enter Input Id" oninput="let p = this.selectionStart; this.value = this.value.toUpperCase();this.setSelectionRange(p, p);" />
+									</div>
+									<div class="col-lg-3">
+										<button type="submit" data-ng-click="getdata();" class="btn btn-primary">Submit</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="width:100% !important;">
+						<div class="card">
+							<div class="card-body">
+								<div class="col-sm-12 mt-2">
+									<div class="table-responsive">
+										<table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+											<tbody>
+												<tr class="text-center">
+													<td>Document ID</td>
+													<td>{{DOC_NO}}</td>
+													<td>Family ID</td>
+													<td>{{FAMILY_ID}}</td>
+												</tr>
+												<tr class="text-center">
+													<td>Service Name</td>
+													<td colspan="3"><b>{{SUBJECT}}</b></td>
+												</tr>
+												<tr class="text-center">
+													<td>Application Status</td>
+													<td colspan="3"><b>{{APP_STATUS}}</b></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+								<div class="col-sm-12 text-center mt-2">
+									<h3 align="center">Family Memeber Details</h3>
+								</div>
+								<div class="col-sm-12 mt-2">
+									<div class="table-responsive">
+										<table class="table bg-white table-bordered table-striped table-hover datatable-show-all">
+											<thead>
+												<tr class="bg-dark text-white text-center" style="white-space:nowrap;">
+													<th>Name</th>
+													<th>Mobile Number</th>
+													<th>Gender</th>
+													<th>Relation</th>
+													<th>District</th>
+													<th>Mandal</th>
+													<th>Secretariate</th>
+													<th>Cluster Name</th>
+
+												</tr>
+											</thead>
+											<tbody>
+												<tr class="text-center" data-ng-repeat="ben in bentable">
+
+													<td>{{ben.E_NAME}}</td>
+													<td>{{ben.MOBILE_NO}}</td>
+													<td>{{ben.GENDER}}</td>
+													<td>{{ben.RELATION}}</td>
+													<td>{{ben.DISTRICT}}</td>
+													<td>{{ben.MANDAL}}</td>
+													<td>{{ben.SECRETARIATE}}</td>
+													<td>{{ben.CLUSTER_NAME}}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

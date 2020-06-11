@@ -1,0 +1,111 @@
+﻿<style>
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+</style>
+<style>
+
+    .card {
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    }
+
+    .card-body {
+        padding: 1.25rem 1.25rem 0.25rem 1.25rem !important;
+    }
+</style>
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row mb-5">
+                    <div class="col-sm-12 text-center mb-4">
+                        <h1 style="text-align: center;">Birth/Death Registration</h1>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <!--Row 1-->
+                                <div class="form-group row mb-0">
+                                    <label class="col-lg-3 col-form-label mb-3"><b>District :</b><span style="color:red"> *</span></label>
+                                    <div class="col-lg-3 mb-3">
+                                        <select class="form-control" data-ng-model="seldistrict">
+                                            <option selected="selected" value="">-Select-</option>
+                                            <option data-ng-repeat="dis in DistricsDD" value="{{dis.LGD_DISTRICT_CODE}}">{{dis.LGD_DISTRICT_NAME}}</option>
+                                        </select>
+                                    </div>
+
+                                    <label class="col-lg-3 col-form-label mb-3"><b>Rural/Urban :</b><span style="color:red"> *</span></label>
+
+                                    <div class="col-lg-3 mb-3">
+                                        <select class="form-control" data-ng-model="selruflag" data-ng-change="LoadMadals();">
+                                            <option selected="selected" value="">-Select-</option>
+                                            <option value="R">Rural</option>
+                                            <option value="U">Urban</option>
+                                        </select>
+                                    </div>
+
+                                    <label class="col-lg-3 col-form-label mb-3"><b>Mandal :</b><span style="color:red"> *</span></label>
+
+                                    <div class="col-lg-3 mb-3">
+                                        <select class="form-control" data-ng-model="selmandal" data-ng-change="LoadPachayats();">
+                                            <option selected="selected" value="">-Select-</option>
+                                            <option data-ng-repeat="man in MandalsDD" value="{{man.LGD_MANDAL_CODE}}">{{man.LGD_MANDAL_NAME}}</option>
+                                        </select>
+                                    </div>
+
+                                    <label class="col-lg-3 col-form-label mb-3"><b>Panchayat :</b><span style="color:red"> *</span></label>
+
+                                    <div class="col-lg-3 mb-3">
+                                        <select class="form-control" data-ng-model="selvillage">
+                                            <option selected="selected" value="">-Select-</option>
+                                            <option data-ng-repeat="pan in PanchayatDD" value="{{pan.LGD_GP_CODE}}">{{pan.LGD_PANCHAYAT_NAME}}</option>
+                                        </select>
+                                    </div>
+
+                                    <label class="col-lg-3 col-form-label mb-3"><b>Name :</b><span style="color:red"> *</span></label>
+
+                                    <div class="col-lg-3 mb-3">
+                                        <input type="text" ng-model="entname" class="form-control" placeholder="Enter Name" />
+                                    </div>
+
+                                    <label class="col-lg-3 col-form-label mb-3"><b>Mobile Number :</b><span style="color:red"> *</span></label>
+
+                                    <div class="col-lg-3 mb-3">
+                                        <input type="text" numbers-only maxlength="10" ng-model="entmobile" class="form-control" placeholder="Enter Mobile" />
+                                    </div>
+
+                                </div>
+                                <!--Row 2-->
+                                <div style="margin-top:20px;text-align:center" data-ng-show="otpdiv">
+                                    <button type="button" data-ng-click="SendOtp();" class="btn btn-primary">Send OTP</button>
+                                </div>
+
+                                <div class="form-group row mb-0" data-ng-hide="otpdiv">
+                                    <label class="col-lg-3 col-form-label mb-3 mt-3"><b>Enter OTP :</b><span style="color:red"> *</span></label>
+
+                                    <div class="col-lg-3 mb-3 mt-3">
+                                        <input type="text" numbers-only maxlength="6" ng-model="entotp" class="form-control" placeholder="Enter OTP" />
+                                    </div>
+                                    <div class="col-lg-3 mb-3 mt-3">
+                                        <button type="button"   data-ng-click="VerifyOtp();" class="btn btn-primary">Verify OTP</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
