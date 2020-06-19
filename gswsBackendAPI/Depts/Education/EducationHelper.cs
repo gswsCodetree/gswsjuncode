@@ -28,7 +28,8 @@ namespace gswsBackendAPI.Depts.Education
             {
                 obj.Status = 102;
                 obj.Reason = ThirdpartyMessage;
-				return obj;
+                Common_Education_Error(ex.Message.ToString(), "http://push147.sps.ap.gov.in/abwc/API/Schemes/GSWSGetStatus", "2");
+                return obj;
             }
 
         }
@@ -59,14 +60,32 @@ namespace gswsBackendAPI.Depts.Education
 				obj.Reason = ThirdpartyMessage;
 				string mappath = HttpContext.Current.Server.MapPath("AmmavodiExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_Log_Exception(mappath, "Error Ammavodi App Status API:" + ex.Message.ToString()));
-				//throw new Exception(ex.Message);
-			}
+                //throw new Exception(ex.Message);
+                Common_Education_Error(ex.Message.ToString(), "https://jnanabhumi.ap.gov.in/jnbWebservices/services/prajaSachivalayam/getBillStatus?userId=admin&password=jnb@dmin20!9&aadhar=", "2");
+            }
 
             return obj;
 
         }
 
-       
+        public static bool Common_Education_Error(string msg, string url, string etype)
+        {
+            ExceptionDataModel objex = new ExceptionDataModel();
+            try
+            {
+                objex.E_DEPTID = DepartmentEnum.Department.Human_Resources_Higher_Education.ToString();
+                objex.E_HODID = DepartmentEnum.HOD.School_Education.ToString();
+                objex.E_ERRORMESSAGE = msg;
+                objex.E_SERVICEAPIURL = url;
+                objex.E_ERRORTYPE = etype;
+                new LoginSPHelper().Save_Exception_Data(objex);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
         #endregion
     }
 }

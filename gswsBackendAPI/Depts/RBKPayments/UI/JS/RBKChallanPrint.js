@@ -12,7 +12,7 @@
 			window.location = "https://gramawardsachivalayam.ap.gov.in/GSWS/Home/Main#";
 			return;
 		}
-		scope.secretariat = "11090058";
+		scope.secretariat = "10290138";
 	
 		scope.dtOptions = DTOptionsBuilder.newOptions().withOption('lengthMenu', [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]])
 
@@ -95,7 +95,7 @@
 					scope.preloader = false;
 					scope.divprint = false;
 
-					swal("info", "Something went wrong.Please try again later.", "info");
+					swal("info", res.Reason, "info");
 				}
 			});
 		}

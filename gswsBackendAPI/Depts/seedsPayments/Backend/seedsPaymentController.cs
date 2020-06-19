@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Dynamic;
 using System.Globalization;
@@ -48,18 +49,14 @@ namespace gswsBackendAPI.Depts.seedsPayments.Backend
 		public IHttpActionResult paymentOrderDetails(dynamic data)
 		{
 			dynamic objdata = new ExpandoObject();
-			string serialized_data = token_gen.Authorize_aesdecrpty(data);
 			try
 			{
-				
+				string serialized_data = token_gen.Authorize_aesdecrpty(data);
 				seedPaymentModel rootobj = JsonConvert.DeserializeObject<seedPaymentModel>(serialized_data);
 				return Ok(seedsPaymentHelper.paymentOrderDetails(rootobj));
 			}
 			catch (Exception ex)
 			{
-				string mappath2 = HttpContext.Current.Server.MapPath("PaymentOrderExceptionGatewayLogs");
-				Task WriteTask2 = Task.Factory.StartNew(() => new Logdatafile().Write_Log_Exception(mappath2, "input Data:" + serialized_data + "error:" + ex.Message.ToString()));
-
 				objdata.status = false;
 				objdata.result = ex.Message.ToString();
 			}
@@ -129,12 +126,25 @@ namespace gswsBackendAPI.Depts.seedsPayments.Backend
 			{
 				var input = new
 				{
-					userid = "gsws",
-					password = password,
+					vscode = "11190157",
 					otpid = obj.orderId
 				};
-				string input_data = JsonConvert.SerializeObject(input);
-				string url = "https://eseed.ap.gov.in/eseed/RestFul/VSServices/ReceivePayment";
+				var mualinput = new
+				{
+					deptId = "1101",
+					deptName = "Agriculture",
+					serviceName = "ReceivePayment",
+					serviceType = "REST",
+					method = "POST",
+					simulatorFlag = "false",
+					application = "GWS",
+					username = "test",
+					data = input
+
+				};
+				string input_data = JsonConvert.SerializeObject(mualinput);
+				string url = ConfigurationManager.AppSettings["AgricultureApiBaseAddress"].ToString() + "Agriculture/v1/api/v1/agriculture";
+				//string url = "https://eseed.ap.gov.in/eseed/RestFul/VSServices/ReceivePayment";
 				string response = POST_RequestAsync(url, input_data);
 				orderDetailesRespModel rootobj = JsonConvert.DeserializeObject<orderDetailesRespModel>(response);
 
@@ -145,7 +155,7 @@ namespace gswsBackendAPI.Depts.seedsPayments.Backend
 					objres.txnId = obj.orderId;
 					objdata.status = true;
 					objdata.result = rootobj.response;
-					objdata.DataList = resProc(objres,0);
+					objdata.DataList = resProc(objres);
 					objdata.Pflag = rootobj.response.status;
 
 				}
@@ -168,57 +178,40 @@ namespace gswsBackendAPI.Depts.seedsPayments.Backend
 		public static dynamic paymentOrderDetails(seedPaymentModel obj)
 		{
 			dynamic objdata = new ExpandoObject();
-			resProcModel objRes = new resProcModel();
-			orderDetailesRespModel rootobj = new orderDetailesRespModel();
 			try
 			{
-				string response=string.Empty;
-				string input_data = string.Empty;
-				decModel decData = new decModel();
 				obj.encrypted_data = obj.encrypted_data.Replace(" ", "+");
 				string decrypted_text = EncryptDecryptAlgoritham.DecryptStringAES(obj.encrypted_data, "3fee5395f01bee349feed65629bd442a", obj.iv);
-				try
+				var input = new
 				{
+					vscode = "11190157",
+					otpid = obj.orderId
+				};
+				var mualinput = new
+				{
+					deptId = "1234",
+					deptName = "Agriculture",
+					serviceName = "ReceivePayment",
+					serviceType = "REST",
+					method = "POST",
+					simulatorFlag = "false",
+					application = "GWS",
+					username = "test",
+					data = input
 
-					var input = new
-					{
-						userid = "gsws",
-						password = password,
-						otpid = obj.orderId
-					};
-					 input_data = JsonConvert.SerializeObject(input);
-					 decData = JsonConvert.DeserializeObject<decModel>(decrypted_text);
-					//   decData.PS_TXN_ID = DateTime.Now.ToString("yyyymmddhhmmssfff");
-					string url = "https://eseed.ap.gov.in/eseed/RestFul/VSServices/ReceivePayment";
-					 response = POST_RequestAsync(url, input_data);
-					
-					string mappath2 = HttpContext.Current.Server.MapPath("PaymentOrderDetailLogs");
-					Task WriteTask2 = Task.Factory.StartNew(() => new Logdatafile().Write_Log_Exception(mappath2, response));
-					if (response == "{}")
-					{
-						string mappath3 = HttpContext.Current.Server.MapPath("PaymentOrderGatewayLogs");
-						Task WriteTask3 = Task.Factory.StartNew(() => new Logdatafile().Write_Log_Exception(mappath3, "input Data:" + input_data + response));
-						objdata.status = false;
-						objdata.result = "Response From D-Krishi : Deatails Not Available for given OTP ID:"+ obj.orderId;
-						return objdata;
-					}
-					else
-					rootobj = JsonConvert.DeserializeObject<orderDetailesRespModel>(response);
-				}
-				catch (Exception ex)
-				{
-					string mappath2 = HttpContext.Current.Server.MapPath("PaymentOrderExceptionGatewayLogs");
-					Task WriteTask2 = Task.Factory.StartNew(() => new Logdatafile().Write_Log_Exception(mappath2, "input Data:" + input_data + response + "error:" + ex.Message.ToString()));
-					throw ex;
-				}
-				rootobj.response.gswsTxnId = decData.PS_TXN_ID;
-				objdata.status = true;
-				objdata.result = rootobj.response;
-				return objdata;
+				};
+
+				string input_data = JsonConvert.SerializeObject(mualinput);
+				decModel decData = JsonConvert.DeserializeObject<decModel>(decrypted_text);
+				//   decData.PS_TXN_ID = DateTime.Now.ToString("yyyymmddhhmmssfff");
+				string url = ConfigurationManager.AppSettings["AgricultureApiBaseAddress"].ToString() + "Agriculture/v1/api/v1/agriculture";
+				// string url = "https://eseed.ap.gov.in/eseed/RestFul/VSServices/ReceivePayment";
+				string response = POST_RequestAsync(url, input_data);
+				orderDetailesRespModel rootobj = JsonConvert.DeserializeObject<orderDetailesRespModel>(response);
 
 				if (rootobj.response.status == "1" || rootobj.response.status == "2")
 				{
-					 objRes = new resProcModel();
+					resProcModel objRes = new resProcModel();
 					objRes.type = "1";
 					objRes.txnId = decData.PS_TXN_ID;
 					objRes.orderId = obj.orderId;
@@ -230,7 +223,7 @@ namespace gswsBackendAPI.Depts.seedsPayments.Backend
 					objRes.serviceCharge = "0";
 					objRes.totalAmount = (float.Parse(objRes.userCharge, CultureInfo.InvariantCulture.NumberFormat) + float.Parse(objRes.serviceCharge, CultureInfo.InvariantCulture.NumberFormat)).ToString();
 
-					DataTable dt = resProc(objRes,0);
+					DataTable dt = resProc(objRes);
 					if (dt != null && dt.Rows.Count > 0 && dt.Rows[0][0].ToString() == "1")
 					{
 						rootobj.response.gswsTxnId = decData.PS_TXN_ID;
@@ -254,15 +247,10 @@ namespace gswsBackendAPI.Depts.seedsPayments.Backend
 					objdata.result = rootobj.response.msg;
 				}
 
-				
-
 
 			}
 			catch (Exception ex)
 			{
-				string mappath2 = HttpContext.Current.Server.MapPath("SeedsExceptionLogs");
-				Task WriteTask2 = Task.Factory.StartNew(() => new Logdatafile().Write_Log_Exception(mappath2, "paymentOrderDetails" + ex.Message.ToString() + ":" + JsonConvert.SerializeObject(objRes)));
-
 				objdata.status = false;
 				objdata.result = ex.Message.ToString();
 			}
@@ -272,32 +260,38 @@ namespace gswsBackendAPI.Depts.seedsPayments.Backend
 		public static dynamic makePayment(walletProcModel obj)
 		{
 			dynamic objdata = new ExpandoObject();
-			orderDetailesRespModel rootobj = new orderDetailesRespModel();
-
 			try
 			{
-				if (obj == null)
-				{
-					objdata.status = false;
-					objdata.result = "Failed Make Payment Please try again !!!";
-					return objdata;
-				}
 				var input = new
 				{
 					vscode = obj.GSWSCODE,
-					userid = "gsws",
-					password = password,
 					otpid = obj.APPLICATIONNO,
 					transactionid = obj.GSWSREFNO,
-					amounttobepaid = (float.Parse(obj.serviceCharge, CultureInfo.InvariantCulture.NumberFormat) + float.Parse("0", CultureInfo.InvariantCulture.NumberFormat)).ToString()
+					receiptid = "123",
+					amounttobepaid = (float.Parse(obj.serviceCharge, CultureInfo.InvariantCulture.NumberFormat) + float.Parse("0", CultureInfo.InvariantCulture.NumberFormat)).ToString(),
+					paystatus = "1"
 
 				};
-				string input_data = JsonConvert.SerializeObject(input);
-				string url = "https://eseed.ap.gov.in/eseed/RestFul/VSServices/updatePaymentStatus";
+				var mualinput = new
+				{
+					deptId = "1101",
+					deptName = "Agriculture",
+					serviceName = "updatePaymentStatus",
+					serviceType = "REST",
+					method = "POST",
+					simulatorFlag = "false",
+					application = "GWS",
+					username = "test",
+					data = input
+				};
+
+				string input_data = JsonConvert.SerializeObject(mualinput);
+				//  string url = "https://eseed.ap.gov.in/eseed/RestFul/VSServices/updatePaymentStatus";
+				string url = ConfigurationManager.AppSettings["AgricultureApiBaseAddress"].ToString() + "Agriculture/v1/api/v1/agriculture";
 				string response = POST_RequestAsync(url, input_data);
 				string mappath1 = HttpContext.Current.Server.MapPath("SeedsPaymentUpdationLogs");
 				Task WriteTask1 = Task.Factory.StartNew(() => new Logdatafile().Write_Log_Exception(mappath1, response));
-				rootobj = JsonConvert.DeserializeObject<orderDetailesRespModel>(response);
+				orderDetailesRespModel rootobj = JsonConvert.DeserializeObject<orderDetailesRespModel>(response);
 				resProcModel objRes = new resProcModel();
 				objRes.type = "6";
 				objRes.txnId = obj.GSWSREFNO;
@@ -305,37 +299,27 @@ namespace gswsBackendAPI.Depts.seedsPayments.Backend
 				if (rootobj.response.status == "1")
 				{
 					objRes.isPaymentSuccess = "1";
-					
-					DataTable dt = resProc(objRes,0);
-					if (dt != null && dt.Rows.Count > 0 && dt.Rows[0]["STATUS"].ToString() == "1" && rootobj.response.status == "1")
-					{
-						objdata.status = true;
-						objdata.result = dt;
-					}
-					else
-					{
-						objdata.status = false;
-						objdata.result = "Failed Make Payment Please try again !!!";
-					}
+				}
+				//else
+				//{
+				//    objRes.isPaymentSuccess = "0";
+				//}
+				DataTable dt = resProc(objRes);
+				if (dt != null && dt.Rows.Count > 0 && dt.Rows[0]["STATUS"].ToString() == "1" && rootobj.response.status == "1")
+				{
+					objdata.status = true;
+					objdata.result = dt;
 				}
 				else
 				{
 					objdata.status = false;
 					objdata.result = "Failed Make Payment Please try again !!!";
 				}
-				//else
-				//{
-				//    objRes.isPaymentSuccess = "0";
-				//}
-
 
 
 			}
 			catch (Exception ex)
 			{
-				string mappath2 = HttpContext.Current.Server.MapPath("SeedsExceptionLogs");
-				Task WriteTask2 = Task.Factory.StartNew(() => new Logdatafile().Write_Log_Exception(mappath2, "makePayment" + ex.Message.ToString() + ":" + JsonConvert.SerializeObject(rootobj)));
-
 				objdata.status = false;
 				objdata.result = ex.Message.ToString();
 
@@ -374,32 +358,57 @@ namespace gswsBackendAPI.Depts.seedsPayments.Backend
 								var input = new
 								{
 									vscode = obj.secId,
-									userid = "gsws",
-									password = password,
 									otpid = objResp.APPLICATIONNO,
 									transactionid = objResp.GSWSREFNO,
-									amounttobepaid = (float.Parse(objResp.serviceAmt, CultureInfo.InvariantCulture.NumberFormat) + float.Parse(objResp.userCharges, CultureInfo.InvariantCulture.NumberFormat)).ToString()
+									receiptid = "123",
+									amounttobepaid = (float.Parse(objResp.serviceAmt, CultureInfo.InvariantCulture.NumberFormat) + float.Parse(objResp.userCharges, CultureInfo.InvariantCulture.NumberFormat)).ToString(),
+									paystatus = "1"
 
 								};
-								string input_data = JsonConvert.SerializeObject(input);
-								string url = "https://eseed.ap.gov.in/eseed/RestFul/VSServices/updatePaymentStatus";
+								var mualinput = new
+								{
+									deptId = "1101",
+									deptName = "Agriculture",
+									serviceName = "updatePaymentStatus",
+									serviceType = "REST",
+									method = "POST",
+									simulatorFlag = "false",
+									application = "GWS",
+									username = "test",
+									data = input
+								};
+								string input_data = JsonConvert.SerializeObject(mualinput);
+								//  string url = "https://eseed.ap.gov.in/eseed/RestFul/VSServices/updatePaymentStatus";
+								string url = ConfigurationManager.AppSettings["AgricultureApiBaseAddress"].ToString() + "Agriculture/v1/api/v1/agriculture";
 								string response = POST_RequestAsync(url, input_data);
 								orderDetailesRespModel rootobj = JsonConvert.DeserializeObject<orderDetailesRespModel>(response);
 								if (rootobj.response.status == "1")
 								{
 									var input1 = new
 									{
-										userid = "gsws",
-										password = password,
+										vscode = "11190157",
 										otpid = objResp.APPLICATIONNO
 									};
-									input_data = JsonConvert.SerializeObject(input1);
-									url = "https://eseed.ap.gov.in/eseed/RestFul/VSServices/ReceivePayment";
+									var mualinput1 = new
+									{
+										deptId = "1101",
+										deptName = "Agriculture",
+										serviceName = "ReceivePayment",
+										serviceType = "REST",
+										method = "POST",
+										simulatorFlag = "false",
+										application = "GWS",
+										username = "test",
+										data = input1
+
+									};
+									input_data = JsonConvert.SerializeObject(mualinput1);
+									// url = "https://eseed.ap.gov.in/eseed/RestFul/VSServices/ReceivePayment";
 									response = POST_RequestAsync(url, input_data);
 									orderDetailesRespModel rootobj1 = JsonConvert.DeserializeObject<orderDetailesRespModel>(response);
 									if (rootobj1.response.status == "2")
 									{
-										//call wallet table and resp table and txn cancel servie
+										//call wallet table and resp table and txn cancel servie otpid = objResp.APPLICATIONNO
 										objdata.status = true;
 										objdata.seedDetails = rootobj1.response;
 										objdata.walletDetails = objResp;
@@ -485,15 +494,11 @@ namespace gswsBackendAPI.Depts.seedsPayments.Backend
 			}
 			return _ResObj;
 		}
-		static int excount = 0;
-		public static DataTable resProc(resProcModel obj, int i)
+		public static DataTable resProc(resProcModel obj)
 		{
-			OracleCommand cmd = new OracleCommand();
-			OracleConnection con = new OracleConnection(new ConnectionHelper().Congswsprod);
-			OracleDataAdapter adp = new OracleDataAdapter();
 			try
 			{
-				cmd.Connection = con;
+				OracleCommand cmd = new OracleCommand();
 				cmd.InitialLONGFetchSize = 1000;
 				cmd.CommandType = CommandType.StoredProcedure;
 				cmd.CommandText = "GSWS_APSEEDS_CORP_RESP_PROC";
@@ -512,23 +517,11 @@ namespace gswsBackendAPI.Depts.seedsPayments.Backend
 				cmd.Parameters.Add("P_IS_PAY_REV_SUCCESS", OracleDbType.Varchar2).Value = obj.isPaymentRevSuccess;
 				cmd.Parameters.Add("P_IS_TXNID_CANCEL_SUCCESS", OracleDbType.Varchar2).Value = obj.isTxnCancelSuccess;
 				cmd.Parameters.Add("p_cur", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
-				//DataTable dtstatus = _Hel.GetProdgswsDataAdapter(cmd);
-				con.Open();
-				DataTable dtstatus = new DataTable();
-				adp = new OracleDataAdapter(cmd);
-				adp.Fill(dtstatus);
-				con.Close();
-				cmd.Dispose();
+				DataTable dtstatus = _Hel.GetProdgswsDataAdapter(cmd);
 				return dtstatus;
 			}
 			catch (Exception ex)
 			{
-				excount++;
-				string mappath1 = HttpContext.Current.Server.MapPath("SeedsExceptionLogs");
-				Task WriteTask1 = Task.Factory.StartNew(() => new Logdatafile().Write_Log_Exception(mappath1, "ResProc:"+excount+":" + ex.Message.ToString() + ":" + JsonConvert.SerializeObject(obj)));
-				if (excount < 3)				
-				return resProc(obj, excount);				
-				else
 				throw ex;
 			}
 		}
@@ -542,7 +535,8 @@ namespace gswsBackendAPI.Depts.seedsPayments.Backend
 				var request = (HttpWebRequest)WebRequest.Create(uri);
 				request.ContentType = "application/json";
 				request.Method = "POST";
-
+				request.Headers.Add("Authorization", "Bearer 7d1a2c9a-72d2-3b6e-8663-e91f4e58d578");
+				request.AllowAutoRedirect = false;
 				using (var streamWriter = new StreamWriter(request.GetRequestStream()))
 				{
 					streamWriter.Write(json);
@@ -641,8 +635,6 @@ namespace gswsBackendAPI.Depts.seedsPayments.Backend
 			}
 			catch (Exception ex)
 			{
-				string mappath1 = HttpContext.Current.Server.MapPath("SeedsDepositBankExceptionLogs");
-				Task WriteTask1 = Task.Factory.StartNew(() => new Logdatafile().Write_Log_Exception(mappath1, "ResProc:" + excount + ":" + ex.Message.ToString() + ":" + JsonConvert.SerializeObject(Obj)));
 				throw ex;
 			}
 		}

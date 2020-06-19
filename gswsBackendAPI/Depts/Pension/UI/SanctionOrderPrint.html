@@ -1,0 +1,218 @@
+﻿<link href="assets/css/printcss.css" rel="stylesheet" />
+<style>
+    .so-main {
+        width: 80%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 10px 50px;
+    }
+
+    .so-main-title {
+        text-align: center;
+    }
+
+    .so-head-table {
+        border: 0;
+        width: 60%;
+        margin-bottom: 30px;
+    }
+
+        .so-head-table tr td {
+            border: 0;
+            padding: 5px 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+            .so-head-table tr td:last-child {
+                border-bottom: 2px dotted #000;
+                position: relative;
+            }
+
+                .so-head-table tr td:last-child::before {
+                    content: ':';
+                    position: absolute;
+                    left: -50px;
+                }
+
+            .so-head-table tr td label {
+                margin-bottom: 0;
+            }
+
+    .so-text-body {
+        padding: 0 20px;
+    }
+
+        .so-text-body p {
+            margin-bottom: 0px;
+            text-align: justify;
+            font-size: 14px;
+        }
+
+        .so-text-body label {
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+
+    .so-footer-dtl {
+        width: fit-content;
+        margin-left: auto;
+        text-align: right;
+        margin-top: 50px;
+    }
+
+        .so-footer-dtl h5 {
+            margin-bottom: 0;
+        }
+
+        .so-footer-dtl label {
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+
+    .so-bottom-footer label {
+        width: 100px;
+    }
+
+    .so-bottom-footer span {
+        font-weight: bold;
+    }
+
+    .pe-main {
+        display: block;
+    }
+
+    .print-reciept {
+        display: block !important;
+    }
+    div.divFooter {
+        display: block;
+        text-align: center;
+    }
+    @media print {
+        body {
+            background-color: transparent;
+        }
+
+        .navbar {
+            display: none;
+        }
+        .page-header {
+            display: none;
+        }
+
+        .print-btn-div {
+            display: none;
+        }
+        .pe-main {
+            display: none;
+        }
+
+        .print-reciept {
+            display: block;
+        }
+
+        .so-main {
+            width: 100%;
+            padding: 0 80px;
+            margin-top: 60px;
+        }
+
+        .so-text-body p {
+            margin-bottom: 0px;
+            text-align: justify;
+            font-size: 16px;
+        }
+
+        .so-text-body label {
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            padding: 0 15px;
+            margin-bottom: 25px;
+        }
+        div.divFooter {
+            position: fixed;
+            bottom: 10%;
+            display:block;
+            text-align:center;
+            justify-content:center;
+        }
+        .so-main {
+            padding-top: 250px;
+        }
+    }
+
+
+</style>
+
+<div class="container-fluid mt-5">
+    <div class="row print-btn-div">
+        <div class="w-75 mx-auto text-right">
+            <button type="button" class="btn btn-primary btn-sm" ng-click="btnPrint();">PRINT</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="so-main">
+            
+            <h2 class="so-main-title font-weight-bold">{{resultSOdata.Mandal}} మండలం, {{resultSOdata.District}} జిల్లా</h2>
+
+            <div class="so-body">
+                <table class="table so-head-table">
+                    <tr>
+                        <td>పింఛను ఐడి </td>
+                        <td><label>{{resultSOdata.pensionId}}</label></td>
+                    </tr>
+                    <tr>
+                        <td>సెక్రటేరియట్ ఐడి</td>
+                        <td><label>{{resultSOdata.secretariatId}}</label></td>
+                    </tr>
+                    <tr>
+                        <td>సెక్రటేరియట్</td>
+                        <td><label>{{resultSOdata.secretariatName}}</label></td>
+                    </tr>
+                    <tr>
+                        <td>తేదీ</td>
+                        <td><label>{{resultSOdata.sanctionedDate}}</label></td>
+                    </tr>
+                </table>
+
+                <div class="so-text-body">
+                    <p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; శ్రీ/శ్రీమతి <label class="name-label">{{resultSOdata.pensionerName}}</label> వయస్సు <label class="number-label">{{resultSOdata.age}}</label>
+
+                        తల్లి/తండ్రి/భర్త <label class="r-name-label">{{resultSOdata.relationName}} </label> కులము <label class="caste-label">{{resultSOdata.caste}}</label>
+
+                        నివాసము <label class="adr-label"> {{resultSOdata.address}} </label> ,
+
+                        <label class="vil-label">{{resultSOdata.village}}</label> గ్రామము , <label class="vil-label">{{resultSOdata.habitation}}</label> గ్రామ పంచాయతి,
+
+                        <label>{{resultSOdata.Mandal}}</label> మండలము, <label>{{resultSOdata.District}}</label> జిల్లా గారికి వై.యస్.ఆర్ పింఛను కానుక పథకం క్రింద <label>{{resultSOdata.schemeName}} </label>
+                        పింఛను  రూ. <label>{{resultSOdata.pensionerAmount}} </label> మంజూరు చేయడమైనది. ఈ మంజూరు చేయబడిన పించను <label class="adr-label"> {{resultSOdata.disbursementMonthTelugu}} </label> నెల 1 వ తేదీన పంపిణీ చేయటం జరుగుతుంది.
+                    </p>
+                </div>
+            </div>
+
+            <div class="so-footer">
+                <div class="so-footer-dtl">
+                    <h4>మండల పరిషత్ అభివృద్ధి అధికారి</h4>
+                    <h5><label>{{resultSOdata.Mandal}} మండలం</label></h5>
+                    <h5><label>{{resultSOdata.District}} జిల్లా </label></h5>
+                </div>
+            </div>
+
+            <div class="so-bottom-footer">
+                <p>
+                    <label>శ్రీ/శ్రీమతి</label> <span>{{resultSOdata.pensionerName}}</span> గారికి
+                </p>
+                <p>
+                    <label>తల్లి/తండ్రి/భర్త</label> <span>{{resultSOdata.relationName}} </span>
+                </p>
+                <div class="divFooter">This is computer generated slip. Hence Signature not required</div>
+            </div>
+        </div>
+    </div>
+</div>
+

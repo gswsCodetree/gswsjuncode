@@ -1,0 +1,98 @@
+﻿
+<style>
+
+    body {
+        background: #fff !important;
+    }
+
+    .table thead th {
+        padding: 8px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .table tbody td {
+        padding: 5px;
+    }
+
+    .btn {
+        padding: 2px 8px;
+    }
+
+    .table tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .table tbody tr:nth-of-type(even) {
+        background-color: rgba(120, 120, 120, 0.12);
+    }
+
+    .table tr td p {
+        margin-bottom: 0;
+    }
+
+    .form-control {
+        height: 30px !important;
+        padding: 0;
+    }
+
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
+        display: none !important;
+    }
+</style>
+
+<div class="row pe-main" style="padding-top:20px;">
+    <div class="col-md-12">
+        <h3 class="text-center">PENSION ENDORSEMENT</h3>
+
+        <div class="row" ng-show="!loader">
+            <div class="col-md-12">
+                <h3 class="text-center">Endorsement Details</h3>
+            </div>
+
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="bg-primary text-white">
+                            <tr align="center">
+                                <th>S.No</th>
+                                <th>GRIEVANCE ID</th>
+                                <th>PENSIONER NAME</th>
+                                <th>PENSIONER ID</th>
+                                <th>SCHEME</th>
+                                <th>AGE</th>
+                                <th>APPLICATION RAISED DATE</th>
+                                <th>STATUS REMARKS</th>
+                                <th>PRINT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="obj in EndorsList" align="center">
+                                <td>{{$index + 1}}</td>
+                                <td>{{obj.grievance_Id}}</td>
+                                <td>{{obj.pensioner_Name}}</td>
+                                <td>{{obj.pension_id}}</td>
+                                <td>{{obj.scheme}}</td>
+                                <td>{{obj.age}}</td>
+                                <td>{{obj.application_raised_date | date}}</td>
+                                <td>{{obj.status_remarks}}</td>
+                                <td>
+                                    <button type="button" ng-show="obj.status == '5' || obj.status == '7'" class="btn btn-success" ng-click="btnSanction(obj);">Sanction Order</button>
+                                    <button type="button" ng-show="obj.status == '4' || obj.status == '8'" class="btn btn-danger" ng-click="btnReject(obj);">Negative Endorsement</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" align="center" ng-show="loader" style="padding:20px;">
+            <div class="col-md-12">
+                <h1>Loading...</h1>
+            </div>
+        </div>
+
+    </div>
+</div>
+

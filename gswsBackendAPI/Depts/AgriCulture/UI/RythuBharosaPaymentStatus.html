@@ -1,0 +1,282 @@
+﻿<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<style>
+
+	@media screen and (min-width:1800px) and (max-width:2000px) {
+		label, legend, th {
+			font-size: 16px !important;
+		}
+
+		.main-heading h1 {
+			font-size: 20px !important;
+		}
+	}
+
+	@media screen and (max-width: 844px) {
+		.main-heading h1 {
+			font-size: 25px !important;
+		}
+	}
+
+	.main-heading h1 {
+		font-size: 24px;
+	}
+
+	.main-heading h1 {
+		font-size: 24px;
+		color: #000;
+	}
+
+	.main-heading {
+		margin: 0em auto 1em;
+		/* background-image: linear-gradient(45deg, #3F51B5, #4CAF50);*/
+		padding: 40px 32px 20px 32px;
+		text-align: center !important;
+	}
+
+	th {
+		font-size: 15px;
+	}
+
+	.main-heading h1 {
+		font-size: 24px;
+		color: #000;
+	}
+
+	label {
+		font-size: 15px;
+		font-weight: 500;
+	}
+
+	td {
+		font-size: 15px;
+	}
+
+
+
+	.btnSubmit {
+		margin-top: 15px;
+		border: 0px;
+		padding: 10px 20px;
+		border-radius: 5px;
+		font-size: 18px;
+		background-color: #1285c4;
+		color: #fff;
+		cursor: pointer;
+	}
+
+	.error {
+		color: red;
+		font-size: 12px;
+		display: none;
+	}
+
+	.success {
+		color: green;
+		font-size: 18px;
+		margin-bottom: 15px;
+		display: none;
+	}
+
+	legend {
+		background: #004085;
+		/* background: #008e46; */
+		padding: 4px 22px !important;
+		border-radius: 3px;
+		color: white;
+		font-size: 15px;
+		font-weight: 500;
+		margin-bottom: 0px !important;
+	}
+
+	label {
+		font-weight: 500;
+		font-size: 15px;
+	}
+
+	fieldset {
+		border: 2px solid gray !important;
+		border-radius: 3px;
+		padding: 17px !important;
+	}
+
+	.card {
+		box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+	}
+
+
+	@media screen and (min-width: 768px) {
+		label {
+			box-sizing: border-box;
+		}
+	}
+
+	@media screen and (max-width: 575px) {
+		.submit-div {
+			text-align: center !important;
+			width: 100%;
+		}
+	}
+
+	.submit-div {
+		margin-bottom: 0px !important;
+	}
+
+	.no-space-break {
+		white-space: nowrap;
+		text-align: center;
+	}
+
+	.errspan {
+		float: right;
+		margin-right: 6px;
+		margin-top: -30px;
+		position: relative;
+		z-index: 2;
+		color: black;
+	}
+</style>
+<div class="col-md-12 main-heading">
+	<h1 style="text-align: center !important;">Rythu Bharosa Payment Status</h1>
+</div>
+
+<div class="container-fluid container-md">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card captchaCard">
+				<div class="card-body" style="padding-bottom: 35px !important;">
+					<div class="NOI box">
+						<fieldset>
+							<legend class="w-auto">Know Your Payment Status</legend>
+							<form>
+								<div class="form-group row justify-content-center">
+									<label for="inputAadhaar" class="col-sm-3 no-space-break">Aadhaar Number<span class="text-danger">*</span>:</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="inputAadhaar" uid-input-model="aadharNo" ng-blur="ValidateAadhar();" autocomplete="off" maxlength="12" placeholder="Enter Aadhaar No" uid-input-mask="uid_mask_flag" ng-disabled="disableaadhaar" mask-length="12" required>
+										<i ng-click="show_uid();" class="fa fa-eye fa-2x errspan" style="cursor:pointer; font-size:20px;" ng-class="uid_mask_flag == false ? 'fa fa-eye errspan' : 'fa fa-eye-slash errspan'"></i>
+
+									</div>
+								</div>
+								<div class="form-group row justify-content-center">
+									<label for="inputCaptcha" class="col-sm-3 no-space-break">Captcha<span class="text-danger">*</span>:</label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" data-ng-model="Fcaptcha" id="inputCaptcha" autocomplete="off" placeholder="Enter Captcha">
+									</div>
+								</div>
+								<div class="form-group row justify-content-center">
+									<div class="col-sm-3"></div>
+									<div class="col-sm-4">
+										<div class="row">
+											<div class="col-sm-6">
+
+												<div class="col-sm-6 d-flex mb-2">
+													<table id="captchdis">
+														<tbody></tbody>
+													</table>
+													&nbsp;&nbsp;&nbsp;&nbsp;
+													<a href="javascript:void(0);" title="click here to get new confirmation code" class="btn bg-primary-800 btn-round" ng-click="GetRefresh();"><i class="icon-reload-alt" aria-hidden="true"></i></a>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-group row justify-content-center text-right submit-div">
+									<div class="col-sm-2">
+										<button class="btn btn-success" style="text-transform: capitalize;font-size: 15px;" data-ng-click="GetData();" value="Submit">Get Details</button>
+									</div>
+								</div>
+							</form>
+
+
+						</fieldset>
+					</div>
+					<div id="PermanentDetails" class="mt-2" style="display:none;">
+						<div class="row  mb-3" style="display: block;">
+
+							<fieldset>
+								<legend class="w-auto">
+									Payment Status
+								</legend>
+
+								<div class="container-fluid">
+									<div class="table-responsive">
+										<table class="table table-bordered table-hover table-condensed" id="myContent">
+											<thead style="background:#004085;color:#fff;text-align:center;">
+												<tr>
+													<th>Name</th>
+													<th>Father Name</th>
+													<th>Status</th>
+													<th>Reason</th>
+													<th>Bank Name</th>
+													<th>A/C No</th>
+													<th>Amount</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr data-ng-repeat="RB in RBData">
+													<td>{{RB.NAME}}</td>
+													<td>{{RB.FATHER_NAME}}</td>
+													<td>{{RB.STATUS}}</td>
+													<td>{{RB.REASON}}</td>
+													<td>{{RB.BANK_NAME}}</td>
+													<td>{{RB.ACCOUT_NO}}</td>
+													<td>{{RB.AMOUNT}}</td>
+
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+
+					</div>
+					<div id="BeneficiaryDetails" class="mt-2" style="display:none;">
+						<div class="row  mb-3" style="display: block;">
+
+							<fieldset>
+								<legend class="w-auto">
+									Beneficiary Family Member Details
+								</legend>
+
+								<div class="container-fluid">
+									<div class="table-responsive">
+										<table class="table table-bordered table-hover table-condensed" id="myContent">
+											<thead style="background:#004085;color:#fff;text-align:center;">
+												<tr>
+													<th>Name</th>
+													<th>Father Name</th>
+													<th>Status</th>
+													<th>Reason</th>
+													<th>Bank Name</th>
+													<th>A/C No</th>
+													<th>Amount</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr data-ng-repeat="RB in BeneficiaryData">
+													<td>{{RB.NAME}}</td>
+													<td>{{RB.FATHER_NAME}}</td>
+													<td>{{RB.STATUS}}</td>
+													<td>{{RB.REASON}}</td>
+													<td>{{RB.BANK_NAME}}</td>
+													<td>{{RB.ACCOUT_NO}}</td>
+													<td>{{RB.AMOUNT}}</td>
+
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+

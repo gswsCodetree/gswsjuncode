@@ -10,11 +10,11 @@ namespace gswsBackendAPI.Depts.Health
 {
     public class HealthHelper : HealthSPModel
     {
-		public dynamic GetArogyaRakshaStatus_helper(AppStatus root)
-		{
-			dynamic obj = new ExpandoObject();
-			try
-			{
+        public dynamic GetArogyaRakshaStatus_helper(AppStatus root)
+        {
+            dynamic obj = new ExpandoObject();
+            try
+            {
                 if (Utils.IsAlphaNumeric(root.fadhar_no))
                 {
                     DataTable data = GetArogyaRakshaStatus_data_helper(root);
@@ -38,35 +38,39 @@ namespace gswsBackendAPI.Depts.Health
                     obj.Reason = "Does not contain special characters";
                 }
 
-			}
-			catch (Exception ex)
-			{
-				obj.Status = 102;
-				obj.Reason = "Error Occured";
+            }
+            catch (Exception ex)
+            {
+                obj.Status = 102;
+                obj.Reason = "Error Occured";
 
-			}
+            }
 
-			return obj;
+            return obj;
 
-		}
+        }
 
-		public dynamic GetMethod(string url)
-		{
-			dynamic obj = new ExpandoObject();
-			try
-			{
-				var val = GetData(url);
-				obj.Status = 100;
-				obj.Details = val;
-				return obj;
-			}
-			catch (Exception ex)
-			{
-				obj.Status = 102;
-				obj.Reason = "Error Occured";
-				return obj;
-			}
+        public dynamic GetMethod(string url)
+        {
+            dynamic obj = new ExpandoObject();
+            try
+            {
+                var val = GetData(url);
+                obj.Status = 100;
+                obj.Details = val;
+                return obj;
+            }
+            catch (Exception ex)
+            {
+                obj.Status = 102;
+                obj.Reason = "Error Occured";
+                return obj;
+            }
 
-		}
-	}
+        }
+       
+
+    }
+
+
 }

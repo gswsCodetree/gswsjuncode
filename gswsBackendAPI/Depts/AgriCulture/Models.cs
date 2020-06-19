@@ -15,7 +15,11 @@ namespace gswsBackendAPI.Depts.AgriCulture
 		public string FKathano { get; set; }
 		public string FUID { get; set; }
 	}
-
+	public class EPanta
+	{
+		public string PTYPE { get; set; }
+		public string PUIDNUM { get; set; }
+	}
 	public class EPantaCls
 	{
 		public string UserName { get; set; }
@@ -59,5 +63,26 @@ namespace gswsBackendAPI.Depts.AgriCulture
 		public string PAN { get; set; }
 		public string CentralUnique_BenID { get; set; }
 	}
+	public class Data
+	{
 
+		public string PTYPE { get; set; }
+		public string PUIDNUM { get; set; }
+	}
+
+	public class YSRRB
+	{
+		public string Captcha { get; set; }
+		public string ConfirmCaptch { get; set; }
+		public string deptId { get; set; }
+		public string deptName { get; set; }
+		public string serviceName { get; set; }
+		public string serviceType { get; set; }
+		public string method { get; set; }
+		public string simulatorFlag { get; set; }
+		public string application { get; set; }
+		public string username { get; set; }
+		public string userid { get; set; }
+		public Data data { get; set; }
+	}
 }

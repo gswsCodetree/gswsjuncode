@@ -56,6 +56,7 @@
 			.state("ui.Affidvit", { url: "/Affidvit", templateUrl: pre_path + "UI/Affidavit.html", controller: "AffidavitController" })
 			.state("ut.TDashboard", { url: "/TMainDashboard", templateUrl: pre_path + "UI/TeluguDashboard.html", controller: "DaashboardController" })
 			.state("uc.SecretariatForm", { url: "/SecretariatForm", templateUrl: pre_path + "UI/SecretariatForm.html", controller: "SecretariatFormController" })
+			.state("uc.CFMSPayment", { url: "/CFMSChallanGeneration", templateUrl: pre_path + "UI/CFMSChallanGeneration.html", controller: "CFMSChallanGenerateCTRL" })
 			.state("ui.SecretariatDashBoard", { url: "/SecretariatDashBoard", templateUrl: pre_path + "UI/SecretariatDashBoard.html", controller: "SecretariatDashBoardController" });		
         //$locationProvider.html5Mode({
         //    enabled: true,

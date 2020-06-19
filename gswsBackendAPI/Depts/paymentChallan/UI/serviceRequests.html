@@ -43,36 +43,37 @@
 
 
 <div class="row " style="padding-top:20px;">
-    <div class="col-md-12">
-        <h3 class="text-center">Citizen Service Request Details</h3>
-        <div class="row">
-           <!--<div class="col-md-12">
-                <button type="button" class="btn btn-success btn-sm pull-right" ng-click="btnGenerateChallan();">GENERATE CHALLAN</button>
-                <button type="button" class="btn btn-info btn-sm pull-right" ng-click="btnPrintChallan();">PRINT CHALLAN</button>
-            </div>-->
-        </div>
-        <div class="row" align="center" style="padding:20px;" ng-show="!loader">
-            <div class="col-md-12 table-responsive">
-                <table class="table table-bordered">
-                    <thead class="bg-primary">
-                        <tr align="center">
-                            <th>S.No.</th>
-                            <th>CITIZEN NAME</th>
-                            <th>AMOUNT</th>
-                            <th>SERVICE CHARGE</th>
-                            <th>TOTAL AMOUNT</th>
-                            <th>PAYMENT DATE</th>
-                        </tr>
-                    </thead>
-                    <tbody align="center" ng-show="!loader && serviceRequestsDetails != ''">
-                        <tr align="center" ng-repeat="obj in serviceRequestsDetails">
-                            <td>{{$index + 1}}</td>
-                            <td>{{obj.CITIZEN_NAME}}</td>
-                            <td>{{obj.AMOUNT}}</td>
-                            <td>{{obj.SERVICE_CHARGE}}</td>
-                            <td>{{obj.TOTAL_AMOUNT}}</td>
-                            <td>{{obj.INSERTED_DATE}}</td>
-                        </tr>
+	<div class="col-md-12">
+		<h3 class="text-center">Citizen Service Request Details</h3>
+		<div class="row">
+			<div class="col-md-12">
+				<button type="button" class="btn btn-success btn-sm pull-right" ng-click="btnGenerateChallan();">GENERATE CHALLAN</button>
+				
+				<button type="button" class="btn btn-info btn-sm pull-right" ng-click="btnTransactionhistory();">Transaction History</button>
+			</div>
+		</div>
+		<div class="row" align="center" style="padding:20px;" ng-show="divservice">
+			<div class="col-md-12 table-responsive">
+				<table class="table table-bordered">
+					<thead class="bg-primary">
+						<tr align="center">
+							<th>S.No.</th>
+							<th>CITIZEN NAME</th>
+							<th>AMOUNT</th>
+							<th>SERVICE CHARGE</th>
+							<th>TOTAL AMOUNT</th>
+							<th>PAYMENT DATE</th>
+						</tr>
+					</thead>
+					<tbody align="center" ng-show="!loader && serviceRequestsDetails != ''">
+						<tr align="center" ng-repeat="obj in serviceRequestsDetails">
+							<td>{{$index + 1}}</td>
+							<td>{{obj.CITIZEN_NAME}}</td>
+							<td>{{obj.AMOUNT}}</td>
+							<td>{{obj.SERVICE_CHARGE}}</td>
+							<td>{{obj.TOTAL_AMOUNT}}</td>
+							<td>{{obj.INSERTED_DATE}}</td>
+						</tr>
 					<tfoot>
 						<tr>
 							<td>-</td>
@@ -80,27 +81,68 @@
 							<td>{{totamount}}</td>
 							<td>{{totservice}}</td>
 							<td>{{totamountval}}</td>
+							<td></td>
 						</tr>
 					</tfoot>
-                    <tbody align="center" ng-show="!loader && serviceRequestsDetails == ''">
-                        <tr>
-                            <td colspan="7">
-                                <h5 class="text-center">No Data Available</h5>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+					<tbody align="center" ng-show="!loader && serviceRequestsDetails == ''">
+						<tr>
+							<td colspan="7">
+								<h5 class="text-center">No Data Available</h5>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="row" align="center" style="padding:20px;" ng-show="divtrans && TransList.length>0">
+			<div class="col-md-12 table-responsive">
+				<table class="table table-bordered">
+					<thead class="bg-primary">
+						<tr align="center">
+							<th>S.No.</th>
+							<th>Department Transaction Id</th>
+							<th>CFMS ID</th>
+							<th>IFSC CODE</th>
+							<th>Remitters ID</th>
+							<th>Total Amount</th>
+							<th>Transaction Status</th>
+							<th>Valid upto</th>
+							<th>Print</th>
+						</tr>
+					</thead>
+					<tbody align="center" ng-show="!loader && TransList != ''">
+						<tr align="center" ng-repeat="obj in TransList">
+							<td>{{$index + 1}}</td>
+							<td>{{obj.DEPTTRANSID}}</td>
+							<td>{{obj.CFMS_REF_ID}}</td>
+							<td>{{obj.IFSC_CODE}}</td>
+							<td>{{obj.REMITTERSID}}</td>
+							<td>{{obj.TOTAL_AMOUNT}}</td>
+							<td>{{obj.TRANSACTION_STATUS}}</td>
+							<td>{{obj.VALID_UPTO}}</td>
+							<td><button type="button" class="btn btn-info btn-sm pull-right" ng-click="btnPrintChallan(obj.DEPTTRANSID);">PRINT CHALLAN</button></td>
+						</tr>
+					
+					<tbody align="center" ng-show="!loader && TransList == ''">
+						<tr>
+							<td colspan="7">
+								<h5 class="text-center">No Data Available</h5>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 
 
-        <div class="row" align="center" ng-show="loader" style="padding:20px;">
-            <div class="col-md-12">
-                <h1>Loading...</h1>
-            </div>
-        </div>
+		<div class="row" align="center" ng-show="loader" style="padding:20px;">
+			<div class="col-md-12">
+				<h1>Loading...</h1>
+			</div>
+		</div>
 
-    </div>
+	</div>
 </div>
 
 

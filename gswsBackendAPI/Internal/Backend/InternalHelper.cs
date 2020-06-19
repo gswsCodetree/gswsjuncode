@@ -212,6 +212,32 @@ namespace gswsBackendAPI.Internal.Backend
 			return objupdate;
 		}
 
+		public dynamic SaveReOpenTicket_Helper(FeedBackReport obj)
+		{
+			dynamic objupdate = new ExpandoObject();
+			try
+			{
+				string Status = SaveReOpenTicket_Helper_SP(obj);
+
+				if (Status == "Success")
+				{
+					objupdate.Status = "100";
+					objupdate.Reason = "Token Re-open Successfully.";
+				}
+				else
+				{
+					objupdate.Status = "102";
+					objupdate.Reason = "Data Not Submitted Please Try Again";
+				}
+			}
+			catch (Exception ex)
+			{
+				objupdate.Status = "102";
+				objupdate.Reason = ex.Message;
+			}
+			return objupdate;
+		}
+
 		public dynamic SaveSecretriatDatahel(SecretraintModel obj)
 		{
 			dynamic objupdate = new ExpandoObject();

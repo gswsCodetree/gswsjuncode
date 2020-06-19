@@ -31,7 +31,7 @@ namespace gswsBackendAPI.Depts.YATC
                 usercred rootobj = JsonConvert.DeserializeObject<usercred>(value);
                 List<Hearders> headers = new List<Hearders>();
                 //headers.Add(new Hearders { key = "key",value= "RELIGION" });
-                return Ok(YATChel.GetMethod("http://103.231.8.28/apssdc_unified/dropdownsettings/getdropdowndatawithoutrefid?key=RELIGION", headers));
+                return Ok(YATChel.GetMethod("https://www.apssdc.in/home/dropdownsettings/getdropdowndatawithoutrefid?key=RELIGION", headers));
             }
             catch (Exception ex)
             {
@@ -55,7 +55,7 @@ namespace gswsBackendAPI.Depts.YATC
                 usercred rootobj = JsonConvert.DeserializeObject<usercred>(value);
                 List<Hearders> headers = new List<Hearders>();
                 //headers.Add(new Hearders { key = "key", value = "CATEGORY" });
-                return Ok(YATChel.GetMethod("http://103.231.8.28/apssdc_unified/dropdownsettings/getdropdowndatawithoutrefid?key=CATEGORY", headers));
+                return Ok(YATChel.GetMethod("https://www.apssdc.in/home/dropdownsettings/getdropdowndatawithoutrefid?key=CATEGORY", headers));
             }
             catch (Exception ex)
             {
@@ -79,7 +79,7 @@ namespace gswsBackendAPI.Depts.YATC
                 usercred rootobj = JsonConvert.DeserializeObject<usercred>(value);
                 List<Hearders> headers = new List<Hearders>();
                 //headers.Add(new Hearders { key = "key", value = "STATE" });
-                return Ok(YATChel.GetMethod("http://103.231.8.28/apssdc_unified/dropdownsettings/getdropdowndatawithoutrefid?key=STATE", headers));
+                return Ok(YATChel.GetMethod("https://www.apssdc.in/home/dropdownsettings/getdropdowndatawithoutrefid?key=STATE", headers));
             }
             catch (Exception ex)
             {
@@ -104,7 +104,7 @@ namespace gswsBackendAPI.Depts.YATC
                 List<Hearders> headers = new List<Hearders>();
                 //headers.Add(new Hearders { key = "key", value = rootobj.key });
                 //headers.Add(new Hearders { key = "ref_id", value = rootobj.ref_id });
-                return Ok(YATChel.GetMethod("http://103.231.8.28/apssdc_unified/dropdownsettings/getdropdowndata?key="+ rootobj.key + "&ref_id="+ rootobj.ref_id, headers));
+                return Ok(YATChel.GetMethod("https://www.apssdc.in/home/dropdownsettings/getdropdowndata?key="+ rootobj.key + "&ref_id="+ rootobj.ref_id, headers));
             }
             catch (Exception ex)
             {
@@ -129,7 +129,7 @@ namespace gswsBackendAPI.Depts.YATC
                 List<Hearders> headers = new List<Hearders>();
                 //headers.Add(new Hearders { key = "key", value = rootobj.key });
                 //headers.Add(new Hearders { key = "ref_id", value = rootobj.ref_id });
-                return Ok(YATChel.GetMethod("http://103.231.8.28/apssdc_unified/dropdownsettings/getdropdowndata?key=" + rootobj.key + "&ref_id=" + rootobj.ref_id, headers));
+                return Ok(YATChel.GetMethod("https://www.apssdc.in/home/dropdownsettings/getdropdowndata?key=" + rootobj.key + "&ref_id=" + rootobj.ref_id, headers));
             }
             catch (Exception ex)
             {
@@ -154,7 +154,7 @@ namespace gswsBackendAPI.Depts.YATC
                 List<Hearders> headers = new List<Hearders>();
                 //headers.Add(new Hearders { key = "key", value = rootobj.key });
                 //headers.Add(new Hearders { key = "ref_id", value = rootobj.ref_id });
-                return Ok(YATChel.GetMethod("http://103.231.8.28/apssdc_unified/dropdownsettings/getdropdowndata?key=" + rootobj.key + "&ref_id=" + rootobj.ref_id, headers));
+                return Ok(YATChel.GetMethod("https://www.apssdc.in/home/dropdownsettings/getdropdowndata?key=" + rootobj.key + "&ref_id=" + rootobj.ref_id, headers));
             }
             catch (Exception ex)
             {
@@ -179,7 +179,7 @@ namespace gswsBackendAPI.Depts.YATC
                 List<Hearders> headers = new List<Hearders>();
                 //headers.Add(new Hearders { key = "key", value = rootobj.key });
                 //headers.Add(new Hearders { key = "ref_id", value = rootobj.ref_id });
-                return Ok(YATChel.GetMethod("http://103.231.8.28/apssdc_unified/dropdownsettings/getdropdowndata?key=" + rootobj.key + "&ref_id=" + rootobj.ref_id, headers));
+                return Ok(YATChel.GetMethod("https://www.apssdc.in/home/dropdownsettings/getdropdowndata?key=" + rootobj.key + "&ref_id=" + rootobj.ref_id, headers));
             }
             catch (Exception ex)
             {
@@ -248,8 +248,8 @@ namespace gswsBackendAPI.Depts.YATC
                 List<Hearders> headers = new List<Hearders>();
                 //headers.Add(new Hearders { key = "key", value = rootobj.key });
                 //headers.Add(new Hearders { key = "ref_id", value = rootobj.ref_id });
-                //return Ok(YATChel.GetMethod("http://103.231.8.28/apssdc_unified/api/mobile/getAllUpcomingJobDetails", headers));
-                return Ok(YATChel.GetMethod("http://103.231.8.28/apssdc_unified/api/mobile/getUpComingJobMela?infoId=1", headers));
+                //return Ok(YATChel.GetMethod("https://www.apssdc.in/home/api/mobile/getAllUpcomingJobDetails", headers));
+                return Ok(YATChel.GetMethod("https://www.apssdc.in/home/api/mobile/getUpComingJobMela?infoId=1", headers));
             }
             catch (Exception ex)
             {
@@ -293,7 +293,7 @@ namespace gswsBackendAPI.Depts.YATC
                 //string value = JsonConvert.SerializeObject(data);
                 inputParams rootobj = JsonConvert.DeserializeObject<inputParams>(value);
                 List<Hearders> headers = new List<Hearders>();
-                return Ok(YATChel.GetMethod("http://103.231.8.28/apssdc_unified/api/student/getBatches?appKey=" + rootobj.appKey + "&district=" + rootobj.district, headers));
+                return Ok(YATChel.GetMethod("https://www.apssdc.in/home/api/student/getBatches?appKey=" + rootobj.appKey + "&district=" + rootobj.district, headers));
             }
             catch (Exception ex)
             {
@@ -316,7 +316,7 @@ namespace gswsBackendAPI.Depts.YATC
                 //string value = JsonConvert.SerializeObject(data);
                 BatchesCls rootobj = JsonConvert.DeserializeObject<BatchesCls>(value);
                 List<Hearders> headers = new List<Hearders>();
-                return Ok(YATChel.GetMethod("http://103.231.8.28/apssdc_unified/api/mobile/student/applyforbatch?appKey=" + rootobj.appKey + "&tcId=" + rootobj.tcId + "&programId=" + rootobj.programId + "&applicationType=" + rootobj.applicationType + "&batchId=" + rootobj.batchId + "&userMasterId=" + rootobj.userMasterId + "", headers));
+                return Ok(YATChel.GetMethod("https://www.apssdc.in/home/api/mobile/student/applyforbatch?appKey=" + rootobj.appKey + "&tcId=" + rootobj.tcId + "&programId=" + rootobj.programId + "&applicationType=" + rootobj.applicationType + "&batchId=" + rootobj.batchId + "&userMasterId=" + rootobj.userMasterId + "", headers));
                 //return Ok(YATChel.ApplyForBatch(rootobj));
             }
             catch (Exception ex)
@@ -339,7 +339,7 @@ namespace gswsBackendAPI.Depts.YATC
                 //string value = JsonConvert.SerializeObject(data);
                 inputParams rootobj = JsonConvert.DeserializeObject<inputParams>(value);
                 List<Hearders> headers = new List<Hearders>();
-                return Ok(YATChel.GetMethod("http://103.231.8.28/apssdc_unified/api/getjobs?appKey=" + rootobj.appKey + "&userMasterId=" + rootobj.userMasterId, headers));
+                return Ok(YATChel.GetMethod("https://www.apssdc.in/home/api/getjobs?appKey=" + rootobj.appKey + "&userMasterId=" + rootobj.userMasterId, headers));
             }
             catch (Exception ex)
             {
@@ -362,7 +362,7 @@ namespace gswsBackendAPI.Depts.YATC
                 //string value = JsonConvert.SerializeObject(data);
                 inputParams rootobj = JsonConvert.DeserializeObject<inputParams>(value);
                 List<Hearders> headers = new List<Hearders>();
-                return Ok(YATChel.GetMethod("http://103.231.8.28/apssdc_unified/api/mobile/getAppliedBatches?userId=" + rootobj.userMasterId, headers));
+                return Ok(YATChel.GetMethod("https://www.apssdc.in/home/api/mobile/getAppliedBatches?userId=" + rootobj.userMasterId, headers));
             }
             catch (Exception ex)
             {
@@ -385,7 +385,7 @@ namespace gswsBackendAPI.Depts.YATC
                 //string value = JsonConvert.SerializeObject(data);
                 inputParams rootobj = JsonConvert.DeserializeObject<inputParams>(value);
                 List<Hearders> headers = new List<Hearders>();
-                return Ok(YATChel.GetMethod("http://103.231.8.28/apssdc_unified/api/mobile/getStatusOfCandidate?userMasterId=" + rootobj.userMasterId + "&batchId=" + rootobj.batchId + "&key=" + rootobj.key, headers));
+                return Ok(YATChel.GetMethod("https://www.apssdc.in/home/api/mobile/getStatusOfCandidate?userMasterId=" + rootobj.userMasterId + "&batchId=" + rootobj.batchId + "&key=" + rootobj.key, headers));
             }
             catch (Exception ex)
             {

@@ -21,6 +21,7 @@
 		function LoadPrint() {
 			var input = "";
 		  var objdata=JSON.parse(sessionStorage.getItem("pData"));
+		  scope.PaymentMode = (objdata.SOURCE_TYPE == "Mee-Seva" ? "Cash" : "NA");
 			var ftype = objdata.SOURCE_TYPE;
 			if (ftype == "Mee-Seva")
 				input = { type: 6, secid: objdata.BEN_TRANS_ID }			
@@ -41,9 +42,21 @@
                     scope.DEPT_TRANS_ID = data.DEPT_TRANS_ID;
                     scope.MANDAL_NAME = data.MANDAL_NAME;
 					scope.username = username;
+					if (ftype == "Mee-Seva")
 					scope.Amount = data.AMOUNT=='0'?'15': data.AMOUNT;
+				else
+						scope.Amount = 'NA';
+					
 					scope.CITIZEN_NAME = data.CITIZEN_NAME;
 					scope.Mobile = data.MOBILE_NUMBER;
+					
+					if(data.DEPT_ID=='1801')
+					{
+						scope.SAmount='15';
+						scope.PAmount='7';
+						scope.hodid=data.DEPT_ID;
+						scope.PaymentMode='Cash';
+					}
                     //scope.TRANSACTION_ID = data.TRANSACTION_ID;
                     //scope.TRANSACTION_ID = data.TRANSACTION_ID;
                     //scope.TRANSACTION_ID = data.TRANSACTION_ID;

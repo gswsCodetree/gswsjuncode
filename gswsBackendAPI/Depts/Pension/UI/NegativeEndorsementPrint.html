@@ -1,0 +1,188 @@
+﻿
+<style>
+    .nend-main {
+        width: 80%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 10px 50px;
+    }
+
+    .nend-top-head h5 {
+        margin-bottom: 0;
+        font-weight: bold;
+    }
+
+    .nend-main-title {
+        text-align: center;
+        text-decoration: underline;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+
+    .nend-text-body {
+        padding: 0 10px;
+    }
+
+        .nend-text-body p {
+            margin-bottom: 20px;
+            text-align: justify;
+            font-size: 14px;
+        }
+
+        .nend-text-body label {
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            padding: 0 15px;
+        }
+
+
+    .nend-footer-dtl {
+        width: fit-content;
+        margin-left: auto;
+        text-align: right;
+        margin-top: 50px;
+    }
+
+        .nend-footer-dtl h5 {
+            margin-bottom: 0;
+        }
+
+        .nend-footer-dtl label {
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+
+    .nend-bottom-footer label {
+        width: 100px;
+    }
+
+    .nend-bottom-footer span {
+        font-weight: bold;
+    }
+
+    .print-reciept {
+        display: block !important;
+    }
+
+    p {
+        font-weight: bold;
+    }
+
+    @media print {
+        body {
+            background-color: transparent;
+        }
+
+        .navbar {
+            display: none;
+        }
+        .page-header {
+            display: none;
+        }
+        .print-btn-div{
+            display: none;
+        }
+
+        .nend-main {
+            width: 100%;
+            padding: 0 80px;
+        }
+
+        .nend-text-body p {
+            margin-bottom: 0px;
+            text-align: justify;
+            font-size: 16px;
+        }
+
+        .nend-text-body label {
+            font-weight: bold;
+            border-bottom: 1px solid #000;
+            padding: 0 15px;
+            margin-bottom: 25px;
+        }
+
+    }
+</style>
+
+<div class="container-fluid mt-5">
+    <div class="row print-btn-div">
+        <div class="w-75 mx-auto text-right">
+            <button type="button" class="btn btn-primary btn-sm" ng-click="btnNePrint();">PRINT</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="nend-main">
+            <div class="row justify-content-between nend-top-head">
+                <div class="text-left">
+                    <h5>వై.యస్.ఆర్ పింఛను కానుక</h5>
+                    <h5>సూచిక / సంఖ్య: {{resultdata.grievance_id}}</h5>
+                    <h5>సెక్రటేరియట్ ఐడి: {{resultdata.secCode}}</h5>
+                    <h5>సెక్రటేరియట్: {{resultdata.secName}}</h5>
+                </div>
+                <div class="text-right">
+                    <h5>మండల ప్రజా పరిషత్ కార్యాలయం</h5>
+                    <h5>మండలము: {{resultdata.mandal_name}}</h5>
+                    <h5>తేదీ: {{resultdata.sanctionDate}}</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="nend-main-title">ఎండార్సుమెంటు</h3>
+                </div>
+            </div>
+
+            <div class="nend-body">
+                <div class="row my-3">
+                    <div class="col-md-12">
+                        <div class="d-flex align-items-center mb-2">
+                            <div class="col-2"><label class="mb-0 font-weight-bold">విషయము</label></div>
+                            <div class="col-10">
+                                <p class="mb-0">వై.యస్.ఆర్ పింఛను కానుక {{resultdata.district_name}} జిల్లా, {{resultdata.mandal_name}} మండలం, {{resultdata.habitation_name}} గ్రామం పింఛను మంజూరు - {{resultdata.pensioner_name}} గారు పింఛను మంజూరు కొరకు అర్జీ దాఖలు -- సదరు అర్జీని పరిశీలించి విషయము తెలియజేయుట గురించి.</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <div class="col-2"><label class="mb-0 font-weight-bold">సూచిక</label></div>
+                            <div class="col-10">
+                                <p class="mb-0"> {{resultdata.pensioner_name}} గారు వై.యస్.ఆర్ పింఛను కానుక ద్వారా దాఖలు చేసిన దరఖాస్తు సంఖ్య: {{resultdata.grievance_id}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nend-text-body">
+
+                    <p class="mb-3">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{resultdata.mandal_name}} మండలము, {{resultdata.habitation_name}} గ్రామం నివాసి అయిన శ్రీ/శ్రీమతి {{resultdata.pensioner_name}} గారు పై సూచిక నందు పింఛను మంజూరు చేయవలసిందిగా కోరుతూ వై.యస్.ఆర్ పింఛను కానుక నందు అర్జీ దాఖలు చేసియున్నారు.
+                    </p>
+                    <p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; సదరు అర్జీ గురించి చేసిన విచారణలో క్రింది
+                        కారణంగా మీకు పింఛను మంజూరు చేయుటకు వీలు కావటం లేదని తెలియచేయడమైనది.
+                    </p>
+                    <p class="pt-2">
+                       1. <label style="display: initial;">{{resultdata.rejected_reason}}</label>
+                    </p>
+                </div>
+            </div>
+
+            <div class="nend-footer">
+                <div class="nend-footer-dtl">
+                    <h4>మండల పరిషత్ అభివృద్ధి అధికారి</h4>
+                    <h5><label>{{resultdata.mandal_name}} మండలము</label></h5>
+                </div>
+            </div>
+
+            <div class="nend-bottom-footer">
+                <p>
+                    శ్రీ/శ్రీమతి <span>{{resultdata.pensioner_name}}</span>, {{resultdata.habitation_name}} గ్రామం, {{resultdata.mandal_name}} మండలం
+                </p>
+                <p>
+                    నకలు శ్రీయుత ప్రాజెక్టు డైరెక్టరు, జిల్లా  గ్రామీణాభివృద్ధి సంస్థ, {{resultdata.district_name}}
+                </p>
+                <p>
+                    నకలు శ్రీయుత జిల్లా కలెక్టర్, {{resultdata.district_name}} వారికి సమర్పించడమైనది
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

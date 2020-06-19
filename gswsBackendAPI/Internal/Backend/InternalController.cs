@@ -123,6 +123,29 @@ namespace gswsBackendAPI.Internal.Backend
 		}
 
 		[HttpPost]
+		[Route("SaveReOpenTicket")]
+		public IHttpActionResult SaveReOpenTicket(dynamic data)
+		{
+			string value = token_gen.Authorize_aesdecrpty(data);
+			try
+			{
+
+				//string value = JsonConvert.SerializeObject(data);
+				string mappath = HttpContext.Current.Server.MapPath("SaveReOpenTicketLogs");
+				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_Log(mappath, value));
+				FeedBackReport rootobj = JsonConvert.DeserializeObject<FeedBackReport>(value);
+				return Ok(Internalhel.SaveReOpenTicket_Helper(rootobj));
+
+			}
+			catch (Exception ex)
+			{
+				CatchData.Status = "Failure";
+				CatchData.Reason = "Error Occured While Save Data.";
+				return Ok(CatchData);
+			}
+		}
+
+		[HttpPost]
 		[Route("PostSecretriatData")]
 		public IHttpActionResult PostSecretriatData(dynamic data)
 		{

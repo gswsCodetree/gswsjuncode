@@ -152,7 +152,7 @@
                     mndlMunc: (scope.locality == "true" ? scope.mandal : scope.municipality),
                     registrationId: "",
 					isUnEmployed: "Y",
-					GSWS_ID: sessionStorage.getItem("TransID"),
+					gsws_id: sessionStorage.getItem("TransID"),
                     userMaster: {
                         contact: scope.contactno,
                         email: scope.uemail,

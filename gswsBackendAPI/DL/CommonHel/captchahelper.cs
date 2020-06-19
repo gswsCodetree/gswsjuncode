@@ -47,7 +47,7 @@ namespace gswsBackendAPI.DL.CommonHel
 				RectangleF oRectangleF = new RectangleF(0, 0, 400, 400);
 				objBrush = new HatchBrush(aHatchStyles[objRandom.Next(aHatchStyles.Length - 3)], Color.FromArgb((objRandom.Next(100, 255)), (objRandom.Next(100, 255)), (objRandom.Next(100, 255))), Color.Blue);
 				objGraphics.FillRectangle(objBrush, oRectangleF);
-				string captchaText = string.Format("{0:X}", objRandom.Next(1000000, 9999999));
+				string captchaText = string.Format("{0}", objRandom.Next(100000, 999999));
 				Font objFont = new Font("Courier New", 25, FontStyle.Bold);
 				objGraphics.DrawString(captchaText, objFont, Brushes.White, 20, 30);
 				objGraphics.Flush();
@@ -118,6 +118,34 @@ namespace gswsBackendAPI.DL.CommonHel
 			return Encoding.UTF8.GetString(Utilities.Decrypt(Convert.FromBase64String(strEncMsg), Utilities.suresh(sTokenKey)));
 		}
 
+		public string CaptchVerify(string cap, string confirm)
+		{
+			try
+			{
+
+				captch objcap = new captch();
+				objcap.type = "2";
+				objcap.id = Decrypt(confirm, "");
+				objcap.Capchid = cap;
+				bool status = GSWS_SP_IN_CAPTCHA(objcap);
+				if (status)
+				{
+					return "Success";
+				}
+				else
+				{
+					return "Failure";
+				}
+
+
+			}
+			catch (Exception ex)
+			{
+				//_log.Error("An error occurred in LoginSPHelper => GetCaptchVerify: " + ex.Message + "__" + ex.InnerException + "__" + ex.StackTrace.ToString());
+				throw ex;
+			}
+
+		}
 		public string GetCaptchVerify(LoginModel ObjL)
 		{
 			try

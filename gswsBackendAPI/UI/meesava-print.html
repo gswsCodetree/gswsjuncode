@@ -25,7 +25,7 @@
 
 			<div class="col-sm-12 text-center">
 				<h2 style="font-size: 17px; margin-right: 56px;font-weight:bold;">
-					<span style=" color: #3F51B5;">Y</span>our <span style=" color: #3F51B5;">S</span>ervice <span style=" color: #3F51B5;">R</span>equest No : GSWS-{{TRANSACTION_ID}}
+					<span style=" color: #3F51B5;">Y</span>our <span style=" color: #3F51B5;">S</span>ervice <span style=" color: #3F51B5;">R</span>equest No (YSR) : GSWS-{{TRANSACTION_ID}}
 				</h2>
 				<h2 style="font-size: 17px; margin-right: 56px;font-weight:bold;">
 					 Service Name : {{URL_DESCRIPTION}}
@@ -40,8 +40,10 @@
 						<ul class="left-print-data">
 							<!--<li>Service Name <span>: &nbsp; {{URL_DESCRIPTION}} </span> </li>-->
 							<li> Date of Payment <span>: &nbsp; {{INSERTED_DATE}} </span> </li>
-							<li> Payment Mode <span>: &nbsp; Cash </span> </li>
+							<li > Payment Mode <span>: &nbsp; {{PaymentMode}} </span> </li>
 							<li>Amount Paid (Rs.)<span>: &nbsp; {{Amount}} </span> </li>
+							<li ng-show="hodid=='1801'">Service Charge (Rs.)<span>: &nbsp; {{SAmount}} </span> </li>
+							<li ng-show="hodid=='1801'">Print Charge (Rs.)<span>: &nbsp; {{PAmount}} </span> </li>
 
 							<li> Citizen Name <span>: &nbsp; {{CITIZEN_NAME}} </span></li>
 							<li> Mobile Number <span>: &nbsp; {{Mobile}} </span></li>

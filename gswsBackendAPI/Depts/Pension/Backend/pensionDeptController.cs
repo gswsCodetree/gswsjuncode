@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
@@ -32,7 +33,7 @@ namespace gswsBackendAPI.Depts.Pension.Backend
             try
             {
                 string serialized_data = token_gen.Authorize_aesdecrpty(data);
-                pensionDeptModel rootobj = JsonConvert.DeserializeObject<pensionDeptModel>(serialized_data);
+                EndorsementListModel rootobj = JsonConvert.DeserializeObject<EndorsementListModel>(serialized_data);
                 return Ok(pensionDeptHelper.personDetails(rootobj));
             }
             catch (Exception ex)
@@ -170,13 +171,186 @@ namespace gswsBackendAPI.Depts.Pension.Backend
         }
 
         #endregion
+
+        #region Endorsement Module
+
+        [Route("EndorsementList")]
+        [HttpPost]
+        public IHttpActionResult EndorsementList(dynamic data)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+                string serialized_data = token_gen.Authorize_aesdecrpty(data);
+                EndorsementDetailsModel rootobj = JsonConvert.DeserializeObject<EndorsementDetailsModel>(serialized_data);
+                return Ok(pensionDeptHelper.EndorsementsList(rootobj));
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = ex.Message.ToString();
+            }
+            return Ok(objdata);
+        }
+
+        [Route("NegativeEndorsementList")]
+        [HttpPost]
+        public IHttpActionResult NegativeEndorsementList(dynamic data)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+                string serialized_data = token_gen.Authorize_aesdecrpty(data);
+                NegEndorsementDetailsModel rootobj = JsonConvert.DeserializeObject<NegEndorsementDetailsModel>(serialized_data);
+                return Ok(pensionDeptHelper.NegativeEndorsementList(rootobj));
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = ex.Message.ToString();
+            }
+            return Ok(objdata);
+        }
+
+        [Route("SanctionOrderList")]
+        [HttpPost]
+        public IHttpActionResult SanctionOrderList(dynamic data)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+                string serialized_data = token_gen.Authorize_aesdecrpty(data);
+                SactionOrderDetailsModel rootobj = JsonConvert.DeserializeObject<SactionOrderDetailsModel>(serialized_data);
+                return Ok(pensionDeptHelper.SanctionOrderList(rootobj));
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = ex.Message.ToString();
+            }
+            return Ok(objdata);
+        }
+
+        #endregion
+
+        #region Rejected List For Appeal Module
+
+        [Route("MpdoRejectedList")]
+        [HttpPost]
+        public IHttpActionResult MpdoRejectedList(dynamic data)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+                string serialized_data = token_gen.Authorize_aesdecrpty(data);
+                MpdoRejectedListModel rootobj = JsonConvert.DeserializeObject<MpdoRejectedListModel>(serialized_data);
+                return Ok(pensionDeptHelper.MpdoRejectedList(rootobj));
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = ex.Message.ToString();
+            }
+            return Ok(objdata);
+        }
+
+        [Route("individualGrevDetails")]
+        [HttpPost]
+        public IHttpActionResult individualGrevDetails(dynamic data)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+                string serialized_data = token_gen.Authorize_aesdecrpty(data);
+
+                IndivGrievListModel rootobj = JsonConvert.DeserializeObject<IndivGrievListModel>(serialized_data);
+                return Ok(pensionDeptHelper.IndividualGrevDetails(rootobj));
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = ex.Message.ToString();
+            }
+            return Ok(objdata);
+        }
+
+        [Route("insertWEAEnteredIndividualDetails")]
+        [HttpPost]
+        public IHttpActionResult insertWEAEnteredIndividualDetails(dynamic data)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+                string serialized_data = token_gen.Authorize_aesdecrpty(data);
+
+                string mappath2 = HttpContext.Current.Server.MapPath("insertWEAEnteredIndividualDetailsLogs");
+                Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_Log(mappath2, serialized_data));
+
+                WEAEnteredDataModel rootobj = JsonConvert.DeserializeObject<WEAEnteredDataModel>(serialized_data);
+                return Ok(pensionDeptHelper.InsertWEAEnteredIndividualDetails(rootobj));
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = ex.Message.ToString();
+            }
+            return Ok(objdata);
+        }
+
+        #endregion
+
+        #region Pension A3,A4 Print Module
+
+        [Route("PensionBeneficiaryList")]
+        [HttpPost]
+        public IHttpActionResult PensionBeneficiaryList(dynamic data)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+                string serialized_data = token_gen.Authorize_aesdecrpty(data);
+                PensionBeneficiaryListModel rootobj = JsonConvert.DeserializeObject<PensionBeneficiaryListModel>(serialized_data);
+                return Ok(pensionDeptHelper.PensionBeneficiaryList(rootobj));
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = ex.Message.ToString();
+            }
+            return Ok(objdata);
+        }
+
+        [Route("PensionSocialAuditList")]
+        [HttpPost]
+        public IHttpActionResult PensionSocialAuditList(dynamic data)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+                string serialized_data = token_gen.Authorize_aesdecrpty(data);
+                PensionSocialAuditListModel rootobj = JsonConvert.DeserializeObject<PensionSocialAuditListModel>(serialized_data);
+                return Ok(pensionDeptHelper.PensionSocialAuditList(rootobj));
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = ex.Message.ToString();
+            }
+            return Ok(objdata);
+        }
+
+
+        #endregion
+
+
     }
+
+
 
     public static class pensionDeptHelper
     {
 
         static CommonSPHel _Hel = new CommonSPHel();
-
 
         //Prod Urls
         static string GrievenceListUrl = "https://sspensions.ap.gov.in/gswsweadata/rest/generic1/getGrievenceDetails";
@@ -185,11 +359,23 @@ namespace gswsBackendAPI.Depts.Pension.Backend
         static string personDetailsUrl = "https://sspensions.ap.gov.in/TESTING/rest/NewApplicationAadharValidation/validateAadhar";
         static string panchayatMasterUrl = "https://sspensions.ap.gov.in/gswsweadata/rest/generic/MastersData";
         static string tokenrUrl = "https://sspensions.ap.gov.in/GSWSPenToken/rest/gsws/tokenGeneration";
-		static string subrUrl = "https://uat-nbpsdm.aponline.gov.in/NTRBPensions/rest/gsws/newApplication";//"https://sspensions.ap.gov.in/gswsweadata/rest/gsws/newApplication";
+        static string subrUrl = "https://sspensions.ap.gov.in/gswsweadata/rest/gsws/newApplication";
+        static string EndorsementListUrl = "https://sspensions.ap.gov.in/gswsweadata/rest/sanction/getSanctionedOrRejectedPensionerList";
+        static string NegativeEndorsementListUrl = "https://sspensions.ap.gov.in/gswsweadata/rest/endorsement/getNegativeEndorsementDetails";
+        static string SanctionOrderListUrl = "https://sspensions.ap.gov.in/gswsweadata/rest/newapplicationstatusdetails/getsanctionorderdata";
+        static string RejectedListForAppealUrl = "https://sspensions.ap.gov.in/gswsweadata/rest/getListForAppealScreen/getMpdoRejectedList";
+        static string GetRejectedIndividualDataUrl = "https://sspensions.ap.gov.in/gswsweadata/rest/getListForAppealScreen/getRejectedIndividualDataForGrievanceid";
+        static string WEAEnterIndivUrl = "https://sspensions.ap.gov.in/gswsweadata/rest/getListForAppealScreen/insertWEAEnteredIndividualDetails";
+        static string PensionBeneficiaryListUrl = "https://sspensions.ap.gov.in/gswsweadata/rest/getPensionersStatusDetails/getA3Data";
+        static string PensionSocialListListUrl = "https://sspensions.ap.gov.in/gswsweadata/rest/getPensionersStatusDetails/getA4Data";
 
-		#region DA Login
 
-		public static dynamic personDetails(pensionDeptModel obj)
+        //UAT URLs
+
+
+        #region DA Login
+
+        public static dynamic personDetails(EndorsementListModel obj)
         {
             dynamic objdata = new ExpandoObject();
             try
@@ -211,6 +397,7 @@ namespace gswsBackendAPI.Depts.Pension.Backend
                 {
                     objdata.status = false;
                     objdata.result = "No Response from pension department service !!!, Please try after some time";
+                    return objdata;
                 }
 
                 PanchayatMastersModel panchayatReq = new PanchayatMastersModel();
@@ -234,6 +421,7 @@ namespace gswsBackendAPI.Depts.Pension.Backend
                 {
                     objdata.status = false;
                     objdata.result = "No Response from pension department panchayat list service !!!, Please try after some time";
+                    return objdata;
                 }
 
 
@@ -285,6 +473,7 @@ namespace gswsBackendAPI.Depts.Pension.Backend
                 {
                     objdata.status = false;
                     objdata.result = "No Response from pension department habitation list service !!!, Please try after some time";
+                    return objdata;
                 }
 
                 if (habRespObj.HabitationList != null)
@@ -384,7 +573,7 @@ namespace gswsBackendAPI.Depts.Pension.Backend
                 string subResponse = string.Empty;
                 try
                 {
-                    subResponse = POST_RequestAsync(subrUrl, JsonConvert.SerializeObject(obj));
+                    subResponse = POST_RequestAsync_sub(subrUrl, obj);
                 }
                 catch (Exception ex)
                 {
@@ -456,6 +645,7 @@ namespace gswsBackendAPI.Depts.Pension.Backend
         #endregion
 
         #region WEA Login
+
         public static dynamic grevianceList(grevianceListModeL obj)
         {
             dynamic objdata = new ExpandoObject();
@@ -469,6 +659,7 @@ namespace gswsBackendAPI.Depts.Pension.Backend
                 {
                     objdata.status = false;
                     objdata.result = "No Response from pension department service !!!, Please try after some time";
+                    return objdata;
                 }
 
                 greRespModel pensionRespObj = JsonConvert.DeserializeObject<greRespModel>(pensionResponse);
@@ -504,6 +695,7 @@ namespace gswsBackendAPI.Depts.Pension.Backend
                 {
                     objdata.status = false;
                     objdata.result = "No Response from pension department service !!!, Please try after some time";
+                    return objdata;
                 }
 
                 grevDetailsRespModel pensionRespObj = JsonConvert.DeserializeObject<grevDetailsRespModel>(pensionResponse);
@@ -592,7 +784,313 @@ namespace gswsBackendAPI.Depts.Pension.Backend
 
         #endregion
 
-        public static string POST_RequestAsync(string uri, string json, int count = 0)
+        #region Endorsement Module
+
+        public static dynamic EndorsementsList(EndorsementDetailsModel obj)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+
+                obj.password = "f964e1fb3ec7b0368a4ddc8c3dbb569e";
+                obj.username = "YsrPensIons";
+                string EndorsResponse = POST_RequestAsync(EndorsementListUrl, JsonConvert.SerializeObject(obj));
+                if (string.IsNullOrEmpty(EndorsResponse))
+                {
+                    objdata.status = false;
+                    objdata.result = "No Response from pension department service !!!, Please try after some time";
+                    return objdata;
+                }
+
+                endorsDetailsRespModel endorsRespObj = JsonConvert.DeserializeObject<endorsDetailsRespModel>(EndorsResponse);
+                if (endorsRespObj.responseCode == "1000")
+                {
+                    objdata.status = true;
+                    objdata.result = endorsRespObj.details.resultData;
+                }
+                else
+                {
+                    objdata.status = false;
+                    objdata.result = "RESPONSE FROM PENSION DEPT : " + endorsRespObj.remarks;
+                }
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = "RESPONSE FROM PENSION DEPT : " + ex.Message.ToString();
+            }
+            return objdata;
+        }
+
+        public static dynamic NegativeEndorsementList(NegEndorsementDetailsModel obj)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+
+                obj.password = "f964e1fb3ec7b0368a4ddc8c3dbb569e";
+                obj.username = "YsrPk";
+                string NegEndorsResponse = POST_RequestAsync(NegativeEndorsementListUrl, JsonConvert.SerializeObject(obj));
+                if (string.IsNullOrEmpty(NegEndorsResponse))
+                {
+                    objdata.status = false;
+                    objdata.result = "No Response from pension department service !!!, Please try after some time";
+                    return objdata;
+                }
+
+                NegEndorsDetailsRespModel NEndorsRespObj = JsonConvert.DeserializeObject<NegEndorsDetailsRespModel>(NegEndorsResponse);
+                if (NEndorsRespObj.responseCode == "1000")
+                {
+                    objdata.status = true;
+                    objdata.result = NEndorsRespObj.details;
+                }
+                else
+                {
+                    objdata.status = false;
+                    objdata.result = "RESPONSE FROM PENSION DEPT : " + NEndorsRespObj.remarks;
+                }
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = "RESPONSE FROM PENSION DEPT : " + ex.Message.ToString();
+            }
+            return objdata;
+        }
+
+        public static dynamic SanctionOrderList(SactionOrderDetailsModel obj)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+
+                obj.password = "B205A8A530701C7824C52D6AE65B2BAD";
+                obj.userName = "SSPPENSIONS";
+                string SancOrderResponse = POST_RequestAsync(SanctionOrderListUrl, JsonConvert.SerializeObject(obj));
+                if (string.IsNullOrEmpty(SancOrderResponse))
+                {
+                    objdata.status = false;
+                    objdata.result = "No Response from pension department service !!!, Please try after some time";
+                    return objdata;
+                }
+
+                SanctionOrderDetailsRespModel SanOrderRespObj = JsonConvert.DeserializeObject<SanctionOrderDetailsRespModel>(SancOrderResponse);
+                if (SanOrderRespObj.responseCode == "1000")
+                {
+                    objdata.status = true;
+                    objdata.result = SanOrderRespObj.details;
+                }
+                else
+                {
+                    objdata.status = false;
+                    objdata.result = "RESPONSE FROM PENSION DEPT : " + SancOrderResponse;
+                }
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = "RESPONSE FROM PENSION DEPT : " + ex.Message.ToString();
+            }
+            return objdata;
+        }
+
+        #endregion
+
+        #region Rejected List For Appeal Module
+
+        public static dynamic MpdoRejectedList(MpdoRejectedListModel obj)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+
+                obj.password = "f964e1fb3ec7b0368a4ddc8c3dbb569e";
+                obj.username = "SspGswsAPI";
+                string RejectResponse = POST_RequestAsync(RejectedListForAppealUrl, JsonConvert.SerializeObject(obj));
+                if (string.IsNullOrEmpty(RejectResponse))
+                {
+                    objdata.status = false;
+                    objdata.result = "No Response from pension department service !!!, Please try after some time";
+                    return objdata;
+                }
+
+                MpdoRejectRespModel rejectedRespObj = JsonConvert.DeserializeObject<MpdoRejectRespModel>(RejectResponse);
+                if (rejectedRespObj.responseCode == "1000")
+                {
+                    objdata.status = true;
+                    objdata.result = rejectedRespObj.details;
+                }
+                else
+                {
+                    objdata.status = false;
+                    objdata.result = "RESPONSE FROM PENSION DEPT : " + rejectedRespObj.remarks;
+                }
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = "RESPONSE FROM PENSION DEPT : " + ex.Message.ToString();
+            }
+            return objdata;
+        }
+
+        public static dynamic IndividualGrevDetails(IndivGrievListModel obj)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+
+                obj.password = "f964e1fb3ec7b0368a4ddc8c3dbb569e";
+                obj.username = "SspGswsAPI";
+                string IndividualResp = POST_RequestAsync(GetRejectedIndividualDataUrl, JsonConvert.SerializeObject(obj));
+                if (string.IsNullOrEmpty(IndividualResp))
+                {
+                    objdata.status = false;
+                    objdata.result = "No Response from pension department service !!!, Please try after some time";
+                    return objdata;
+                }
+
+                IndividualDetsRespModel indivRespObj = JsonConvert.DeserializeObject<IndividualDetsRespModel>(IndividualResp);
+                if (indivRespObj.responseCode == "1000")
+                {
+                    objdata.status = true;
+                    objdata.result = indivRespObj;
+                }
+                else
+                {
+                    objdata.status = false;
+                    objdata.result = "RESPONSE FROM PENSION DEPT : " + indivRespObj.remarks;
+                }
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = "RESPONSE FROM PENSION DEPT : " + ex.Message.ToString();
+            }
+            return objdata;
+        }
+
+        public static dynamic InsertWEAEnteredIndividualDetails(WEAEnteredDataModel obj)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+                obj.username = "SspGswsAPI";
+                obj.password = "f964e1fb3ec7b0368a4ddc8c3dbb569e";
+
+                string subResponse = string.Empty;
+                try
+                {
+                    subResponse = POST_RequestAsync(WEAEnterIndivUrl, JsonConvert.SerializeObject(obj));
+                }
+                catch (Exception ex)
+                {
+                    objdata.status = false;
+                    objdata.result = "RESPONSE FROM PENSION DEPT : " + ex.Message.ToString();
+                    return objdata;
+                }
+                WEAEnteredDataRespModel subResp = JsonConvert.DeserializeObject<WEAEnteredDataRespModel>(subResponse);
+
+                if (subResp.responseCode != null && subResp.responseCode == "1000")
+                {
+                    objdata.status = true;
+                    objdata.result = subResp.remarks;
+                }
+                else
+                {
+                    objdata.status = false;
+                    objdata.result = subResp.remarks;
+                }
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = ex.Message.ToString();
+            }
+            return objdata;
+        }
+
+        #endregion
+
+        #region Pension A3,A4 Print Module
+
+        public static dynamic PensionBeneficiaryList(PensionBeneficiaryListModel obj)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+
+                obj.password = "B205A8A530701C7824C52D6AE65B2BAD";
+                obj.userName = "SSPPENSIONS";
+                string BeneficiaryResponse = POST_RequestAsync(PensionBeneficiaryListUrl, JsonConvert.SerializeObject(obj));
+                if (string.IsNullOrEmpty(BeneficiaryResponse))
+                {
+                    objdata.status = false;
+                    objdata.result = "No Response from pension department service !!!, Please try after some time";
+                    return objdata;
+                }
+
+                PensionBeneficiaryListRespModel beneficiaryRespObj = JsonConvert.DeserializeObject<PensionBeneficiaryListRespModel>(BeneficiaryResponse);
+                if (beneficiaryRespObj.responseCode == "2000")
+                {
+                    objdata.status = true;
+                    objdata.result = beneficiaryRespObj;
+                }
+                else
+                {
+                    objdata.status = false;
+                    objdata.result = "RESPONSE FROM PENSION DEPT : " + beneficiaryRespObj.reason;
+                }
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = "RESPONSE FROM PENSION DEPT : " + ex.Message.ToString();
+            }
+            return objdata;
+        }
+
+        public static dynamic PensionSocialAuditList(PensionSocialAuditListModel obj)
+        {
+            dynamic objdata = new ExpandoObject();
+            try
+            {
+
+                obj.password = "B205A8A530701C7824C52D6AE65B2BAD";
+                obj.userName = "SSPPENSIONS";
+                string BeneficiaryResponse = POST_RequestAsync(PensionSocialListListUrl, JsonConvert.SerializeObject(obj));
+                if (string.IsNullOrEmpty(BeneficiaryResponse))
+                {
+                    objdata.status = false;
+                    objdata.result = "No Response from pension department service !!!, Please try after some time";
+                    return objdata;
+                }
+
+                PensionSocialAuditListRespModel AuditRespObj = JsonConvert.DeserializeObject<PensionSocialAuditListRespModel>(BeneficiaryResponse);
+                if (AuditRespObj.responseCode == "2000")
+                {
+                    objdata.status = true;
+                    objdata.result = AuditRespObj;
+                }
+                else
+                {
+                    objdata.status = false;
+                    objdata.result = "RESPONSE FROM PENSION DEPT : " + AuditRespObj.reason;
+                }
+            }
+            catch (Exception ex)
+            {
+                objdata.status = false;
+                objdata.result = "RESPONSE FROM PENSION DEPT : " + ex.Message.ToString();
+            }
+            return objdata;
+        }
+
+        #endregion
+
+        #region post request methods
+
+        public static string POST_RequestAsync_old(string uri, string json, int count = 0)
         {
             try
             {
@@ -632,6 +1130,102 @@ namespace gswsBackendAPI.Depts.Pension.Backend
 
         }
 
+        public static string POST_RequestAsync(string uri, string json, int count = 0)
+        {
+            string ResponseString = "";
+            HttpWebResponse response = null;
+            try
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
+                var request = (HttpWebRequest)WebRequest.Create(uri);
+                request.Accept = "application/json"; //"application/xml";
+                request.Method = "POST";
+
+                // serialize into json string
+                var myContent = json;
+
+                var data = Encoding.ASCII.GetBytes(myContent);
+
+                request.ContentType = "application/json";
+                request.ContentLength = data.Length;
+
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+
+                response = (HttpWebResponse)request.GetResponse();
+
+                ResponseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            }
+            catch (WebException ex)
+            {
+                if (ex.Status == WebExceptionStatus.ProtocolError)
+                {
+                    string mappath2 = HttpContext.Current.Server.MapPath("pensionAppExcptionlogsSubLogs");
+                    Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_Log_Exception(mappath2, "error from POST_RequestAsync:" + ex.Message.ToString() + uri));
+
+                    response = (HttpWebResponse)ex.Response;
+                    ResponseString = "Some error occured: " + response.StatusCode.ToString();
+                }
+                else
+                {
+                    ResponseString = "Some error occured: " + ex.Status.ToString();
+                }
+                throw ex;
+            }
+            return ResponseString;
+        }
+
+        public static string POST_RequestAsync_sub(string uri, pensionAppSubModel json, int count = 0)
+        {
+            string ResponseString = "";
+            HttpWebResponse response = null;
+            try
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+                var request = (HttpWebRequest)WebRequest.Create(uri);
+                request.Accept = "application/json";
+                request.Method = "POST";
+
+                // serialize into json string
+                var myContent = JsonConvert.SerializeObject(json);
+
+                var data = Encoding.ASCII.GetBytes(myContent);
+
+                request.ContentType = "application/json";
+                request.ContentLength = data.Length;
+
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+
+                response = (HttpWebResponse)request.GetResponse();
+
+                ResponseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            }
+            catch (WebException ex)
+            {
+                if (ex.Status == WebExceptionStatus.ProtocolError)
+                {
+                    string mappath2 = HttpContext.Current.Server.MapPath("pensionAppExcptionlogsSubLogs");
+                    Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_Log_Exception(mappath2, "error from POST_RequestAsync:" + ex.Message.ToString() + uri));
+
+                    response = (HttpWebResponse)ex.Response;
+                    ResponseString = "Some error occured: " + response.StatusCode.ToString();
+                }
+                else
+                {
+                    ResponseString = "Some error occured: " + ex.Status.ToString();
+                }
+                throw ex;
+            }
+            return ResponseString;
+        }
+
+        #endregion
     }
 
 

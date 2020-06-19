@@ -23,6 +23,7 @@ namespace gswsBackendAPI.DL.CommonHel
 	}
 
 
+
 	public class HeadertokenModel
 	{
 		public string Ftype { get; set; }
@@ -435,6 +436,37 @@ namespace gswsBackendAPI.DL.CommonHel
 		public string FPassword { get; set; }
 		public string FRoleId { get; set; }
 		public string Insertby { get; set; }
+	}
+
+	public class ExceptionDataModel
+	{
+		public string E_DEPTID { get; set; }
+		public string E_HODID { get; set; }
+		public string E_URLID { get; set; }
+		public string E_SECRETARIATCODE{ get; set; }
+		public string E_ERRORMESSAGE { get; set; }
+		public string E_ERRORTYPE{ get; set; }
+		public string E_SERVICEAPIURL { get; set; }
+	}
+	public class CFMSPAYMENTMODEL
+	{
+		public string Ftype { get; set; }
+		public string GSWSTransactionID { get; set; }
+		public string PAYMENT_TRANS_ID { get; set; }
+		public string GSWSPaymentTransactionID { get; set; }
+		public string SecretartaitCode { get; set; }
+		public string LoginUser { get; set; }
+		public string URLID { get; set; }
+		public string HOA_CODE { get; set; }
+		public string DDO_CODE { get; set; }
+		public string AMOUNT { get; set; }
+		public string DEPT_ID { get; set; }
+		public string TOTAL_AMOUNT { get; set; }
+		public string PAYMENT_STATUS { get; set; }
+		public string CHALLAN_ID { get; set; }
+		public string CFMS_STATUS { get; set; }
+
+
 	}
 }
 

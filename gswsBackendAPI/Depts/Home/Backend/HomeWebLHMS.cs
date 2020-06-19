@@ -1192,5 +1192,7 @@ namespace gswsBackendAPI.Depts.Home.Backend
 		public string circleCd { set; get; }
 		public string firNo { set; get; }
 	}
+    
+
 
 }

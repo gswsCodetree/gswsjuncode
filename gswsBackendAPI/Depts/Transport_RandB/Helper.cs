@@ -13,6 +13,7 @@ using System.Xml;
 using gswsBackendAPI.DL.DataConnection;
 using gswsBackendAPI.Transport_ComplaintsStatusCheck;
 using Newtonsoft.Json;
+using gswsBackendAPI.DL.CommonHel;
 
 namespace gswsBackendAPI.Depts.Transport_RandB
 {
@@ -125,7 +126,8 @@ namespace gswsBackendAPI.Depts.Transport_RandB
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_Transport_RandB_Error(ex.Message.ToString(), "https://rtaappsc.epragathi.org:1201/reg/citizenServices/applicationSearchForServicesRegisration", "2");
+                obj.Status = 102;
 				obj.Reason = CommonSPHel.ThirdpartyMessage;
 				return obj;
 			}
@@ -148,7 +150,8 @@ namespace gswsBackendAPI.Depts.Transport_RandB
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_Transport_RandB_Error(ex.Message.ToString(), "https://otsiqa.epragathi.org:9393/dl/searchByApplicantId", "2");
+                obj.Status = 102;
 				obj.Reason = "Error Occured While Getting Status";
 				return obj;
 			}
@@ -263,7 +266,25 @@ namespace gswsBackendAPI.Depts.Transport_RandB
 		{
 			return JsonConvert.DeserializeObject<T>(Input);
 		}
+        public bool Common_Transport_RandB_Error(string msg, string url, string etype)
+        {
+            ExceptionDataModel objex = new ExceptionDataModel();
+            try
+            {
+                objex.E_DEPTID = DepartmentEnum.Department.Transport_Roads_and_Buildings.ToString();
+                objex.E_HODID = DepartmentEnum.HOD.APSRTC.ToString();
+                objex.E_ERRORMESSAGE = msg;
+                objex.E_SERVICEAPIURL = url;
+                objex.E_ERRORTYPE = etype;
+                new LoginSPHelper().Save_Exception_Data(objex);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }

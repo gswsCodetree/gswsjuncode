@@ -632,6 +632,51 @@ namespace gswsBackendAPI.DL.CommonHel
 				throw ex;
 			}
 		}
+		//18-jun-2020 chandu	
+		public  DataTable CFMSGATEWAY_Save_Data_SP(CFMSPAYMENTMODEL obj)
+		{
+
+			try
+			{
+				OracleCommand cmd = new OracleCommand();
+				cmd.InitialLONGFetchSize = 1000;
+				cmd.CommandType = CommandType.StoredProcedure;
+				cmd.CommandText = "gsws_in_payment_trans_data";
+				cmd.Parameters.Add("pTYPE", OracleDbType.Varchar2).Value = obj.Ftype;
+				cmd.Parameters.Add("pGSWS_TRANS_ID", OracleDbType.Varchar2).Value = obj.GSWSTransactionID;
+				cmd.Parameters.Add("pPAYMENT_TRANS_ID", OracleDbType.Varchar2).Value = obj.PAYMENT_TRANS_ID;
+				cmd.Parameters.Add("pGSWS_PAYMENT_TRANS_ID", OracleDbType.Varchar2).Value = obj.GSWSPaymentTransactionID;
+				cmd.Parameters.Add("pSECRETARIAT_CODE", OracleDbType.Varchar2).Value = obj.SecretartaitCode;
+				cmd.Parameters.Add("pLOGIN_USER", OracleDbType.Varchar2).Value = obj.LoginUser;
+				cmd.Parameters.Add("pURL_ID", OracleDbType.Varchar2).Value = obj.URLID;
+				cmd.Parameters.Add("pHOA_CODE", OracleDbType.Varchar2).Value = obj.HOA_CODE;
+				cmd.Parameters.Add("pDDO_CODE", OracleDbType.Varchar2).Value = obj.DDO_CODE;
+				cmd.Parameters.Add("pAMOUNT", OracleDbType.Varchar2).Value = obj.AMOUNT;
+				cmd.Parameters.Add("pDEPT_ID", OracleDbType.Varchar2).Value = obj.DEPT_ID;
+				cmd.Parameters.Add("pTOTAL_AMOUNT", OracleDbType.Varchar2).Value = obj.TOTAL_AMOUNT;
+				cmd.Parameters.Add("pPAYMENT_STATUS", OracleDbType.Varchar2).Value = obj.PAYMENT_STATUS;
+				cmd.Parameters.Add("pCHALLAN_ID", OracleDbType.Varchar2).Value = obj.CHALLAN_ID;
+				cmd.Parameters.Add("pCFMS_STATUS", OracleDbType.Varchar2).Value = obj.CFMS_STATUS;
+				cmd.Parameters.Add("pcur", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+				DataTable dtTrans = GetProdgswsDataAdapter(cmd);//db.executeProcedure(cmd, oradbGswsProd);
+				if (dtTrans != null)
+				{
+					return dtTrans;
+				}
+				else
+				{
+					return null;
+				}
+			}
+			catch (Exception ex)
+			{
+				string mappath = HttpContext.Current.Server.MapPath("CFMSGATEWAY_Save_Data_SPExceptionLogs");
+				
+				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From GetLogin_SP:" + ex.Message.ToString()));
+
+				throw ex;
+			}
+		}
 
 
 		public bool GSWS_SP_IN_CAPTCHA(captch root)
@@ -1039,6 +1084,37 @@ namespace gswsBackendAPI.DL.CommonHel
 			catch (Exception ex)
 			{
 				string mappath = HttpContext.Current.Server.MapPath("LandPageCountsLog");
+				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From gsws_dashboard_landing_sp:" + ex.Message.ToString()));
+				throw ex;
+			}
+		}
+
+
+
+		public DataTable Save_Exception_Data(ExceptionDataModel ObjLogin)
+		{
+			try
+			{
+				cmd = new OracleCommand();
+				cmd.InitialLONGFetchSize = 1000;
+				cmd.CommandType = CommandType.StoredProcedure;
+				cmd.CommandText = "GSWS_IN_EXCEPTION_PROC";
+				cmd.Parameters.Add("F_TYPE", OracleDbType.Varchar2, 100).Value = "1";
+				cmd.Parameters.Add("P_DEPTCODE", OracleDbType.Varchar2, 10).Value = ObjLogin.E_DEPTID;
+				cmd.Parameters.Add("P_HODCODE", OracleDbType.Varchar2, 50).Value = ObjLogin.E_HODID;
+				cmd.Parameters.Add("P_URLID", OracleDbType.Varchar2, 100).Value = ObjLogin.E_URLID;
+				cmd.Parameters.Add("P_SECRETARIATCODE", OracleDbType.Varchar2, 500).Value = ObjLogin.E_SECRETARIATCODE;
+				cmd.Parameters.Add("P_ERRORMESSAGE", OracleDbType.Varchar2, 500).Value = ObjLogin.E_ERRORMESSAGE;
+				cmd.Parameters.Add("P_SERVICEAPIURL", OracleDbType.Varchar2, 500).Value = ObjLogin.E_SERVICEAPIURL;
+				cmd.Parameters.Add("P_ERRORTYPE", OracleDbType.Varchar2, 100).Value = ObjLogin.E_ERRORTYPE;								
+				cmd.Parameters.Add("P_CUR", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+				DataTable dtLogin = GetProdgswsDataAdapter(cmd);
+				return dtLogin;
+
+			}
+			catch (Exception ex)
+			{
+				string mappath = HttpContext.Current.Server.MapPath("Save_Exception_DataLog");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From gsws_dashboard_landing_sp:" + ex.Message.ToString()));
 				throw ex;
 			}

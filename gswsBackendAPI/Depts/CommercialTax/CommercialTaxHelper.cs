@@ -1,4 +1,5 @@
-﻿using gswsBackendAPI.DL.DataConnection;
+﻿using gswsBackendAPI.DL.CommonHel;
+using gswsBackendAPI.DL.DataConnection;
 using gswsBackendAPI.transactionModule;
 using Newtonsoft.Json;
 using System;
@@ -43,6 +44,7 @@ namespace gswsBackendAPI.Depts.CommercialTax
 
                 obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
+                Common_CommercialTax_Error(ex.Message.ToString(), "https://apct.gov.in/pspt/api/registration/get_reg_dtls", "2");
                 return obj;
             }
 
@@ -65,6 +67,7 @@ namespace gswsBackendAPI.Depts.CommercialTax
             {
                 obj.Status = 102;
                 obj.Reason = ThirdpartyMessage;
+                Common_CommercialTax_Error(ex.Message.ToString(), "https://apct.gov.in/pspt/api/Doc/docupld", "2");
                 return obj;
             }
 
@@ -107,7 +110,8 @@ namespace gswsBackendAPI.Depts.CommercialTax
 						Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From LoadDepartments:" + ex.Message.ToString() + data));
 						obj.Status = 100;
 						obj.Details = data;
-					}
+                        Common_CommercialTax_Error(ex.Message.ToString(), "https://apct.gov.in/pspt/api/registration/ins_reg_dtls", "2");
+                    }
 				}
 				else
 				{
@@ -124,6 +128,7 @@ namespace gswsBackendAPI.Depts.CommercialTax
 
 				obj.Status = 102;
                 obj.Reason = ThirdpartyMessage;
+                Common_CommercialTax_Error(ex.Message.ToString(), "https://apct.gov.in/pspt/api/registration/ins_reg_dtls", "2");
                 return obj;
             }
 
@@ -159,6 +164,7 @@ namespace gswsBackendAPI.Depts.CommercialTax
             {
                 obj.Status = 102;
                 obj.Reason = "Error Occured While Getting Application Status";
+                Common_CommercialTax_Error(ex.Message.ToString(), "https://apct.gov.in/pspt/api/Alert/get_all_alerts", "2");
                 return obj;
             }
 
@@ -192,6 +198,7 @@ namespace gswsBackendAPI.Depts.CommercialTax
             {
                 obj.Status = 102;
                 obj.Reason = ThirdpartyMessage;
+                Common_CommercialTax_Error(ex.Message.ToString(), "https://apct.gov.in/pspt/api/registration/get_dtls", "2");
                 return obj;
             }
 
@@ -214,6 +221,7 @@ namespace gswsBackendAPI.Depts.CommercialTax
             {
                 obj.Status = 102;
                 obj.Reason = ThirdpartyMessage;
+                Common_CommercialTax_Error(ex.Message.ToString(), "https://apct.gov.in/pspt/api/registration/mod_reg_dtls", "2");
                 return obj;
             }
 
@@ -247,6 +255,7 @@ namespace gswsBackendAPI.Depts.CommercialTax
             {
                 obj.Status = 102;
                 obj.Reason = ThirdpartyMessage;
+                Common_CommercialTax_Error(ex.Message.ToString(), "https://apct.gov.in/pspt/api/return/get_ret_dtls", "2");
                 return obj;
             }
 
@@ -269,6 +278,7 @@ namespace gswsBackendAPI.Depts.CommercialTax
             {
                 obj.Status = 102;
                 obj.Reason = ThirdpartyMessage;
+                Common_CommercialTax_Error(ex.Message.ToString(), "https://apct.gov.in/pspt/api/return/ins_ret_dtls", "2");
                 return obj;
             }
 
@@ -302,9 +312,29 @@ namespace gswsBackendAPI.Depts.CommercialTax
             {
                 obj.Status = 102;
                 obj.Reason = ThirdpartyMessage;
+                Common_CommercialTax_Error(ex.Message.ToString(), "https://apct.gov.in/pspt/api/registration/get_rc", "2");
                 return obj;
             }
 
+        }
+
+        public static bool Common_CommercialTax_Error(string msg, string url, string etype)
+        {
+            ExceptionDataModel objex = new ExceptionDataModel();
+            try
+            {
+                objex.E_DEPTID = DepartmentEnum.Department.Revenue.ToString();
+                objex.E_HODID = DepartmentEnum.HOD.Commercial_Taxes.ToString();
+                objex.E_ERRORMESSAGE = msg;
+                objex.E_SERVICEAPIURL = url;
+                objex.E_ERRORTYPE = etype;
+                new LoginSPHelper().Save_Exception_Data(objex);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         #endregion

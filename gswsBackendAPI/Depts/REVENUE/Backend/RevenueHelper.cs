@@ -39,7 +39,8 @@ namespace gswsBackendAPI.Depts.REVENUE.Backend
 			}
 			catch (Exception ex)
 			{
-				string mappath = HttpContext.Current.Server.MapPath("RiceCardTokenLogs");
+                Common_Revenue_Error(ex.Message.ToString(), "tokenurl", "2");
+                string mappath = HttpContext.Current.Server.MapPath("RiceCardTokenLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From Rice Cards Token:" + ex.Message.ToString()));
 				throw ex;
 			}
@@ -70,7 +71,8 @@ namespace gswsBackendAPI.Depts.REVENUE.Backend
 			}
 			catch (Exception ex)
 			{
-				string mappath = HttpContext.Current.Server.MapPath("RiceCardTokenLogs");
+                Common_Revenue_Error(ex.Message.ToString(), "https://www.spandana.ap.gov.in/api/GsGw/GetRiceCardStatusByDocId/", "2");
+                string mappath = HttpContext.Current.Server.MapPath("RiceCardTokenLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From Rice Cards Token:" + ex.Message.ToString()));
 
 				obj.Status = 102;
@@ -242,7 +244,8 @@ namespace gswsBackendAPI.Depts.REVENUE.Backend
 			}
 			catch (Exception ex)
 			{
-				string mappath = HttpContext.Current.Server.MapPath("SpandanaExceptionLogs");
+                Common_Revenue_Error(ex.Message.ToString(), "depturl", "2");
+                string mappath = HttpContext.Current.Server.MapPath("SpandanaExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From GetSpandanaDepartment:" + ex.Message.ToString()));
 				throw ex;
 			}
@@ -260,7 +263,8 @@ namespace gswsBackendAPI.Depts.REVENUE.Backend
 			}
 			catch (Exception ex)
 			{
-				string mappath = HttpContext.Current.Server.MapPath("SpandanaExceptionLogs");
+                Common_Revenue_Error(ex.Message.ToString(), "spandanabstracturl", "2");
+                string mappath = HttpContext.Current.Server.MapPath("SpandanaExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From GetSpandanaAbstractCount:" + ex.Message.ToString()));
 				throw ex;
 			}
@@ -277,7 +281,8 @@ namespace gswsBackendAPI.Depts.REVENUE.Backend
 			}
 			catch (Exception ex)
 			{
-				string mappath = HttpContext.Current.Server.MapPath("SpandanaExceptionLogs");
+                Common_Revenue_Error(ex.Message.ToString(), "spandanadetailedurl", "2");
+                string mappath = HttpContext.Current.Server.MapPath("SpandanaExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From GetSpandanaDetailedCount:" + ex.Message.ToString()));
 				throw ex;
 			}
@@ -302,7 +307,8 @@ namespace gswsBackendAPI.Depts.REVENUE.Backend
 			}
 			catch (Exception ex)
 			{
-				string mappath = HttpContext.Current.Server.MapPath("SpandanaExceptionLogs");
+                Common_Revenue_Error(ex.Message.ToString(), "SpandanaStatusCheck", "2");
+                string mappath = HttpContext.Current.Server.MapPath("SpandanaExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From GetSpandanaDepartment:" + ex.Message.ToString()));
 				throw ex;
 			}
@@ -322,7 +328,8 @@ namespace gswsBackendAPI.Depts.REVENUE.Backend
 			}
 			catch (Exception ex)
 			{
-				string mappath = HttpContext.Current.Server.MapPath("SpandanaExceptionLogs");
+                Common_Revenue_Error(ex.Message.ToString(), "allsubjecturl", "2");
+                string mappath = HttpContext.Current.Server.MapPath("SpandanaExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From Getsubject:" + ex.Message.ToString()));
 				throw ex;
 			}
@@ -343,7 +350,8 @@ namespace gswsBackendAPI.Depts.REVENUE.Backend
 			}
 			catch (Exception ex)
 			{
-				string mappath = HttpContext.Current.Server.MapPath("SpandanaExceptionLogs");
+                Common_Revenue_Error(ex.Message.ToString(), "allsubsubjecturl", "2");
+                string mappath = HttpContext.Current.Server.MapPath("SpandanaExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From GetSubSubject:" + ex.Message.ToString()));
 				throw ex;
 			}
@@ -363,7 +371,8 @@ namespace gswsBackendAPI.Depts.REVENUE.Backend
 			}
 			catch (Exception ex)
 			{
-				string mappath = HttpContext.Current.Server.MapPath("SpandanaExceptionLogs");
+                Common_Revenue_Error(ex.Message.ToString(), "https://www.spandana.ap.gov.in/api/ExternalUser/GetKeywordSubSubjectsrdurl", "2");
+                string mappath = HttpContext.Current.Server.MapPath("SpandanaExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From getkeywordsubsubject:" + ex.Message.ToString()));
 				throw ex;
 			}
@@ -482,9 +491,10 @@ namespace gswsBackendAPI.Depts.REVENUE.Backend
 				objdist.Data = ResultData;
 
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
-				objdist.Status = "Failure";
+                Common_Revenue_Error(ex.Message.ToString(), "http://cpe.ap.gov.in/EeGP/api/rest/getStatusByReqNo?reqNo=", "2");
+                objdist.Status = "Failure";
 				objdist.Reason = CommonSPHel.ThirdpartyMessage;
 				objdist.Data = "";
 			}
@@ -560,11 +570,11 @@ namespace gswsBackendAPI.Depts.REVENUE.Backend
 			}
 			catch (Exception ex)
 			{
-
-				string mappath = HttpContext.Current.Server.MapPath("ExciceExceptionLogs");
+                
+                string mappath = HttpContext.Current.Server.MapPath("ExciceExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From GetApplicantStatus:" + ex.Message.ToString()));
-
-				objdist.Status = "Failure";
+                Common_Revenue_Error(ex.Message.ToString(), "http://cpe.ap.gov.in/EeGP/api/rest/savePCFform", "2");
+                objdist.Status = "Failure";
                 objdist.Reason = CommonSPHel.ThirdpartyMessage ;
                 objdist.Data = "";
             }
@@ -745,9 +755,27 @@ namespace gswsBackendAPI.Depts.REVENUE.Backend
 
 			return response;
 		}
-		#endregion
+        #endregion
+        public bool Common_Revenue_Error(string msg, string url, string etype)
+        {
+            ExceptionDataModel objex = new ExceptionDataModel();
+            try
+            {
+                objex.E_DEPTID = DepartmentEnum.Department.Revenue.ToString();
+                objex.E_HODID = DepartmentEnum.HOD.Revenue_CCLA.ToString();
+                objex.E_ERRORMESSAGE = msg;
+                objex.E_SERVICEAPIURL = url;
+                objex.E_ERRORTYPE = etype;
+                new LoginSPHelper().Save_Exception_Data(objex);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
 
-		public T GetSerialzedData<T>(string Input)
+        public T GetSerialzedData<T>(string Input)
 		{
 			return JsonConvert.DeserializeObject<T>(Input);
 		}
@@ -794,4 +822,5 @@ namespace gswsBackendAPI.Depts.REVENUE.Backend
 		public string SeccCode { get; set; }
 		public string token { get; set; }
 	}
+    
 }

@@ -267,7 +267,7 @@
 						window.open(url, '_blank');
 						//scope.translist = res.Translist;
 					}
-					else if (obj.URL_ID == "110401301" || obj.URL_ID == "110401401" || obj.URL_ID == "110102501" || obj.URL_ID =="310300104") {
+					else if (obj.URL_ID == "110401301" || obj.URL_ID =="110102601" || obj.URL_ID == "110401401" || obj.URL_ID == "110102501" || obj.URL_ID =="310300104") {
 						//url = obj.URL + "?Id=" + res.encrypttext + "&IV=" + res.key;
 						var localurl = window.location.href.split("#!/")[0];
 						var secondurl = obj.URL.split("#!/")[1] + "?Id=" + res.encrypttext + "&IV=" + res.key;
@@ -1104,6 +1104,7 @@
 
 				$('<input />', { name: 'Seccode', value: sessionStorage.getItem("secccode"), type: 'hidden' }),
 				$('<input />', { name: 'userid', value: username, type: 'hidden' }),
+				$('<input />', { name: 'DistCode', value: sessionStorage.getItem("distcode"), type: 'hidden' }),
 			
 						$('<input />', { id: 'savebutton', style: 'display:none', type: 'submit', value: 'Save' })), '</form>');
 

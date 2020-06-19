@@ -419,6 +419,32 @@ namespace gswsBackendAPI.Internal.Backend
 				throw ex;
 			}
 		}
+
+		public String SaveReOpenTicket_Helper_SP(FeedBackReport obj)
+		{
+			try
+			{
+				//obj.REPORTID = obj.SECRETRIATID + DateTime.Now.ToString("ddMMyyHHmmssfff");
+				cmd = new OracleCommand();
+				cmd.CommandText = @"update GSWS_REPORT_ISSUES set REOPEN_DATE=sysdate, REOPEN_BY = :USER_NAME,REOPEN_REASONS=:REMARKS,comp_status=:comp_status where REPORT_ID= :REPORT_ID";
+				cmd.Parameters.Add(":USER_NAME", OracleDbType.Varchar2, 50).Value = obj.USER;
+				cmd.Parameters.Add(":REMARKS", OracleDbType.Varchar2, 500).Value = obj.REMARKS;
+				cmd.Parameters.Add(":comp_status", OracleDbType.Varchar2, 50).Value = obj.SOURCE;
+				cmd.Parameters.Add(":REPORT_ID", OracleDbType.Varchar2, 50).Value = obj.REPORTID;
+				int k = getProdgswsExecuteNonQuery(cmd);
+				if (k > 0)
+					return "Success";
+				else
+					return "Failure";
+			}
+			catch (Exception ex)
+			{
+				string mappath = HttpContext.Current.Server.MapPath("SaveReOpenTicketExceptionLogs");
+				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error GSWS_REPORT_ISSUES :" + ex.Message.ToString()));
+				throw ex;
+			}
+		}
+
 		public String SaveSecretriatData(SecretraintModel obj)
 		{
 			try

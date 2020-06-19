@@ -1,227 +1,251 @@
 ﻿<style>
-	/*Loader*/
-	.loader {
-		position: fixed;
-		left: 0px;
-		top: 0px;
-		width: 100%;
-		height: 100%;
-		z-index: 9999;
-		background: url('../images/loader.gif') 50% 50% no-repeat #fff;
-	}
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
 
-	.card {
-		box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
-	}
+    .card {
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    }
 </style>
 <div class="page-content">
-	<div data-ng-show="preloader" class="loader"></div>
-	<!-- Main content -->
-	<div class="content-wrapper">
-		<!-- Content area -->
-		<div class="content">
-			<div class="container-fluid">
-				<div class="row mb-5">
-					<div class="col-sm-12 text-center mb-4">
-						<div class="row">
-							<div class="col-md-4"></div>
-							<div class="col-md-4">
-								<h1 style="text-align: center;">Report a Software Issue</h1>
-							</div>
-							<div class="col-md-4" ng-show="MAINDIV=='RAISEISSUES'">
-								<input type="button" class="btn btn-primary" value="Raised Issue Tracking" ng-click="ResolvedIssuesclick('SOLVEDISSUES','1');" />
-							</div>
-							<div class="col-md-4" ng-show="MAINDIV=='SOLVEDISSUES'">
-								<input type="button" class="btn btn-primary" value="Raise Issue" ng-click="ResolvedIssuesclick('RAISEISSUES');" />
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-12" ng-show="MAINDIV=='RAISEISSUES'">
-						<div class="card">
-							<div class="card-body">
-								<!--Row 1-->
-								<div class="row">
-									<div class="form-group col-sm-4">
-										<label class="col-form-label"><b>Department :</b><span style="color:red"> *</span></label>
-										<div>
-											<select class="form-control" data-ng-model="selDept" data-ng-change="LoadHODs();">
-												<option selected="selected" value="">-Select-</option>
-												<option data-ng-repeat="dep in DepartmentDD" value="{{dep.PS_SD_CODE}}">{{dep.SD_NAME}}</option>
-											</select>
-										</div>
-									</div>
-									<div class="form-group col-sm-4">
-										<label class="col-form-label"><b>HOD :</b><span style="color:red"> *</span></label>
-										<div>
-											<select class="form-control" data-ng-model="selHOD" data-ng-change="LoadServices();">
-												<option selected="selected" value="">-Select-</option>
-												<option data-ng-repeat="dep in HODDD" value="{{dep.PS_HOD_CODE}}">{{dep.HOD_NAME}}</option>
-											</select>
-										</div>
-									</div>
-									<!--<div class="form-group col-sm-3">
-					<label class="col-form-label"><b>Service :</b><span style="color:red"> *</span></label>
-					<div>
-					  <select class="form-control" data-ng-model="selservice" data-ng-change="LoadServicesurls();">
-						  <option selected="selected" value="">-Select-</option>
-						  <option data-ng-repeat="dep in ServicesDD" value="{{dep.SCHEME_ID}}">{{dep.SCHEME}}</option>
-					  </select>
-					</div>
-					</div>-->
-									<div class="form-group col-sm-4">
-										<label class="col-lg-6 col-form-label"><b>URL Name :</b><span style="color:red"> *</span></label>
-										<div>
-											<select class="form-control" data-ng-model="selurlid">
-												<option selected="selected" value="">-Select-</option>
-												<option data-ng-repeat="dis in URLLIST" value="{{dis.URL_ID}}">
-													{{
-dis.URL_DESCRIPTION
-													}}
-												</option>
-												ON
-												ec
-											</select>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="form-group">
-											<label class="form-control-label"><b>Subjects</b><span style="color:red"> *</span></label>
-											<select class="form-control" data-ng-model="selsubject" ng-change="LoadSubSubjects();">
-												<option selected="selected" value="">-Select-</option>
-												<option data-ng-repeat="dis in SubjectsDD" value="{{dis.SUBJECT_CODE}}">{{dis.SUBJECT_NAME}}</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="form-group">
-											<label class="form-control-label"><b>Sub Subjects</b><span style="color:red"> *</span></label>
-											<select class="form-control" data-ng-model="selsubsubject">
-												<option selected="selected" value="">-Select-</option>
-												<option data-ng-repeat="dis in SubSubjectsDD" value="{{dis.SUBSUBJECT_CODE}}">{{dis.SUBSUBJECT_NAME}}</option>
-											</select>
-										</div>
-									</div>
-									<div class="form-group col-sm-12 ">
-										<label class="col-lg-6 col-form-label"><b>Remarks :</b><span style="color:red"> *</span></label>
-										<div class="col-sm-12">
-											<textarea class="form-control" ng-model="Remarks" placeholder="Enter Remarks">  </textarea>
-										</div>
-									</div>
-									<div class="form-group col-sm-4 ">
-										<label classs="col-lg-6 col-form-label"><b>Image 1</b></label>
-										<div class="row">
-											<div class="col-sm-8 vv-inputwithicon">
-												<i class="fa fa-file-o"></i>
-												<input type="file" ng-model="Image1" class="form-control" data-ak-file-model="userfilename1.attachment" />
-												<span style="color:red;
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row mb-5">
+                    <div class="row">
+                        <div class="col-sm-12 text-center mb-4">
+                            <div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <h1 style="text-align: center;">Report a Software Issue</h1>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 cumilative-counts">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="card bg-indigo-600">
+                                                <div class="card-body text-center">
+                                                    <p style="font-size: 25px !important;">Total</p>
+                                                    <h2 class="mt-2 cursor-pointer"><a ng-click="IssuesCntclick('4');">{{ISSUES_TOTAL}}</a></h2>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="card bg-green">
+                                                <div class="card-body text-center">
+                                                    <p style="font-size: 25px !important;">Open</p>
+                                                    <h2 class="mt-2 cursor-pointer"><a ng-click="IssuesCntclick('1');">{{ISSUES_OPEN}}</a></h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card bg-danger-600">
+                                                <div class="card-body text-center">
+                                                    <p style="font-size: 25px !important;">Closed</p>
+                                                    <h2 class="mt-2 cursor-pointer"><a ng-click="IssuesCntclick('2');">{{ISSUES_CLOSED}}</a></h2>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12" ng-show="MAINDIV=='RAISEISSUES'">
+                            <div class="card">
+                                <div class="card-body">
+                                    <!--Row 1-->
+                                    <div class="row">
+                                        <div class="form-group col-sm-4">
+                                            <label class="col-form-label"><b>Department :</b><span style="color:red"> *</span></label>
+                                            <div>
+                                                <select class="form-control" ng-options="dis as dis.SD_NAME for dis in DepartmentDD" data-ng-model="selDept" data-ng-change="LoadHODs();">
+                                                    <option selected="selected" value="">-Select-</option>
+                                                   <!-- <option data-ng-repeat="dep in DepartmentDD" value="{{dep.PS_SD_CODE}}">{{dep.SD_NAME}}</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label class="col-form-label"><b>HOD :</b><span style="color:red"> *</span></label>
+                                            <div>
+                                                <select class="form-control" ng-options="dis as dis.HOD_NAME for dis in HODDD" data-ng-model="selHOD" data-ng-change="LoadServices();">
+                                                    <option selected="selected" value="">-Select-</option>
+                                                    <!--<option data-ng-repeat="dep in HODDD" value="{{dep.PS_HOD_CODE}}">{{dep.HOD_NAME}}</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="form-group col-sm-4">
+                                            <label class="col-lg-6 col-form-label"><b>URL Name :</b><span style="color:red"> *</span></label>
+                                            <div>
+                                                <select class="form-control" ng-options="dis as dis.URL_DESCRIPTION for dis in URLLIST" data-ng-model="selurlid">
+                                                    <option selected="selected"  value="">-Select-</option>
+                                                    <!--<option data-ng-repeat="dis in URLLIST" value="{{dis.URL_ID}}">{{dis.URL_DESCRIPTION}}</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label"><b>Subjects</b><span style="color:red"> *</span></label>
+                                                <select class="form-control" ng-options="dis as dis.SUBJECT_NAME for dis in SubjectsDD" data-ng-model="selsubject" ng-change="LoadSubSubjects();">
+                                                    <option selected="selected" value="">-Select-</option>
+                                                    <!--<option data-ng-repeat="dis in SubjectsDD" value="{{dis.SUBJECT_CODE}}">{{dis.SUBJECT_NAME}}</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label"><b>Sub Subjects</b><span style="color:red"> *</span></label>
+                                                <select class="form-control" ng-options="dis as dis.SUBSUBJECT_NAME for dis in SubSubjectsDD" data-ng-model="selsubsubject">
+                                                    <option selected="selected" value="">-Select-</option>
+                                                    <!--<option data-ng-repeat="dis in SubSubjectsDD" value="{{dis.SUBSUBJECT_CODE}}">{{dis.SUBSUBJECT_NAME}}</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row ">
+                                            <div class="form-group col-sm-4 ">
+                                                <label classs="col-lg-6 col-form-label"><b>Image 1</b></label>
+                                                <div class="row">
+                                                    <div class="col-sm-8 vv-inputwithicon">
+                                                        <i class="fa fa-file-o"></i>
+                                                        <input type="file" ng-model="Image1" class="form-control" data-ak-file-model="userfilename1.attachment" />
+                                                        <span style="color:red;
     font-size: 10px;">(Only Image File - Max 1MB)</span>
-											</div>
-											<div class="col-sm-4">
-												<input type="button" class="btn btn-success" value="Upload" ng-click="uploadfile(userfilename1,selHOD,selurlid,'Image1');" />
-											</div>
-										</div>
-									</div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <input type="button" class="btn btn-success" value="Upload" ng-click="uploadfile(userfilename1,selHOD,selurlid,'Image1');" />
+                                                    </div>
+                                                </div>
+                                            </div>
 
-									<div class="form-group col-sm-4 ">
-										<label classs="col-lg-6 col-form-label"><b>Images2</b></label>
-										<div class="row">
-											<div class="col-sm-8 vv-inputwithicon">
-												<i class="fa fa-file-o"></i>
-												<input type="file" ng-model="Image2" class="form-control" data-ak-file-model="userfilename2.attachment" />
-												<span style="color:red;
+                                            <div class="form-group col-sm-4 ">
+                                                <label classs="col-lg-6 col-form-label"><b>Images2</b></label>
+                                                <div class="row">
+                                                    <div class="col-sm-8 vv-inputwithicon">
+                                                        <i class="fa fa-file-o"></i>
+                                                        <input type="file" ng-model="Image2" class="form-control" data-ak-file-model="userfilename2.attachment" />
+                                                        <span style="color:red;
     font-size: 10px;">(Only Image File - Max 1MB)</span>
-											</div>
-											<div class="col-sm-4">
-												<input type="button" class="btn btn-success" value="Upload" ng-click="uploadfile(userfilename2,selHOD,selurlid,'Image2');" />
-											</div>
-										</div>
-									</div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <input type="button" class="btn btn-success" value="Upload" ng-click="uploadfile(userfilename2,selHOD,selurlid,'Image2');" />
+                                                    </div>
+                                                </div>
+                                            </div>
 
-									<div class="form-group col-sm-4">
+                                            <div class="form-group col-sm-4">
 
-										<label classs="col-form-label col-sm-12"><b>Image3</b></label>
-										<div class="row">
-
-
-											<div class="col-sm-8 vv-inputwithicon">
-												<i class="fa fa-file-o"></i>
-												<input type="file" ng-model="Image3" class="form-control" data-ak-file-model="userfilename3.attachment" />
-												<span style="color:red;
-    font-size: 10px;">(Only PDF File - Max 1MB)</span>
-											</div>
-											<div class="col-sm-4">
-												<input type="button" class="btn btn-success" value="Upload" ng-click="uploadfile(userfilename3,selHOD,selurlid,'Image3');" />
-											</div>
-										</div>
-
-									</div>
-
-									<!--Row 2-->
-									<div style="margin-top:20px;text-align:center">
-										<button type="submit" data-ng-click="Savedata();" class="btn btn-primary">Save</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!--Closed Issues Start-->
-					<div class="col-md-12 mt-3" ng-show="MAINDIV=='SOLVEDISSUES'">
-						<div class="row">
-
-							<div class="col-md-4">
-								<input type="button" class="btn btn-primary" value="Open" ng-click="ResolvedIssuesclick('SOLVEDISSUES','1');" />
-								<input type="button" class="btn btn-primary" value="Closed" ng-click="ResolvedIssuesclick('SOLVEDISSUES','2');" />
-							</div>
-
-							<div class="col-md-4 text-center" ng-show="headshow=='1'"><h1 style="text-align: center;">Open Issues</h1></div>
-							<div class="col-md-4 text-center" ng-show="headshow=='2'"><h1 style="text-align: center;">Closed Issues</h1></div>
-
-							<div class="col-md-4"></div>
+                                                <label classs="col-form-label col-sm-12"><b>Image3</b></label>
+                                                <div class="row">
 
 
-						</div>
-						<!--Detail Data-->
-						<div class="row  text-center">
-							<div class="table table-responsive table-bordered mt-2">
-								<table class="table table-bordered bg-white">
-									<thead class="bg-dark">
-										<tr class="text-center">
-											<td>S.No</td>
-											<td>Department Name</td>
-											<td>Token ID</td>
-											<td>Image</td>
-											<td>Subject</td>
-											<td>Sub-Subject</td>
-											<td>Remarks</td>
-											<td>Status</td>
-											<td>Closing Remarks</td>
-											<td>Closing Date</td>
-										</tr>
-									</thead>
-									<tbody>
-										<tr class="text-center " ng-repeat="det in ResolvedIssuesData">
-											<td>{{$index + 1}}</td>
-											<td>{{det.DEPARTMENT_NAME}}</td>
-											<td>{{det.REPORT_ID}}</td>
-											<td ng-if="det.IMAGE_URL=='NA'">{{det.IMAGE_URL}}</td>
-											<td ng-if="det.IMAGE_URL!='NA'"><img style="height: 55px;" src="{{det.IMAGE_URL}}" /></td>
-											<td>{{det.SUBJECT_NAME}}</td>
-											<td>{{det.SUBSUBJECT_NAME}}</td>
-											<td>{{det.REMARKS}}</td>
-											<td>{{det.STATUS}}</td>
-											<td>{{det.UPDATED_REMARKS}}</td>
-											<td ng-if="det.CLOSED_DATE==null">NA</td>
-											<td ng-if="det.CLOSED_DATE!=null">{{det.CLOSED_DATE}}</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-					<!--Closed Issues End-->
-				</div>
-			</div>
-		</div>
-	</div>
+                                                    <div class="col-sm-8 vv-inputwithicon">
+                                                        <i class="fa fa-file-o"></i>
+                                                        <input type="file" ng-model="Image3" class="form-control" data-ak-file-model="userfilename3.attachment" />
+                                                        <span style="color:red;
+    font-size: 10px;">(Only Image File - Max 1MB)</span>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <input type="button" class="btn btn-success" value="Upload" ng-click="uploadfile(userfilename3,selHOD,selurlid,'Image3');" />
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-sm-12 ">
+                                            <label class="col-lg-6 col-form-label"><b>Remarks :</b><span style="color:red"> *</span></label>
+                                            <div class="col-sm-12">
+                                                <textarea class="form-control" ng-model="Remarks" placeholder="Enter Remarks">  </textarea>
+                                            </div>
+                                        </div>
+
+                                        <!--Row 2-->
+                                        <div class="col-md-12" style="margin-top:20px;text-align:center">
+                                            <button type="button" data-ng-click="Savedata();" class="btn btn-primary">Preview</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade " id="prev-modal" data-backdrop="static">
+            <div class="modal-dialog" style="top: 6%;left:-10%;">
+                <div class="modal-content" style="width: 950px !important;">
+                    <!-- Modal Header -->
+                    <div class="modal-header bg-dark">
+                        Preview
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <table class="table table-bordered bg-white">
+                            <thead class="bg-dark">
+                                <tr class="text-center ">
+                                    <td colspan="4">Issue Details</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="text-center ">
+                                    <td><b>Department</b></td>
+                                    <td>{{selDept.SD_NAME}}</td>
+                                    <td><b>HOD</b></td>
+                                    <td>{{selHOD.HOD_NAME}}</td>
+                                </tr>
+
+                                <tr class="text-center ">
+                                    <td><b>URL Name</b></td>
+                                    <td>{{selurlid.URL_DESCRIPTION}}</td>
+                                    <td><b>Subject</b></td>
+                                    <td>{{selsubject.SUBJECT_NAME}}</td>
+                                </tr>
+                                <tr class="text-center ">
+                                    <td><b>Sub Subject</b></td>
+                                    <td colspan="3">{{selsubsubject.SUBSUBJECT_NAME}}</td>
+                                   
+                                </tr>
+
+                                <tr class="text-center ">
+                                    <td><b>Remarks</b></td>
+                                    <td colspan="3">{{Remarks}}</td>
+                                    <!--<td><b>Image 1</b></td>
+                                    <td ng-if="IMAGE_URL=='NA'">{{IMAGE_URL}}</td>
+                                    <td ng-if="IMAGE_URL!='NA'"><img style="height: 55px;" src="{{IMAGE_URL}}" /></td>-->
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <div class="col-md-12" style="margin-top:20px;text-align:center" >
+                            <button type="button" data-ng-click="SubmitData();" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

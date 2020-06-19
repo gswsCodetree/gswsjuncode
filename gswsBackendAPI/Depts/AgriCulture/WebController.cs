@@ -1,5 +1,7 @@
-﻿using gswsBackendAPI.DL.DataConnection;
+﻿using gswsBackendAPI.DL.CommonHel;
+using gswsBackendAPI.DL.DataConnection;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -8,6 +10,8 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -275,5 +279,250 @@ namespace gswsBackendAPI.Depts.AgriCulture
 
 		#endregion
 
-	}
+		#region Captcha
+		[HttpPost]
+		[Route("GetCaptcha")]
+		public dynamic GetCaptcha(dynamic data)
+		{
+			dynamic objdata = new ExpandoObject();
+
+			string jsondata = JsonConvert.SerializeObject(data);
+			captch val = JsonConvert.DeserializeObject<captch>(jsondata);
+			
+			//olog.WriteLogParameters(ologmodel);
+			try
+			{
+
+				captchahelper _chel = new captchahelper();
+				// #region Captcha("In the WebController => GetCaptcha: " + jsondata.ToString());
+				return Ok(_chel.check_s_captch(val));
+			}
+			catch (Exception ex)
+			{
+				//_log.Error("An error occurred in WebController => GetCaptcha: " + ex.Message + "__" + ex.InnerException + "__" + ex.StackTrace.ToString());
+				objdata.Status = 102;
+				objdata.Reason = "Something Went wrong Please Try again";
+				return Ok(objdata);
+			}
+		}
+		#endregion
+		#region RBStatus
+
+		public static string ComputeSha256Hash(string rawData)
+		{
+			// #region Captcha("In the LoginHelper=>ComputeSha256Hash=>" + rawData);
+			// Create a SHA256   
+			using (SHA256 sha256Hash = SHA256.Create())
+			{
+				// ComputeHash - returns byte array  
+				byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+				// Convert byte array to a string   
+				StringBuilder builder = new StringBuilder();
+				for (int i = 0; i < bytes.Length; i++)
+				{
+					builder.Append(bytes[i].ToString("x2"));
+				}
+				return builder.ToString();
+			}
+		}
+
+
+		[HttpPost]
+		[Route("GetRBStatus1")]
+		public dynamic GetRBStatus(dynamic data)
+		{
+			dynamic objdata = new ExpandoObject();
+
+			string jsondata = JsonConvert.SerializeObject(data);
+
+			dynamic val = JsonConvert.DeserializeObject<dynamic>(jsondata);
+			JObject Apidata = val.data;
+			string UId = Apidata["PUIDNUM"].ToString();
+			string Ptype = Apidata["PTYPE"].ToString();
+			string PUID = ComputeSha256Hash(UId);
+			EPanta obj = new EPanta();
+			obj.PTYPE = Ptype;
+			obj.PUIDNUM = PUID;
+			string objjson = JsonConvert.SerializeObject(obj);
+			val.data = objjson;
+			LogModel ologmodel = new LogModel();
+			//ologmodel.UserId = val.UserId;
+			//ologmodel.SacId = val.SacId;
+			//ologmodel.DesignId = val.DesignId;
+			//ologmodel.DeptId = string.Empty;
+			//ologmodel.TranId = val.TranId;
+			//olog.WriteLogParameters(ologmodel);
+			try
+			{
+				Helper _Hel = new Helper();
+
+				// #region Captcha("In the WebController => GetCaptcha: " + jsondata.ToString());
+				return Ok(_Hel.RBStatus(val));
+			}
+			catch (Exception ex)
+			{
+				//_log.Error("An error occurred in WebController => GetRBStatus: " + ex.Message + "__" + ex.InnerException + "__" + ex.StackTrace.ToString());
+				objdata.Status = 102;
+				objdata.Reason = "Something Went wrong Please Try again";
+				return Ok(objdata);
+			}
+		}
+		[HttpPost]
+		[Route("GetRBStatus2")]
+		public dynamic GetBStatus(dynamic data)
+		{
+			dynamic objdata = new ExpandoObject();
+
+			string jsondata = JsonConvert.SerializeObject(data);
+
+			dynamic val = JsonConvert.DeserializeObject<dynamic>(jsondata);
+			JObject Apidata = val.data;
+			string UId = Apidata["PUIDNUM"].ToString();
+			string Ptype = Apidata["PTYPE"].ToString();
+			string PUID = ComputeSha256Hash(UId);
+			EPanta obj = new EPanta();
+			obj.PTYPE = Ptype;
+			obj.PUIDNUM = PUID;
+			string objjson = JsonConvert.SerializeObject(obj);
+			val.data = objjson;
+			LogModel ologmodel = new LogModel();
+			//ologmodel.UserId = val.UserId;
+			//ologmodel.SacId = val.SacId;
+			//ologmodel.DesignId = val.DesignId;
+			//ologmodel.DeptId = string.Empty;
+			//ologmodel.TranId = val.TranId;
+			//olog.WriteLogParameters();
+			try
+			{
+				Helper _Hel = new Helper();
+
+				//_log.Info("In the WebController => BeneficiaryStatus: " + jsondata.ToString());
+				return Ok(_Hel.BeneficiaryStatus(val));
+			}
+			catch (Exception ex)
+			{
+				//_log.Error("An error occurred in WebController => GetRBStatus: " + ex.Message + "__" + ex.InnerException + "__" + ex.StackTrace.ToString());
+				objdata.Status = 102;
+				objdata.Reason = "Something Went wrong Please Try again";
+				return Ok(objdata);
+			}
+		}
+		#endregion
+		#region CropDetails
+		[HttpPost]
+		[Route("AgriMaster")]
+		public dynamic AgriMaster(dynamic data)
+		{
+			dynamic objdata = new ExpandoObject();
+
+			string jsondata = JsonConvert.SerializeObject(data);
+			dynamic val = JsonConvert.DeserializeObject<dynamic>(jsondata);
+			//LogModel ologmodel = new LogModel();
+			//ologmodel.UserId = val.UserId;
+			//ologmodel.SacId = val.SacId;
+			//ologmodel.DesignId = val.DesignId;
+			//ologmodel.DeptId = string.Empty;
+			//ologmodel.TranId = val.TranId;
+		//	olog.WriteLogParameters(ologmodel);
+			try
+			{
+
+				Helper _Revhel = new Helper();
+				//// #region Captcha("In the RevenueController => GetRevenueMaster: " + jsondata.ToString());
+				return Ok(_Revhel.GetAgrimaster(val));
+				//	return "SuccessEncryptDataModel
+
+			}
+			catch (Exception ex)
+			{
+				////_log.Error("An error occurred in GetRevenueMaster. The message was: " + ex.Message + "__" + ex.InnerException + "__" + ex.StackTrace.ToString());
+				objdata.Status = "Failure";
+				objdata.Reason = CommonSPHel.ThirdpartyMessage;
+				return Ok(objdata);
+			}
+		}
+
+
+		[HttpPost]
+		[Route("GetCropDetails")]
+		public dynamic GetCropDetails(dynamic data)
+		{
+			dynamic objdata = new ExpandoObject();
+
+			string jsondata = JsonConvert.SerializeObject(data);
+
+			dynamic val = JsonConvert.DeserializeObject<dynamic>(jsondata);
+			//LogModel ologmodel = new LogModel();
+			//olog.WriteLogParameters(ologmodel);
+			try
+			{
+				Helper _Hel = new Helper();
+
+				//// #region Captcha("In the WebController => GetCaptcha: " + jsondata.ToString());
+				return Ok(_Hel.CropDetails(val));
+			}
+			catch (Exception ex)
+			{
+				////_log.Error("An error occurred in WebController => GetRBStatus: " + ex.Message + "__" + ex.InnerException + "__" + ex.StackTrace.ToString());
+				objdata.Status = 102;
+				objdata.Reason = "Something Went wrong Please Try again";
+				return Ok(objdata);
+			}
+		}
+
+		[HttpPost]
+		[Route("GetFarmerDetails")]
+		public dynamic GetFarmerDetails(dynamic data)
+		{
+			dynamic objdata = new ExpandoObject();
+
+			string jsondata = JsonConvert.SerializeObject(data);
+
+			dynamic val = JsonConvert.DeserializeObject<dynamic>(jsondata);
+			//LogModel ologmodel = new LogModel();
+			//olog.WriteLogParameters(ologmodel);
+			try
+			{
+				Helper _Hel = new Helper();
+
+				//// #region Captcha("In the WebController => GetCaptcha: " + jsondata.ToString());
+				return Ok(_Hel.GetFarmerData(val));
+			}
+			catch (Exception ex)
+			{
+				////_log.Error("An error occurred in WebController => GetRBStatus: " + ex.Message + "__" + ex.InnerException + "__" + ex.StackTrace.ToString());
+				objdata.Status = 102;
+				objdata.Reason = "Something Went wrong Please Try again";
+				return Ok(objdata);
+			}
+		}
+		[HttpPost]
+		[Route("GetFarmerDetailsByVil")]
+		public dynamic GetFarmerDetailsByVil(dynamic data)
+		{
+			dynamic objdata = new ExpandoObject();
+			string jsondata = JsonConvert.SerializeObject(data);
+			dynamic val = JsonConvert.DeserializeObject<dynamic>(jsondata);
+			//LogModel ologmodel = new LogModel();
+			//olog.WriteLogParameters(ologmodel);
+			try
+			{
+				Helper _Hel = new Helper();
+
+				//// #region Captcha("In the WebController => GetCaptcha: " + jsondata.ToString());
+				return Ok(_Hel.GetFarmerData(val));
+			}
+			catch (Exception ex)
+			{
+				////_log.Error("An error occurred in WebController => GetRBStatus: " + ex.Message + "__" + ex.InnerException + "__" + ex.StackTrace.ToString());
+				objdata.Status = 102;
+				objdata.Reason = "Something Went wrong Please Try again";
+				return Ok(objdata);
+			}
+		}
+		#endregion
+	
+
+}
 }

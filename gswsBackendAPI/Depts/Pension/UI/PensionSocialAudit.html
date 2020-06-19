@@ -1,0 +1,254 @@
+﻿
+<!--<style>
+
+    body {
+        background: #fff !important;
+    }
+
+    .table thead th {
+        padding: 8px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .table tbody td {
+        padding: 5px;
+    }
+
+    .btn {
+        padding: 2px 8px;
+    }
+
+    .table tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .table tbody tr:nth-of-type(even) {
+        background-color: rgba(120, 120, 120, 0.12);
+    }
+
+    .table tr td p {
+        margin-bottom: 0;
+    }
+
+    .form-control {
+        height: 30px !important;
+        padding: 0;
+    }
+
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
+        display: none !important;
+    }
+</style>-->
+<style>
+    .nde-main {
+        width: 80%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 10px 50px;
+        font-weight: bold !important;
+        position: relative;
+    }
+
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        font-weight: bold;
+    }
+
+    .nde-header .ad-dtl {
+        margin: 10px 0;
+    }
+
+    .nde-body .nde-table tr th, .nde-body .nde-table tr td {
+        border: 1px solid #000 !important;
+        text-align: center;
+        padding: 8px;
+        color: #000;
+        font-weight: bold;
+    }
+
+    .nde-body .nde-table tr td {
+        padding: 10px 10px;
+    }
+
+        .nde-body .nde-table tr td label {
+            margin-bottom: 0;
+        }
+
+    .nde-footer {
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        padding: 5px 20px;
+        margin-top: 30px;
+    }
+
+    @media print {
+        body {
+            background-color: transparent;
+            overflow: hidden !important;
+        }
+
+        .page-header {
+            display: none;
+        }
+        .fltr{display: none;}
+        .page-content {
+            padding: 0 !important;
+            margin:0 !important;
+            width: 100% !important;
+        }
+        .navbar{display:  none;}
+        .content {
+            margin: 0;
+        }
+        .nde-main {
+            width: 95% !important;
+            padding: 0 !important;
+            margin: 0 auto;
+        }
+        #myBtn {
+            display: none;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        .nde-body {
+            padding-bottom: 50px;
+        }
+
+            .nde-body .nde-table tr th, .nde-body .nde-table tr td {
+                font-size: 18px;
+            }
+
+        .nde-footer h6 {
+            margin-bottom: 0;
+            height: 50px;
+        }
+    }
+</style>
+<div class="row pe-main" style="padding-top:20px;">
+    <div class="col-md-12">
+
+        <div class="row justify-content-center">
+            <div class="col-md-12 fltr">
+                <h3 class="text-center">PENSION SOCIAL AUDIT LIST - A4 </h3>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="col-form-label">From Date <span style="color:red"> *</span></label>
+                    <input type="date" data-ng-model="FrmDate" class="form-control" data-date-format="DD MM YYYY" ng-change="dataChange();">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="col-form-label">To Date <span style="color:red"> *</span></label>
+                    <input type="date" data-ng-model="ToDate" class="form-control" data-date-format="DD MM YYYY" ng-change="dataChange();">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group fltr">
+                    <label class="col-form-label ml-3"> Draft Eligible/Ineligible <span style="color:red"> *</span></label>
+                    <div class="pt-1">
+                        <input type="radio" class="mr-1 ml-3" ng-model="Draft" value="eligible" ng-change="dataChange();" /><b>Draft Eligible</b>
+                        <input type="radio" class="mr-1 ml-2" ng-model="Draft" value="Ineligible" ng-change="dataChange();" /><b>Draft ineligible</b>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1 pt-4 fltr" align="left">
+                <button type="button" class="btn btn-sm btn-primary" ng-click="btnSocialAuditDetails();">SUBMIT</button>
+            </div>
+        </div>
+        <div class="row justify-content-center fltr" ng-show="!loader && SocialList != ''">
+            <div class="col-md-10 " align="right">
+                <button type="button" class="btn btn-sm btn-success" ng-click="btnPrint();">PRINT</button>
+            </div>
+        </div>
+
+        <div class="row" ng-show="!loader && SocialList != ''">
+           
+            <div class="row align-items-center">
+                <div class="nde-main">
+                    <div class="nde-header">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h4 class="text-left" style="color: #0062f5;">ఆంధ్రప్రదేశ్ ప్రభుత్వం</h4>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="text-right" style="color: #0062f5;">జిల్లా గ్రామీణాభివృద్ధి సంస్థ: <label style="color: #000;">{{SocialList.District}}</label></h5>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center align-items-center" ng-show="Draft == 'eligible'">
+                            <h5 style="color: #0062f5;">వై.యస్.ఆర్ పింఛను కానుక - సామాజిక తనిఖీ - అర్హుల జాభితా</h5>
+                        </div>
+                        <div class="row justify-content-center align-items-center" ng-show="Draft == 'Ineligible'">
+                            <h5 style="color: #0062f5;">వై.యస్.ఆర్ పింఛను కానుక - సామాజిక తనిఖీ - అనర్హుల జాభితా</h5>
+                        </div>
+                        <div class="row justify-content-center align-items-center ad-dtl">
+                            <div class="col-sm-3">
+                                <h5>మండలం: <label>{{SocialList.mandal}}</label></h5>
+                            </div>
+                            <div class="col-sm-3 text-center">
+                                <h5>పంచాయతి: <label>{{SocialList.panchayat}}</label></h5>
+                            </div>
+                            <div class="col-sm-3 text-right">
+                                <h5>ఆవాసం: <label>{{SocialList.habitation}}</label></h5>
+                            </div>
+                        </div>
+                        <div class="align-items-center">
+                            <h5>సెక్రటేరియట్ ఐడి &nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp; <label>{{SocialList.seccode}}</label></h5>
+                            <h5>సెక్రటేరియట్ పేరు &nbsp;&nbsp; : &nbsp;&nbsp;&nbsp; <label>{{SocialList.secName}}</label> </h5>
+                        </div>
+                    </div>
+                    <div class="nde-body">
+                        <table class="table nde-table">
+                            <thead>
+                                <tr>
+                                    <th>వ. నెం</th>
+                                    <th>గ్రీవెన్స్ ఐడి</th>
+                                    <th>పింఛనుదారుని పేరు</th>
+                                    <th> రిలేషన్ పేరు</th>
+                                    <th>పింఛను రకం</th>
+                                    <th>లింగము</th>
+                                    <th>వయస్సు</th>
+                                    <th ng-show="Draft == 'Ineligible'">DRAFT INELIGIBLE REASON</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="obj in SocialList.details" align="center">
+                                    <td>{{obj.sno}}</td>
+                                    <td>{{obj.grievanceId}}</td>
+                                    <td>{{obj.name}}</td>
+                                    <td>{{obj.relationname}}</td>
+                                    <td>{{obj.type}}</td>
+                                    <td>{{obj.gender}}</td>
+                                    <td>{{obj.age}}</td>
+                                    <td ng-show="Draft == 'Ineligible'">{{obj.reason}}</td>
+                                </tr>
+                            </tbody>
+                            <tbody ng-show="!loader && SocialList == ''">
+                                <tr align="center">
+                                    <td colspan="8" ng-show="Draft == 'eligible'">No Data Available</td>
+                                    <td colspan="7" ng-show="Draft == 'Ineligible'">No Data Available</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="nde-footer">
+                        <h6>గమనిక: ఈ పైన పొందుపరిచిన జాబితాలో ఎవరైనా అనర్హులు ఉన్న యెడల పంచాయతీ వెల్ఫేర్ & ఎడ్యుకేషన్ / వార్డు వెల్ఫేర్ & డెవలప్మెంట్ కార్యదర్శి దృష్టికి తీసుకురావలసిందిగా మనవి</h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" align="center" ng-show="loader" style="padding:20px;">
+            <div class="col-md-12">
+                <h1>Loading...</h1>
+            </div>
+        </div>
+
+    </div>
+    </div>
+

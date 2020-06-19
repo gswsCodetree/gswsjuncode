@@ -16,6 +16,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using gswsBackendAPI.DL.CommonHel;
 
 
 namespace gswsBackendAPI.Depts.SocialWelfare_Tribal
@@ -39,7 +40,8 @@ namespace gswsBackendAPI.Depts.SocialWelfare_Tribal
 			}
 			catch (Exception ex)
 			{
-				objdynamic.Status = "Failure";
+                Common_SocialWelfare_Tribal_Error(ex.Message.ToString(), "http://ysrpk.ap.gov.in/Services/api/Mobile/Get_MeesevaCert_PDF_File_Sachivalayam", "2");
+                objdynamic.Status = "Failure";
 				objdynamic.Reason = ThirdpartyMessage;
 				objdynamic.Data = "";
 			}
@@ -63,7 +65,8 @@ namespace gswsBackendAPI.Depts.SocialWelfare_Tribal
 			}
 			catch (Exception ex)
 			{
-				objdynamic.Status = "Failure";
+                Common_SocialWelfare_Tribal_Error(ex.Message.ToString(), "http://ysrpk.ap.gov.in/Services/api/Mobile/Get_MarriageCert_File_Sachivalayam", "2");
+                objdynamic.Status = "Failure";
 				objdynamic.Reason = ThirdpartyMessage;
 				objdynamic.Data = "";
 			}
@@ -428,7 +431,24 @@ namespace gswsBackendAPI.Depts.SocialWelfare_Tribal
 		{
 			public string Aadhaar { set; get; }
 		}
-		#endregion
-
-	}
+        #endregion
+        public bool Common_SocialWelfare_Tribal_Error(string msg, string url, string etype)
+        {
+            ExceptionDataModel objex = new ExceptionDataModel();
+            try
+            {
+                objex.E_DEPTID = DepartmentEnum.Department.Social_Tribal_Welfare.ToString();
+                objex.E_HODID = DepartmentEnum.HOD.Social_Welfare.ToString();
+                objex.E_ERRORMESSAGE = msg;
+                objex.E_SERVICEAPIURL = url;
+                objex.E_ERRORTYPE = etype;
+                new LoginSPHelper().Save_Exception_Data(objex);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+    }
 }

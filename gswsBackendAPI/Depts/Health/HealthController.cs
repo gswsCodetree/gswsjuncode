@@ -122,11 +122,31 @@ namespace gswsBackendAPI.Depts.Health
 			}
 			catch (Exception ex)
 			{
-				CatchData.Status = 102;
+                Common_Health_Error(ex.Message.ToString(), "http://drysrkv.ap.gov.in/API/KantiVelugu/API_GS_APKV_STUDENT_REPORT/", "2");
+                CatchData.Status = 102;
 				CatchData.Reason = HealthHelper.ThirdpartyMessage;
 				return Ok(CatchData);
 			}
 		}
-		#endregion
-	}
+        #endregion
+        public static bool Common_Health_Error(string msg, string url, string etype)
+        {
+            ExceptionDataModel objex = new ExceptionDataModel();
+            try
+            {
+                objex.E_DEPTID = DepartmentEnum.Department.Health_Medical_Family_Welfare.ToString();
+                objex.E_HODID = DepartmentEnum.HOD.Medical_Education.ToString();
+                objex.E_ERRORMESSAGE = msg;
+                objex.E_SERVICEAPIURL = url;
+                objex.E_ERRORTYPE = etype;
+                new LoginSPHelper().Save_Exception_Data(objex);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+    }
 }

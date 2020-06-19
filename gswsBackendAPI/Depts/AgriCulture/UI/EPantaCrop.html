@@ -1,0 +1,287 @@
+﻿
+<style type="text/css">
+
+	@media screen and (min-width:1800px) and (max-width:2000px) {
+		label, legend, th, .search-text {
+			font-size: 16px !important;
+		}
+
+		.main-heading h1 {
+			font-size: 20px !important;
+		}
+	}
+
+	.main-heading {
+		margin: 0em auto 1em;
+		padding: 40px 32px 20px 32px;
+		text-align: center !important;
+	}
+
+	th {
+		font-size: 16px;
+	}
+
+	td {
+		font-size: 15px;
+	}
+
+	.search-text {
+		font-size: 16px;
+	}
+
+	.main-heading h1 {
+		font-size: 24px;
+		color: #000;
+	}
+
+	label {
+		font-size: 15px;
+		font-weight: 500;
+	}
+
+	legend {
+		background: #004085;
+		/* background: #008e46; */
+		padding: 4px 22px !important;
+		border-radius: 3px;
+		color: white;
+		font-size: 15px;
+		font-weight: 500;
+		margin-bottom: 0px !important;
+	}
+
+	fieldset {
+		border: 2px solid gray !important;
+		border-radius: 3px;
+		padding: 17px !important;
+	}
+
+	.card {
+		box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+	}
+
+	.buttondiv {
+		margin-left: -17px
+	}
+
+	@media screen and (max-width: 844px) {
+		.main-heading h1 {
+			font-size: 25px !important;
+		}
+	}
+
+	@media screen and (max-width:767px) {
+		.search-flex {
+			display: flex;
+		}
+	}
+
+	@media screen and (width: 768px) {
+		*, *::before, *::after {
+			box-sizing: unset;
+		}
+
+		.buttondiv {
+			margin-left: 60px;
+		}
+
+		.cropgroup {
+			width: 160px;
+		}
+	}
+
+	@media screen and (max-width: 1024px) {
+		.buttondiv {
+			display: table;
+			margin-top: 35px !important;
+		}
+	}
+
+	@media screen and (max-width: 1329px) {
+		.buttondiv {
+			display: table;
+			margin-top: 35px !important;
+		}
+	}
+
+	@media screen and (max-width: 767px) {
+		.buttondiv {
+			text-align: center !important;
+		}
+	}
+</style>
+<style>
+	@media screen and (max-width: 1186px) {
+		.radioone label {
+			width: 70px !important;
+		}
+	}
+
+	@media screen and (max-width: 328px) {
+		legend {
+			font-size: 15px;
+		}
+	}
+
+	@media screen and (max-width: 767px) {
+		.search-style, .radioone {
+			width: 150px;
+		}
+	}
+
+	@media screen and (max-width: 449px) {
+		.search-style, .radioone {
+			width: 120px;
+		}
+	}
+
+	@media screen and (max-width: 359px) {
+		.search-style, .radioone {
+			width: 115px;
+		}
+	}
+
+	@media screen and (max-width: 344px) {
+		.search-style, .radioone {
+			width: 99px;
+		}
+	}
+</style>
+<div data-ng-show="preloader" class="loader"></div>
+<div class="col-md-12 main-heading">
+	<h1 style="text-align: center !important;"> e-Panta Crop Booking</h1>
+</div>
+<!-- you should add this  -->
+<div class="container-fluid text-center">
+	<div class="row search-flex">
+		<div class="col-md-2 search-style">
+			<h6 class="search-text" style="font-weight: 500;font-size: 18px;">
+				Search By :
+			</h6>
+		</div>
+		<label for="one" style="padding-right: 28px;">
+			<input type="radio" value="option1" data-ng-model="inputradio" ng-change='changeOption(inputradio)' /> Village
+		</label>
+		<label for="two">
+			<input type="radio" value="option4" data-ng-model="inputradio" ng-change='changeOption(inputradio)' /> Crop
+		</label>
+	</div>
+</div>
+<!-- add this -->
+<br>
+<div class="container-fluid container-md">
+	<div class="row">
+		<div class="col-md-12">
+
+			<div class="card">
+				<div class="card-body" style="padding-bottom: 35px !important;">
+					<div class="NOI box">
+						<fieldset>
+							<legend class="w-auto">
+								Crop Booking Details
+							</legend>
+							<div class="row fields">
+								<div class="col-md-3 ">
+									<div class="form-group">
+										<label class="mr-1">District :<span style="color:red"> *</span></label>
+										<select class="form-control  w-md-75" data-ng-model="distcode" ng-change="GetMandalload();">
+											<option value="">Select</option>
+											<option ng-repeat="obj in distlist " value="{{obj.wdcode}}">{{obj.wdname}}</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<label class="mr-1">Mandal :<span style="color:red"> *</span></label>
+										<select class="form-control  w-md-75" data-ng-model="selmandal" ng-change="GetVillageload();">
+											<option value="">Select</option>
+											<option ng-repeat="obj in Mandallist " value="{{obj.wbmcode}}">{{obj.wbmname}}</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<label class="mr-1">Village :<span style="color:red"> *</span></label>
+										<select class="form-control  w-md-75" data-ng-model="selvill">
+											<option value="">Select</option>
+											<option ng-repeat="obj in Villageslist " value="{{obj.wbvcode}}">{{obj.wbvname}}</option>
+										</select>
+									</div>
+								</div>
+								<!-- crop -->
+								<div class="col-md-2 cropform" ng-show="divcrop">
+
+									<div class="form-group cropgroup">
+										<label class="mr-1">Crop :<span style="color:red"> *</span></label>
+										<select class="form-control  w-md-75" data-ng-model="cropcode">
+											<option value="">Select</option>
+											<option ng-repeat="obj in Cropdetails " value="{{obj.cropcode}}">{{obj.cropname}}</option>
+										</select>
+									</div>
+								</div>
+								<!-- crop -->
+								<div class="col-md-1 buttondiv" style="margin-top: .7%;">
+									<label for=""></label>
+									<button type="button" data-ng-click="GetDetails(inputradio);" style="white-space: nowrap;text-transform: capitalize; color: #fff; font-size: 15px;" class="btn btn-md btn-success" value="Submit">Get Details</button>
+								</div>
+							</div>
+
+						</fieldset>
+					</div>
+					<div class="container-fluid mt-2 table-responsive" id="dttable" style="border: 0px !important;display: none;">
+						<div class="row  mb-3" style="display: block;">
+							<fieldset>
+								<legend class="w-auto">Crop Details</legend>
+								<div class="container-fluid">
+									<div class="table-responsive">
+										<table class="table table-bordered table-striped table-hover datatable-show-all">
+											<thead style="background:#004085;color:#fff;text-align:center;">
+												<tr style="color:white !important;">
+													<th>S.No</th>
+													<th>Name</th>
+													<th>Father Name</th>
+													<th>Mobile No</th>
+													<th>Aadhaar No</th>
+													<th>Khata No</th>
+													<th>Survey No</th>
+													<th>Crop Name</th>
+													<th>Crop Year</th>
+													<th>Crop Season</th>
+													<th>Sowing Area</th>
+													<th>Sowing Date</th>
+													<th>Booking Id</th>
+													<th>Reg Date</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr data-ng-repeat="stu in VilDetails">
+													<td>{{$index + 1}}</td>
+													<td>{{stu.pfarmername}}</td>
+													<td>{{stu.pfarmerfathername}}</td>
+													<td>{{stu.pmobileno}}</td>
+													<td>{{stu.pcr_farmeruid}}</td>
+													<td>{{stu.pkh_no}}</td>
+													<td>{{stu.pcr_sno}}</td>
+													<td>{{stu.pcropname}}</td>
+													<td>{{stu.pcr_year}}</td>
+													<td>{{stu.pcr_season}}</td>
+													<td>{{stu.pareasown}}</td>
+													<td>{{stu.pcr_sow_date | date:"dd/MM/yyyy"}}</td>
+													<td>{{stu.bookingid}}</td>
+													<td>{{stu.dt_reg | date:"dd/MM/yyyy"}}</td>
+
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</fieldset>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -13,6 +13,7 @@ using System.Net.Mail;
 using System.Xml;
 using System.IO;
 using System.Threading.Tasks;
+using gswsBackendAPI.Depts.paymentChallan.BackEnd;
 
 namespace gswsBackendAPI.DL.CommonHel
 {
@@ -1446,6 +1447,147 @@ namespace gswsBackendAPI.DL.CommonHel
 					_ResObj.Status = 100;
 					_ResObj.Reason = "Data Loaded Successfully";
 					_ResObj.DataList = dt;
+				}
+				else
+				{
+					_ResObj.Status = 102;
+					_ResObj.Reason = "No Data Found";
+				}
+			}
+			catch (Exception ex)
+			{
+				if (ex.Message.Contains("ORA-12520:"))
+				{
+					_ResObj.Status = 102;
+					_ResObj.Reason = "Server busy.Please try again after sometime";
+
+				}
+				else
+				{
+					_ResObj.Status = 102;
+					_ResObj.Reason = ex.Message;
+				}
+			}
+			return _ResObj;
+		}
+
+
+		//GSWS Dashboard
+		public dynamic GetCFMSPaymentService(CFMSPAYMENTMODEL Lobj)
+		{
+			try
+			{
+				DataTable dt = CFMSGATEWAY_Save_Data_SP(Lobj);
+
+				if (dt != null && dt.Rows.Count > 0 )
+				{
+					_ResObj.Status = 100;
+					_ResObj.Reason = "Data Loaded Successfully";
+					_ResObj.DataList = dt;
+				}
+				else
+				{
+					_ResObj.Status = 102;
+					_ResObj.Reason = "No Data Found";
+				}
+			}
+			catch (Exception ex)
+			{
+				if (ex.Message.Contains("ORA-12520:"))
+				{
+					_ResObj.Status = 102;
+					_ResObj.Reason = "Server busy.Please try again after sometime";
+
+				}
+				else
+				{
+					_ResObj.Status = 102;
+					_ResObj.Reason = ex.Message;
+				}
+			}
+			return _ResObj;
+		}
+
+		public dynamic GetCFMSPaymentGeneration(CFMSPAYMENTMODEL Lobj)
+		{
+			dynamic objdata = new ExpandoObject();
+			try
+			{
+				DataTable dt = CFMSGATEWAY_Save_Data_SP(Lobj);
+
+				if (dt != null && dt.Rows.Count > 0)
+				{
+					RootCfMSResponse objresponse = new RootCfMSResponse();
+					var data="";
+					try
+					{
+						 data = cfmsHelper.Send_CFMS_Payment_Response(dt);
+
+						 objresponse = JsonConvert.DeserializeObject<RootCfMSResponse>(data);
+
+					}
+					catch (Exception ex)
+					{
+						List<RootCfMSResponse> list = JsonConvert.DeserializeObject<List<RootCfMSResponse>>(data);
+						objresponse.Response.Message=list[0].Response.Message;
+						objresponse.Response.DeptTransID = list[0].Response.DeptTransID;
+					}
+					if (string.IsNullOrEmpty(objresponse.Response.Message))
+					{
+						serviceRequestModel obj = new serviceRequestModel();
+
+						obj.type = "5";
+						obj.transaction_status = objresponse.Response.Transaction_Status;
+						obj.challanId = objresponse.Response.CFMS_ID.ToString();
+						obj.ifsc_code = objresponse.Response.IFSC_Code;
+						obj.valid_upto = objresponse.Response.Valid_Upto.ToString();
+						obj.deptTxnId = objresponse.Response.DeptTransID.ToString();
+						DataTable dtcfms =cfmsHelper.cfmsChallanProc(obj);
+						if (dtcfms != null && dtcfms.Rows.Count > 0 && dtcfms.Rows[0][0].ToString() == "1")
+						{
+							objdata.status = 100;
+							objdata.Reason = objresponse.Response.Message;
+							objdata.Returnurl = "https://devcfms.apcfss.in:44300/sap/bc/ui5_ui5/sap/zfi_rcp_cstatus/index.html?sap-client=150&DeptID=" + objresponse.Response.DeptTransID.ToString();
+						}
+						else
+						{
+
+							DataTable dtcfms1 =cfmsHelper.cfmsChallanProc(obj);
+							if (dtcfms1 != null && dtcfms1.Rows.Count > 0 && dtcfms1.Rows[0][0].ToString() == "1")
+							{
+								objdata.status = 100;
+								objdata.Reason = objresponse.Response.Message;
+								objdata.Returnurl = "https://devcfms.apcfss.in:44300/sap/bc/ui5_ui5/sap/zfi_rcp_cstatus/index.html?sap-client=150&DeptID=" + objresponse.Response.DeptTransID.ToString();
+							}
+						}
+
+					}
+					else
+					{
+						serviceRequestModel obj1 = new serviceRequestModel();
+						if (objresponse.Response.Message.ToString().Contains("already exist"))
+						{
+							
+							obj1.type = "6";
+							obj1.transaction_status = "2"; //already updated in cfms						
+							obj1.valid_upto = objresponse.Response.Message.ToString();
+							obj1.deptTxnId = objresponse.Response.DeptTransID;
+							DataTable dtcfms1 = cfmsHelper.cfmsChallanProc(obj1);
+							objdata.status = 102;
+							objdata.Reason = objresponse.Response.Message;
+						}
+						else
+						{
+							obj1.type = "6";
+							obj1.transaction_status = "3"; //already updated in cfms						
+							obj1.valid_upto = objresponse.Response.Message.ToString();
+							obj1.deptTxnId = objresponse.Response.DeptTransID;
+							DataTable dtcfms1 = cfmsHelper.cfmsChallanProc(obj1);
+							objdata.status = 102;
+							objdata.Reason = objresponse.Response.Message;
+						}
+					}
+
 				}
 				else
 				{

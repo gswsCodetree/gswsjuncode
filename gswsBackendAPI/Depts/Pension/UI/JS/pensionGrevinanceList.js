@@ -34,7 +34,7 @@
 		scope.loadGrevences();
 
 		scope.btnViewGrevinance = function (txnId, grevId) {
-			$state.go('ui.pensionWEAVerification', { txnId: txnId, grevId: grevId });
+			$state.go('uc.pensionWEAVerification', { txnId: txnId, grevId: grevId });
 			//var url = "/#!/pensionWEAVerification?txnId=" + txnId + "&grevId=" + grevId;
 			//window.open(url, "_Self");
 			//return;

@@ -1,0 +1,174 @@
+﻿<style>
+    /*Loader*/
+    .loader {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('images/loader.gif') 50% 50% no-repeat #fff;
+    }
+
+    .card {
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    }
+</style>
+<script src="Reports/excel.js"></script>
+
+<div class="page-content">
+    <div data-ng-show="preloader" class="loader"></div>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <!-- Content area -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row col-md-12 mb-2">
+                    <div class="row col-md-12">
+                        <div class="col-sm-12 text-center mb-2">
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <h1 style="text-align: center;">Software Issues Tracking</h1>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!--Closed Issues Start-->
+                        <div class="col-md-12 mt-1">
+                            <div class="col-md-12" style="text-align:right;">
+                                <button align="right" class="btn btn-primary" ng-click="ExcelDownload();">Excel Download</button>
+                            </div>
+                            <!--Detail Data-->
+                            <div class="row  text-center">
+                                <div class="table table-responsive table-bordered mt-2 full-width" id="ISSUESTBL">
+                                    <table class="table table-bordered bg-white">
+                                        <thead class="bg-dark">
+                                            <tr class="text-center">
+                                                <td>S.No</td>
+                                                <td>Department Name</td>
+                                                <td>Token ID</td>
+                                                <td>Status</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="text-center " ng-repeat="det in ResolvedIssuesData">
+                                                <td>{{$index + 1}}</td>
+                                                <td>{{det.DEPARTMENT_NAME}}</td>
+                                                <td><a class="cursor-pointer" ng-click="IssueDetails(det);" style="color: #2196F3 !important;text-decoration:underline;">{{det.REPORT_ID}}</a></td>
+                                                <td>{{det.STATUS}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Closed Issues End-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade " id="issue-modal" data-backdrop="static">
+        <div class="modal-dialog" style="top: 6%;left:-10%;">
+            <div class="modal-content" style="width: 950px !important;">
+                <!-- Modal Header -->
+                <div class="modal-header bg-dark">
+                    Issue Details
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <table class="table table-bordered bg-white">
+                        <thead class="bg-dark">
+                            <tr class="text-center ">
+                                <td colspan="4">Issue Details</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center ">
+                                <td><b>Department Name</b></td>
+                                <td>{{DEPARTMENT_NAME}}</td>
+                                <td><b>Token ID</td>
+                                <td>{{REPORT_ID}}</td>
+                            </tr>
+                            <tr class="text-center ">
+                                <td><b>Subject Name</b></td>
+                                <td>{{SUBJECT_NAME}}</td>
+                                <td><b>Subsubject Name</b></td>
+                                <td>{{SUBSUBJECT_NAME}}</td>
+                            </tr>
+
+                            <tr class="text-center ">
+                                <td><b>Mobile</b></td>
+                                <td>{{MOBILE}}</td>
+                                <td><b>Source</b></td>
+                                <td>{{SOURCE}}</td>
+                            </tr>
+                            <tr class="text-center ">
+                                <td><b>Remarks</b></td>
+                                <td>{{REMARKS}}</td>
+                                <td><b>Image</b></td>
+                                <td ng-if="IMAGE_URL=='NA'">{{IMAGE_URL}}</td>
+                                <td ng-if="IMAGE_URL!='NA'"><img style="height: 55px;" src="{{IMAGE_URL}}" /></td>
+
+                            </tr>
+
+                            <tr class="text-center " ng-if="STATUS!='Closed'">
+                                <td><b>Status</b></td>
+                                <td>{{STATUS}}</td>
+                                <td><b>Open Date</b></td>
+                                <td>{{INSERTED_DATE}}</td>
+                            </tr>
+                            <tr class="text-center " ng-if="STATUS=='Closed'">
+                                <td><b>Status</b></td>
+                                <td>{{STATUS}}</td>
+                                <td><b>Close Date</b></td>
+                                <td>{{CLOSED_DATE}}</td>
+                            </tr>
+                            <tr class="text-center " ng-if="STATUS=='Closed'">
+                                <td><b>Close Remarks</b></td>
+                                <td colspan="3">{{UPDATED_REMARKS}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="col-md-12" style="margin-top:20px;text-align:center" ng-if="STATUS=='Closed'">
+                        <button type="button" data-ng-click="ReopenIssue();" class="btn btn-primary">Re-Open</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade " id="reopen-modal" data-backdrop="static">
+        <div class="modal-dialog" style="top: 6%;">
+            <div class="modal-content" style="width: 700px !important;">
+                <!-- Modal Header -->
+                <div class="modal-header bg-dark">
+                    Re-open Ticket
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="form-group col-sm-12 ">
+                        <label class="col-lg-6 col-form-label"><b>Re-open Remarks :</b><span style="color:red"> *</span></label>
+                        <div class="col-sm-12">
+                            <textarea class="form-control" ng-model="ReRemarks" placeholder="Enter Remarks">  </textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" style="margin-top:20px;text-align:center">
+                        <button type="button" data-ng-click="SubmitReopenIssue();" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

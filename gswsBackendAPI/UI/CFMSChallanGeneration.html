@@ -1,0 +1,52 @@
+﻿<div class="container-fluid mt-3">
+	<div class="row">
+		<div class="col-sm-12">	
+			<div class="card">
+				<div class="card-header" align="center"><h2 >Service wise Challan Generation List</h2></div>
+
+				<div class="card-body">
+					<div class="responsive">
+						<table class="table table-responsive table-hover">
+							<thead>
+								<tr class="btn-success">
+									<th>Sno</th>
+									<th>Service Name</th>
+									<th>Number of Transaction</th>
+									<th>Total Amount</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="obj in PaymentDataList">
+									<td>{{$index+1}}</td>
+									<td>{{obj.URL_DESCRIPTION}}</td>
+									<td>{{obj.NO_OF_TXNS}}</td>
+									<td>{{obj.TOTAL_AMOUNT}}</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr style="font-weight:bold;align-content:center;">
+									<td>-</td>
+									<td>Total</td>
+									<td>{{tottrans}}</td>
+									<td>{{totamount}}</td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row" ng-show="PaymentDataList.length>0">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-6">
+					<button class="btn btn-success" ng-click="BtnGenerateChallan();"> Generate Challan</button>
+				</div>
+				<div class="col-sm-3"></div>
+			</div>
+		</div>
+	</div>
+</div>

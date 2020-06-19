@@ -34,7 +34,7 @@ namespace gswsBackendAPI.transactionModule
                 obj.TYPE = "1";
                 obj.IP_ADDRESS = HttpContext.Current.Request.UserHostAddress;
                 obj.SYS_NAME =System.Environment.MachineName;
-                obj.TXN_ID = obj.SECRETRAINT_CODE + DateTime.Now.ToString("yymmddHHmm") + new Random().Next(1000, 9999);
+                obj.TXN_ID = obj.SECRETRAINT_CODE + DateTime.Now.ToString("yyMMddHHmm") + new Random().Next(1000, 9999);
                 DataTable dt = transactionInsertion(obj);
 
                 if (dt != null && dt.Rows.Count > 0 )

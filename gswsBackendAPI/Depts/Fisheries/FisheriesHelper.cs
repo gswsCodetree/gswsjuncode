@@ -56,7 +56,8 @@ namespace gswsBackendAPI.Depts.Fisheries
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_Fisheries_Error(ex.Message.ToString(), "https://gvgs.ap.gov.in/integration-service/prajasachivalayam/api/v1.0/getApplicationStatus", "2");
+                obj.Status = 102;
 				obj.Reason = FisheriesHelper.ThirdpartyMessage;
 
 				return obj;
@@ -135,6 +136,24 @@ namespace gswsBackendAPI.Depts.Fisheries
 			}
 
             return obj;
+        }
+        public bool Common_Fisheries_Error(string msg, string url, string etype)
+        {
+            ExceptionDataModel objex = new ExceptionDataModel();
+            try
+            {
+                objex.E_DEPTID = DepartmentEnum.Department.Animal_Husbandry_Dairy_Development_and_Fisheries.ToString();
+                objex.E_HODID = DepartmentEnum.HOD.Fisheries.ToString();
+                objex.E_ERRORMESSAGE = msg;
+                objex.E_SERVICEAPIURL = url;
+                objex.E_ERRORTYPE = etype;
+                new LoginSPHelper().Save_Exception_Data(objex);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
         #endregion
     }

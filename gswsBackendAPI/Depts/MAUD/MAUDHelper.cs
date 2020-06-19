@@ -13,6 +13,7 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Web;
+using gswsBackendAPI.DL.CommonHel;
 
 namespace gswsBackendAPI.Depts.MAUD
 {
@@ -38,12 +39,31 @@ namespace gswsBackendAPI.Depts.MAUD
 			}
 			catch (Exception ex)
 			{
-				objdynamic.Status = "Failure";
+                Common_MAUD_Error(ex.Message.ToString(), "https://apdpms.ap.gov.in/AutoDCR.APServices/PuraSeva/PuraSeva.svc/GetDetailByFileNo/", "2");
+                objdynamic.Status = "Failure";
 				objdynamic.Reason = CommonSPHel.ThirdpartyMessage;
 				objdynamic.Data = "";
 			}
 
 			return objdynamic;
 		}
-	}
+        public bool Common_MAUD_Error(string msg, string url, string etype)
+        {
+            ExceptionDataModel objex = new ExceptionDataModel();
+            try
+            {
+                objex.E_DEPTID = DepartmentEnum.Department.Municipal_Administration_and_Urban_Development.ToString();
+                objex.E_HODID = DepartmentEnum.HOD.Municipal_Administration.ToString();
+                objex.E_ERRORMESSAGE = msg;
+                objex.E_SERVICEAPIURL = url;
+                objex.E_ERRORTYPE = etype;
+                new LoginSPHelper().Save_Exception_Data(objex);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+    }
 }

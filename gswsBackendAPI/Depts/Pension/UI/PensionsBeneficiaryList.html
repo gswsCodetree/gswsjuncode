@@ -1,0 +1,225 @@
+﻿<style>
+    .le-main {
+        width: 80%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 10px 50px;
+        font-weight: bold !important;
+        position: relative;
+    }
+
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        font-weight: bold;
+    }
+
+    .le-header .ad-dtl {
+        margin: 15px 0;
+    }
+
+        .le-header .ad-dtl h5 {
+            margin-bottom: 0;
+        }
+
+    .le-body .le-table tr th {
+        background-color: #15ce62;
+    }
+
+    .le-body .le-table tr th, .le-body .le-table tr td {
+        border: 1px solid #000 !important;
+        text-align: center;
+        padding: 5px;
+        color: #000;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .le-body .le-table tr td {
+        padding: 10px 10px;
+    }
+
+        .le-body .le-table tr td label {
+            margin-bottom: 0;
+        }
+
+    .le-footer {
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        padding: 5px 20px;
+        margin-top: 30px;
+    }
+
+    @media print {
+        body { background-color: transparent; /* background-image: url('GSWSDASHBOARD/assets/images/navarathnalu.png'); */ background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url("../../../assets/images/navarathnalu.png"); background-repeat: no-repeat; background-position: center; background-size: contain; }
+
+        .page-header {
+            display: none;
+        }
+
+        .fltr {
+            display: none;
+        }
+
+        .page-content {
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 100% !important;
+        }
+
+        .navbar {
+            display: none;
+        }
+
+        .content {
+            margin: 0;
+        }
+
+        #myBtn {
+            display: none;
+        }
+
+        .le-main {
+            width: 95%;
+            padding: 0;
+            margin: 0 auto;
+            position: relative;
+            background-color: transparent;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        .le-body .le-table tr th {
+            background-color: #15ce62 !important;
+        }
+
+        .le-body .le-table tr td {
+            background-color: transparent !important;
+            padding: 3px;
+        }
+
+        .le-body .le-table tr th, .le-body .le-table tr td {
+            font-size: 14px;
+        }
+
+        .le-footer h6 {
+            margin-bottom: 0;
+            height: 50px;
+        }
+    }
+</style>
+
+<div class="row pe-main" style="padding-top:20px;">
+    <div class="col-md-12">
+        <div class="row justify-content-center fltr">
+            <div class="col-md-12">
+                <h3 class="text-center">PENSION BENEFICIARY LIST - A3 </h3>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="category">Month <span class="text-danger">*</span></label>
+                    <select id="category" class="form-control" ng-model="Month">
+                        <option value=""> -- SELECT MONTH -- </option>
+                        <option ng-repeat="mon in mlist" value="{{$index + 1}}">{{mon}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-4 pt-4" align="left">
+                <button type="button" class="btn btn-sm btn-primary" ng-click="btnBeneficiaryDetails();">SUBMIT</button>
+            </div>
+        </div>
+        <div class="row justify-content-center fltr" ng-show="!loader && BeneficiaryList != ''">
+            <div class="w-75 mx-auto text-right">
+                <button type="button" class="btn btn-sm btn-success" ng-click="btnPrint();">PRINT</button>
+            </div>
+        </div>
+
+        <div class="row" ng-show="!loader && BeneficiaryList != ''">
+
+            <div class="le-main">
+                <div class="le-header">
+                    <div class="row align-items-center">
+                        <div class="col-sm-2 text-center">
+                            <img src="../../../assets/images/ap-logo.png" style="width: 50px;">
+                            <h5 style="color: #0062f5;font-size: 12px;margin-top: 8px;">ఆంధ్రప్రదేశ్ ప్రభుత్వం</h5>
+                        </div>
+                        <div class="col-sm-8 text-center">
+                            <h5 class="mb-0" style="color: #0062f5;">జిల్లా గ్రామీణాభివృద్ధి సంస్థ: <label style="color: #000;">{{demoDetails.District}}</label></h5>
+                            <h5 style="color: #0062f5;">వై.యస్.ఆర్ పింఛను కానుక - సామాజిక తనిఖీ - అర్హుల జాభితా</h5>
+                        </div>
+                        <div class="col-sm-2 text-right">
+                            <img src="../../../assets/images/navarathnalu.png" style="width: 90px;opacity: 0.5;">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center align-items-center ad-dtl">
+                        <div class="col-sm-4">
+                            <h5>మండలం : <label>{{demoDetails.mandal}}</label></h5>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <h5>సెక్రటేరియట్ పేరు : <label>{{demoDetails.secName}}</label> </h5>
+                        </div>
+                        <div class="col-sm-4 text-right">
+                            <h5>సెక్రటేరియట్ ఐడి : <label>{{demoDetails.seccode}}</label></h5>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row le-body">
+                    <div class="col-md-6">
+                        <table class="table le-table">
+                            <thead>
+                                <tr>
+                                    <th style="background-color: #15ce62;">వ. నెం</th>
+                                    <th>పింఛను ఐడి</th>
+                                    <th>పింఛనుదారుని పేరు</th>
+                                    <th>పింఛను రకం</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="obj in BeneficiaryList1" align="center">
+                                    <td>{{obj.sno}}</td>
+                                    <td>{{obj.pensionId}}</td>
+                                    <td>{{obj.name}}</td>
+                                    <td>{{obj.scheme}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table le-table">
+                            <thead>
+                                <tr>
+                                    <th style="background-color: #15ce62;">వ. నెం</th>
+                                    <th>పింఛను ఐడి</th>
+                                    <th>పింఛనుదారుని పేరు</th>
+                                    <th>పింఛను రకం</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="obj in BeneficiaryList2" align="center">
+                                    <td>{{obj.sno}}</td>
+                                    <td>{{obj.pensionId}}</td>
+                                    <td>{{obj.name}}</td>
+                                    <td>{{obj.scheme}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="le-footer">
+                    <h6>గమనిక: ఈ పైన పొందుపరిచిన జాబితాలో ఎవరైనా అనర్హులు ఉన్న యెడల పంచాయతీ వెల్ఫేర్ & ఎడ్యుకేషన్ / వార్డు వెల్ఫేర్ & డెవలప్మెంట్ కార్యదర్శి దృష్టికి తీసుకురావలసిందిగా మనవి</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" align="center" ng-show="loader" style="padding:20px;">
+            <div class="col-md-12">
+                <h1>Loading...</h1>
+            </div>
+        </div>
+
+    </div>
+</div>
+

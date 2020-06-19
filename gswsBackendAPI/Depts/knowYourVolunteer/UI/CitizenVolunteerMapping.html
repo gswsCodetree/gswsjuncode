@@ -1,0 +1,183 @@
+﻿<style>
+    .le-main {
+        width: 80%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 10px 50px;
+        font-weight: bold !important;
+        position: relative;
+    }
+
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        font-weight: bold;
+    }
+
+    .le-header .ad-dtl {
+        margin: 15px 0;
+    }
+
+        .le-header .ad-dtl h5 {
+            margin-bottom: 0;
+        }
+
+    .le-body .le-table tr th {
+        background-color: #15ce62;
+    }
+
+    .le-body .le-table tr th, .le-body .le-table tr td {
+        border: 1px solid #000 !important;
+        text-align: center;
+        padding: 5px;
+        color: #000;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .le-body .le-table tr td {
+        padding: 10px 10px;
+    }
+
+        .le-body .le-table tr td label {
+            margin-bottom: 0;
+        }
+
+    .le-footer {
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        padding: 5px 20px;
+        margin-top: 30px;
+    }
+
+    @media print {
+        body {
+            background-color: transparent; /* background-image: url('GSWSDASHBOARD/assets/images/navarathnalu.png'); */
+            background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url("../../../assets/images/navarathnalu.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+
+        .page-header {
+            display: none;
+        }
+
+        .fltr {
+            display: none;
+        }
+
+        .page-content {
+            padding: 0 !important;
+            margin: 0 !important;
+            width: 100% !important;
+        }
+
+        .navbar {
+            display: none;
+        }
+
+        .content {
+            margin: 0;
+        }
+
+        #myBtn {
+            display: none;
+        }
+
+        .le-main {
+            width: 95%;
+            padding: 0;
+            margin: 0 auto;
+            position: relative;
+            background-color: transparent;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        .le-body .le-table tr th {
+            background-color: #15ce62 !important;
+        }
+
+        .le-body .le-table tr td {
+            background-color: transparent !important;
+            padding: 3px;
+        }
+
+        .le-body .le-table tr th, .le-body .le-table tr td {
+            font-size: 14px;
+        }
+
+        .le-footer h6 {
+            margin-bottom: 0;
+            height: 50px;
+        }
+    }
+</style>
+
+<div class="row pe-main" style="padding-top:20px;">
+    <div class="col-md-12">
+        <div class="row justify-content-center fltr">
+            <div class="col-md-12">
+                <h3 class="text-center">CITIZEN VOLUNTEER MAPPING</h3>
+            </div>
+
+            <div class="col-md-12"  ng-show="!loader && citizenDetails != ''">
+
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="category">Citizen Name <span class="text-danger">*</span></label>
+                            <select id="category" class="form-control" ng-model="uidNum" ng-change="btncitizenChange();">
+                                <option value=""> -- SELECT CITIZEN -- </option>
+                                <option ng-repeat="obj in citizenDetails" value="{{obj.UID_NUM}}">{{obj.NAME}} <span style="color:green">( {{obj.MOBILE_NUMBER}} )</span></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="category">ACTION TAKEN<span class="text-danger">*</span></label>
+                            <select id="category" class="form-control" ng-model="status" ng-change="btnStatusChange();">
+                                <option value=""> -- SELECT ACTION -- </option>
+                                <option value="1"> <span style="color:green;">ASIGN TO CLUSTER</span>  </option>
+                                <option value="2"> <span style="color:red;"> REJECT </span> </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3" ng-show="status == '1'">
+                        <div class="form-group">
+                            <label for="volunteer">Clusters<span style="color:red">*</span></label>
+                            <select id="volunteer" class="form-control" ng-model="clusterId">
+                                <option value="">-- SELECT CLUSTER --</option>
+                                <option ng-repeat="obj in clusters" value="{{obj}}">{{obj.CLUSTE}} <span style="color:green">( {{obj.SACHIVALAYAM_NAME}} )</span> </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 pt-4" align="left">
+                        <button type="button" class="btn btn-sm btn-primary" ng-click="citizenUpdate();">SUBMIT</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-12" ng-show="!loader && citizenDetails == ''" style="padding-top:20px;">
+                <h3 class="text-center">No Details available to cluster mapping</h3>
+            </div>
+
+        </div>
+
+
+        <div class="row pt-5" align="center" ng-show="loader" style="padding:20px;">
+            <div class="col-md-12">
+                <h1>Loading...</h1>
+            </div>
+        </div>
+
+    </div>
+</div>

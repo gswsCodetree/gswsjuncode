@@ -8,6 +8,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using gswsBackendAPI.DL.CommonHel;
 using static gswsBackendAPI.Depts.Housing.HousingModel;
 
 namespace gswsBackendAPI.Depts.Housing
@@ -289,6 +290,8 @@ namespace gswsBackendAPI.Depts.Housing
 
 			return context.Request.ServerVariables["REMOTE_ADDR"];
 		}
-		#endregion
-	}
+        #endregion
+
+       
+    }
 }

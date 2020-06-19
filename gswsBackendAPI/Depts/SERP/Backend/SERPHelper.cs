@@ -12,6 +12,7 @@ using System.Net.Http;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using gswsBackendAPI.transactionModule;
+using gswsBackendAPI.DL.CommonHel;
 
 namespace gswsBackendAPI.Dept.SERP.Backend
 {
@@ -437,7 +438,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VISERP/Api/SerpBL/GetAllDistricts", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -458,7 +460,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VISERP/Api/SerpBL/GetAllBanks", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -479,7 +482,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VISERP/Api/SerpBL/GetAllMandals", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -500,7 +504,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VISERP/Api/SerpBL/GetAllVOs", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -521,7 +526,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VISERP/Api/SerpBL/GetAllBLLoans", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -542,7 +548,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VISERP/Api/SerpBL/GetAllShgs", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -566,7 +573,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VIService/Api/Sthreenidhi/GetDistrict", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -587,7 +595,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VIService/Api/Sthreenidhi/GetMandals", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -608,7 +617,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VIService/Api/Sthreenidhi/GetVillageOrganisation", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -629,7 +639,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VIService/Api/Sthreenidhi/GetSHGS", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -650,7 +661,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VIService/Api/Sthreenidhi/GetProjectCategory", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -671,7 +683,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VIService/Api/Sthreenidhi/GetRequestType", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -691,7 +704,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VIService/Api/Sthreenidhi/GetMemberDetails", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 			}
 
@@ -713,7 +727,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VIService/Api/Sthreenidhi/GetEligibleDetails", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -734,7 +749,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VIService/Api/Sthreenidhi/LoanRequestInsert", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -746,7 +762,7 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			dynamic obj = new ExpandoObject();
 			try
 			{
-				var val = PostData("https://www.ikp.serp.ap.gov.in/VIService/Api/Sthreenidhi/GetActivityDetails", root);
+				var val = PostData("https://www.ikp.serp.ap.gov.in/VIService/Api/Sthreenidhi/LoanRequestInsert", root);
 				var data = GetSerialzedData<dynamic>(val);
 				obj.Status = 100;
 				obj.Reason = "Data Loaded Successfully.";
@@ -755,7 +771,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VIService/Api/Sthreenidhi/LoanRequestInsert", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -780,7 +797,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VISERP/Api/SerpBL/GetAllYSRLoans", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -803,7 +821,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://www.ikp.serp.ap.gov.in/VISERP/Api/SerpBL/GetAllVLRLoans", "2");
+                obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
 				return obj;
 			}
@@ -867,7 +886,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (WebException ex)
 			{
-				string mappath = HttpContext.Current.Server.MapPath("PENSIONExceptionLogs");
+                Common_SERP_Error(ex.Message.ToString(), "https://sspensions.ap.gov.in/APTSPensionNewApp/rest/login/loginValidate", "2");
+                string mappath = HttpContext.Current.Server.MapPath("PENSIONExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error Pension Login :" + ex.Message.ToString()));
 
 				objResponse.Status = "Failed";
@@ -929,7 +949,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (WebException ex)
 			{
-				string mappath = HttpContext.Current.Server.MapPath("PENSIONExceptionLogs");
+                Common_SERP_Error(ex.Message.ToString(), "https://sspensions.ap.gov.in/APTSPensionNewApp/rest/newApplicationRaise/validateAadhaar", "2");
+                string mappath = HttpContext.Current.Server.MapPath("PENSIONExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error Pension UID :" + ex.Message.ToString()));
 
 				objResponse.Status = "Failed";
@@ -991,7 +1012,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (WebException ex)
 			{
-				string mappath = HttpContext.Current.Server.MapPath("PENSIONExceptionLogs");
+                Common_SERP_Error(ex.Message.ToString(), "https://sspensions.ap.gov.in/APTSPensionNewApp/rest/newApplicationRaise/validateRationCard", "2");
+                string mappath = HttpContext.Current.Server.MapPath("PENSIONExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From GetApplicantStatus:" + ex.Message.ToString()));
 
 				objResponse.Status = "Failed";
@@ -1053,7 +1075,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (WebException ex)
 			{
-				string mappath = HttpContext.Current.Server.MapPath("PENSIONExceptionLogs");
+                Common_SERP_Error(ex.Message.ToString(), "https://sspensions.ap.gov.in/APTSPensionNewApp/rest/newApplicationRaise/validateSadarem", "2");
+                string mappath = HttpContext.Current.Server.MapPath("PENSIONExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error From GetApplicantStatus:" + ex.Message.ToString()));
 
 				objResponse.Status = "Failed";
@@ -1149,7 +1172,8 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (WebException ex)
 			{
-				string mappath = HttpContext.Current.Server.MapPath("PENSIONExceptionLogs");
+                Common_SERP_Error(ex.Message.ToString(), "https://sspensions.ap.gov.in/APTSPensionNewApp/rest/validateNewApplication/newApplicationRegistration", "2");
+                string mappath = HttpContext.Current.Server.MapPath("PENSIONExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_ReportLog_Exception(mappath, "Error :" + ex.Message.ToString()));
 
 				objResponse.Status = "Failed";
@@ -1177,13 +1201,32 @@ namespace gswsBackendAPI.Dept.SERP.Backend
 			}
 			catch (Exception ex)
 			{
-				obj.Status = 102;
+                Common_SERP_Error(ex.Message.ToString(), "https://sspensions.ap.gov.in/APTSPensionNewApp/rest/AptsNewApplicationStatus/getNewApplicationStatus", "2");
+                obj.Status = 102;
 				obj.Reason = CommonSPHel.ThirdpartyMessage;
 				return obj;
 			}
 
 		}
+        public bool Common_SERP_Error(string msg, string url, string etype)
+        {
+            ExceptionDataModel objex = new ExceptionDataModel();
+            try
+            {
+                objex.E_DEPTID = DepartmentEnum.Department.Social_Tribal_Welfare.ToString();
+                objex.E_HODID = DepartmentEnum.HOD.Social_Welfare.ToString();
+                objex.E_ERRORMESSAGE = msg;
+                objex.E_SERVICEAPIURL = url;
+                objex.E_ERRORTYPE = etype;
+                new LoginSPHelper().Save_Exception_Data(objex);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
 
-		#endregion
-	}
+        #endregion
+    }
 }

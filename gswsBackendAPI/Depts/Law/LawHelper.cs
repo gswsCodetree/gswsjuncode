@@ -26,6 +26,7 @@ namespace gswsBackendAPI.Depts.Law
             }
             catch (Exception ex)
             {
+               
                 obj.Status = 102;
                 obj.Reason = ThirdpartyMessage;
                 return obj;

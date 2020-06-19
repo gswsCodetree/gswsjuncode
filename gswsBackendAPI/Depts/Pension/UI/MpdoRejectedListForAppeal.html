@@ -1,0 +1,96 @@
+﻿
+<style>
+
+    body {
+        background: #fff !important;
+    }
+
+    .table thead th {
+        padding: 8px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .table tbody td {
+        padding: 5px;
+    }
+
+    .btn {
+        padding: 2px 8px;
+    }
+
+    .table tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .table tbody tr:nth-of-type(even) {
+        background-color: rgba(120, 120, 120, 0.12);
+    }
+
+    .table tr td p {
+        margin-bottom: 0;
+    }
+
+    .form-control {
+        height: 30px !important;
+        padding: 0;
+    }
+
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
+        display: none !important;
+    }
+</style>
+
+<div class="row pe-main" style="padding-top:20px;">
+    <div class="col-md-12">
+        <h3 class="text-center">Rejected List For Appeal</h3>
+
+        <div class="row" ng-show="!loader">
+            <div class="col-md-12">
+                <h3 class="text-center">Rejected List Details</h3>
+            </div>
+
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="bg-primary text-white">
+                            <tr align="center">
+                                <th>S.No</th>
+                                <th>GRIEVANCE ID</th>
+                                <th>CITIZEN NAME</th>
+                                <th>AGE</th>
+                                <th>GENDER</th>
+                                <th>RELATION NAME</th>
+                                <th>SCHEME</th>
+                                <th>REJECTED DATE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="obj in RejectList" align="center">
+                                <td>{{$index + 1}}</td>
+                                <td>
+                                    <a class=" text-primary" style="cursor:pointer;" ng-click="btnViewAppealList(obj.TRANSACTIONID,obj.GRIEVANCE_ID);">{{obj.GRIEVANCE_ID}}</a>
+                                </td>
+                                <!--<td>{{obj.GRIEVANCE_ID}}</td>-->
+                                <td>{{obj.CITIZEN_NAME}}</td>
+                                <td>{{obj.AGE}}</td>
+                                <td>{{obj.GENDER}}</td>
+                                <td>{{obj.RELATION_NAME}}</td>
+                                <td>{{obj.SCHEME}}</td>
+                                <td>{{obj.MPDO_UPDATED_DATE | date}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" align="center" ng-show="loader" style="padding:20px;">
+            <div class="col-md-12">
+                <h1>Loading...</h1>
+            </div>
+        </div>
+
+    </div>
+</div>
+

@@ -81,7 +81,7 @@ namespace gswsBackendAPI.Depts.YATC
         public string constititionId { get; set; }
         public string fmlyAnnualIncome { get; set; }
         public string physicallyChallenged { get; set; }
-		public string GSWS_ID { get; set; }
+		public string gsws_id { get; set; }
 		public UserMaster userMaster { get; set; }
     }
 

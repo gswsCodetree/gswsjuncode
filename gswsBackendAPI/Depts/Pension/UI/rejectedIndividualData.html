@@ -1,0 +1,433 @@
+﻿<style>
+    .wds-main {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .wds-main-tilte {
+        text-align: center;
+        border: 1px solid #000;
+        font-weight: bold;
+    }
+
+    .wds-sub-title {
+        font-weight: bold;
+    }
+
+    .wds-main .form-control {
+        height: 30px !important;
+        border: 1px solid #000;
+        font-weight: bold;
+    }
+
+    .wds-main .form-row {
+        align-items: center !important;
+    }
+
+        .wds-main .form-row label {
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+    .wds-main .table tr th, .wds-main .table tr td {
+        border: 1px solid #000 !important;
+        padding: 4px;
+        font-weight: bold;
+    }
+
+    .wds-main fieldset {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .wds-main legend {
+        margin: 0;
+        /* border: 1px solid #000; */
+        width: auto;
+        padding: 5px 10px !important;
+        background: #078bdf;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 5px;
+    }
+
+    .wds-main .vdtl-table tr td {
+        padding: 2px 4px;
+    }
+
+    .wds-main .form-row.form-group h6 {
+        margin-bottom: 0;
+        border: 1px solid #000;
+        width: 62%;
+        padding: 2px 8px;
+        border-radius: 5px;
+        height: 30px;
+    }
+
+    .wds-main .vdtl-table tr td label {
+        font-weight: bold;
+        font-size: 14px;
+        border-bottom: 2px dashed #000;
+    }
+
+
+    @media print {
+        body {
+            background-color: #fff;
+        }
+
+        .navbar {
+            display: none;
+        }
+
+        .wds-main {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+            .wds-main legend {
+                padding: 3px 10px !important;
+                background-color: #000 !important;
+            }
+
+            .wds-main .form-row label {
+                margin-bottom: 0;
+                font-weight: 600;
+                font-size: 12px;
+            }
+
+            .wds-main .form-control {
+                font-size: 12px;
+                height: 25px !important;
+            }
+
+            .wds-main .form-row.form-group {
+                margin-bottom: 10px;
+            }
+
+            .wds-main .vdtl-table tr th, .wds-main .vdtl-table tr td {
+                font-size: 11px;
+            }
+
+            .wds-main .table tr th, .wds-main .table tr td {
+                padding: 2px;
+            }
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-md-12 py-5" ng-show="loader">
+        <h1 class="text-center">Loading...</h1>
+    </div>
+    <div class="wds-main card p-2" ng-show="!loader">
+        <h5 class="wds-main-tilte bg-primary">Rejected Individual Data For Appeal </h5>
+        <div class="row px-2">
+            <div class="col-md-4">
+                <div class="form-row form-group">
+                    <label class="col-md-4">AADHAAR</label>
+                    <h6 class="text-success"><b>XXXX-XXXX-{{individualDetails.details[0].VOLUNTEER_AADHAR | limitTo: -4 }}</b></h6>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-row form-group">
+                    <label class="col-md-4">CATEGORY</label>
+                    <h6 class="text-success"><b>{{individualDetails.details[0].PENSION_TYPE}}</b></h6>
+                </div>
+            </div>
+            <div class="col-md-4" ng-show="individualDetails.details.category == 'Disabled'">
+                <div class="form-row form-group">
+                    <label class="col-md-4">SADAREM ID</label>
+                    <h6 class="text-success"><b>{{individualDetails.details[0].SADAREM_ID}}</b></h6>
+                </div>
+            </div>
+        </div>
+
+            <div class="row px-2">
+            <div class="col-md-12">
+                <fieldset>
+                    <legend>Beneficiary Basic Details</legend>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">District</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].DISTNAME}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Mandal</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].MNDNAME}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Secretariat Code</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].SECRETERIAT_CODE}}</b></h6>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Secretariat Name</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].SECRETARIAT_NAME}}</b></h6>
+                            </div>
+                        </div>
+                        <!--<div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Panchayat/MC</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].Panchayat}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Habitation/Ward</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].Habitation}}</b></h6>
+                            </div>
+                        </div>-->
+
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Name</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].CITIZEN_NAME}}</b></h6>
+                            </div>
+                        </div>
+                        <!--<div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Relation Name</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].Relation_name}}</b></h6>
+                            </div>
+                        </div>-->
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Age</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].AGE}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Date Of Birth</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].DOB}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Caste</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].CASTE}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Sub Caste</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].SUB_CASTE}}</b></h6>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Gender</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].GENDER}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group" style="align-items: start !important;">
+                                <label class="col-md-4 mt-1">Address 1</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].ADDRESS1}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Address 2</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].ADDRESS2}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Contact No</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].MOBILE_NO}}</b></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Volunteer ID</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].VOLUNTEER_ID}}</b></h6>
+                            </div>
+                        </div><div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Volunteer Name</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].VOLUNTEER_NAME}}</b></h6>
+                            </div>
+                        </div><div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Volunteer Contact No</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].VOLUNTEER_MOBILE}}</b></h6>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Cluster ID</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].CLUSTER_ID}}</b></h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row form-group">
+                                <label class="col-md-4">Cluster Name</label>
+                                <h6 class="text-success"><b>{{individualDetails.details[0].CLUSTER_NAME}}</b></h6>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+
+        <div class="row px-2">
+            <div class="col-md-12">
+                <fieldset>
+                    <legend>Verification Details</legend>
+                    <table class="table table-bordered text-center  vdtl-table">
+                        <tr>
+                            <th style="border: none !important;"></th>
+                            <th>As per the Data Entered</th>
+                            <th>As per RTGS Validation</th>
+                            <th>As per WEA Validation</th>
+                        </tr>
+                        <tr>
+                            <td>Family Income (In Rs. Per Month)</td>
+                            <td>Rs. <label class="text-success">{{individualDetails.details[0].FAMILYINCOMEPERMONTH}}</label> per Month</td>
+                            <td>Rs. <label class="text-success">{{individualDetails.details[0].RTGS_INCOME_TAX}}</label> per Month</td>
+                            <td>Rs. <label class="text-success">{{individualDetails.details[0].WEA_FAMILYINCOMEPERMONTH}}</label> per Month</td>
+
+                        </tr>
+                        <tr>
+                            <td>Land holding of Family (In acers)</td>
+                            <td>Dry <label class="text-success">{{individualDetails.details[0].FAMILYDRYLAND}}</label> Acers, Wet <label class="text-success"> {{individualDetails.details[0].FAMILYWETLAND}}</label> Acers</td>
+                            <td>Dry <label class="text-success">{{individualDetails.details[0].RTGS_DRY_LAND}}</label> Acers, Wet <label class="text-success">{{individualDetails.details[0].RTGS_WET_LAND}}</label> Acers</td>
+                            <td>Dry <label class="text-success">{{individualDetails.details[0].WEA_FAMILYDRYLAND}}</label> Acers, Wet <label class="text-success">{{individualDetails.details[0].WEA_FAMILYWETLAND}}</label> Acers</td>
+                        </tr>
+                        <tr>
+                            <td>Four wheeler in Family</td>
+                            <td><label class="text-center text-success">{{individualDetails.details[0].FOURWHEELERFAMILYYESORNO}}</label></td>
+                            <td><label class="text-center text-success">{{individualDetails.details[0].RTGS_FOUR_WHEELER}}</label></td>
+                            <td><label class="text-center text-success">{{individualDetails.details[0].WEA_FOURWHEELERFAMILYYESORNO}}</label></td>
+                        </tr>
+                        <tr>
+                            <td>Govt. Employee in Family</td>
+                            <td><label class="text-center text-success" >{{individualDetails.details[0].GOVTEMPLOYEEYESORNO}}</label></td>
+                            <td></td>
+                            <td><label class="text-center text-success">{{individualDetails.details[0].WEA_GOVTEMPLOYEEYESORNO}}</label></td>
+                            </tr>
+                        <tr>
+                            <td>Electricity consumption(In Units)</td>
+                            <td> <label class="text-success">{{individualDetails.details[0].ELECTRICCONSUMPINUNITS}}</label> Units</td>
+                            <td><label class="text-success">{{individualDetails.details[0].RTGS_LAST6MONTHS_ELECTRICITY}}</label> Units</td>
+                            <td> <label class="text-success">{{individualDetails.details[0].WEA_ELECTRICCONSUMPINUNITS}}</label> Units</td>
+                        </tr>
+                        <tr>
+                            <td>Property in Municipal area (In S Ft)</td>
+                            <td> {{individualDetails.details[0].PROPERTY_TAX}} Sq Ft</td>
+                            <td>{{individualDetails.details[0].RTGS_PROPERTY_TAX}}</td>
+                            <td> {{individualDetails.details[0].WEA_PROPERTY_TAX}} Sq Ft</td>
+                        </tr>
+                        <tr>
+                            <td>Income Tax payee in family</td>
+                            <td><label class="text-center text-success">{{individualDetails.details[0].INCOMETAXPAYEEYESORNO}}</label></td>
+                            <td></td>
+                            <td><label class="text-center text-success">{{individualDetails.details[0].WEA_INCOMETAXPAYEEYESORNO}}</label></td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </div>
+        </div>
+
+
+        <div class="row px-2 my-2">
+            <div class="col-md-12">
+                <div class="form-row form-group">
+                    <label class="col-md-4">MPDO Remarks <span class="text-danger">*</span></label>
+                    <h6 class="text-success"><b>{{individualDetails.details[0].MPDO_REMARKS}}</b></h6>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-row form-group">
+                    <label class="col-md-4">Reason For Appeal <span class="text-danger">*</span></label>
+                    <textarea rows="2" style="height: 60px !important;" class="form-control col-md-8" placeholder="Please Enter Filed Observation Remarks " ng-model="remarks" maxlength="200"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row px-2">
+            <div class="col-md-12">
+                <fieldset>
+                    <legend>Documents View</legend>
+                    <div class="col-md-8 mx-auto">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-row form-group">
+                                    <button type="button" class="btn btn-sm btn-primary" ng-click="btnView(individualDetails.details[0].AADHARPROOF,'Age Proof Certificate');">VIEW DA UPLOADED AGE PROOF CERTIFICATE</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-row form-group">
+                                    <button type="button" class="btn btn-sm btn-primary" ng-click="btnView(individualDetails.details[0].SCHEMEPROOF,'Scheme Proof Certificate');">VIEW DA UPLOADED SCHEME PROOF CERTIFICATE</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-row form-group">
+                                    <label for="">Proof for Appeal <span class="text-danger">*</span></label>
+                                    <input id="Doc1" type="file" class="form-control" placeholder="Please Select Certitificate to Upload" ng-model="Doc1" autocomplete="off" name="AgeProofCertificate" base-sixty-four-input onload="onLoad_doc1" accept="image/x-png,image/jpeg" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-row form-group">
+                                    <label for="ProofCertificate">Proof for Appeal </label>
+                                    <input id="Doc2" type="file" class="form-control" placeholder="Please Select Certitificate to Upload" ng-model="Doc2" autocomplete="off" name="ProofCertificate" base-sixty-four-input onload="onLoad_doc2" accept="image/x-png,image/jpeg" />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-row form-group">
+                                    <label for="ProofCertificate">Proof for Appeal </label>
+                                    <input id="Doc3" type="file" class="form-control" placeholder="Please Select Certitificate to Upload" ng-model="Doc3" autocomplete="off" name="ProofCertificate" base-sixty-four-input onload="onLoad_doc3" accept="image/x-png,image/jpeg" />
+                                </div>
+                            </div>
+                            <p class="text-danger text-center"><i><b>Note:- File Size Must be less than 150KB.</b></i></p>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button class="btn btn-success font-weight-bold" ng-click="btnSubmit();">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="certificateModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{certificateType}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12" align="center">
+                        <img data-ng-src="data:image/png;base64,{{certificateString}}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

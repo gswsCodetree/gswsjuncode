@@ -50,7 +50,8 @@ namespace gswsBackendAPI.Depts.PRRD
 
 				objResponse.Status = "Failed";
 				objResponse.data = CommonSPHel.ThirdpartyMessage;
-			}
+                Common_PRRD_Error(ex.Message.ToString(), "https://pris.ap.gov.in/PRISAPI/api2.php?getPanchayats=1", "2");
+            }
 			return objResponse;
 		}
 
@@ -75,7 +76,8 @@ namespace gswsBackendAPI.Depts.PRRD
 			{
 				objResponse.Status = "Failed";
 				objResponse.data = CommonSPHel.ThirdpartyMessage;
-			}
+                Common_PRRD_Error(ex.Message.ToString(), "https://pris.ap.gov.in/PRISAPI/api2.php?trackApplication=1&unique=", "2");
+            }
 			return objResponse;
 		}
 
@@ -101,7 +103,8 @@ namespace gswsBackendAPI.Depts.PRRD
 			{
 				objResponse.Status = "Failed";
 				objResponse.data = CommonSPHel.ThirdpartyMessage;
-			}
+                Common_PRRD_Error(ex.Message.ToString(), "https://pris.ap.gov.in/PRISAPI/api2.php?fetchTransactionData=1&taxType=", "2");
+            }
 			return objResponse;
 		}
 
@@ -230,7 +233,8 @@ namespace gswsBackendAPI.Depts.PRRD
 
 							objResponse.Status = "Success";
 							objResponse.data = JsonConvert.DeserializeObject<TransactionResponse>(data);
-						}
+                            Common_PRRD_Error(ex.Message.ToString(), url, "2");
+                        }
 
 						objResponse.Status = "Success";
 						objResponse.data = JsonConvert.DeserializeObject<TransactionResponse>(data);
@@ -252,10 +256,9 @@ namespace gswsBackendAPI.Depts.PRRD
 			{
 				string mappath = HttpContext.Current.Server.MapPath("PRRDExceptionLogs");
 				Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_Log_Exception(mappath, "Error TAX SEARCH Data API:" + ex.Message.ToString()));
-
 				objResponse.Status = "Failed";
 				objResponse.data = CommonSPHel.ThirdpartyMessage;
-			}
+            }
 			return objResponse;
 		}
 
@@ -321,6 +324,7 @@ namespace gswsBackendAPI.Depts.PRRD
 
                 objResponse.Status = "Failed";
                 objResponse.data = CommonSPHel.ThirdpartyMessage;
+                Common_PRRD_Error(ex.Message.ToString(), "http://dbtrd.ap.gov.in/NregaDashBoardService/rest/Jobcard/PaymentDetails", "2");
             }
             return objResponse;
 
@@ -387,6 +391,7 @@ namespace gswsBackendAPI.Depts.PRRD
 
                 objResponse.Status = "Failed";
                 objResponse.data = CommonSPHel.ThirdpartyMessage;
+                Common_PRRD_Error(ex.Message.ToString(), "http://dbtrd.ap.gov.in/NregaDashBoardService/rest/Uid/PaymentDetails", "2");
             }
             return objResponse;
 
@@ -442,6 +447,7 @@ namespace gswsBackendAPI.Depts.PRRD
 
                 objResponse.Status = "Failed";
                 objResponse.data = CommonSPHel.ThirdpartyMessage;
+                Common_PRRD_Error(ex.Message.ToString(), "http://125.17.121.166:8080/WebAPIGSWorks/api/Works/GetWorksMasterData", "2");
             }
             return objResponse;
 
@@ -497,6 +503,7 @@ namespace gswsBackendAPI.Depts.PRRD
 
                 objResponse.Status = "Failed";
                 objResponse.data = CommonSPHel.ThirdpartyMessage;
+                Common_PRRD_Error(ex.Message.ToString(), "http://125.17.121.166:8080/WebAPIGSWorks/api/Works/GetWageSeekerDetails?strWageseekerId=", "2");
             }
             return objResponse;
 
@@ -554,6 +561,7 @@ namespace gswsBackendAPI.Depts.PRRD
 
                 objResponse.Status = "Failed";
                 objResponse.data = CommonSPHel.ThirdpartyMessage;
+                Common_PRRD_Error(ex.Message.ToString(), "http://125.17.121.166:8080/WebAPIGSWorks/api/Works/SaveFarmerData?strJson=", "2");
             }
             return objResponse;
 
@@ -619,6 +627,7 @@ namespace gswsBackendAPI.Depts.PRRD
 
                 objResponse.Status = "Failed";
                 objResponse.data = CommonSPHel.ThirdpartyMessage;
+                Common_PRRD_Error(ex.Message.ToString(), "http://125.17.121.166:8080/DemandCaptureAPI/api/Demand/PostRequest", "2");
             }
             return objResponse;
 
@@ -682,6 +691,7 @@ namespace gswsBackendAPI.Depts.PRRD
 
                 objResponse.Status = "Failed";
                 objResponse.data = CommonSPHel.ThirdpartyMessage;
+                Common_PRRD_Error(ex.Message.ToString(), "http://125.17.121.166:8080/DemandCaptureAPI/api/ConfirmDemand/ConfirmRequest", "2");
             }
             return objResponse;
 
@@ -753,7 +763,8 @@ namespace gswsBackendAPI.Depts.PRRD
 
                 objResponse.Status = "Failed";
 				objResponse.data = CommonSPHel.ThirdpartyMessage;
-			}
+                Common_PRRD_Error(ex.Message.ToString(), "http://pris.ap.gov.in/bpl/api.php?getStatus=", "2");
+            }
 			return objResponse;
 
 		}
@@ -804,7 +815,8 @@ namespace gswsBackendAPI.Depts.PRRD
 
                 objResponse.Status = "Failed";
 				objResponse.data = CommonSPHel.ThirdpartyMessage;
-			}
+                Common_PRRD_Error(ex.Message.ToString(), "http://pris.ap.gov.in/layout/api.php?getStatus=", "2");
+            }
 			return objResponse;
 
 		}
@@ -856,7 +868,8 @@ namespace gswsBackendAPI.Depts.PRRD
 
                 objResponse.Status = "Failed";
 				objResponse.data = CommonSPHel.ThirdpartyMessage;
-			}
+                Common_PRRD_Error(ex.Message.ToString(), "http://pris.ap.gov.in/layout/api.php?search=", "2");
+            }
 			return objResponse;
 
 		}
@@ -909,7 +922,8 @@ namespace gswsBackendAPI.Depts.PRRD
 
                 objResponse.Status = "Failed";
 				objResponse.data = CommonSPHel.ThirdpartyMessage ;
-			}
+                Common_PRRD_Error(ex.Message.ToString(), "http://rwss.ap.nic.in/RwsRest/RestFul/RwsWaterTankerService/getWaterTankerTrips", "2");
+            }
 			return objResponse;
 
 		}
@@ -1008,9 +1022,10 @@ namespace gswsBackendAPI.Depts.PRRD
 				responsedata.Status = "Failed";
 				responsedata.data = "";
 				responsedata.Reason = "Department Service is not Working.Please Try Again.";
-				//return ex;
+                Common_PRRD_Error(ex.Message.ToString(), "https://mpanchayat.ap.gov.in/PIM/authenticateGs.do", "2");
+                //return ex;
 
-			}
+            }
 			return responsedata;
 		}
 
@@ -1108,6 +1123,25 @@ namespace gswsBackendAPI.Depts.PRRD
 			}
 			return obj;
 		}
-		#endregion
-	}
+        #endregion
+
+        public bool Common_PRRD_Error(string msg, string url, string etype)
+        {
+            ExceptionDataModel objex = new ExceptionDataModel();
+            try
+            {
+                objex.E_DEPTID = DepartmentEnum.Department.Panchayat_Raj_and_Rural_Development.ToString();
+                objex.E_HODID = DepartmentEnum.HOD.Panchayati_Raj.ToString();
+                objex.E_ERRORMESSAGE = msg;
+                objex.E_SERVICEAPIURL = url;
+                objex.E_ERRORTYPE = etype;
+                new LoginSPHelper().Save_Exception_Data(objex);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+    }
 }

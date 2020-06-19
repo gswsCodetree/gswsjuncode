@@ -36,6 +36,8 @@ namespace gswsBackendAPI.Depts.Energy
             }
             catch (Exception ex)
             {
+                Common_Energy_Error(ex.Message.ToString(), "http://122.252.251.175:8080/Praja_Transactions/service/getSPDCLServices/Status", "2");
+
                 obj.Status = 102;
 				obj.Reason = ThirdpartyMessage;
                 return obj;
@@ -65,6 +67,7 @@ namespace gswsBackendAPI.Depts.Energy
             }
             catch (Exception ex)
             {
+                Common_Energy_Error(ex.Message.ToString(), "http://122.252.251.175:8080/Praja_Transactions/service/getSPDCLServices/TranHistory", "2");
                 obj.Status = 102;
                 obj.Reason = ThirdpartyMessage;
 				return obj;
@@ -98,6 +101,7 @@ namespace gswsBackendAPI.Depts.Energy
             }
             catch (Exception ex)
             {
+                Common_Energy_Error(ex.Message.ToString(), "http://59.144.184.77:8085/EPDCL_GSWS/rest/newConnectionStatus", "2");
                 obj.Status = 102;
                 obj.Reason = ThirdpartyMessage;
 				return obj;
@@ -127,12 +131,32 @@ namespace gswsBackendAPI.Depts.Energy
             }
             catch (Exception ex)
             {
-				obj.Status = 102;
+                Common_Energy_Error(ex.Message.ToString(), "http://59.144.184.77:8085/EPDCL_GSWS/rest/regHistory", "2");
+                obj.Status = 102;
                 obj.Reason = ThirdpartyMessage;
 				return obj;
             }
 
         }
+        public bool Common_Energy_Error(string msg, string url, string etype)
+        {
+            ExceptionDataModel objex = new ExceptionDataModel();
+            try
+            {
+                objex.E_DEPTID = DepartmentEnum.Department.Energy.ToString();
+                objex.E_HODID = DepartmentEnum.HOD.Electrical_Safety.ToString();
+                objex.E_ERRORMESSAGE = msg;
+                objex.E_SERVICEAPIURL = url;
+                objex.E_ERRORTYPE = etype;
+                new LoginSPHelper().Save_Exception_Data(objex);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
 
         #endregion
     }

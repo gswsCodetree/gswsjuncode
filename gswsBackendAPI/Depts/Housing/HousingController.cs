@@ -44,6 +44,7 @@ namespace gswsBackendAPI.Depts.Housing
             }
             catch (Exception ex)
             {
+                Common_Housing_Error(ex.Message.ToString(), "https://apgovhousing.apcfss.in/APSHCLWEBSERVICES/registeredData/getDetails?ref_no", "2");
                 CatchData.Status = 102;
 				CatchData.Reason = HousingHelper.ThirdpartyMessage;
 
@@ -110,6 +111,24 @@ namespace gswsBackendAPI.Depts.Housing
 
 		}
 
-		#endregion
-	}
+        #endregion
+        public static bool Common_Housing_Error(string msg, string url, string etype)
+        {
+            ExceptionDataModel objex = new ExceptionDataModel();
+            try
+            {
+                objex.E_DEPTID = DepartmentEnum.Department.Housing.ToString();
+                objex.E_HODID = DepartmentEnum.HOD.APHOUSING.ToString();
+                objex.E_ERRORMESSAGE = msg;
+                objex.E_SERVICEAPIURL = url;
+                objex.E_ERRORTYPE = etype;
+                new LoginSPHelper().Save_Exception_Data(objex);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+    }
 }

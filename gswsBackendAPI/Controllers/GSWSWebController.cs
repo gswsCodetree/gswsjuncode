@@ -951,6 +951,44 @@ namespace gswsBackendAPI.Controllers
 				return Ok(_response);
 			}
 		}
+
+		[HttpPost]
+		[Route("GetCFMSPaymentService")]
+		public dynamic GetCFMSPaymentService(dynamic data)
+		{
+			string jsondata = token_gen.Authorize_aesdecrpty(data);
+			//string jsondata = JsonConvert.SerializeObject(data);
+			try
+			{
+				CFMSPAYMENTMODEL val = JsonConvert.DeserializeObject<CFMSPAYMENTMODEL>(jsondata);
+				return Ok(_Loginhel.GetCFMSPaymentService(val));
+			}
+			catch (Exception ex)
+			{
+				_response.Status = 102;
+				_response.Reason = ex.Message.ToString();
+				return Ok(_response);
+			}
+		}
+
+		[HttpPost]
+		[Route("GetCFMSPaymentGeneration")]
+		public dynamic GetCFMSPaymentGeneration(dynamic data)
+		{
+			string jsondata = token_gen.Authorize_aesdecrpty(data);
+			//string jsondata = JsonConvert.SerializeObject(data);
+			try
+			{
+				CFMSPAYMENTMODEL val = JsonConvert.DeserializeObject<CFMSPAYMENTMODEL>(jsondata);
+				return Ok(_Loginhel.GetCFMSPaymentGeneration(val));
+			}
+			catch (Exception ex)
+			{
+				_response.Status = 102;
+				_response.Reason = ex.Message.ToString();
+				return Ok(_response);
+			}
+		}
 		#endregion
 	}
 }

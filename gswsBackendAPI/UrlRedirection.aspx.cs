@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -21,17 +22,19 @@ namespace gswsBackendAPI
 			if (!IsPostBack)
 			{
 				//ddlService.Items.Insert(0, "All");
-				
+
 				string seccode = Page.Request.Form["Seccode"];
 				string userid = Page.Request.Form["userid"];
-
-				if (string.IsNullOrEmpty(seccode) || string.IsNullOrEmpty(userid))
+				string distcode = Page.Request.Form["DistCode"];
+				if (string.IsNullOrEmpty(seccode) || string.IsNullOrEmpty(userid) || string.IsNullOrEmpty(distcode))
 				{
 
 					Response.Redirect("https://gramawardsachivalayam.ap.gov.in/GSWS/#!/Login");
 					return;
 				}
-				string requestId = string.Empty;
+				//distcode = "502";
+				
+					string requestId = string.Empty;
 				System.Guid guid = System.Guid.NewGuid();
 				string strguid = guid.ToString();
 				requestId = strguid.Substring(strguid.LastIndexOf("-") + 1);
@@ -47,10 +50,11 @@ namespace gswsBackendAPI
 																						  //string mappath = HttpContext.Current.Server.MapPath("MeesevaExceptionLogs");
 																						  //Task WriteTask = Task.Factory.StartNew(() => new Logdatafile().Write_Log(mappath, data));
 
-					var data2 = JsonConvert.DeserializeObject<dynamic>(data);
+					//var data2 = JsonConvert.DeserializeObject<dynamic>(data);
 					//_objmweb.VSWS_GETAPPDETAILS("VSWS-APTS", "P$W$@13112019", data2[0].token,obj2.PARAM1);
+					string status = "100";
 					MeesevaModel _OBJMES = new MeesevaModel();
-					if (data2[0].status == "100")
+					if (status == "100")
 					{
 						string channelid = string.Empty;
 						string uniqueid = string.Empty;
@@ -62,7 +66,7 @@ namespace gswsBackendAPI
 						
 
 						lblerror.Text = "";
-						LD.TOKEN = data2[0].token; //"asd$#@4568";
+						LD.TOKEN = "asd$#@4568";
 						LD.LANDINGID = DateTime.Now.ToString("yyyyMMddHHmmssfff") + new Random().Next(1000, 9999).ToString();
 						LD.SCAID = "35";
 						LD.CHANNELID = channelid;//"CODETREE";
@@ -82,8 +86,21 @@ namespace gswsBackendAPI
 						DATA.Add("ENCDATA", LD.ENCDATA);
 
 						new EncryptMeeseva().GetMeesevaInitiate(LD);
+
+						string msdistkey = ConfigurationManager.AppSettings["MSdistkey"].ToString();
+						string msuserkey = ConfigurationManager.AppSettings["MSUserkey"].ToString();
+						string[] strdistarr = msdistkey.Split(',');
+						string[] strusertarr = msuserkey.Split(',');
+						bool distflag = Array.Exists(strdistarr, element => element.Equals(distcode));
+						bool userflag = Array.Exists(strusertarr, element => element.Equals(userid));
+						
+						//23456789-WEDS
 						//HtmlHelper.RedirectAndPOST(this.Page, "http://meeseva.gov.in/GSVWIMeeseva/UserInterface/DC/VSWSRedirection.aspx", DATA);
-						HtmlHelper.RedirectAndPOST(this.Page, "http://reports.meeseva.gov.in/GSVWIMeeseva/UserInterface/DC/VSWSRedirection.aspx ", DATA);
+						if (distflag || userflag)
+							HtmlHelper.RedirectAndPOST(this.Page, "https://onlineap.meeseva.gov.in/GSVWIMeeseva/UserInterface/DC/VSWSRedirection.aspx ", DATA);
+						
+						else
+							HtmlHelper.RedirectAndPOST(this.Page, "http://reports.meeseva.gov.in/GSVWIMeeseva/UserInterface/DC/VSWSRedirection.aspx ", DATA);
 					}
 					else
 					{

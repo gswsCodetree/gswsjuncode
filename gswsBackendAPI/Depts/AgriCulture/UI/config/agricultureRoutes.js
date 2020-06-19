@@ -18,6 +18,8 @@
 			.state("ui.VAADetails", { url: "/VAADetails", templateUrl: pre_path + "Depts/AgriCulture/UI/GetVAADetails.html", controller: "Agri_VAADetails_Controller" })
 			.state("ui.VillageProfile", { url: "/VillageProfile", templateUrl: pre_path + "Depts/AgriCulture/UI/VillageProfile.html", controller: "VillageProfile" })
 			.state("ui.FMStatus", { url: "/FMStatus", templateUrl: pre_path + "Depts/AgriCulture/UI/FMStatus.html", controller: "FMStatus" })
+			.state("ui.RythuBharosaPStatus", { url: "/RBPaymentStatus", templateUrl: pre_path + "Depts/AgriCulture/UI/RythuBharosaPaymentStatus.html", controller: "RBPaymentStatus" })
+			.state("ui.EPantaCrop", { url: "/EPantaCrop", templateUrl: pre_path + "Depts/AgriCulture/UI/EPantaCrop.html", controller: "EPantaCrop" })
 			.state("ui.FMRegistration", { url: "/FMRegistration", templateUrl: pre_path + "Depts/AgriCulture/UI/FMRegistration.html", controller: "FMRegistration" })
 
 	}
